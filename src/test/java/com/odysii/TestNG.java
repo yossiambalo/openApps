@@ -12,7 +12,7 @@ public class TestNG {
     @Test
     public void test(){
         WebDriver driver = DriverManager.getWebdriver(DriverType.CHROME);
-        MyApps myApps = AppStore.getMyAppsInstance(driver);
+        MyApps myApps = AppStore.clickMyAppsLink(driver);
         System.out.println("jjhjh");
     }
 }
