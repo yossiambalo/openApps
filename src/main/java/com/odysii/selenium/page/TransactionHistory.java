@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class TransactionHistory extends PageObject {
 
-    public TransactionHistory(WebDriver driver) {
+    TransactionHistory(WebDriver driver) {
         super(driver);
     }
 }
