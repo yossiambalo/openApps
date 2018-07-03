@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AppStore extends PageObject{
+public class HomePage extends PageObject{
 
     /**
-     * ---------Start AppStore WebElements---------
+     * ---------Start HomePage WebElements---------
      */
     @FindBy(xpath = "//*[contains(text(), 'My Apps')]")
     private WebElement myAppsLink;
@@ -24,41 +24,41 @@ public class AppStore extends PageObject{
     private WebElement publicProfile;
 
     /**
-     * ---------End AppStore WebElements---------
+     * ---------End HomePage WebElements---------
      */
 
-    //AppStore Constructor
-    public AppStore(WebDriver driver) {
+    //HomePage Constructor
+    public HomePage(WebDriver driver) {
         super(driver);
     }
 
     //get MyApps object
-    public MyApps clickMyAppsLink(WebDriver driver){
+    public MyApps getMyAppsPage(WebDriver driver){
         this.myAppsLink.click();
         return new MyApps(driver);
     }
     //get Dashboard object
-    public  DashBoard clickDashboardLink(WebDriver driver){
+    public  DashBoard getDashboardPage(WebDriver driver){
         this.dashboardLink.click();
         return new DashBoard(driver);
     }
     //get TransactionHistory object
-    public TransactionHistory clickTrasactionHistory(WebDriver driver){
+    public TransactionHistory getTrasactionHistoryPage(WebDriver driver){
         this.trasactionHistory.click();
         return new TransactionHistory(driver);
     }
     //get RevenueReport object
-    public  RevenueReport clickRevenueReport(WebDriver driver){
+    public  RevenueReport getRevenueReportPage(WebDriver driver){
         this.revenueReport.click();
         return new RevenueReport(driver);
     }
     //get SupportTickets object
-    public  SupportTickets clickSupportTicketst(WebDriver driver){
+    public  SupportTickets getSupportTicketstPage(WebDriver driver){
         this.supportTickets.click();
         return new SupportTickets(driver);
     }
     //get PublicProfile object
-    public  PublicProfile clickPublicProfile(WebDriver driver){
+    public  PublicProfile getPublicProfilePage(WebDriver driver){
         this.publicProfile.click();
         return new PublicProfile(driver);
     }
