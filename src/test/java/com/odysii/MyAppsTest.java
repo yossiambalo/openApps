@@ -2,12 +2,13 @@ package com.odysii;
 
 import com.odysii.selenium.DriverManager;
 import com.odysii.selenium.DriverType;
-import com.odysii.selenium.page.AppDetails;
-import com.odysii.selenium.page.HomePage;
-import com.odysii.selenium.page.MyApps;
+import com.odysii.selenium.page.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-;
+;import java.util.List;
 
 public class MyAppsTest extends TestBase{
 
@@ -30,10 +31,18 @@ public class MyAppsTest extends TestBase{
     }
     @Test
     public void _001_add_new_app(){
+        int expectedValue = 14;
         HomePage homePage = new HomePage(driver);
         MyApps myApps = homePage.getMyAppsPage(driver);
         wait(WAIT);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppdetails();
+        wait(WAIT);
+        UploadCode uploadCode = appDetails.setUpAppdetails();
+        Marketing marketing = uploadCode.upload();
+        wait(WAIT);
+        marketing.fillMarketing();
+        List<WebElement> elements = driver.findElements(By.className("card"));
+        int actualValue = elements.size();
+        Assert.assertEquals(expectedValue,actualValue,"Expected value not equals to actual value");
     }
 }

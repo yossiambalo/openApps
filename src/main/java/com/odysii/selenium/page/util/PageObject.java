@@ -9,4 +9,11 @@ public class PageObject {
         this.webDriver = driver;
         PageFactory.initElements(driver,this);
     }
+     public void wait(int miliseconds){
+         try {
+             Thread.sleep(miliseconds);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         }
+     }
 }
