@@ -1,4 +1,4 @@
-package com.odysii.selenium.page;
+package com.odysii.selenium.page.myApps;
 
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.WebDriver;

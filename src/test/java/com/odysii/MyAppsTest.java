@@ -3,6 +3,10 @@ package com.odysii;
 import com.odysii.selenium.DriverManager;
 import com.odysii.selenium.DriverType;
 import com.odysii.selenium.page.*;
+import com.odysii.selenium.page.myApps.AppDetails;
+import com.odysii.selenium.page.myApps.Marketing;
+import com.odysii.selenium.page.myApps.MyApps;
+import com.odysii.selenium.page.myApps.UploadCode;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -24,10 +28,12 @@ public class MyAppsTest extends TestBase{
         wait(WAIT);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         wait(WAIT);
-        UploadCode uploadCode = appDetails.setUpAppdetails();
+        UploadCode uploadCode = appDetails.setUpAppDetails();
+        wait(WAIT);
         Marketing marketing = uploadCode.upload();
         wait(WAIT);
         marketing.fillMarketing();
+        wait(WAIT);
         int actualValue = driver.findElements(By.className("card")).size();
         Assert.assertEquals(expectedValue,actualValue,"Expected value not equals to actual value");
     }

@@ -1,6 +1,7 @@
 package com.odysii.selenium.page;
 
 
+import com.odysii.selenium.page.myApps.MyApps;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
