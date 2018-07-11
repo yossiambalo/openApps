@@ -31,9 +31,9 @@ public class MyAppsTest extends TestBase{
     }
     @Test
     public void _001_add_new_app(){
-        int expectedValue = 14;
         HomePage homePage = new HomePage(driver);
         MyApps myApps = homePage.getMyAppsPage(driver);
+        int expectedValue = driver.findElements(By.className("card")).size()+1;
         wait(WAIT);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         wait(WAIT);
@@ -41,8 +41,7 @@ public class MyAppsTest extends TestBase{
         Marketing marketing = uploadCode.upload();
         wait(WAIT);
         marketing.fillMarketing();
-        List<WebElement> elements = driver.findElements(By.className("card"));
-        int actualValue = elements.size();
+        int actualValue = driver.findElements(By.className("card")).size();
         Assert.assertEquals(expectedValue,actualValue,"Expected value not equals to actual value");
     }
 }
