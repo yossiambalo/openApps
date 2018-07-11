@@ -1,5 +1,6 @@
-package com.odysii.selenium.page;
+package com.odysii.selenium.page.myApps;
 
+import com.odysii.selenium.page.myApps.Marketing;
 import com.odysii.selenium.page.util.PageObject;
 import com.odysii.utils.PropertyLoader;
 import org.openqa.selenium.WebDriver;

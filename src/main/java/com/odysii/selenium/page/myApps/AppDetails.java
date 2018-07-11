@@ -1,4 +1,4 @@
-package com.odysii.selenium.page;
+package com.odysii.selenium.page.myApps;
 
 import com.odysii.selenium.page.util.PageObject;
 import com.odysii.utils.PropertyLoader;
@@ -29,7 +29,7 @@ public class AppDetails extends PageObject{
     public AppDetails(WebDriver driver) {
         super(driver);
     }
-    public UploadCode setUpAppdetails(){
+    public UploadCode setUpAppDetails(){
         PropertyLoader loader = new PropertyLoader();
         Properties properties = loader.loadPropFile("app_details.properties");
         this.name.sendKeys(properties.getProperty("name"));
@@ -38,6 +38,16 @@ public class AppDetails extends PageObject{
         this.category.sendKeys(properties.getProperty("category"));
         this.availability.sendKeys(properties.getProperty("availability"));
         this.retailer.sendKeys(properties.getProperty("retailer"));
+        this.next.click();
+        return new UploadCode(webDriver);
+    }
+    public UploadCode setUpAppDetails(String name,String subtitle,String language,String category,String availability, String retailer){
+        this.name.sendKeys(name);
+        this.subtitle.sendKeys(subtitle);
+        this.language.sendKeys(language);
+        this.category.sendKeys(category);
+        this.availability.sendKeys(availability);
+        this.retailer.sendKeys(retailer);
         this.next.click();
         return new UploadCode(webDriver);
     }
