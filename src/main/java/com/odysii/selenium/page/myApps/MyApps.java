@@ -9,7 +9,7 @@ public class MyApps extends PageObject {
 
     @FindBy(xpath = "//*[contains(text(), 'ADD NEW APP')]")
     WebElement addNewApp;
-    MyApps(WebDriver driver) {
+    public MyApps(WebDriver driver) {
         super(driver);
     }
     public AppDetails clickAddNewAppBtn(){
