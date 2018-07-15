@@ -34,4 +34,12 @@ public class Marketing extends PageObject {
         wait(2000);
         this.complete.click();
     }
+    public void fillMarketing(String promotionalText,String kewords,String screenshotFilePath,String appIconPath){
+        this.promotionalText.sendKeys(promotionalText);
+        this.keywords.sendKeys(kewords);
+        this.screenshotsFile.sendKeys(screenshotFilePath);
+        this.appIcon.sendKeys(appIconPath);
+        wait(2000);
+        this.complete.click();
+    }
 }

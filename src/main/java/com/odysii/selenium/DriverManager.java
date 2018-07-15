@@ -2,6 +2,7 @@ package com.odysii.selenium;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -16,7 +17,8 @@ public class DriverManager {
                 driver = new ChromeDriver();
                 break;
             case IE:
-                //add logic
+                System.setProperty("webdriver.edge.driver",driverPath+"MicrosoftWebDriver.exe");
+                driver =  new EdgeDriver();
                 break;
             case OPERA:
                 //add logic
