@@ -12,7 +12,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class MyAppsTest extends TestBase{
+public class MyAppsChromeTest extends TestBase{
 
     private final int WAIT = 2000;
     @BeforeClass
