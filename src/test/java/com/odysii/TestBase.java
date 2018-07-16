@@ -3,6 +3,7 @@ package com.odysii;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.testng.annotations.AfterClass;
 
 public class TestBase {
@@ -23,6 +24,15 @@ public class TestBase {
         try{
             driver.findElement(by);
         }catch (NoSuchElementException e){
+            res = false;
+        }
+        return res;
+    }
+    protected boolean isClickable(By by){
+        boolean res = true;
+        try{
+            driver.findElement(by).click();
+        }catch (WebDriverException e){
             res = false;
         }
         return res;
