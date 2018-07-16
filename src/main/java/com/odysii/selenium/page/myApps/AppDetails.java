@@ -24,7 +24,7 @@ public class AppDetails extends PageObject{
     WebElement availability;
     @FindBy(xpath = "//*[contains(text(), 'CANCEL')]")
     WebElement cancel;
-    @FindBy(xpath = "//*[contains(text(), 'NEXT')]")
+    @FindBy(xpath = "//*[contains(text(), 'CONTINUE')]")
     WebElement next;
     public AppDetails(WebDriver driver) {
         super(driver);

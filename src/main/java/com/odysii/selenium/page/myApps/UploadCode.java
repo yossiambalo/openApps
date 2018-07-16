@@ -1,6 +1,5 @@
 package com.odysii.selenium.page.myApps;
 
-import com.odysii.selenium.page.myApps.Marketing;
 import com.odysii.selenium.page.util.PageObject;
 import com.odysii.utils.PropertyLoader;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +11,7 @@ public class UploadCode extends PageObject{
 
     @FindBy(className = "custom-file-input")
     WebElement agreeAndUpload;
-    @FindBy(xpath = "//*[contains(text(), 'NEXT')]")
+    @FindBy(xpath = "//*[contains(text(), 'CONTINUE')]")
     WebElement next;
     public UploadCode(WebDriver driver) {
         super(driver);
