@@ -37,4 +37,11 @@ public class MyAppsE2EChromeTest extends TestBase{
         int actualValue = driver.findElements(By.className("card")).size();
         Assert.assertEquals(expectedValue,actualValue,"Expected value not equals to actual value");
     }
+    @Test
+    public void _002_valid_app_summery(){
+        HomePage homePage = new HomePage(driver);
+        MyApps myApps = homePage.getMyAppsPage(driver);
+        myApps.showUp(1);
+        System.out.println();
+    }
 }
