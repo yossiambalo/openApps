@@ -11,7 +11,7 @@ public class UploadCode extends PageObject{
 
     @FindBy(className = "custom-file-input")
     WebElement agreeAndUpload;
-    @FindBy(xpath = "//*[contains(text(), 'CONTINUE')]")
+    @FindBy(id = "next-button")
     WebElement next;
     public UploadCode(WebDriver driver) {
         super(driver);

@@ -18,7 +18,7 @@ public class Marketing extends PageObject {
     private WebElement screenshotsFile;
     @FindBy(id = "iconFile")
     private WebElement appIcon;
-    @FindBy(xpath = "//*[contains(text(), 'FINISH')]")
+    @FindBy(id = "finish-button")
     private WebElement complete;
 
     public Marketing(WebDriver driver) {
