@@ -15,6 +15,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class MyAppsTestRoi extends TestBase {
@@ -26,11 +27,22 @@ public class MyAppsTestRoi extends TestBase {
     private final String finishTxt = "FINISH";
 
 
+    @Parameters("browser")
     @BeforeClass
-    public void init() {
-        driver = DriverManager.getWebDriver(DriverType.CHROME);
+    public void init(String browser){
+        switch (browser){
+            case "chrome":
+                driver = DriverManager.getWebDriver(DriverType.CHROME);
+                break;
+            case "ie":
+                driver = DriverManager.getWebDriver(DriverType.IE);
+                break;
+            case "firefox":
+                driver = DriverManager.getWebDriver(DriverType.FIREFOX);
+                break;
+            default:
+        }
         driver.get("http://openapps.tveez.local:8080/openAppStore");
-        // Testing empty values under the tested field.
     }
 
     @Test

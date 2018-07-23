@@ -10,14 +10,27 @@ import com.odysii.selenium.page.myApps.UploadCode;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class MyAppsE2EChromeTest extends TestBase{
+public class MyAppsE2ETest extends TestBase{
 
     private final int WAIT = 2000;
+    @Parameters("browser")
     @BeforeClass
-    public void init(){
-        driver = DriverManager.getWebDriver(DriverType.CHROME);
+    public void init(String browser){
+        switch (browser){
+            case "chrome":
+                driver = DriverManager.getWebDriver(DriverType.CHROME);
+                break;
+            case "ie":
+                driver = DriverManager.getWebDriver(DriverType.IE);
+                break;
+            case "firefox":
+                driver = DriverManager.getWebDriver(DriverType.FIREFOX);
+                break;
+                default:
+        }
         driver.get("http://openapps.tveez.local:8080/openAppStore");
     }
     @Test
@@ -36,5 +49,12 @@ public class MyAppsE2EChromeTest extends TestBase{
         wait(WAIT);
         int actualValue = driver.findElements(By.className("card")).size();
         Assert.assertEquals(expectedValue,actualValue,"Expected value not equals to actual value");
+    }
+    @Test
+    public void _002_valid_app_summery(){
+        HomePage homePage = new HomePage(driver);
+        MyApps myApps = homePage.getMyAppsPage(driver);
+        myApps.showUp(1);
+        System.out.println();
     }
 }

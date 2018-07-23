@@ -22,9 +22,9 @@ public class AppDetails extends PageObject{
     WebElement retailer;
     @FindBy(id = "app-availability")
     WebElement availability;
-    @FindBy(xpath = "//*[contains(text(), 'CANCEL')]")
+    @FindBy(id = "cancel-button")
     WebElement cancel;
-    @FindBy(xpath = "//*[contains(text(), 'CONTINUE')]")
+    @FindBy(id = "next-button")
     WebElement next;
     public AppDetails(WebDriver driver) {
         super(driver);
