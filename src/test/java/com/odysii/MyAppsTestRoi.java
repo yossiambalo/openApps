@@ -188,7 +188,7 @@ public class MyAppsTestRoi extends TestBase {
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
         wait(WAIT);
         uploadCode.upload();
-        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), '"+ continueTxt +"')]"));
+        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), '"+ finishTxt+"')]"));
         Assert.assertTrue(actualValue,"Moved to marketing page successfully");
     }
 
@@ -229,7 +229,7 @@ public class MyAppsTestRoi extends TestBase {
         uploadCode.upload();
         fillMarketing("P_Token", "sfg", "", "C:\\yossi\\dog3.jpg");
         WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
-        Boolean actualValue = isClickable(By.xpath("//*[contains(text(), 'FINISH')]"));
+        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
         Assert.assertFalse(actualValue,"Button isn't clickable!");
     }
 
