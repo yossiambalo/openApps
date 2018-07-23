@@ -213,7 +213,7 @@ public class MyAppsTestRoi extends TestBase {
         wait(WAIT);
         uploadCode.upload();
         fillMarketing("", "Keyword field", "C:\\yossi\\dog2.jpg", "C:\\yossi\\dog3.jpg");
-        Boolean actualValue = isClickable(By.xpath("//*[contains(text(), '"+finishTxt+"')]"));
+        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
         Assert.assertFalse(actualValue, "Promotional token field is mandatory - it's empty!");
     }
 
