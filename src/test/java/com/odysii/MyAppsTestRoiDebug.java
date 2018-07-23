@@ -4,7 +4,6 @@ import com.odysii.selenium.DriverManager;
 import com.odysii.selenium.DriverType;
 import com.odysii.selenium.page.HomePage;
 import com.odysii.selenium.page.myApps.AppDetails;
-import com.odysii.selenium.page.myApps.Marketing;
 import com.odysii.selenium.page.myApps.MyApps;
 import com.odysii.selenium.page.myApps.UploadCode;
 import com.odysii.selenium.page.myApps.helper.appDetails.AvailabilityType;
@@ -15,33 +14,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class MyAppsTestRoi extends TestBase {
-
+public class MyAppsTestRoiDebug extends TestBase{
     private final int WAIT = 2000;
     private final String cancelTxt = "CANCEL";
     private final String backTxt = "BACK";
     private final String continueTxt = "CONTINUE";
     private final String finishTxt = "FINISH";
 
-
-    @Parameters("browser")
     @BeforeClass
-    public void init(String browser){
-        switch (browser){
-            case "chrome":
-                driver = DriverManager.getWebDriver(DriverType.CHROME);
-                break;
-            case "ie":
-                driver = DriverManager.getWebDriver(DriverType.IE);
-                break;
-            case "firefox":
-                driver = DriverManager.getWebDriver(DriverType.FIREFOX);
-                break;
-            default:
-        }
+    public void init(){
+        driver = DriverManager.getWebDriver(DriverType.CHROME);
         driver.get("http://openapps.tveez.local:8080/openAppStore");
     }
 
@@ -259,6 +243,4 @@ public class MyAppsTestRoi extends TestBase {
         Assert.assertFalse(actualValue,"Button isn't clickable!");
 
     }
-
 }
-
