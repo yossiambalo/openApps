@@ -27,7 +27,7 @@ public class Summery extends PageObject {
     public Summery(WebDriver driver) {
         super(driver);
     }
-    public MyApps editSummary(FieldType type, String newValue) {
+    public void editSummary(FieldType type, String newValue) {
         switch (type) {
             case APPNAME:
                 this.name.clear();
@@ -56,6 +56,5 @@ public class Summery extends PageObject {
             default:
                 ////
         }
-        return new MyApps(webDriver);
     }
 }

@@ -37,6 +37,7 @@ public class MyAppsE2ETest extends TestBase{
     public void _001_add_new_app(){
         HomePage homePage = new HomePage(driver);
         MyApps myApps = homePage.getMyAppsPage(driver);
+        driver.findElement(By.xpath("//*[contains(text(), 'Automation App')]")).click();
         int expectedValue = driver.findElements(By.className("card")).size()+1;
         wait(WAIT);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
