@@ -185,7 +185,7 @@ public class MyAppsTestRoiDebug extends TestBase{
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
         wait(WAIT);
         uploadCode.upload();
-        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), '"+ continueTxt +"')]"));
+        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
         Assert.assertTrue(actualValue,"Moved to marketing page successfully");
     }
 
@@ -198,7 +198,7 @@ public class MyAppsTestRoiDebug extends TestBase{
         wait(WAIT);
         uploadCode.upload();
         fillMarketing("", "Keyword field", "C:\\yossi\\dog2.jpg", "C:\\yossi\\dog3.jpg");
-        Boolean actualValue = isClickable(By.xpath("//*[contains(text(), '"+finishTxt+"')]"));
+        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
         Assert.assertFalse(actualValue, "Promotional token field is mandatory - it's empty!");
     }
 
@@ -212,7 +212,7 @@ public class MyAppsTestRoiDebug extends TestBase{
         uploadCode.upload();
         fillMarketing("P_Token", "", "C:\\yossi\\dog2.jpg", "C:\\yossi\\dog3.jpg");
         WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
-        Boolean actualValue = isClickable(By.xpath("//*[contains(text(), 'FINISH')]"));
+        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
         Assert.assertFalse(actualValue,"Button isn't clickable!");
     }
 
@@ -226,7 +226,7 @@ public class MyAppsTestRoiDebug extends TestBase{
         uploadCode.upload();
         fillMarketing("P_Token", "sfg", "", "C:\\yossi\\dog3.jpg");
         WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
-        Boolean actualValue = isClickable(By.xpath("//*[contains(text(), 'FINISH')]"));
+        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
         Assert.assertFalse(actualValue,"Button isn't clickable!");
     }
 
@@ -240,7 +240,7 @@ public class MyAppsTestRoiDebug extends TestBase{
         uploadCode.upload();
         fillMarketing("P_Token", "sfg", "C:\\yossi\\dog3.jpg", "");
         WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
-        Boolean actualValue = isClickable(By.xpath("//*[contains(text(), 'FINISH')]"));
+        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
         Assert.assertFalse(actualValue,"Button isn't clickable!");
 
     }
