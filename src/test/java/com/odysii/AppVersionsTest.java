@@ -5,7 +5,7 @@ import com.odysii.selenium.DriverType;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class AppVersions extends TestBase{
+public class AppVersionsTest extends TestBase{
     private final int WAIT = 2000;
     private final String cancelTxt = "CANCEL";
     private final String backTxt = "BACK";
