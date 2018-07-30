@@ -3,6 +3,7 @@ package com.odysii;
 import com.odysii.selenium.DriverManager;
 import com.odysii.selenium.DriverType;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 public class AppVersions extends TestBase{
     private final int WAIT = 2000;
@@ -16,6 +17,7 @@ public class AppVersions extends TestBase{
         driver = DriverManager.getWebDriver(DriverType.CHROME);
         driver.get("http://openapps.tveez.local:8080/openAppStore");
     }
-
+    @Test
+    public void _001_
 
 }
