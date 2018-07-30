@@ -1,5 +1,6 @@
 package com.odysii.selenium.page.myApps.summary;
 
+import com.odysii.selenium.page.myApps.AppVersion;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,8 +33,9 @@ public class ShowUp extends PageObject {
         return new Marketing(webDriver);
     }
     //ToDo: create AppVersions class and return it.
-    public WebElement getAppVersions() {
-        return appVersions;
+    public AppVersion getAppVersions() {
+        appVersions.click();
+        return new AppVersion(webDriver);
     }
     //ToDo: create SubmissionHistory class and return it.
     public WebElement getSubmissionHistory() {
