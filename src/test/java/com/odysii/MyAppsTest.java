@@ -1,9 +1,7 @@
 package com.odysii;
 
-import com.odysii.selenium.DriverManager;
-import com.odysii.selenium.DriverType;
-import com.odysii.selenium.page.HomePage;
 import com.odysii.selenium.page.myApps.AppDetails;
+import com.odysii.selenium.page.myApps.Marketing;
 import com.odysii.selenium.page.myApps.MyApps;
 import com.odysii.selenium.page.myApps.UploadCode;
 import com.odysii.selenium.page.myApps.helper.appDetails.AvailabilityType;
@@ -17,21 +15,30 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class MyAppsTest extends TestBase{
-    private final int WAIT = 2000;
-    private final String cancelTxt = "CANCEL";
-    private final String backTxt = "BACK";
-    private final String continueTxt = "CONTINUE";
-    private final String finishTxt = "FINISH";
 
     @BeforeClass
-    public void init(){
-        driver = DriverManager.getWebDriver(DriverType.CHROME);
-        driver.get("http://openapps.tveez.local:8080/openAppStore");
+    public void beforeTest() {
+        login("user", "123456");
+    }
+    @Test
+    public void _001_add_new_app(){
+        MyApps myApps = homePage.getMyAppsPage(driver);
+        int expectedValue = driver.findElements(By.className("card")).size()+1;
+        wait(WAIT);
+        AppDetails appDetails = myApps.clickAddNewAppBtn();
+        wait(WAIT);
+        UploadCode uploadCode = appDetails.setUpAppDetails();
+        wait(WAIT);
+        Marketing marketing = uploadCode.upload();
+        wait(WAIT);
+        marketing.fillMarketing();
+        wait(WAIT);
+        int actualValue = driver.findElements(By.className("card")).size();
+        Assert.assertEquals(expectedValue,actualValue,"Expected value not equals to actual value");
     }
 
     @Test
-    public void _001_name_field_is_empty_negative() {
-        HomePage homePage = new HomePage(driver);
+    public void _002_name_field_is_empty_negative() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         appDetails.setUpAppDetails("", "LALALA", LanguageType.ENGLISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, Retailer.SHELL);
@@ -41,8 +48,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _002_subtitle_field_is_empty_negative() {
-        HomePage homePage = new HomePage(driver);
+    public void _003_subtitle_field_is_empty_negative() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         appDetails.setUpAppDetails("Roi", "", LanguageType.ITALIAN, CategoryType.NEWS_AND_WEATHER, AvailabilityType.PRIVATE, Retailer.MOBILE);
@@ -51,8 +57,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _003_language_is_empty_negative() {
-        HomePage homePage = new HomePage(driver);
+    public void _004_language_is_empty_negative() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         appDetails.setUpAppDetails("Yossi", "Arau", "", CategoryType.SPORTS, AvailabilityType.PRIVATE, Retailer.MOBILE);
@@ -61,8 +66,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _004_category_is_empty_negative() {
-        HomePage homePage = new HomePage(driver);
+    public void _005_category_is_empty_negative() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         appDetails.setUpAppDetails("Liron", "IT", LanguageType.DANISH, "", AvailabilityType.PRIVATE, Retailer.SHELL);
@@ -71,8 +75,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _005_availability_is_empty_negative() {
-        HomePage homePage = new HomePage(driver);
+    public void _006_availability_is_empty_negative() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         appDetails.setUpAppDetails("XXX", "KKK", LanguageType.FRENCH, CategoryType.SPORTS, "", Retailer.SHELL);
@@ -81,8 +84,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _006_retailer_is_empty_negative() {
-        HomePage homePage = new HomePage(driver);
+    public void _007_retailer_is_empty_negative() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         appDetails.setUpAppDetails("Evgeny", "Lev", LanguageType.FRENCH, CategoryType.SPORTS, AvailabilityType.PRIVATE, "");
@@ -92,8 +94,7 @@ public class MyAppsTest extends TestBase{
     // Testing max chars, special chars, languages.
 
     @Test
-    public void _007_name_field_length_257_chars_negative() {
-        HomePage homePage = new HomePage(driver);
+    public void _008_name_field_length_257_chars_negative() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         appDetails.setUpAppDetails("12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567", "Max is 256 chars", LanguageType.DANISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, Retailer.SHELL);
@@ -102,8 +103,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _008_subtitle_field_length_255_chars_positive() {
-        HomePage homePage = new HomePage(driver);
+    public void _009_subtitle_field_length_255_chars_positive() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         appDetails.setUpAppDetails("345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567", "Max is 256 chars", LanguageType.DANISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, Retailer.SHELL);
@@ -112,8 +112,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _009_name_field_special_chars_negative() {
-        HomePage homePage = new HomePage(driver);
+    public void _010_name_field_special_chars_negative() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         appDetails.setUpAppDetails("@!*#$%!", "+-/*", LanguageType.DANISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, Retailer.SHELL);
@@ -122,8 +121,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _010_cancel_button_app_details_is_function_positive() {
-        HomePage homePage = new HomePage(driver);
+    public void _011_cancel_button_app_details_is_function_positive() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         WebElement cancelButton = driver.findElement(By.xpath("//*[contains(text(), '"+ cancelTxt +"')]"));
@@ -133,8 +131,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _011_language_input_name_field_chinese_128_chars_positive() {
-        HomePage homePage = new HomePage(driver);
+    public void _012_language_input_name_field_chinese_128_chars_positive() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         appDetails.setUpAppDetails("品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对断对", "Max is 256 chars", LanguageType.DANISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, Retailer.SHELL);
@@ -143,8 +140,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _012_language_input_subtitle_field_hebrew_128_chars_positive() {
-        HomePage homePage = new HomePage(driver);
+    public void _013_language_input_subtitle_field_hebrew_128_chars_positive() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         appDetails.setUpAppDetails("hebrew test", "אני כותב טקסט בעברית... פםדחגפסךןקג]םח ]םחקגךלמאני כותב טקסט בעברית... פםדחגפסךןקג]םח ]םחקגךלמאני כותב טקסט בעברית... פםדחגפסךן", LanguageType.DANISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, Retailer.SHELL);
@@ -153,8 +149,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _013_back_button_upload_code(){
-        HomePage homePage = new HomePage(driver);
+    public void _014_back_button_upload_code(){
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         appDetails.setUpAppDetails("test", "scvs", LanguageType.DANISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, Retailer.SHELL);
@@ -165,8 +160,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _014_cancel_button_upload_code_page() {
-        HomePage homePage = new HomePage(driver);
+    public void _015_cancel_button_upload_code_page() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         appDetails.setUpAppDetails("test2", "scdvdvs", LanguageType.DANISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, Retailer.SHELL);
@@ -177,8 +171,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _015_continue_button_upload_code_page_positive(){
-        HomePage homePage = new HomePage(driver);
+    public void _016_continue_button_upload_code_page_positive(){
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
@@ -189,8 +182,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _016_promotional_text_empty_marketing_page_negtive(){
-        HomePage homePage = new HomePage(driver);
+    public void _017_promotional_text_empty_marketing_page_negtive(){
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
@@ -202,8 +194,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _017_keywords_empty_marketing_page_negtive(){
-        HomePage homePage = new HomePage(driver);
+    public void _018_keywords_empty_marketing_page_negtive(){
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
@@ -216,8 +207,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _018_screenshot_file_path_is_empty_negative(){
-        HomePage homePage = new HomePage(driver);
+    public void _019_screenshot_file_path_is_empty_negative(){
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
@@ -230,8 +220,7 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _019_appicon_path_is_empty_negative(){
-        HomePage homePage = new HomePage(driver);
+    public void _020_appicon_path_is_empty_negative(){
         MyApps myApps = homePage.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
