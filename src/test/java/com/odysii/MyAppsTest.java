@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 public class MyAppsTest extends TestBase{
 
     @BeforeClass
-    public void beforeTest() {
+    public void login() {
         login("user", "123456");
     }
     @Test
