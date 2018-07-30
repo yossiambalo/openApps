@@ -1,5 +1,6 @@
-package com.odysii.selenium.page.myApps.summery;
+package com.odysii.selenium.page.myApps.summary;
 
+import com.odysii.selenium.page.myApps.AppVersion;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,17 +23,19 @@ public class ShowUp extends PageObject {
         super(driver);
     }
 
-    public Summery getSummary() {
+    public Summary getSummary() {
         this.summary.click();
-        return new Summery(webDriver);
+        return new Summary(webDriver);
     }
      //ToDo: create Marketing class and return it.
-    public WebElement getMarketing() {
-        return marketing;
+    public Marketing getMarketing() {
+        marketing.click();
+        return new Marketing(webDriver);
     }
     //ToDo: create AppVersions class and return it.
-    public WebElement getAppVersions() {
-        return appVersions;
+    public AppVersion getAppVersions() {
+        appVersions.click();
+        return new AppVersion(webDriver);
     }
     //ToDo: create SubmissionHistory class and return it.
     public WebElement getSubmissionHistory() {
