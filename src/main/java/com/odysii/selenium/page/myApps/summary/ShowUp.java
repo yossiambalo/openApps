@@ -27,12 +27,10 @@ public class ShowUp extends PageObject {
         this.summary.click();
         return new Summary(webDriver);
     }
-     //ToDo: create Marketing class and return it.
     public Marketing getMarketing() {
         marketing.click();
         return new Marketing(webDriver);
     }
-    //ToDo: create AppVersions class and return it.
     public AppVersion getAppVersions() {
         appVersions.click();
         return new AppVersion(webDriver);
