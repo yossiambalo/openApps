@@ -15,21 +15,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class MarketingTest extends TestBase {
-    private final int WAIT = 2000;
-    private final String cancelTxt = "CANCEL";
-    private final String backTxt = "BACK";
-    private final String continueTxt = "CONTINUE";
-    private final String finishTxt = "FINISH";
 
     @BeforeClass
-    public void init() {
-        driver = DriverManager.getWebDriver(DriverType.CHROME);
-        driver.get("http://openapps.tveez.local:8080/openAppStore");
-
+    public void beforeTest() {
+        login("user", "123456");
     }
+
     @Test
     public void _001_promotional_token_is_empty_negative(){
-        HomePage homePage = new HomePage(driver);
+
         MyApps myApps = homePage.getMyAppsPage(driver);
         ShowUp showUp = myApps.showUp(1);
         Marketing marketing = showUp.getMarketing();
@@ -42,7 +36,7 @@ public class MarketingTest extends TestBase {
 
     @Test
     public void _002_keywords_is_empty_negative(){
-        HomePage homePage = new HomePage(driver);
+
         MyApps myApps = homePage.getMyAppsPage(driver);
         ShowUp showUp = myApps.showUp(1);
         Marketing marketing = showUp.getMarketing();

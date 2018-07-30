@@ -16,21 +16,13 @@ import org.testng.annotations.Test;
 
 public class SummaryTest extends TestBase {
 
-    private final int WAIT = 2000;
-    private final String cancelTxt = "CANCEL";
-    private final String backTxt = "BACK";
-    private final String continueTxt = "CONTINUE";
-    private final String finishTxt = "FINISH";
-
     @BeforeClass
-    public void init() {
-        driver = DriverManager.getWebDriver(DriverType.CHROME);
-        driver.get("http://openapps.tveez.local:8080/openAppStore");
+    public void beforeTest() {
+        login("user", "123456");
     }
 
     @Test
     public void _001_name_is_empty_summary_negative() {
-        HomePage homePage = new HomePage(driver);
         MyApps myApps = homePage.getMyAppsPage(driver);
         ShowUp showUp = myApps.showUp(1);
         Summary summary = showUp.getSummary();
@@ -43,7 +35,6 @@ public class SummaryTest extends TestBase {
 
     @Test
     public void _002_subtitle_is_empty_negative(){
-        HomePage homePage = new HomePage(driver);
         MyApps myApps = homePage.getMyAppsPage(driver);
         ShowUp showUp = myApps.showUp(1);
         Summary summary = showUp.getSummary();
@@ -56,7 +47,6 @@ public class SummaryTest extends TestBase {
 
   /* @Ignore
     public void _003_language_is_empty_negative(){
-        HomePage homePage = new HomePage(driver);
         MyApps myApps = homePage.getMyAppsPage(driver);
         Summary summary = myApps.showUp(2);
         WebElement dropDownLanguage = driver.findElement(By.id("app-language"));
@@ -71,7 +61,7 @@ public class SummaryTest extends TestBase {
 
     @Ignore
     public void _004_category_is_empty_negative(){
-        HomePage homePage = new HomePage(driver);
+
         MyApps myApps = homePage.getMyAppsPage(driver);
         Summary summary = myApps.showUp(1);
         summary.editSummary(FieldType.CATEGORY, "");
@@ -83,7 +73,7 @@ public class SummaryTest extends TestBase {
 
     @Ignore
     public void _005_availavility_is_empty_negative(){
-        HomePage homePage = new HomePage(driver);
+
         MyApps myApps = homePage.getMyAppsPage(driver);
         Summary summary = myApps.showUp(1);
         summary.editSummary(FieldType.AVAILABILITY, "");
@@ -95,7 +85,7 @@ public class SummaryTest extends TestBase {
 
     @Ignore
     public void _006_retailers_is_empty_negative(){
-        HomePage homePage = new HomePage(driver);
+
         MyApps myApps = homePage.getMyAppsPage(driver);
         Summary summary = myApps.showUp(0);
         summary.editSummary(FieldType.RETAILERS, "");
@@ -107,7 +97,7 @@ public class SummaryTest extends TestBase {
 
     @Ignore
     public void _007_two_mandatory_fields_is_empty_negative(){
-        HomePage homePage = new HomePage(driver);
+
         MyApps myApps = homePage.getMyAppsPage(driver);
         Summary summary = myApps.showUp(0);
         summary.editSummary(FieldType.RETAILERS, "");
