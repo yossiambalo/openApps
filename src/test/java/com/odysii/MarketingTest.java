@@ -52,5 +52,6 @@ public class MarketingTest extends TestBase {
         Boolean actualValue =isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
         Assert.assertFalse(actualValue, "No validation on empty field (keyword) - saved with empty value");
     }
-    // To do - add test to upload screenshot's button (waiting for ID)
+    // Todo - add test to upload screenshot's button (waiting for ID)
+    //ToDo: add test to upload appicon's button (waiting for ID)
 }

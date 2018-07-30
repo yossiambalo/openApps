@@ -16,7 +16,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class MyAppsTestRoiDebug extends TestBase{
+public class MyAppsTest extends TestBase{
     private final int WAIT = 2000;
     private final String cancelTxt = "CANCEL";
     private final String backTxt = "BACK";

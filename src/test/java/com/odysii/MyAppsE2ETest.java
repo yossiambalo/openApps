@@ -18,6 +18,8 @@ public class MyAppsE2ETest extends TestBase{
     private final int WAIT = 2000;
     @Parameters("browser")
     @BeforeClass
+    //ToDo: export method to TestBase
+
     public void init(String browser){
         switch (browser){
             case "chrome":

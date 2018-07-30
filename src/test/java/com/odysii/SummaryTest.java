@@ -106,7 +106,7 @@ public class SummaryTest extends TestBase {
     }
 
     @Ignore
-    public void _007_tow_mandatory_fields_is_empty_negative(){
+    public void _007_two_mandatory_fields_is_empty_negative(){
         HomePage homePage = new HomePage(driver);
         MyApps myApps = homePage.getMyAppsPage(driver);
         Summary summary = myApps.showUp(0);
