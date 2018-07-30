@@ -26,15 +26,6 @@ public class TestBase {
         }
         return res;
     }
-    protected boolean isClickable(By by){
-        boolean res = true;
-        try{
-            driver.findElement(by).click();
-        }catch (WebDriverException e){
-            res = false;
-        }
-        return res;
-    }
     protected void fillMarketing(String promotionalText,String kewords,String screenshotFilePath,String appIconPath){
         driver.findElement(By.id("app-promotion")).sendKeys(promotionalText);
         driver.findElement(By.id("app-keywords")).sendKeys(kewords);
