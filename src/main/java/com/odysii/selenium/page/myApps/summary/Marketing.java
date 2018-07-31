@@ -15,8 +15,8 @@ public class Marketing extends PageObject {
     WebElement promotionalToken;
     @FindBy(id = "app-subtitle")
     WebElement keywords;
-    //@FindBy( = )
-    // WebElement AppPreviewAndScreenshots;
+    @FindBy(id ="screenshotsFile")
+    WebElement screenshotsFile;
 
     public Marketing(WebDriver driver) {
         super(driver);
@@ -30,6 +30,9 @@ public class Marketing extends PageObject {
             case KEYWORDS:
                 this.keywords.clear();
                 this.keywords.sendKeys(newValue);
+                break;
+            case SCREEN_SHOTS_FILE:
+                this.screenshotsFile.sendKeys();
                 break;
 
         }
