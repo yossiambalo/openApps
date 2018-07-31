@@ -20,6 +20,7 @@ public class MyAppsTest extends TestBase{
     public void login() {
         login("user", "123456");
     }
+
     @Test
     public void _001_add_new_app(){
         MyApps myApps = homePage.getMyAppsPage(driver);

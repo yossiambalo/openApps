@@ -46,10 +46,11 @@ public class MarketingTest extends TestBase {
 
     @Test
     public void _003_add_new_screenshot_positive(){
-        MyApps myApps = homePage.getMyAppsPage(driver);
-        ShowUp showUp = myApps.showUp(0);
         Marketing marketing = showUp.getMarketing();
         marketing.editMarketing(FieldType.SCREEN_SHOTS_FILE,"C:\\yossi\\dog3.jpg");
+       // String expectedValueValue = driver.findElement(By.id());
+
+
 
     }
 
