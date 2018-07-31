@@ -1,13 +1,8 @@
 package com.odysii;
 
-import com.odysii.selenium.DriverManager;
-import com.odysii.selenium.DriverType;
-import com.odysii.selenium.page.FieldType;
-import com.odysii.selenium.page.HomePage;
 import com.odysii.selenium.page.myApps.AppVersion;
 import com.odysii.selenium.page.myApps.MyApps;
 import com.odysii.selenium.page.myApps.summary.ShowUp;
-import com.odysii.selenium.page.myApps.summary.Summary;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
