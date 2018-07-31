@@ -25,8 +25,7 @@ public class AppVersionsTest extends TestBase{
         AppVersion appVersion = showUp.getAppVersions();
         //appVersion.editAppVersion(FieldType.NEW_VERSION_NUMBER,"");
        // appVersion.editAppVersion(FieldType.NEW_VERSION_TEXT, "Test - app version is empty");
-        appVersion.editAppVersion("", "TEST","C:\\Users\\roi.avital\\Desktop\\Project's utilities\\IMAGES for pump\\1030084019.png");
-
+        appVersion.editAppVersion("", "TEST","C:\\yossi\\dog2.jpg");
     }
 
 }

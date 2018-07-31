@@ -15,7 +15,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class MarketingTest extends TestBase {
-
+    private ShowUp showUp;
     @BeforeClass
     public void beforeTest() {
         login("user", "123456");
@@ -25,7 +25,7 @@ public class MarketingTest extends TestBase {
     public void _001_promotional_token_is_empty_negative(){
 
         MyApps myApps = homePage.getMyAppsPage(driver);
-        ShowUp showUp = myApps.showUp(1);
+        showUp = myApps.showUp(1);
         Marketing marketing = showUp.getMarketing();
         marketing.editMarketing(FieldType.PROMOTIONAL_TOKEN,"");
         WebElement finishButton = driver.findElement(By.id("finish-button"));
@@ -36,9 +36,6 @@ public class MarketingTest extends TestBase {
 
     @Test
     public void _002_keywords_is_empty_negative(){
-
-        MyApps myApps = homePage.getMyAppsPage(driver);
-        ShowUp showUp = myApps.showUp(1);
         Marketing marketing = showUp.getMarketing();
         marketing.editMarketing(FieldType.KEYWORDS,"");
         WebElement finishButton = driver.findElement(By.id("finish-button"));
