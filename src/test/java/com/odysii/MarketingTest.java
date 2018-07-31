@@ -41,6 +41,17 @@ public class MarketingTest extends TestBase {
         WebElement finishButton = driver.findElement(By.id("finish-button"));
         finishButton.click();
     }
-    // Todo - add test to upload screenshot's button (waiting for ID)
+
+    @Test
+    public void _003_add_new_screenshot_positive(){
+        Marketing marketing = showUp.getMarketing();
+        marketing.editMarketing(FieldType.SCREEN_SHOTS_FILE,"C:\\yossi\\dog3.jpg");
+       // String expectedValueValue = driver.findElement(By.id());
+
+
+
+    }
+
+
     //ToDo: add test to upload appicon's button (waiting for ID)
 }
