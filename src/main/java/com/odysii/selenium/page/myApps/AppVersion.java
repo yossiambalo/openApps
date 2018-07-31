@@ -8,9 +8,9 @@ import org.openqa.selenium.support.FindBy;
 
 public class AppVersion extends PageObject {
     @FindBy(id = "edit-app-new-version")
-    WebElement NewVersion;
-    @FindBy(id = "appVersionsUploadCode")
-    WebElement SelectUpload;
+    WebElement newVersion;
+    @FindBy(id = "codeFile")
+    WebElement selectUpload;
     @FindBy(id = "newVersionNumber")
     WebElement NewVersionNumber;
     @FindBy(id = "new-version-text")
@@ -23,22 +23,22 @@ public class AppVersion extends PageObject {
         super(driver);
 
     }
-    public void editAppVersion(FieldType newVersionText, String s, FieldType type, String newValue, FieldType selectUpload) {
+    public void editAppVersion(FieldType type, String newValue) {
         switch (type) {
 
             case NEW_VERSION_NUMBER:
-                NewVersion.click();
+                newVersion.click();
                 this.NewVersionNumber.clear();
                 this.NewVersionNumber.sendKeys(newValue);
                 break;
             case NEW_VERSION_TEXT:
-                NewVersion.click();
+                newVersion.click();
                 this.NewVersionText.clear();
                 this.NewVersionText.sendKeys(newValue);
                 break;
             case SELECT_UPLOAD:
-                NewVersion.click();
-                this.SelectUpload.sendKeys(newValue);
+                newVersion.click();
+                this.selectUpload.sendKeys(newValue);
                 break;
 
             default:
@@ -46,12 +46,12 @@ public class AppVersion extends PageObject {
         }
     }
         public void editAppVersion(String appVersion, String newVersionText, String selectUpload){
-            NewVersion.click();
+            newVersion.click();
             this.NewVersionNumber.clear();
             this.NewVersionNumber.sendKeys(appVersion);
             this.NewVersionText.clear();
             this.NewVersionText.sendKeys(newVersionText);
-            this.SelectUpload.sendKeys(selectUpload);
+            this.selectUpload.sendKeys(selectUpload);
 
         }
     }
