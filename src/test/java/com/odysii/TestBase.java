@@ -15,7 +15,7 @@ public class TestBase {
     WebDriver driver;
     HomePage homePage;
     protected final int WAIT = 2000;
-    protected final String cancelTxt = "CANCEL";
+    protected final String cancelID = "cancel-button";
     protected final String backTxt = "BACK";
     protected final String continueTxt = "CONTINUE";
     protected final String finishTxt = "FINISH";

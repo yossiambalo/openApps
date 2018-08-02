@@ -11,7 +11,7 @@ import java.util.Properties;
 public class AppDetails extends PageObject{
 
     @FindBy(id = "app-name")
-    WebElement name;
+    public WebElement name;
     @FindBy(id = "app-subtitle")
     WebElement subtitle;
     @FindBy(id = "app-language")
@@ -42,6 +42,7 @@ public class AppDetails extends PageObject{
         return new UploadCode(webDriver);
     }
     public UploadCode setUpAppDetails(String name,String subtitle,String language,String category,String availability, String retailer){
+        wait(3000);
         this.name.sendKeys(name);
         this.subtitle.sendKeys(subtitle);
         this.language.sendKeys(language);
@@ -50,5 +51,9 @@ public class AppDetails extends PageObject{
         this.retailer.sendKeys(retailer);
         this.next.click();
         return new UploadCode(webDriver);
+    }
+    public void cancel(){
+        if (cancel.isDisplayed())
+        cancel.click();
     }
 }
