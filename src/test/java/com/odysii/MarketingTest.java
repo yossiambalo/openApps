@@ -36,6 +36,10 @@ public class MarketingTest extends TestBase {
 
     @Test
     public void _002_keywords_is_empty_negative(){
+        if (!driver.getCurrentUrl().contains("marketing")){
+            MyApps myApps = homePage.getMyAppsPage(driver);
+            showUp = myApps.showUp(1);
+        }
         Marketing marketing = showUp.getMarketing();
         marketing.editMarketing(FieldType.KEYWORDS,"");
         WebElement finishButton = driver.findElement(By.id("finish-button"));
@@ -44,11 +48,13 @@ public class MarketingTest extends TestBase {
 
     @Test
     public void _003_add_new_screenshot_positive(){
+        if (!driver.getCurrentUrl().contains("marketing")){
+            MyApps myApps = homePage.getMyAppsPage(driver);
+            showUp = myApps.showUp(1);
+        }
         Marketing marketing = showUp.getMarketing();
         marketing.editMarketing(FieldType.SCREEN_SHOTS_FILE,"C:\\yossi\\dog3.jpg");
        // String expectedValueValue = driver.findElement(By.id());
-
-
 
     }
 

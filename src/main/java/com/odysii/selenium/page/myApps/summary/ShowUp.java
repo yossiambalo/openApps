@@ -8,15 +8,15 @@ import org.openqa.selenium.support.FindBy;
 
 public class ShowUp extends PageObject {
 
-    @FindBy(xpath = "//*[contains(text(), 'Summary')]")
+    @FindBy(xpath = "//span[contains(text(), 'Summary')]")
     private WebElement summary;
-    @FindBy(xpath = "//*[contains(text(), 'Marketing')]")
+    @FindBy(xpath = "//span[contains(text(), 'Marketing')]")
     private WebElement marketing;
-    @FindBy(xpath = "//*[contains(text(), 'App Versions')]")
+    @FindBy(xpath = "//span[contains(text(), 'App Versions')]")
     private WebElement appVersions;
-    @FindBy(xpath = "//*[contains(text(), 'Submission History')]")
+    @FindBy(xpath = "//span[contains(text(), 'Submission History')]")
     private WebElement submissionHistory;
-    @FindBy(xpath = "//*[contains(text(), 'Statistics')]")
+    @FindBy(xpath = "//span[contains(text(), 'Statistics')]")
     private WebElement statistics;
 
     public ShowUp(WebDriver driver) {
@@ -35,12 +35,12 @@ public class ShowUp extends PageObject {
         appVersions.click();
         return new AppVersion(webDriver);
     }
-    //ToDo: create SubmissionHistory class and return it.
-    public WebElement getSubmissionHistory() {
-        return submissionHistory;
+    public SubmissionHistory getSubmissionHistory() {
+        submissionHistory.click();
+        return new SubmissionHistory(webDriver);
     }
-    //ToDo: create Statistics class and return it.
-    public WebElement getStatistics() {
-        return statistics;
+    public Statistics getStatistics() {
+        statistics.click();
+        return new Statistics(webDriver);
     }
 }
