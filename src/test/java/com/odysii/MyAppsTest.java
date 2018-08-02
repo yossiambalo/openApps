@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 
 public class MyAppsTest extends TestBase{
 
+    private final String zipFile = "dog2.jpg";
     @BeforeClass
     public void login() {
         login("user", "123456");
@@ -30,7 +31,7 @@ public class MyAppsTest extends TestBase{
         wait(WAIT);
         UploadCode uploadCode = appDetails.setUpAppDetails();
         wait(WAIT);
-        Marketing marketing = uploadCode.upload();
+        Marketing marketing = uploadCode.upload(zipFile);
         wait(WAIT);
         marketing.fillMarketing();
         wait(WAIT);
@@ -177,7 +178,7 @@ public class MyAppsTest extends TestBase{
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
         wait(WAIT);
-        uploadCode.upload();
+        uploadCode.upload(zipFile);
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
         Assert.assertTrue(actualValue,"Moved to marketing page successfully");
     }
@@ -188,7 +189,7 @@ public class MyAppsTest extends TestBase{
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
         wait(WAIT);
-        uploadCode.upload();
+        uploadCode.upload(zipFile);
         fillMarketing("", "Keyword field", "C:\\yossi\\dog2.jpg", "C:\\yossi\\dog3.jpg");
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
         Assert.assertFalse(actualValue, "Promotional token field is mandatory - it's empty!");
@@ -200,7 +201,7 @@ public class MyAppsTest extends TestBase{
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
         wait(WAIT);
-        uploadCode.upload();
+        uploadCode.upload(zipFile);
         fillMarketing("P_Token", "", "C:\\yossi\\dog2.jpg", "C:\\yossi\\dog3.jpg");
         WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
@@ -213,7 +214,7 @@ public class MyAppsTest extends TestBase{
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
         wait(WAIT);
-        uploadCode.upload();
+        uploadCode.upload(zipFile);
         fillMarketing("P_Token", "sfg", "", "C:\\yossi\\dog3.jpg");
         WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
@@ -226,7 +227,7 @@ public class MyAppsTest extends TestBase{
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
         wait(WAIT);
-        uploadCode.upload();
+        uploadCode.upload(zipFile);
         fillMarketing("P_Token", "sfg", "C:\\yossi\\dog3.jpg", "");
         WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));

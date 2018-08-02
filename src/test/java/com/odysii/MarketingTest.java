@@ -1,13 +1,9 @@
 package com.odysii;
 
-import com.odysii.selenium.DriverManager;
-import com.odysii.selenium.DriverType;
 import com.odysii.selenium.page.FieldType;
-import com.odysii.selenium.page.HomePage;
 import com.odysii.selenium.page.myApps.MyApps;
 import com.odysii.selenium.page.myApps.summary.Marketing;
 import com.odysii.selenium.page.myApps.summary.ShowUp;
-import com.odysii.selenium.page.myApps.summary.Summary;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -54,10 +50,8 @@ public class MarketingTest extends TestBase {
         }
         Marketing marketing = showUp.getMarketing();
         marketing.editMarketing(FieldType.SCREEN_SHOTS_FILE,"C:\\yossi\\dog3.jpg");
-       // String expectedValueValue = driver.findElement(By.id());
 
     }
-
 
     //ToDo: add test to upload appicon's button (waiting for ID)
 }
