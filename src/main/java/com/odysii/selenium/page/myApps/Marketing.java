@@ -43,9 +43,12 @@ public class Marketing extends PageObject {
     public void fillMarketing(String promotionalText,String kewords,String screenshotFilePath,String appIconPath){
         this.promotionalText.sendKeys(promotionalText);
         this.keywords.sendKeys(kewords);
-        this.screenshotsFile.sendKeys(screenshotFilePath);
-        this.appIcon.sendKeys(appIconPath);
+        this.screenshotsFile.sendKeys(getFile("application//"+screenshotFilePath));
+        this.appIcon.sendKeys(getFile("application//"+appIconPath));
         wait(2000);
+        if (!complete.isDisplayed()){
+            pageUpDown(true);
+        }
         this.complete.click();
     }
 }

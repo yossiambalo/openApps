@@ -19,6 +19,7 @@ import org.testng.annotations.Test;
 public class MyAppsTest extends TestBase{
     private AppDetails appDetails;
     private final String zipFile = "dog2.jpg";
+    private final String screenShotFile = "bike.jpg";
     @BeforeClass
     public void login() {
         login("user", "123456");
@@ -97,7 +98,7 @@ public class MyAppsTest extends TestBase{
     }
     // Testing max chars, special chars, languages.
 
-    @Test
+    @Ignore//No limition for chars
     public void _008_name_field_length_257_chars_negative() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -115,8 +116,8 @@ public class MyAppsTest extends TestBase{
         Assert.assertTrue(actualValue, "Subtitle can contain 255 chars");
     }
 
-    @Test
-    public void _010_name_field_special_chars_negative() {
+    @Test//TODo: ask devs should be validation for those chars?
+    public void _010_valid_name_field_special_chars_negative() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
         appDetails.setUpAppDetails("@!*#$%!", "+-/*", LanguageType.DANISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, Retailer.SHELL);
@@ -133,7 +134,7 @@ public class MyAppsTest extends TestBase{
         Assert.assertTrue(actualValue, "Cancel button function and back to My apps page");
     }
 
-    @Test
+    @Ignore//No limitetion for chars
     public void _012_language_input_name_field_chinese_128_chars_positive() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -142,7 +143,7 @@ public class MyAppsTest extends TestBase{
         Assert.assertFalse(actualValue, "Japanese is supported");
     }
 
-    @Test
+    @Ignore//No limitation for chars
     public void _013_language_input_subtitle_field_hebrew_128_chars_positive() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -185,28 +186,27 @@ public class MyAppsTest extends TestBase{
     }
 
     @Test
-    public void _017_promotional_text_empty_marketing_page_negtive(){
+    public void _017_promotional_text_empty_marketing_page_negative(){
         MyApps myApps = homePage.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
         wait(WAIT);
-        uploadCode.upload(zipFile);
-        fillMarketing("", "Keyword field", "C:\\yossi\\dog2.jpg", "C:\\yossi\\dog3.jpg");
+        Marketing marketing = uploadCode.upload(zipFile);
+        marketing.fillMarketing("", "Keyword field", screenShotFile, zipFile);
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
         Assert.assertFalse(actualValue, "Promotional token field is mandatory - it's empty!");
     }
 
     @Test
-    public void _018_keywords_empty_marketing_page_negtive(){
+    public void _018_keywords_empty_marketing_page_negative(){
         MyApps myApps = homePage.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
         wait(WAIT);
-        uploadCode.upload(zipFile);
-        fillMarketing("P_Token", "", "C:\\yossi\\dog2.jpg", "C:\\yossi\\dog3.jpg");
-        WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
+        Marketing marketing = uploadCode.upload(zipFile);
+        marketing.fillMarketing("P_Token", "", screenShotFile, zipFile);
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
-        Assert.assertFalse(actualValue,"Button isn't clickable!");
+        Assert.assertFalse(actualValue,"No validation for field!");
     }
 
     @Test
@@ -215,11 +215,10 @@ public class MyAppsTest extends TestBase{
         appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
         wait(WAIT);
-        uploadCode.upload(zipFile);
-        fillMarketing("P_Token", "sfg", "", "C:\\yossi\\dog3.jpg");
-        WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
+        Marketing marketing = uploadCode.upload(zipFile);
+        marketing.fillMarketing("P_Token", "sfg", "", zipFile);
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
-        Assert.assertFalse(actualValue,"Button isn't clickable!");
+        Assert.assertFalse(actualValue,"No validation for field!");
     }
 
     @Test
@@ -228,11 +227,10 @@ public class MyAppsTest extends TestBase{
         appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, Retailer.SHELL);
         wait(WAIT);
-        uploadCode.upload(zipFile);
-        fillMarketing("P_Token", "sfg", "C:\\yossi\\dog3.jpg", "");
-        WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
+        Marketing marketing = uploadCode.upload(zipFile);
+        marketing.fillMarketing("P_Token", "sfg", screenShotFile, "");
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
-        Assert.assertFalse(actualValue,"Button isn't clickable!");
+        Assert.assertFalse(actualValue,"No validation for field!");
 
     }
     @AfterMethod
