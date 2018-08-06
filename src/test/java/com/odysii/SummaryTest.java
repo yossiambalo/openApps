@@ -108,4 +108,12 @@ public class SummaryTest extends TestBase {
         Assert.assertFalse(actualValue, "There's no validations on retailers & name fields - they both empty!");
     }
 */
+  @Test
+  public void _008_certify_app_positive(){
+      MyApps myApps = homePage.getMyAppsPage(driver);
+      ShowUp showUp = myApps.showUp(1);
+      Summary summary = showUp.getSummary();
+
+
+  }
 }

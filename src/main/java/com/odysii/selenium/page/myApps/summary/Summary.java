@@ -23,6 +23,9 @@ public class Summary extends PageObject {
     WebElement cancel;
     @FindBy(id = "next-button")
     WebElement next;
+    @FindBy(id = "appSummeryCertify")
+    WebElement certify;
+
     public Summary(WebDriver driver) {
         super(driver);
     }
@@ -55,5 +58,10 @@ public class Summary extends PageObject {
             default:
                 ////
         }
+    }
+
+    public void certifyApp(){
+    certify.click();
+
     }
 }
