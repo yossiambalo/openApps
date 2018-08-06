@@ -15,7 +15,7 @@ public class TestBase {
     WebDriver driver;
     HomePage homePage;
     protected final int WAIT = 2000;
-    protected final String cancelTxt = "CANCEL";
+    protected final String cancelID = "cancel-button";
     protected final String backTxt = "BACK";
     protected final String continueTxt = "CONTINUE";
     protected final String finishTxt = "FINISH";
@@ -56,13 +56,6 @@ public class TestBase {
             res = false;
         }
         return res;
-    }
-    protected void fillMarketing(String promotionalText,String kewords,String screenshotFilePath,String appIconPath){
-        driver.findElement(By.id("app-promotion")).sendKeys(promotionalText);
-        driver.findElement(By.id("app-keywords")).sendKeys(kewords);
-        driver.findElement(By.id("screenshotsFile")).sendKeys(screenshotFilePath);
-        driver.findElement(By.id("iconFile")).sendKeys(appIconPath);
-        wait(2000);
     }
     protected void login(String user,String pass){
         Login login = new Login(driver);
