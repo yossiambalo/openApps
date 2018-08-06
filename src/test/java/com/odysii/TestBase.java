@@ -13,6 +13,7 @@ import org.testng.annotations.Parameters;
 
 public class TestBase {
     WebDriver driver;
+    HomePage homePage;
     protected final int WAIT = 2000;
     protected final String cancelID = "cancel-button";
     protected final String backTxt = "BACK";
@@ -46,6 +47,7 @@ public class TestBase {
             default:
         }
         driver.get("http://openapps.tveez.local:8080/openAppStore");
+        homePage = new HomePage(driver);
     }
     protected boolean isElementExist(By by){
         boolean res = true;

@@ -14,7 +14,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class MyAppsTest extends TestBase{
-    HomePage homePage;
     private AppDetails appDetails;
     private final String zipFile = "dog2.jpg";
     private final String screenShotFile = "bike.jpg";
