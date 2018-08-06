@@ -13,7 +13,6 @@ import org.testng.annotations.Parameters;
 
 public class TestBase {
     WebDriver driver;
-    HomePage homePage;
     protected final int WAIT = 2000;
     protected final String cancelID = "cancel-button";
     protected final String backTxt = "BACK";
@@ -56,9 +55,5 @@ public class TestBase {
             res = false;
         }
         return res;
-    }
-    protected void login(String user,String pass){
-        Login login = new Login(driver);
-        homePage = login.login(user,pass);
     }
 }

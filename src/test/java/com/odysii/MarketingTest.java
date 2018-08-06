@@ -1,6 +1,8 @@
 package com.odysii;
 
 import com.odysii.selenium.page.FieldType;
+import com.odysii.selenium.page.HomePage;
+import com.odysii.selenium.page.myApps.Login;
 import com.odysii.selenium.page.myApps.MyApps;
 import com.odysii.selenium.page.myApps.summary.Marketing;
 import com.odysii.selenium.page.myApps.summary.ShowUp;
@@ -11,10 +13,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class MarketingTest extends TestBase {
+    HomePage homePage;
     private ShowUp showUp;
     @BeforeClass
-    public void beforeTest() {
-        login("user", "123456");
+    public void login() {
+        Login login = new  Login(driver);
+        login.login("user", "123456",false);
     }
 
     @Test
