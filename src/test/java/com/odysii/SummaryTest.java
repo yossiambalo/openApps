@@ -4,6 +4,7 @@ import com.odysii.selenium.DriverManager;
 import com.odysii.selenium.DriverType;
 import com.odysii.selenium.page.FieldType;
 import com.odysii.selenium.page.HomePage;
+import com.odysii.selenium.page.myApps.Login;
 import com.odysii.selenium.page.myApps.MyApps;
 import com.odysii.selenium.page.myApps.summary.Marketing;
 import com.odysii.selenium.page.myApps.summary.ShowUp;
@@ -16,9 +17,11 @@ import org.testng.annotations.Test;
 
 public class SummaryTest extends TestBase {
 
+    HomePage homePage;
     @BeforeClass
-    public void beforeTest() {
-        login("user", "123456");
+    public void login() {
+        Login login = new  Login(driver);
+        login.login("user", "123456",false);
     }
 
     @Test

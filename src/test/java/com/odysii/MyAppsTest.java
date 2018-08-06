@@ -1,14 +1,11 @@
 package com.odysii;
 
-import com.odysii.selenium.page.myApps.AppDetails;
-import com.odysii.selenium.page.myApps.Marketing;
-import com.odysii.selenium.page.myApps.MyApps;
-import com.odysii.selenium.page.myApps.UploadCode;
+import com.odysii.selenium.page.HomePage;
+import com.odysii.selenium.page.myApps.*;
 import com.odysii.selenium.page.myApps.helper.appDetails.AvailabilityType;
 import com.odysii.selenium.page.myApps.helper.appDetails.CategoryType;
 import com.odysii.selenium.page.myApps.helper.appDetails.LanguageType;
 import com.odysii.selenium.page.myApps.helper.appDetails.Retailer;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -17,15 +14,17 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class MyAppsTest extends TestBase{
+    HomePage homePage;
     private AppDetails appDetails;
     private final String zipFile = "dog2.jpg";
     private final String screenShotFile = "bike.jpg";
     @BeforeClass
     public void login() {
-        login("user", "123456");
+        Login login = new  Login(driver);
+        login.login("user", "123456",false);
     }
 
-    @Ignore
+    @Test(enabled = false)
     public void _001_add_new_app(){
         MyApps myApps = homePage.getMyAppsPage(driver);
         int expectedValue = driver.findElements(By.className("card")).size()+1;
@@ -98,7 +97,7 @@ public class MyAppsTest extends TestBase{
     }
     // Testing max chars, special chars, languages.
 
-    @Ignore//No limition for chars
+    @Test(enabled = false)//No limition for chars
     public void _008_name_field_length_257_chars_negative() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -134,7 +133,7 @@ public class MyAppsTest extends TestBase{
         Assert.assertTrue(actualValue, "Cancel button function and back to My apps page");
     }
 
-    @Ignore//No limitetion for chars
+    @Test(enabled = false)//No limitetion for chars
     public void _012_language_input_name_field_chinese_128_chars_positive() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -143,7 +142,7 @@ public class MyAppsTest extends TestBase{
         Assert.assertFalse(actualValue, "Japanese is supported");
     }
 
-    @Ignore//No limitation for chars
+    @Test(enabled = false)//No limitation for chars
     public void _013_language_input_subtitle_field_hebrew_128_chars_positive() {
         MyApps myApps = homePage.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
