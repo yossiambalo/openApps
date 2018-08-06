@@ -11,7 +11,7 @@ import java.util.List;
 
 public class MyApps extends PageObject {
 
-    @FindBy(xpath = "//*[contains(text(), 'ADD NEW APP')]")
+    @FindBy(id = "newAppButton")
     WebElement addNewApp;
     @FindBy(className = "card")
     List<WebElement> apps;

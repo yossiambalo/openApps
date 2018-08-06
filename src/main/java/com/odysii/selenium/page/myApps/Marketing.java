@@ -2,10 +2,13 @@ package com.odysii.selenium.page.myApps;
 
 import com.odysii.selenium.page.util.PageObject;
 import com.odysii.utils.PropertyLoader;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.Properties;
 
 public class Marketing extends PageObject {
@@ -32,6 +35,9 @@ public class Marketing extends PageObject {
         this.screenshotsFile.sendKeys(properties.getProperty("app_preview_screenshots"));
         this.appIcon.sendKeys(properties.getProperty("app_icon"));
         wait(2000);
+        if (!complete.isDisplayed()){
+            pageUpDown(true);
+        }
         this.complete.click();
     }
     public void fillMarketing(String promotionalText,String kewords,String screenshotFilePath,String appIconPath){

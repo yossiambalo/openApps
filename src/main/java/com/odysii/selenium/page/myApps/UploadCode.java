@@ -5,6 +5,8 @@ import com.odysii.utils.PropertyLoader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.io.File;
 import java.util.Properties;
 
 public class UploadCode extends PageObject{
@@ -16,10 +18,8 @@ public class UploadCode extends PageObject{
     public UploadCode(WebDriver driver) {
         super(driver);
     }
-    public Marketing upload(){
-        PropertyLoader loader = new PropertyLoader();
-        Properties properties = loader.loadPropFile("upload_code.properties");
-        this.agreeAndUpload.sendKeys(properties.getProperty("code_path"));
+    public Marketing upload(String zipFile){
+        this.agreeAndUpload.sendKeys(getFile("application//"+zipFile));
         wait(2000);
         this.next.click();
         return new Marketing(webDriver);

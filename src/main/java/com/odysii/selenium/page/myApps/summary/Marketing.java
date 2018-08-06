@@ -11,9 +11,9 @@ import static com.odysii.selenium.page.FieldType.PROMOTIONAL_TOKEN;
 
 public class Marketing extends PageObject {
 
-    @FindBy(id = "app-name")
+    @FindBy(id = "appName")
     WebElement promotionalToken;
-    @FindBy(id = "app-subtitle")
+    @FindBy(id = "appSubtitle")
     WebElement keywords;
     @FindBy(id ="screenshotsFile")
     WebElement screenshotsFile;
@@ -32,7 +32,7 @@ public class Marketing extends PageObject {
                 this.keywords.sendKeys(newValue);
                 break;
             case SCREEN_SHOTS_FILE:
-                this.screenshotsFile.sendKeys();
+                this.screenshotsFile.sendKeys(newValue);
                 break;
 
         }
