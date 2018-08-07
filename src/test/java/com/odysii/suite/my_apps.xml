@@ -4,19 +4,19 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.odysii.MyAppsTestRoi"/>
+            <class name="com.odysii.MyAppsTest"/>
         </classes>
     </test>
-    <test name="IETest">
-        <parameter name="browser" value="ie"/>
-        <classes>
-            <class name="com.odysii.MyAppsTestRoi"/>
-        </classes>
-    </test>
-    <test name="FireFoxTest">
-        <parameter name="browser" value="firefox"/>
-        <classes>
-            <class name="com.odysii.MyAppsTestRoi"/>
-        </classes>
-    </test>
+    <!--<test name="IETest">-->
+        <!--<parameter name="browser" value="ie"/>-->
+        <!--<classes>-->
+            <!--<class name="com.odysii.MyAppsTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+    <!--<test name="FireFoxTest">-->
+        <!--<parameter name="browser" value="firefox"/>-->
+        <!--<classes>-->
+            <!--<class name="com.odysii.MyAppsTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
 </suite>

@@ -1,13 +1,12 @@
-package com.odysii.selenium.page.myApps.summery;
+package com.odysii.selenium.page.myApps.summary;
 
 import com.odysii.selenium.page.FieldType;
-import com.odysii.selenium.page.myApps.MyApps;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class Summery extends PageObject {
+public class Summary extends PageObject {
     @FindBy(id = "app-name")
     WebElement name;
     @FindBy(id = "app-subtitle")
@@ -24,10 +23,10 @@ public class Summery extends PageObject {
     WebElement cancel;
     @FindBy(id = "next-button")
     WebElement next;
-    public Summery(WebDriver driver) {
+    public Summary(WebDriver driver) {
         super(driver);
     }
-    public MyApps editSummary(FieldType type, String newValue) {
+    public void editSummary(FieldType type, String newValue) {
         switch (type) {
             case APPNAME:
                 this.name.clear();
@@ -56,6 +55,5 @@ public class Summery extends PageObject {
             default:
                 ////
         }
-        return new MyApps(webDriver);
     }
 }

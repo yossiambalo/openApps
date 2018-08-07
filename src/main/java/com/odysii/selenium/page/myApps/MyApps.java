@@ -1,6 +1,7 @@
 package com.odysii.selenium.page.myApps;
 
-import com.odysii.selenium.page.myApps.summery.Summery;
+import com.odysii.selenium.page.myApps.summary.ShowUp;
+import com.odysii.selenium.page.myApps.summary.Summary;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class MyApps extends PageObject {
 
-    @FindBy(xpath = "//*[contains(text(), 'ADD NEW APP')]")
+    @FindBy(id = "newAppButton")
     WebElement addNewApp;
     @FindBy(className = "card")
     List<WebElement> apps;
@@ -21,8 +22,8 @@ public class MyApps extends PageObject {
         this.addNewApp.click();
         return new AppDetails(webDriver);
     }
-    public Summery showUp(int appIndex){
+    public ShowUp showUp(int appIndex){
         apps.get(appIndex).click();
-        return new Summery(webDriver);
+        return new ShowUp(webDriver);
     }
 }
