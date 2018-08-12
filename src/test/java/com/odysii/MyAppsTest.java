@@ -1,6 +1,5 @@
 package com.odysii;
 
-import com.odysii.selenium.page.HomePage;
 import com.odysii.selenium.page.myApps.*;
 import com.odysii.selenium.page.myApps.helper.appDetails.AvailabilityType;
 import com.odysii.selenium.page.myApps.helper.appDetails.CategoryType;

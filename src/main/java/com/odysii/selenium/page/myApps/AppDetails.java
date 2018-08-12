@@ -12,11 +12,13 @@ public class AppDetails extends PageObject{
 
     @FindBy(id = "app-name")
     public WebElement name;
+    @FindBy(id = "appVersion")
+    public WebElement appVersion;
     @FindBy(id = "app-subtitle")
     WebElement subtitle;
-    @FindBy(id = "app-language")
+    @FindBy(className = "dropdown-btn")
     WebElement language;
-    @FindBy(id = "app-category")
+    @FindBy(className = "dropdown-btn")
     WebElement category;
     @FindBy(id = "app-retailers")
     WebElement retailer;
@@ -33,6 +35,7 @@ public class AppDetails extends PageObject{
         PropertyLoader loader = new PropertyLoader();
         Properties properties = loader.loadPropFile("app_details.properties");
         this.name.sendKeys(properties.getProperty("name"));
+        this.appVersion.sendKeys(properties.getProperty("app_version"));
         this.subtitle.sendKeys(properties.getProperty("subtitle"));
         this.language.sendKeys(properties.getProperty("language"));
         this.category.sendKeys(properties.getProperty("category"));

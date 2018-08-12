@@ -32,6 +32,6 @@ public class Login extends PageObject {
         return new HomePage(webDriver);
     }
     public void logout(){
-        loginBtn.click();
+        logoutBtn.click();
     }
 }
