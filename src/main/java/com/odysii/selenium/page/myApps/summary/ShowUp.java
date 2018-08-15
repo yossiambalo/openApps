@@ -8,8 +8,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class ShowUp extends PageObject {
 
-    @FindBy(xpath = "//span[contains(text(), 'Summary')]")
-    private WebElement summary;
+    @FindBy(id = "next-button")
+    private WebElement nextBtn;
+    @FindBy(id = "finish-button")
+    private WebElement finishBtn;
     @FindBy(xpath = "//span[contains(text(), 'Marketing')]")
     private WebElement marketing;
     @FindBy(xpath = "//span[contains(text(), 'App Versions')]")
@@ -18,13 +20,16 @@ public class ShowUp extends PageObject {
     private WebElement submissionHistory;
     @FindBy(xpath = "//span[contains(text(), 'Statistics')]")
     private WebElement statistics;
+    @FindBy(className = "block-item-menu-icon")
+    private WebElement appVersionMenu;
+    @FindBy(xpath = "//button[contains(text(), 'Certify')]")
+    private WebElement certifyBtn;
 
     public ShowUp(WebDriver driver) {
         super(driver);
     }
 
     public Summary getSummary() {
-        this.summary.click();
         return new Summary(webDriver);
     }
     public Marketing getMarketing() {
@@ -42,5 +47,13 @@ public class ShowUp extends PageObject {
     public Statistics getStatistics() {
         statistics.click();
         return new Statistics(webDriver);
+    }
+    public void certify(){
+        this.appVersionMenu.click();
+        this.certifyBtn.click();
+        wait(2000);
+        pageUpDown(true);
+        this.nextBtn.click();
+        this.finishBtn.click();
     }
 }

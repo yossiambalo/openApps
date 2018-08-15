@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class Login extends PageObject {
+public class User extends PageObject {
 
     @FindBy(name = "username")
     WebElement userName;
@@ -14,10 +14,10 @@ public class Login extends PageObject {
     WebElement userPassword;
     @FindBy(xpath = "//button[contains(text(), 'Login')]")
     WebElement loginBtn;
-    @FindBy(id = "logout-button")
+    @FindBy(className = "float-right")
     WebElement logoutBtn;
 
-    public Login(WebDriver driver) {
+    public User(WebDriver driver) {
         super(driver);
     }
     public HomePage login(String userName,String password,boolean isAdmin){

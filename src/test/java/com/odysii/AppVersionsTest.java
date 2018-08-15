@@ -2,7 +2,7 @@ package com.odysii;
 
 import com.odysii.selenium.page.HomePage;
 import com.odysii.selenium.page.myApps.AppVersion;
-import com.odysii.selenium.page.myApps.Login;
+import com.odysii.selenium.page.myApps.User;
 import com.odysii.selenium.page.myApps.MyApps;
 import com.odysii.selenium.page.myApps.summary.ShowUp;
 import org.testng.annotations.BeforeClass;
@@ -13,7 +13,7 @@ public class AppVersionsTest extends TestBase{
     HomePage homePage;
     @BeforeClass
     public void login() {
-        Login login = new  Login(driver);
+        User login = new User(driver);
         login.login("user", "123456",false);
     }
     @Test

@@ -26,4 +26,8 @@ public class MyApps extends PageObject {
         apps.get(appIndex).click();
         return new ShowUp(webDriver);
     }
+    public ShowUp showUp(WebElement appElement){
+        appElement.click();
+        return new ShowUp(webDriver);
+    }
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
 import java.util.Properties;
 
 public class AppDetails extends PageObject{
@@ -18,9 +19,17 @@ public class AppDetails extends PageObject{
     WebElement subtitle;
     @FindBy(className = "dropdown-btn")
     WebElement language;
+    @FindBy(xpath = "//div[contains(text(), 'English')]")
+    WebElement englishLanguage;
+    @FindBy(xpath = "//div[contains(text(), 'Sports')]")
+    WebElement sportsCategory;
+    @FindBy(xpath = "//div[contains(text(), 'Shell')]")
+    WebElement shellRetailer;
     @FindBy(className = "dropdown-btn")
+    List<WebElement> dropDown;
+    @FindBy(xpath = "//span[contains(text(), 'Select categories')]")
     WebElement category;
-    @FindBy(id = "app-retailers")
+    @FindBy(xpath = "//span[contains(text(), 'Select retailers')]")
     WebElement retailer;
     @FindBy(id = "app-availability")
     WebElement availability;
@@ -37,10 +46,18 @@ public class AppDetails extends PageObject{
         this.name.sendKeys(properties.getProperty("name"));
         this.appVersion.sendKeys(properties.getProperty("app_version"));
         this.subtitle.sendKeys(properties.getProperty("subtitle"));
-        this.language.sendKeys(properties.getProperty("language"));
-        this.category.sendKeys(properties.getProperty("category"));
+        this.dropDown.get(0).click();
+        this.englishLanguage.click();
+        this.dropDown.get(0).click();
+        this.dropDown.get(1).click();
+        this.sportsCategory.click();
+        this.dropDown.get(1).click();
+        this.dropDown.get(2).click();
+        this.shellRetailer.click();
+        this.dropDown.get(2).click();
+//        this.category.sendKeys(properties.getProperty("category"));
         this.availability.sendKeys(properties.getProperty("availability"));
-        this.retailer.sendKeys(properties.getProperty("retailer"));
+//        this.retailer.sendKeys(properties.getProperty("retailer"));
         this.next.click();
         return new UploadCode(webDriver);
     }

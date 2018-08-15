@@ -46,7 +46,7 @@ public class TestBase {
                 break;
             default:
         }
-        driver.get("http://openapps.tveez.local:8080/openAppStore");
+        driver.get("http://openappsqa.tveez.local:8080/openAppStore");
         homePage = new HomePage(driver);
     }
     protected boolean isElementExist(By by){

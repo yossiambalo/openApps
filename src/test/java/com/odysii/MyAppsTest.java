@@ -18,7 +18,7 @@ public class MyAppsTest extends TestBase{
     private final String screenShotFile = "bike.jpg";
     @BeforeClass
     public void login() {
-        Login login = new  Login(driver);
+        User login = new User(driver);
         login.login("user", "123456",false);
     }
 

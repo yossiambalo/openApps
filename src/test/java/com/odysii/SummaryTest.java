@@ -1,12 +1,9 @@
 package com.odysii;
 
-import com.odysii.selenium.DriverManager;
-import com.odysii.selenium.DriverType;
 import com.odysii.selenium.page.FieldType;
 import com.odysii.selenium.page.HomePage;
-import com.odysii.selenium.page.myApps.Login;
+import com.odysii.selenium.page.myApps.User;
 import com.odysii.selenium.page.myApps.MyApps;
-import com.odysii.selenium.page.myApps.summary.Marketing;
 import com.odysii.selenium.page.myApps.summary.ShowUp;
 import com.odysii.selenium.page.myApps.summary.Summary;
 import org.openqa.selenium.By;
@@ -20,7 +17,7 @@ public class SummaryTest extends TestBase {
     HomePage homePage;
     @BeforeClass
     public void login() {
-        Login login = new  Login(driver);
+        User login = new User(driver);
         login.login("user", "123456",false);
     }
 
