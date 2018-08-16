@@ -1,25 +1,16 @@
 package com.odysii;
 
-import com.odysii.selenium.page.FieldType;
-import com.odysii.selenium.page.HomePage;
-import com.odysii.selenium.page.myApps.User;
-import com.odysii.selenium.page.myApps.MyApps;
-import com.odysii.selenium.page.myApps.summary.Marketing;
-import com.odysii.selenium.page.myApps.summary.ShowUp;
+import com.odysii.selenium.page.openApps.dev.MyApps;
+import com.odysii.selenium.page.openApps.dev.summary.Marketing;
+import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
+import com.odysii.selenium.page.util.FieldType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class MarketingTest extends TestBase {
-    HomePage homePage;
     private ShowUp showUp;
-    @BeforeClass
-    public void login() {
-        User login = new User(driver);
-        login.login("user", "123456",false);
-    }
 
     @Test
     public void _001_promotional_token_is_empty_negative(){

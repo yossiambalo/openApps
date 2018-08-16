@@ -1,21 +1,11 @@
 package com.odysii;
 
-import com.odysii.selenium.page.HomePage;
-import com.odysii.selenium.page.myApps.AppVersion;
-import com.odysii.selenium.page.myApps.User;
-import com.odysii.selenium.page.myApps.MyApps;
-import com.odysii.selenium.page.myApps.summary.ShowUp;
-import org.testng.annotations.BeforeClass;
+import com.odysii.selenium.page.openApps.dev.AppVersion;
+import com.odysii.selenium.page.openApps.dev.MyApps;
+import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
 import org.testng.annotations.Test;
 
 public class AppVersionsTest extends TestBase{
-
-    HomePage homePage;
-    @BeforeClass
-    public void login() {
-        User login = new User(driver);
-        login.login("user", "123456",false);
-    }
     @Test
     public void _001_app_version_is_empty_negative(){
         MyApps myApps = homePage.getMyAppsPage(driver);

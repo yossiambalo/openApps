@@ -1,25 +1,15 @@
 package com.odysii;
 
-import com.odysii.selenium.page.FieldType;
-import com.odysii.selenium.page.HomePage;
-import com.odysii.selenium.page.myApps.User;
-import com.odysii.selenium.page.myApps.MyApps;
-import com.odysii.selenium.page.myApps.summary.ShowUp;
-import com.odysii.selenium.page.myApps.summary.Summary;
+import com.odysii.selenium.page.openApps.dev.MyApps;
+import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
+import com.odysii.selenium.page.openApps.dev.summary.Summary;
+import com.odysii.selenium.page.util.FieldType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class SummaryTest extends TestBase {
-
-    HomePage homePage;
-    @BeforeClass
-    public void login() {
-        User login = new User(driver);
-        login.login("user", "123456",false);
-    }
 
     @Test
     public void _001_name_is_empty_summary_negative() {
@@ -47,8 +37,8 @@ public class SummaryTest extends TestBase {
 
   /* @Ignore
     public void _003_language_is_empty_negative(){
-        MyApps myApps = homePage.getMyAppsPage(driver);
-        Summary summary = myApps.showUp(2);
+        MyApps openApps = homePage.getMyAppsPage(driver);
+        Summary summary = openApps.showUp(2);
         WebElement dropDownLanguage = driver.findElement(By.id("app-language"));
         dropDownLanguage.click();
 
@@ -62,8 +52,8 @@ public class SummaryTest extends TestBase {
     @Ignore
     public void _004_category_is_empty_negative(){
 
-        MyApps myApps = homePage.getMyAppsPage(driver);
-        Summary summary = myApps.showUp(1);
+        MyApps openApps = homePage.getMyAppsPage(driver);
+        Summary summary = openApps.showUp(1);
         summary.editSummary(FieldType.CATEGORY, "");
         WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
         finishButton.click();
@@ -74,8 +64,8 @@ public class SummaryTest extends TestBase {
     @Ignore
     public void _005_availavility_is_empty_negative(){
 
-        MyApps myApps = homePage.getMyAppsPage(driver);
-        Summary summary = myApps.showUp(1);
+        MyApps openApps = homePage.getMyAppsPage(driver);
+        Summary summary = openApps.showUp(1);
         summary.editSummary(FieldType.AVAILABILITY, "");
         WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
         finishButton.click();
@@ -86,8 +76,8 @@ public class SummaryTest extends TestBase {
     @Ignore
     public void _006_retailers_is_empty_negative(){
 
-        MyApps myApps = homePage.getMyAppsPage(driver);
-        Summary summary = myApps.showUp(0);
+        MyApps openApps = homePage.getMyAppsPage(driver);
+        Summary summary = openApps.showUp(0);
         summary.editSummary(FieldType.RETAILERS, "");
         WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
         finishButton.click();
@@ -98,8 +88,8 @@ public class SummaryTest extends TestBase {
     @Ignore
     public void _007_two_mandatory_fields_is_empty_negative(){
 
-        MyApps myApps = homePage.getMyAppsPage(driver);
-        Summary summary = myApps.showUp(0);
+        MyApps openApps = homePage.getMyAppsPage(driver);
+        Summary summary = openApps.showUp(0);
         summary.editSummary(FieldType.RETAILERS, "");
         summary.editSummary(FieldType.APPNAME, "");
         WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
