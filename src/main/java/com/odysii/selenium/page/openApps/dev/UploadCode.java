@@ -10,7 +10,7 @@ public class UploadCode extends PageObject{
 
     @FindBy(className = "custom-file-input")
     WebElement agreeAndUpload;
-    @FindBy(id = "next-button")
+    @FindBy(id = "nextButton")
     WebElement next;
     public UploadCode(WebDriver driver) {
         super(driver);

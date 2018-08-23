@@ -1,5 +1,6 @@
 package com.odysii;
 
+import com.odysii.selenium.page.openApps.dev.DevHomePage;
 import com.odysii.selenium.page.openApps.dev.MyApps;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
 import com.odysii.selenium.page.openApps.dev.summary.Summary;
@@ -7,13 +8,20 @@ import com.odysii.selenium.page.util.FieldType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class SummaryTest extends TestBase {
 
+    DevHomePage devUser;
+    @BeforeClass
+    public void login(){
+        devUser = new DevHomePage(driver);
+        devUser.login("user","123456");
+    }
     @Test
     public void _001_name_is_empty_summary_negative() {
-        MyApps myApps = homePage.getMyAppsPage(driver);
+        MyApps myApps = devUser.getMyAppsPage(driver);
         ShowUp showUp = myApps.showUp(1);
         Summary summary = showUp.getSummary();
         summary.editSummary(FieldType.APPNAME, "");
@@ -25,7 +33,7 @@ public class SummaryTest extends TestBase {
 
     @Test
     public void _002_subtitle_is_empty_negative(){
-        MyApps myApps = homePage.getMyAppsPage(driver);
+        MyApps myApps = devUser.getMyAppsPage(driver);
         ShowUp showUp = myApps.showUp(1);
         Summary summary = showUp.getSummary();
         summary.editSummary(FieldType.SUBTITLE, "");

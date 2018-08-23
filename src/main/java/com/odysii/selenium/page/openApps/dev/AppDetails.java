@@ -11,13 +11,13 @@ import java.util.Properties;
 
 public class AppDetails extends PageObject{
 
-    @FindBy(id = "app-name")
+    @FindBy(id = "appName")
     public WebElement name;
     @FindBy(id = "appVersion")
     public WebElement appVersion;
-    @FindBy(id = "app-subtitle")
+    @FindBy(id = "appSubtitle")
     WebElement subtitle;
-    @FindBy(className = "dropdown-btn")
+    @FindBy(id = "appLanguages")
     WebElement language;
     @FindBy(xpath = "//div[contains(text(), 'English')]")
     WebElement englishLanguage;
@@ -27,15 +27,15 @@ public class AppDetails extends PageObject{
     WebElement shellRetailer;
     @FindBy(className = "dropdown-btn")
     List<WebElement> dropDown;
-    @FindBy(xpath = "//span[contains(text(), 'Select categories')]")
+    @FindBy(id = "AppCategories")
     WebElement category;
-    @FindBy(xpath = "//span[contains(text(), 'Select retailers')]")
+    @FindBy(id = "appRetailers")
     WebElement retailer;
-    @FindBy(id = "app-availability")
+    @FindBy(id = "appAvailability")
     WebElement availability;
     @FindBy(id = "cancel-button")
     WebElement cancel;
-    @FindBy(id = "next-button")
+    @FindBy(id = "nextButton")
     WebElement next;
     public AppDetails(WebDriver driver) {
         super(driver);
@@ -46,15 +46,15 @@ public class AppDetails extends PageObject{
         this.name.sendKeys(properties.getProperty("name"));
         this.appVersion.sendKeys(properties.getProperty("app_version"));
         this.subtitle.sendKeys(properties.getProperty("subtitle"));
-        this.dropDown.get(0).click();
+        this.language.click();
         this.englishLanguage.click();
-        this.dropDown.get(0).click();
-        this.dropDown.get(1).click();
+        this.language.click();
+        this.category.click();
         this.sportsCategory.click();
-        this.dropDown.get(1).click();
-        this.dropDown.get(2).click();
+        this.category.click();
+        this.retailer.click();
         this.shellRetailer.click();
-        this.dropDown.get(2).click();
+        this.retailer.click();
 //        this.category.sendKeys(properties.getProperty("category"));
         this.availability.sendKeys(properties.getProperty("availability"));
 //        this.retailer.sendKeys(properties.getProperty("retailer"));

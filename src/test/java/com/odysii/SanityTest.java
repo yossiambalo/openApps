@@ -1,22 +1,28 @@
 package com.odysii;
 
-import com.odysii.selenium.page.openApps.dev.AppDetails;
-import com.odysii.selenium.page.openApps.dev.Marketing;
-import com.odysii.selenium.page.openApps.dev.MyApps;
-import com.odysii.selenium.page.openApps.dev.UploadCode;
+import com.odysii.selenium.page.openApps.amin.AdminPage;
+import com.odysii.selenium.page.openApps.amin.SupportTicket;
+import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
 public class SanityTest extends TestBase {
     private final String zipFile = "TH.zip";
+    DevHomePage devUser;
+   @BeforeClass
+   public void login(){
+       devUser = new DevHomePage(driver);
+       devUser.login("user","123456");
+   }
     @Test
     public void _001_add_new_app(){
-        MyApps myApps = homePage.getMyAppsPage(driver);
+        MyApps myApps = devUser.getMyAppsPage(driver);
         List<WebElement> appsList = driver.findElements(By.className("card"));
         int appsSize = appsList.size();
         int expectedValue = appsSize+1;
@@ -34,7 +40,11 @@ public class SanityTest extends TestBase {
         Assert.assertEquals(expectedValue,actualValue,"Failed to create a new application!");
         ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
         showUp.certify();
-        user.logout();
+//        devUser.logout();
+//        AdminPage adminPage = new AdminPage(driver);
+//        adminPage.login("admin","admin");
+//        SupportTicket supportTicket = adminPage.getSupportTickets();
+//        supportTicket.approve();
         //AdminPage adminPage = user.login("admin","admin", true);
     }
 }

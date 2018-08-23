@@ -1,22 +1,18 @@
 package com.odysii;
 
 
-import com.odysii.selenium.page.openApps.User;
+import com.odysii.selenium.page.openApps.dev.DevHomePage;
 import com.odysii.selenium.page.util.DriverManager;
 import com.odysii.selenium.page.util.DriverType;
-import com.odysii.selenium.page.openApps.dev.DevHomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 public class TestBase {
-    User user;
     WebDriver driver;
-    DevHomePage homePage;
     protected final int WAIT = 2000;
     protected final String cancelID = "cancel-button";
     protected final String backTxt = "BACK";
@@ -34,11 +30,6 @@ public class TestBase {
         }
     }
 
-    @BeforeClass
-    public void login() {
-        user = new User(driver);
-        user.login("user", "123456");
-    }
     @Parameters("browser")
     @BeforeTest
     public void init(String browser){
@@ -46,7 +37,7 @@ public class TestBase {
             case "chrome":
                 driver = DriverManager.getWebDriver(DriverType.CHROME);
                 break;
-            case "ie":
+            case "edge":
                 driver = DriverManager.getWebDriver(DriverType.IE);
                 break;
             case "firefox":
@@ -55,7 +46,6 @@ public class TestBase {
             default:
         }
         driver.get("http://openappsqa.tveez.local:8080/openAppStore");
-        homePage = new DevHomePage(driver);
     }
     protected boolean isElementExist(By by){
         boolean res = true;

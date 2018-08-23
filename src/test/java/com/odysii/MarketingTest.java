@@ -1,5 +1,6 @@
 package com.odysii;
 
+import com.odysii.selenium.page.openApps.dev.DevHomePage;
 import com.odysii.selenium.page.openApps.dev.MyApps;
 import com.odysii.selenium.page.openApps.dev.summary.Marketing;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
@@ -7,15 +8,22 @@ import com.odysii.selenium.page.util.FieldType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class MarketingTest extends TestBase {
     private ShowUp showUp;
 
+    DevHomePage devUser;
+    @BeforeClass
+    public void login(){
+        devUser = new DevHomePage(driver);
+        devUser.login("user","123456");
+    }
     @Test
     public void _001_promotional_token_is_empty_negative(){
 
-        MyApps myApps = homePage.getMyAppsPage(driver);
+        MyApps myApps = devUser.getMyAppsPage(driver);
         showUp = myApps.showUp(1);
         Marketing marketing = showUp.getMarketing();
         marketing.editMarketing(FieldType.PROMOTIONAL_TOKEN,"");
@@ -28,7 +36,7 @@ public class MarketingTest extends TestBase {
     @Test
     public void _002_keywords_is_empty_negative(){
         if (!driver.getCurrentUrl().contains("marketing")){
-            MyApps myApps = homePage.getMyAppsPage(driver);
+            MyApps myApps = devUser.getMyAppsPage(driver);
             showUp = myApps.showUp(1);
         }
         Marketing marketing = showUp.getMarketing();
@@ -40,7 +48,7 @@ public class MarketingTest extends TestBase {
     @Test
     public void _003_add_new_screenshot_positive(){
         if (!driver.getCurrentUrl().contains("marketing")){
-            MyApps myApps = homePage.getMyAppsPage(driver);
+            MyApps myApps = devUser.getMyAppsPage(driver);
             showUp = myApps.showUp(1);
         }
         Marketing marketing = showUp.getMarketing();

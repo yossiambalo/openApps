@@ -53,6 +53,7 @@ public class ShowUp extends PageObject {
         this.certifyBtn.click();
         wait(2000);
         pageUpDown(true);
+        wait(2000);
         this.nextBtn.click();
         this.finishBtn.click();
     }
