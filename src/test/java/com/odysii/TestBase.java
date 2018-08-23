@@ -13,7 +13,7 @@ import org.testng.annotations.Parameters;
 
 public class TestBase {
     WebDriver driver;
-    protected final int WAIT = 2000;
+    protected final int WAIT = 4000;
     protected final String cancelID = "cancel-button";
     protected final String backTxt = "BACK";
     protected final String continueTxt = "CONTINUE";

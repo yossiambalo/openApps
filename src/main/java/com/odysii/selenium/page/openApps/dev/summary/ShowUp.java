@@ -6,11 +6,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class ShowUp extends PageObject {
 
-    @FindBy(id = "next-button")
+    @FindBy(id = "nextButton")
     private WebElement nextBtn;
-    @FindBy(id = "finish-button")
+    @FindBy(id = "finishButton")
     private WebElement finishBtn;
     @FindBy(xpath = "//span[contains(text(), 'Marketing')]")
     private WebElement marketing;
@@ -24,6 +26,8 @@ public class ShowUp extends PageObject {
     private WebElement appVersionMenu;
     @FindBy(xpath = "//button[contains(text(), 'Certify')]")
     private WebElement certifyBtn;
+    @FindBy(css = "[class~=text-body-small]")
+    private List<WebElement> appStatusDivs;
 
     public ShowUp(WebDriver driver) {
         super(driver);
@@ -53,8 +57,11 @@ public class ShowUp extends PageObject {
         this.certifyBtn.click();
         wait(2000);
         pageUpDown(true);
-        wait(2000);
+        wait(4000);
         this.nextBtn.click();
         this.finishBtn.click();
+    }
+    public String getStatus(){
+        return this.appStatusDivs.get(1).getText();
     }
 }

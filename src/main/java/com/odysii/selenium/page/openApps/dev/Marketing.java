@@ -30,8 +30,9 @@ public class Marketing extends PageObject {
         this.promotionalText.sendKeys(properties.getProperty("promotional_text"));
         this.keywords.sendKeys(properties.getProperty("keywords"));
         this.screenshotsFile.sendKeys(properties.getProperty("app_preview_screenshots"));
+        wait(4000);
         this.appIcon.sendKeys(properties.getProperty("app_icon"));
-        wait(2000);
+        wait(4000);
         if (!complete.isDisplayed()){
             pageUpDown(true);
         }

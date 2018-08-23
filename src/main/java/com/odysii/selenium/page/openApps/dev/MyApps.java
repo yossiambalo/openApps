@@ -1,6 +1,5 @@
 package com.odysii.selenium.page.openApps.dev;
 
-import com.odysii.selenium.page.openApps.dev.AppDetails;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.WebDriver;

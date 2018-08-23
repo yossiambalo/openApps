@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -41,9 +44,11 @@ public class AppDetails extends PageObject{
         super(driver);
     }
     public UploadCode setUpAppDetails(){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
         PropertyLoader loader = new PropertyLoader();
         Properties properties = loader.loadPropFile("app_details.properties");
-        this.name.sendKeys(properties.getProperty("name"));
+        this.name.sendKeys(properties.getProperty("name")+": "+dateFormat.format(date));
         this.appVersion.sendKeys(properties.getProperty("app_version"));
         this.subtitle.sendKeys(properties.getProperty("subtitle"));
         this.language.click();
@@ -57,7 +62,8 @@ public class AppDetails extends PageObject{
         this.retailer.click();
 //        this.category.sendKeys(properties.getProperty("category"));
         this.availability.sendKeys(properties.getProperty("availability"));
-//        this.retailer.sendKeys(properties.getProperty("retailer"));
+        pageUpDown(true);
+        wait(2000);
         this.next.click();
         return new UploadCode(webDriver);
     }

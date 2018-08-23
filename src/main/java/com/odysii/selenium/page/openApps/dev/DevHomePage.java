@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DevHomePage extends PageObject {
+public class DevHomePage extends PageObject{
 
     @FindBy(xpath = "//*[contains(text(), 'My Apps')]")
     private WebElement myAppsLink;

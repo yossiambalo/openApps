@@ -9,13 +9,23 @@ public class SupportTicket extends PageObject {
     @FindBy(className = "btn-group-toggle")
     private WebElement sortBtn;
     @FindBy(xpath = "//button[contains(text(), 'Creation Time')]")
-    private WebElement creationTimeBtn;
+    private WebElement creationTimeBtn;//ticket00
+    @FindBy(id = "ticket00")
+    private WebElement ticket;
+    @FindBy(id = "adminTicketButtonOpen")
+    private WebElement openTicket;//adminTicketApproved
+    @FindBy(id = "adminTicketApproved")
+    private WebElement approveTicket;//finishButton
+    @FindBy(id = "finishButton")
+    private WebElement finishButton;
     public SupportTicket(WebDriver driver) {
         super(driver);
     }
     public void approve(){
-        sortBy(SORTBY.CREATION_TIME);
-        //ToDo: approve here...!
+       this.ticket.click();
+       this.openTicket.click();
+       this.approveTicket.click();
+       this.finishButton.click();
     }
     private void sortBy(SORTBY sortBy){
         this.sortBtn.click();
