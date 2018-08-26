@@ -24,8 +24,10 @@ public class ShowUp extends PageObject {
     private WebElement statistics;
     @FindBy(className = "block-item-menu-icon")
     private WebElement appVersionMenu;
-    @FindBy(xpath = "//button[contains(text(), 'Certify')]")
+    @FindBy(xpath =  "//button[contains(@id, 'certifyVersion1')]")
     private WebElement certifyBtn;
+    @FindBy(xpath = "//button[contains(@id, 'goLiveVersion1')]")
+    private WebElement addToAppStore;
     @FindBy(css = "[class~=text-body-small]")
     private List<WebElement> appStatusDivs;
 
@@ -60,6 +62,10 @@ public class ShowUp extends PageObject {
         wait(4000);
         this.nextBtn.click();
         this.finishBtn.click();
+    }
+    public void addApplicationToStore(){
+        this.appVersionMenu.click();
+        this.addToAppStore.click();
     }
     public String getStatus(){
         return this.appStatusDivs.get(1).getText();
