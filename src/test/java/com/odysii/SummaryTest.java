@@ -17,7 +17,6 @@ import org.testng.annotations.Test;
 
 public class SummaryTest extends TestBase {
 
-    HomePage homePage;
     @BeforeClass
     public void login() {
         Login login = new  Login(driver);
@@ -114,9 +113,15 @@ public class SummaryTest extends TestBase {
   @Test
   public void _008_certify_app_positive(){
       MyApps myApps = homePage.getMyAppsPage(driver);
-      ShowUp showUp = myApps.showUp(1);
+      ShowUp showUp = myApps.showUp(0);
       Summary summary = showUp.getSummary();
+      summary.certifyApp();
+    // Todo: add assertion after re-design
+  }
 
+  @Test
+    public void _009_certify_app_negative(){
 
   }
+
 }

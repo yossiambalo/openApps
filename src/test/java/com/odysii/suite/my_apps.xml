@@ -4,7 +4,13 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.odysii.SummaryTest"/>
+            <class name="com.odysii.MyAppsTest">
+                <methods>
+                    <exclude name="_001_name_is_empty_summary_negative"></exclude>
+                    <exclude name="_002_subtitle_is_empty_negative"></exclude>
+                </methods>
+            </class>
+
         </classes>
     </test>
     <!--<test name="IETest">-->
