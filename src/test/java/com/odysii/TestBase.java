@@ -1,20 +1,19 @@
 package com.odysii;
 
-import com.odysii.selenium.DriverManager;
-import com.odysii.selenium.DriverType;
-import com.odysii.selenium.page.HomePage;
-import com.odysii.selenium.page.myApps.Login;
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.FindBy;
+
+import com.odysii.selenium.page.openApps.dev.DevHomePage;
+import com.odysii.selenium.page.util.DriverManager;
+import com.odysii.selenium.page.util.DriverType;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 public class TestBase {
     WebDriver driver;
-    HomePage homePage;
-    protected final int WAIT = 2000;
+    protected final int WAIT = 4000;
     protected final String cancelID = "cancel-button";
     protected final String backTxt = "BACK";
     protected final String continueTxt = "CONTINUE";
@@ -38,7 +37,7 @@ public class TestBase {
             case "chrome":
                 driver = DriverManager.getWebDriver(DriverType.CHROME);
                 break;
-            case "ie":
+            case "edge":
                 driver = DriverManager.getWebDriver(DriverType.IE);
                 break;
             case "firefox":
@@ -46,8 +45,7 @@ public class TestBase {
                 break;
             default:
         }
-        driver.get("http://openapps.tveez.local:8080/openAppStore");
-        homePage = new HomePage(driver);
+        driver.get("http://openappsqa.tveez.local:8080/openAppStore");
     }
     protected boolean isElementExist(By by){
         boolean res = true;

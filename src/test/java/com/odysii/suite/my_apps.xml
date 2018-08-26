@@ -4,6 +4,7 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
+<<<<<<< HEAD
             <class name="com.odysii.MyAppsTest">
                 <methods>
                     <exclude name="_001_name_is_empty_summary_negative"></exclude>
@@ -11,18 +12,21 @@
                 </methods>
             </class>
 
+=======
+            <class name="com.odysii.SanityTest"/>
+>>>>>>> a113ae1fa91f93f67586535c907e096330ad808f
         </classes>
     </test>
-    <!--<test name="IETest">-->
-        <!--<parameter name="browser" value="ie"/>-->
+    <!--<test name="EdgeTest">-->
+        <!--<parameter name="browser" value="edge"/>-->
         <!--<classes>-->
-            <!--<class name="com.odysii.MyAppsTest"/>-->
+            <!--<class name="com.odysii.SanityTest"/>-->
         <!--</classes>-->
     <!--</test>-->
     <!--<test name="FireFoxTest">-->
         <!--<parameter name="browser" value="firefox"/>-->
         <!--<classes>-->
-            <!--<class name="com.odysii.MyAppsTest"/>-->
+            <!--<class name="com.odysii.SanityTest"/>-->
         <!--</classes>-->
     <!--</test>-->
 </suite>
