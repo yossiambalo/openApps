@@ -13,10 +13,9 @@ import org.testng.annotations.Test;
 
 public class SummaryTest extends TestBase {
 
-<<<<<<< HEAD
-=======
+
     DevHomePage devUser;
->>>>>>> a113ae1fa91f93f67586535c907e096330ad808f
+
     @BeforeClass
     public void login(){
         devUser = new DevHomePage(driver);
@@ -111,7 +110,7 @@ public class SummaryTest extends TestBase {
 */
   @Test
   public void _008_certify_app_positive(){
-      MyApps myApps = homePage.getMyAppsPage(driver);
+      MyApps myApps = devUser.getMyAppsPage(driver);
       ShowUp showUp = myApps.showUp(0);
       Summary summary = showUp.getSummary();
       summary.certifyApp();
