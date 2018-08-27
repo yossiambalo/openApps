@@ -40,6 +40,8 @@ public class AppDetails extends PageObject{
     WebElement cancel;
     @FindBy(id = "nextButton")
     WebElement next;
+    @FindBy(className = "multiselect-dropdown")
+    List<WebElement>  dropDowns;
     public AppDetails(WebDriver driver) {
         super(driver);
     }

@@ -12,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class SanityTest extends TestBase {
     private final String zipFile = "TH.zip";
     RetailerHomePage retailerHomePage;
     User user;
-   @BeforeClass
+   @BeforeTest
    public void login(){
        user = new User(driver);
        retailerHomePage = (RetailerHomePage) user.login("retailer","123456",UserType.RETAILER);
@@ -53,10 +54,12 @@ public class SanityTest extends TestBase {
         wait(4000);
         Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus());
         user.logout();
+        //Admin approve
         AdminPage adminPage = (AdminPage)user.login("admin","admin",UserType.ADMIN);
         SupportTicket supportTicket = adminPage.getSupportTickets();
         supportTicket.approve();
         user.logout();
+        //Valid certified
         devUser = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
         actualAppList = driver.findElements(By.className("card"));
@@ -66,6 +69,55 @@ public class SanityTest extends TestBase {
         wait(2000);
         Assert.assertEquals(ApplicationStatus.LLIVE.getStatus(),showUp.getStatus());
         user.logout();
+        //Valid app added to retailer store
+        retailerHomePage = (RetailerHomePage) user.login("retailer","123456",UserType.RETAILER);
+        int appListAfterAdding = driver.findElements(By.className("card")).size();
+        Assert.assertEquals(appListBeforeAdding+1,appListAfterAdding);
+    }
+    @Test
+    public void _002_add_new_app_and_reject_no_fee(){
+        int appListBeforeAdding = driver.findElements(By.className("card")).size();
+        user.logout();
+        DevHomePage devUser = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
+        MyApps myApps = devUser.getMyAppsPage(driver);
+        List<WebElement> appsList = driver.findElements(By.className("card"));
+        int appsSize = appsList.size();
+        int expectedValue = appsSize+1;
+        wait(WAIT);
+        AppDetails appDetails = myApps.clickAddNewAppBtn();
+        wait(WAIT);
+        UploadCode uploadCode = appDetails.setUpAppDetails();
+        wait(WAIT);
+        Marketing marketing = uploadCode.upload(zipFile);
+        wait(WAIT);
+        marketing.fillMarketing();
+        wait(WAIT);
+        List<WebElement> actualAppList = driver.findElements(By.className("card"));
+        int actualValue = actualAppList.size();
+        Assert.assertEquals(expectedValue,actualValue,"Failed to create a new application!");
+        //get the created app
+        ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
+        wait(3000);
+        showUp.certify();
+        wait(4000);
+        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus());
+        user.logout();
+        //Admin approve
+        AdminPage adminPage = (AdminPage)user.login("admin","admin",UserType.ADMIN);
+        SupportTicket supportTicket = adminPage.getSupportTickets();
+        supportTicket.rejectNoFee();
+        user.logout();
+        //Valid rejected
+        devUser = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
+        myApps = devUser.getMyAppsPage(driver);
+        actualAppList = driver.findElements(By.className("card"));
+        showUp =  myApps.showUp(actualAppList.size()-1);
+        Assert.assertEquals(ApplicationStatus.CERTIFIED.getStatus(),showUp.getStatus());
+        showUp.addApplicationToStore();
+        wait(2000);
+        Assert.assertEquals(ApplicationStatus.LLIVE.getStatus(),showUp.getStatus());
+        user.logout();
+        //Valid app added to retailer store
         retailerHomePage = (RetailerHomePage) user.login("retailer","123456",UserType.RETAILER);
         int appListAfterAdding = driver.findElements(By.className("card")).size();
         Assert.assertEquals(appListBeforeAdding+1,appListAfterAdding);
