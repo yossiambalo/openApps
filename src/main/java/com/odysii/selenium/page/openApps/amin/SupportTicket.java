@@ -18,6 +18,9 @@ public class SupportTicket extends PageObject {
     private WebElement approveTicket;//finishButton
     @FindBy(id = "finishButton")
     private WebElement finishButton;
+    @FindBy(id = "adminTicketReject")
+    private WebElement rejectTicketNoFee;
+
     public SupportTicket(WebDriver driver) {
         super(driver);
     }
@@ -26,6 +29,12 @@ public class SupportTicket extends PageObject {
        this.openTicket.click();
        this.approveTicket.click();
        this.finishButton.click();
+    }
+    public void rejectNoFee(){
+        this.ticket.click();
+        this.openTicket.click();
+        this.rejectTicketNoFee.click();
+        this.finishButton.click();
     }
     private void sortBy(SORTBY sortBy){
         this.sortBtn.click();
