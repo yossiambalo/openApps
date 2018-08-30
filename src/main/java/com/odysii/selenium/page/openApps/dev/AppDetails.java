@@ -2,6 +2,7 @@ package com.odysii.selenium.page.openApps.dev;
 
 import com.odysii.selenium.page.util.PageObject;
 import com.odysii.selenium.page.util.PropertyLoader;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,8 +41,12 @@ public class AppDetails extends PageObject{
     WebElement cancel;
     @FindBy(id = "nextButton")
     WebElement next;
-    @FindBy(className = "multiselect-dropdown")
-    List<WebElement>  dropDowns;
+    @FindBy(id = "appPriceType")
+    WebElement appPriceType;
+    @FindBy(id = "appPrice")
+    WebElement appPrice;
+
+    private int WAIT = 200;
     public AppDetails(WebDriver driver) {
         super(driver);
     }
@@ -53,17 +58,16 @@ public class AppDetails extends PageObject{
         this.name.sendKeys(properties.getProperty("name")+": "+dateFormat.format(date));
         this.appVersion.sendKeys(properties.getProperty("app_version"));
         this.subtitle.sendKeys(properties.getProperty("subtitle"));
-        this.language.click();
-        this.englishLanguage.click();
-        this.language.click();
-        this.category.click();
-        this.sportsCategory.click();
-        this.category.click();
-        this.retailer.click();
-        this.shellRetailer.click();
-        this.retailer.click();
-//        this.category.sendKeys(properties.getProperty("category"));
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.englishLanguage);
+        wait(WAIT);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",sportsCategory);
+        wait(WAIT);
         this.availability.sendKeys(properties.getProperty("availability"));
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",availability);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",shellRetailer);
+        appPriceType.sendKeys(properties.getProperty("app_price_type"));
+        appPrice.sendKeys(properties.getProperty("app_price"));
+        wait(WAIT);
         pageUpDown(true);
         wait(2000);
         this.next.click();

@@ -4,6 +4,9 @@ import com.odysii.selenium.page.openApps.dev.AppVersion;
 import com.odysii.selenium.page.openApps.dev.DevHomePage;
 import com.odysii.selenium.page.openApps.dev.MyApps;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -19,6 +22,11 @@ public class AppVersionsTest extends TestBase{
         MyApps myApps = devUser.getMyAppsPage(driver);
         ShowUp showUp = myApps.showUp(1);
         AppVersion appVersion = showUp.getAppVersions();
+        wait(3000);
+        pageUpDown(true);
+        wait(3000);
+        WebElement continueBtn =  driver.findElement(By.id("nextButton"));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click();",continueBtn);
         //appVersion.editAppVersion(FieldType.NEW_VERSION_NUMBER,"");
        // appVersion.editAppVersion(FieldType.NEW_VERSION_TEXT, "Test - app version is empty");
         appVersion.editAppVersion("", "TEST","C:\\yossi\\dog2.jpg");

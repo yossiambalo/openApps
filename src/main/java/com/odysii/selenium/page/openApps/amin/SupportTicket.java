@@ -20,6 +20,8 @@ public class SupportTicket extends PageObject {
     private WebElement finishButton;
     @FindBy(id = "adminTicketReject")
     private WebElement rejectTicketNoFee;
+    @FindBy(id = "adminTicketRejectFee")
+    private WebElement rejectTicketWithFee;
 
     public SupportTicket(WebDriver driver) {
         super(driver);
@@ -34,6 +36,12 @@ public class SupportTicket extends PageObject {
         this.ticket.click();
         this.openTicket.click();
         this.rejectTicketNoFee.click();
+        this.finishButton.click();
+    }
+    public void rejectWithFee(){
+        this.ticket.click();
+        this.openTicket.click();
+        this.rejectTicketWithFee.click();
         this.finishButton.click();
     }
     private void sortBy(SORTBY sortBy){

@@ -16,7 +16,7 @@ public class ShowUp extends PageObject {
     private WebElement finishBtn;
     @FindBy(xpath = "//span[contains(text(), 'Marketing')]")
     private WebElement marketing;
-    @FindBy(xpath = "//span[contains(text(), 'App Versions')]")
+    @FindBy(id = "editAppNewVersion")
     private WebElement appVersions;
     @FindBy(xpath = "//span[contains(text(), 'Submission History')]")
     private WebElement submissionHistory;
@@ -24,9 +24,9 @@ public class ShowUp extends PageObject {
     private WebElement statistics;
     @FindBy(className = "block-item-menu-icon")
     private WebElement appVersionMenu;
-    @FindBy(xpath =  "//button[contains(@id, 'certifyVersion1')]")
+    @FindBy(xpath =  "//button[contains(@id, 'certifyVersion')]")
     private WebElement certifyBtn;
-    @FindBy(xpath = "//button[contains(@id, 'goLiveVersion1')]")
+    @FindBy(xpath = "//button[contains(@id, 'goLiveVersion')]")
     private WebElement addToAppStore;
     @FindBy(css = "[class~=text-body-small]")
     private List<WebElement> appStatusDivs;

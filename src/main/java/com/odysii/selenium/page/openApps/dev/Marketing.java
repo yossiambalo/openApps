@@ -2,6 +2,7 @@ package com.odysii.selenium.page.openApps.dev;
 
 import com.odysii.selenium.page.util.PageObject;
 import com.odysii.selenium.page.util.PropertyLoader;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +31,8 @@ public class Marketing extends PageObject {
         this.promotionalText.sendKeys(properties.getProperty("promotional_text"));
         this.keywords.sendKeys(properties.getProperty("keywords"));
         this.screenshotsFile.sendKeys(properties.getProperty("app_preview_screenshots"));
-        wait(4000);
+//        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+//        js.executeScript("document.getElementById('iconFile').style.display = 'block';");
         this.appIcon.sendKeys(properties.getProperty("app_icon"));
         wait(4000);
         if (!complete.isDisplayed()){
