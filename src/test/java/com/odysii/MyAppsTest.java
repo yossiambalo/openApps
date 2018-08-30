@@ -81,7 +81,7 @@ public class MyAppsTest extends TestBase{
     public void _006_availability_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("XXX", "KKK", LanguageType.FRENCH, CategoryType.SPORTS, "", RetailerType.SHELL);
+        appDetails.setUpAppDetails("XXX", "PP", LanguageType.FRENCH, CategoryType.SPORTS, "", RetailerType.SHELL);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory availability field");
     }

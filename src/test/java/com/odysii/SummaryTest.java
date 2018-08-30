@@ -13,7 +13,9 @@ import org.testng.annotations.Test;
 
 public class SummaryTest extends TestBase {
 
+
     DevHomePage devUser;
+
     @BeforeClass
     public void login(){
         devUser = new DevHomePage(driver);
@@ -106,4 +108,18 @@ public class SummaryTest extends TestBase {
         Assert.assertFalse(actualValue, "There's no validations on retailers & name fields - they both empty!");
     }
 */
+  @Test
+  public void _008_certify_app_positive(){
+      MyApps myApps = devUser.getMyAppsPage(driver);
+      ShowUp showUp = myApps.showUp(0);
+      Summary summary = showUp.getSummary();
+      summary.certifyApp();
+    // Todo: add assertion after re-design
+  }
+
+  @Test
+    public void _009_certify_app_negative(){
+
+  }
+
 }

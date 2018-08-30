@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 
 public class PageObject {
+    protected final int WAIT = 4000;
     protected WebDriver webDriver;
     public PageObject(WebDriver driver){
         this.webDriver = driver;
