@@ -26,6 +26,8 @@ public class ShowUp extends PageObject {
     private WebElement appVersionMenu;
     @FindBy(xpath =  "//button[contains(@id, 'certifyVersion')]")
     private WebElement certifyBtn;
+    @FindBy(xpath =  "//button[contains(@id, 'editVersion')]")
+    private WebElement editAppBtn;
     @FindBy(xpath = "//button[contains(@id, 'goLiveVersion')]")
     private WebElement addToAppStore;
     @FindBy(css = "[class~=text-body-small]")
@@ -62,6 +64,11 @@ public class ShowUp extends PageObject {
         wait(4000);
         this.nextBtn.click();
         this.finishBtn.click();
+    }
+    public void editApp(Summary summary){
+        this.appVersionMenu.click();
+        this.editAppBtn.click();
+        summary.editSummary();
     }
     public void addApplicationToStore(){
         this.appVersionMenu.click();

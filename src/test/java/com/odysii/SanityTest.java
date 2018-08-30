@@ -7,6 +7,7 @@ import com.odysii.selenium.page.openApps.amin.SupportTicket;
 import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
+import com.odysii.selenium.page.openApps.dev.summary.Summary;
 import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -50,6 +51,9 @@ public class SanityTest extends TestBase {
         //get the created app
         ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
         wait(3000);
+        Summary summary = new Summary(driver);
+        showUp.editApp(summary);
+        wait(WAIT);
         showUp.certify();
         wait(4000);
         Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus());
@@ -64,7 +68,7 @@ public class SanityTest extends TestBase {
         myApps = devUser.getMyAppsPage(driver);
         actualAppList = driver.findElements(By.className("card"));
         showUp =  myApps.showUp(actualAppList.size()-1);
-        Assert.assertEquals(ApplicationStatus.CERTIFIED.getStatus(),showUp.getStatus());
+        Assert.assertEquals(showUp.getStatus(),ApplicationStatus.CERTIFIED.getStatus());
         showUp.addApplicationToStore();
         wait(2000);
         Assert.assertEquals(ApplicationStatus.LIVE.getStatus(),showUp.getStatus());
@@ -112,7 +116,7 @@ public class SanityTest extends TestBase {
         myApps = devUser.getMyAppsPage(driver);
         actualAppList = driver.findElements(By.className("card"));
         showUp =  myApps.showUp(actualAppList.size()-1);
-        Assert.assertEquals(ApplicationStatus.REJECT.getStatus(),showUp.getStatus());
+        Assert.assertEquals(showUp.getStatus(),ApplicationStatus.REJECT.getStatus());
         user.logout();
         //Valid app added to retailer store
         retailerHomePage = (RetailerHomePage) user.login("retailer","123456",UserType.RETAILER);
