@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
 import java.util.Properties;
 
 public class Marketing extends PageObject {
@@ -21,6 +22,8 @@ public class Marketing extends PageObject {
     private WebElement appIcon;
     @FindBy(id = "finishButton")
     private WebElement complete;
+    @FindBy(id = "finishButton")
+    private List<WebElement> completes;
 
     public Marketing(WebDriver driver) {
         super(driver);
@@ -38,7 +41,11 @@ public class Marketing extends PageObject {
         if (!complete.isDisplayed()){
             pageUpDown(true);
         }
-        this.complete.click();
+        if (complete.isDisplayed()) {
+            this.complete.click();
+        }else {
+            completes.get(1).click();
+        }
     }
     public void fillMarketing(String promotionalText,String kewords,String screenshotFilePath,String appIconPath){
         this.promotionalText.sendKeys(promotionalText);

@@ -21,7 +21,7 @@ public class AppVersionsTest extends TestBase{
     public void _001_version_field_without_value_positive(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         ShowUp showUp = myApps.showUp(1);
-        AppVersion appVersion = showUp.getAppVersions();
+        AppVersion appVersion = showUp.getAppVersion();
         appVersion.clickNewVersion();
         WebElement continueButton = driver.findElement(By.id("nextButton"));
         continueButton.click();

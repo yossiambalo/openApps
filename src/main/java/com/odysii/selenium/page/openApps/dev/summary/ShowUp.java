@@ -44,7 +44,7 @@ public class ShowUp extends PageObject {
         marketing.click();
         return new Marketing(webDriver);
     }
-    public AppVersion getAppVersions() {
+    public AppVersion getAppVersion() {
         appVersions.click();
         return new AppVersion(webDriver);
     }

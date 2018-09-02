@@ -2,6 +2,7 @@ package com.odysii.selenium.page.openApps.dev;
 
 import com.odysii.selenium.page.util.PageObject;
 import com.odysii.selenium.page.util.PropertyLoader;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,10 +26,16 @@ public class AppDetails extends PageObject{
     WebElement language;
     @FindBy(xpath = "//div[contains(text(), 'English')]")
     WebElement englishLanguage;
+    @FindBy(xpath = "//div[contains(text(), 'French')]")
+    WebElement frenchLanguage;
     @FindBy(xpath = "//div[contains(text(), 'Sports')]")
     WebElement sportsCategory;
+    @FindBy(xpath = "//div[contains(text(), 'Weather')]")
+    WebElement weatherCategory;
     @FindBy(xpath = "//div[contains(text(), 'Shell')]")
     WebElement shellRetailer;
+    @FindBy(xpath = "//div[contains(text(), 'ExxonMobil')]")
+    WebElement exxonMobilRetailer;
     @FindBy(className = "dropdown-btn")
     List<WebElement> dropDown;
     @FindBy(id = "AppCategories")
@@ -84,8 +91,45 @@ public class AppDetails extends PageObject{
         this.next.click();
         return new UploadCode(webDriver);
     }
+    /**
+     * Method porpose: for adding a new version
+     * @param version
+     * @return
+     */
+    public UploadCode setUpAppDetails(String version){
+        PropertyLoader loader = new PropertyLoader();
+        Properties properties = loader.loadPropFile("app_details.properties");
+        appVersion.clear();
+        this.appVersion.sendKeys(version);
+        subtitle.clear();
+        this.subtitle.sendKeys(properties.getProperty("subtitle"));
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.englishLanguage);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.frenchLanguage);
+        wait(WAIT);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",sportsCategory);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",weatherCategory);
+        pageUpDown(true);
+        wait(WAIT);
+        this.availability.sendKeys(properties.getProperty("availability"));
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",availability);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",shellRetailer);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",exxonMobilRetailer);
+        //appPriceType.sendKeys(properties.getProperty("app_price_type"));
+        //ToDo: find elements should be removed once id will unique
+        webDriver.findElements(By.id("appPriceType")).get(1).sendKeys(properties.getProperty("app_price_type"));
+        //ToDo: find elements should be removed once id will unique
+        webDriver.findElements(By.id("appPrice")).get(1).sendKeys(properties.getProperty("app_price"));
+        //appPrice.sendKeys(properties.getProperty("app_price"));
+        wait(WAIT);
+        pageUpDown(true);
+        wait(2000);
+        //ToDo: find elements should be removed once id will unique
+        webDriver.findElements(By.id("nextButton")).get(1).click();
+        //this.next.click();
+        return new UploadCode(webDriver);
+    }
     public void cancel(){
         if (cancel.isDisplayed())
-        cancel.click();
+            cancel.click();
     }
 }
