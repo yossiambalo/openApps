@@ -177,20 +177,22 @@ public class SanityTest extends TestBase {
         int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(appListBeforeAdding+1,appListAfterAdding);
     }
+    //TODO: complete test once the bug will fixed(unable to create a new version)
     @Test
     public void _003_valid_add_new_version_to_application(){
         user.logout();
         DevHomePage devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         MyApps myApps = devUser.getMyAppsPage(driver);
-        ShowUp showUp = myApps.showUp(driver.findElements(By.className(APP_CLASS_NAME)).size() - 3);
+        ShowUp showUp = myApps.showUp(driver.findElements(By.className(APP_CLASS_NAME)).size() - 1);
         showUp.getAppVersion();
         wait(WAIT);
         AppDetails appDetails = new AppDetails(driver);
-        UploadCode uploadCode = appDetails.setUpAppDetails("1.0.2");
+        UploadCode uploadCode = appDetails.setUpAppDetails("1.0.3");
         wait(WAIT);
         Marketing marketing = uploadCode.upload(zipFile);
         wait(WAIT);
         marketing.fillMarketing();
+        wait(WAIT);
         System.out.println("gfgf");
     }
     @AfterMethod

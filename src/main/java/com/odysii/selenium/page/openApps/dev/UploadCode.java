@@ -23,7 +23,7 @@ public class UploadCode extends PageObject{
     }
     public Marketing upload(String zipFile){
         this.agreeAndUpload.sendKeys(getFile("application//"+zipFile));
-        wait(2000);
+        wait(5000);
         if (next.isDisplayed()) {
             this.next.click();
         }else {
