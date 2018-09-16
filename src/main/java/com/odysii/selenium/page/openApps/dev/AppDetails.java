@@ -124,8 +124,8 @@ public class AppDetails extends PageObject{
         pageUpDown(true);
         wait(2000);
         //ToDo: find elements should be removed once id will unique
-        webDriver.findElements(By.id("nextButton")).get(1).click();
-        //this.next.click();
+        //webDriver.findElements(By.id("nextButton")).get(1).click();
+        this.next.click();
         return new UploadCode(webDriver);
     }
     public void cancel(){

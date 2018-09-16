@@ -12,11 +12,11 @@ public class SupportTicket extends PageObject {
     private WebElement creationTimeBtn;//ticket00
     @FindBy(id = "ticket00")
     private WebElement ticket;
-    @FindBy(id = "adminTicketButtonOpen")
+    @FindBy(id = "adminTicketOpen")
     private WebElement openTicket;//adminTicketApproved
     @FindBy(id = "adminTicketApproved")
     private WebElement approveTicket;//finishButton
-    @FindBy(id = "finishButton")
+    @FindBy(id = "finishButtonAdminTicket")
     private WebElement finishButton;
     @FindBy(id = "adminTicketReject")
     private WebElement rejectTicketNoFee;
@@ -28,19 +28,19 @@ public class SupportTicket extends PageObject {
     }
     public void approve(){
        this.ticket.click();
-       this.openTicket.click();
+       //this.openTicket.click();
        this.approveTicket.click();
        this.finishButton.click();
     }
     public void rejectNoFee(){
         this.ticket.click();
-        this.openTicket.click();
+        //this.openTicket.click();
         this.rejectTicketNoFee.click();
         this.finishButton.click();
     }
     public void rejectWithFee(){
         this.ticket.click();
-        this.openTicket.click();
+        //this.openTicket.click();
         this.rejectTicketWithFee.click();
         this.finishButton.click();
     }

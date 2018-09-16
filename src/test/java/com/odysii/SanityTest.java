@@ -34,7 +34,7 @@ public class SanityTest extends TestBase {
         user = new User(driver);
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
     }
-    //@Test
+    @Test
     public void _001_add_new_app_and_reject_no_fee(){
         int appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         user.logout();
@@ -71,8 +71,9 @@ public class SanityTest extends TestBase {
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        wait(7000);
         showUp =  myApps.showUp(actualAppList.size()-1);
-        wait(WAIT);
+        wait(7000);
         Assert.assertEquals(showUp.getStatus(),ApplicationStatus.REJECT.getStatus());
         user.logout();
         //Valid app added to retailer store
@@ -80,7 +81,7 @@ public class SanityTest extends TestBase {
         int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(appListBeforeAdding,appListAfterAdding);
     }
-    //@Test
+    @Test
     public void _002_add_new_app_and_reject_with_fee(){
         int appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         user.logout();
@@ -117,6 +118,7 @@ public class SanityTest extends TestBase {
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        wait(7000);
         showUp =  myApps.showUp(actualAppList.size()-1);
         Assert.assertEquals(ApplicationStatus.REJECT.getStatus(),showUp.getStatus());
         user.logout();
@@ -125,7 +127,7 @@ public class SanityTest extends TestBase {
         int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(appListBeforeAdding,appListAfterAdding);
     }
-    //@Test
+    @Test
     public void _003_add_new_app_and_certify(){
         int appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         user.logout();
@@ -165,12 +167,12 @@ public class SanityTest extends TestBase {
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        wait(7000);
         showUp =  myApps.showUp(actualAppList.size()-1);
-        wait(WAIT);
         Assert.assertEquals(showUp.getStatus(),ApplicationStatus.CERTIFIED.getStatus());
         showUp.addApplicationToStore();
-        wait(2000);
-        Assert.assertEquals(ApplicationStatus.LIVE.getStatus(),showUp.getStatus());
+        wait(4000);
+        Assert.assertEquals(showUp.getStatus(),ApplicationStatus.LIVE.getStatus());
         user.logout();
         //Valid app added to retailer store
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
@@ -187,12 +189,13 @@ public class SanityTest extends TestBase {
         showUp.getAppVersion();
         wait(WAIT);
         AppDetails appDetails = new AppDetails(driver);
-        UploadCode uploadCode = appDetails.setUpAppDetails("1.0.3");
+        UploadCode uploadCode = appDetails.setUpAppDetails("1.0.7");
         wait(WAIT);
         Marketing marketing = uploadCode.upload(zipFile);
         wait(WAIT);
         marketing.fillMarketing();
         wait(WAIT);
+        Assert.assertEquals(showUp.getStatus(),ApplicationStatus.PRESUBMITTED.getStatus());
         System.out.println("gfgf");
     }
     @AfterMethod

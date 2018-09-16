@@ -1,8 +1,6 @@
 package com.odysii.selenium.page.util;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 
 import java.awt.*;
@@ -52,5 +50,21 @@ public class PageObject {
         }
         wait(3000);
         robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
+    }
+    public int scrollDown()
+    {
+        JavascriptExecutor js = ((JavascriptExecutor) webDriver);
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+
+        return (int) (long) js.executeScript("return document.body.scrollHeight;");
+    }
+
+    public boolean isElementPresent(WebElement element) {
+        int counter = 0;
+        while (!element.isDisplayed() && counter < 5){
+            wait(4000);
+            counter ++;
+        }
+       return counter != 5;
     }
 }

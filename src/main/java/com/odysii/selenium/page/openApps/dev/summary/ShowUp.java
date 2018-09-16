@@ -2,6 +2,7 @@ package com.odysii.selenium.page.openApps.dev.summary;
 
 import com.odysii.selenium.page.openApps.dev.AppVersion;
 import com.odysii.selenium.page.util.PageObject;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,8 +31,9 @@ public class ShowUp extends PageObject {
     private WebElement editAppBtn;
     @FindBy(xpath = "//button[contains(@id, 'goLiveVersion')]")
     private WebElement addToAppStore;
-    @FindBy(css = "[class~=text-body-small]")
-    private List<WebElement> appStatusDivs;
+    private String appStatusDivs =  "[class~=text-body-small]";
+    @FindBy(className = "cx-item-block")
+    private List<WebElement> versionDivs;
 
     public ShowUp(WebDriver driver) {
         super(driver);
@@ -57,11 +59,13 @@ public class ShowUp extends PageObject {
         return new Statistics(webDriver);
     }
     public void certify(){
+        int counter = 0;
         this.appVersionMenu.click();
         this.certifyBtn.click();
-        wait(2000);
-        pageUpDown(true);
-        wait(4000);
+       while (!nextBtn.isDisplayed() && counter < 5) {
+           pageUpDown(true);
+           counter++;
+       }
         this.nextBtn.click();
         this.finishBtn.click();
     }
@@ -75,6 +79,6 @@ public class ShowUp extends PageObject {
         this.addToAppStore.click();
     }
     public String getStatus(){
-        return this.appStatusDivs.get(1).getText();
+       return this.versionDivs.get(0).findElements(By.cssSelector(appStatusDivs)).get(0).getText();
     }
 }
