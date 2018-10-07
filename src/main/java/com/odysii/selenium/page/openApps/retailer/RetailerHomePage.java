@@ -14,6 +14,10 @@ public class RetailerHomePage extends PageObject {
     WebElement campaigns;
     @FindBy(xpath = "//span[contains(text(), 'Scheduling')]")
     WebElement scheduling;
+    @FindBy(id = "applicationSearchInput")
+    WebElement applicationSearchInput;
+    @FindBy(id = "makeApplicationSearch")
+    WebElement makeApplicationSearch;
     public RetailerHomePage(WebDriver driver) {
         super(driver);
     }
@@ -36,5 +40,9 @@ public class RetailerHomePage extends PageObject {
     public Scheduling getScheduling() {
         scheduling.click();
         return new Scheduling(webDriver);
+    }
+    public void searchApps(String keyWord){
+        applicationSearchInput.sendKeys(keyWord);
+        makeApplicationSearch.click();
     }
 }

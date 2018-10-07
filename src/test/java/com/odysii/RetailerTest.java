@@ -4,6 +4,7 @@ import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.retailer.AppLibrary;
 import com.odysii.selenium.page.openApps.retailer.AppStore;
+import com.odysii.selenium.page.openApps.retailer.Campaign;
 import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -26,6 +27,7 @@ public class RetailerTest extends TestBase {
         retailerHomePage.getAppLibrary();
         int expectedApp = driver.findElements(By.className(APP_CLASS_NAME)).size() + 1;
         AppStore appStore = retailerHomePage.getAppStore();
+        wait(WAIT);
         appStore.addAppToLibrary(driver.findElements(By.className(APP_CLASS_NAME)).size() - 1);
         wait(WAIT);
         AppLibrary appLibrary = retailerHomePage.getAppLibrary();
@@ -35,5 +37,23 @@ public class RetailerTest extends TestBase {
         appLibrary.removeAppFromLibrary(driver.findElements(By.className(APP_CLASS_NAME)).size() - 1);
         wait(WAIT);
         Assert.assertEquals(actualApps - 1,driver.findElements(By.className(APP_CLASS_NAME)).size());
+    }
+    @Test
+    public void _002_search_apps(){
+        retailerHomePage.getAppStore();
+        int expectedApp = 3;
+        retailerHomePage.searchApps("Spin");
+        wait(WAIT);
+        int actualApps = driver.findElements(By.className(APP_CLASS_NAME)).size();
+        Assert.assertEquals(actualApps,expectedApp,"App store search functionality failed!");
+    }
+    @Test
+    public void _003_create_campaign(){
+        Campaign campaign = retailerHomePage.getCampaigs();
+        int expectedCampaigns = campaign.getNumOfCampaigns() + 1;
+        campaign.createCampaign("Auto Campaign","auto description");
+        wait(WAIT);
+        int actualCampaigns = campaign.getNumOfCampaigns();
+        Assert.assertEquals(actualCampaigns,expectedCampaigns,"Adding a new campaign failed!");
     }
 }
