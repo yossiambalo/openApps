@@ -16,7 +16,7 @@ import java.awt.event.KeyEvent;
 
 public class TestBase {
     WebDriver driver;
-    protected final int WAIT = 4000;
+    protected final int WAIT = 10000;
     protected final String cancelID = "cancel-button";
     protected final String backTxt = "BACK";
     protected final String continueTxt = "CONTINUE";
