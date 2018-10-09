@@ -21,6 +21,10 @@ public class Campaign extends PageObject {
     private WebElement finishButton;
     @FindBy(className = "block-item-menu-icon")
     private List<WebElement> campaignListMenuBtn;
+    @FindBy(xpath = "//button[contains(@id, 'deleteCampaign')]")
+    private List<WebElement> deletBtn;
+    @FindBy(xpath = "//button[contains(text(), 'Confirm')]")
+    private WebElement confirmBtn;
 
     public Campaign(WebDriver driver) {
         super(driver);
@@ -33,5 +37,11 @@ public class Campaign extends PageObject {
         camapginName.sendKeys(campaignName,description);
         campaignDescription.sendKeys(description);
         finishButton.click();
+    }
+    public void deleteCampaign(){
+        campaignListMenuBtn.get(0).click();
+        deletBtn.get(0).click();
+        wait(WAIT);
+        confirmBtn.click();
     }
 }

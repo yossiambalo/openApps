@@ -48,12 +48,15 @@ public class RetailerTest extends TestBase {
         Assert.assertEquals(actualApps,expectedApp,"App store search functionality failed!");
     }
     @Test
-    public void _003_create_campaign(){
+    public void _003_create_and_delete_campaign(){
         Campaign campaign = retailerHomePage.getCampaigs();
         int expectedCampaigns = campaign.getNumOfCampaigns() + 1;
         campaign.createCampaign("Auto Campaign","auto description");
         wait(WAIT);
         int actualCampaigns = campaign.getNumOfCampaigns();
         Assert.assertEquals(actualCampaigns,expectedCampaigns,"Adding a new campaign failed!");
+        campaign.deleteCampaign();
+        wait(WAIT);
+        Assert.assertEquals(actualCampaigns - 1,campaign.getNumOfCampaigns());
     }
 }

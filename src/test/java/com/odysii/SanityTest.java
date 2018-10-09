@@ -34,7 +34,7 @@ public class SanityTest extends TestBase {
         user = new User(driver);
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
     }
-    @Test
+    //@Test
     public void _001_add_new_app_and_reject_no_fee(){
         int appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         user.logout();
@@ -57,9 +57,9 @@ public class SanityTest extends TestBase {
         Assert.assertEquals(expectedValue,actualValue,"Failed to create a new application!");
         //get the created app
         ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
-        wait(3000);
+        wait(WAIT);
         showUp.certify();
-        wait(4000);
+        wait(WAIT);
         Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus());
         user.logout();
         //Admin approve
@@ -81,7 +81,7 @@ public class SanityTest extends TestBase {
         int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(appListBeforeAdding,appListAfterAdding);
     }
-    @Test
+    //@Test
     public void _002_add_new_app_and_reject_with_fee(){
         int appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         user.logout();
@@ -127,7 +127,7 @@ public class SanityTest extends TestBase {
         int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(appListBeforeAdding,appListAfterAdding);
     }
-    @Test
+    //@Test
     public void _003_add_new_app_and_certify(){
         int appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         user.logout();
@@ -179,7 +179,6 @@ public class SanityTest extends TestBase {
         int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(appListBeforeAdding+1,appListAfterAdding);
     }
-    //TODO: complete test once the bug will fixed(unable to create a new version)
     @Test
     public void _003_valid_add_new_version_to_application(){
         user.logout();
@@ -196,7 +195,6 @@ public class SanityTest extends TestBase {
         marketing.fillMarketing();
         wait(WAIT);
         Assert.assertEquals(showUp.getStatus(),ApplicationStatus.PRESUBMITTED.getStatus());
-        System.out.println("gfgf");
     }
     @AfterMethod
     public void afterMethod(){
