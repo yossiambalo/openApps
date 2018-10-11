@@ -34,7 +34,7 @@ public class SanityTest extends TestBase {
         user = new User(driver);
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
     }
-    //@Test
+    @Test
     public void _001_add_new_app_and_reject_no_fee(){
         int appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         user.logout();
@@ -55,6 +55,8 @@ public class SanityTest extends TestBase {
         List<WebElement> actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
         int actualValue = actualAppList.size();
         Assert.assertEquals(expectedValue,actualValue,"Failed to create a new application!");
+        Assert.assertTrue(myApps.getTitle(actualValue-1).toLowerCase().contains(appDetails.getAppTitle().toLowerCase()));
+        Assert.assertTrue(myApps.getDescription(actualValue-1).toLowerCase().contains(appDetails.getAppDescription().toLowerCase()));
         //get the created app
         ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
         wait(WAIT);
@@ -81,7 +83,7 @@ public class SanityTest extends TestBase {
         int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(appListBeforeAdding,appListAfterAdding);
     }
-    //@Test
+    @Test
     public void _002_add_new_app_and_reject_with_fee(){
         int appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         user.logout();
@@ -180,7 +182,7 @@ public class SanityTest extends TestBase {
         Assert.assertEquals(appListBeforeAdding+1,appListAfterAdding);
     }
     @Test
-    public void _003_valid_add_new_version_to_application(){
+    public void _004_valid_add_new_version_to_application(){
         user.logout();
         DevHomePage devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         MyApps myApps = devUser.getMyAppsPage(driver);
