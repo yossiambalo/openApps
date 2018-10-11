@@ -2,8 +2,10 @@ package com.odysii.selenium.page.openApps;
 
 import com.odysii.selenium.page.openApps.amin.AdminPage;
 import com.odysii.selenium.page.openApps.dev.DevHomePage;
+import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -15,7 +17,7 @@ public class User extends PageObject {
     WebElement userPassword;
     @FindBy(xpath = "//button[contains(text(), 'Login')]")
     WebElement loginBtn;
-    @FindBy(className = "float-right")
+    @FindBy(id = "user-popover")
     WebElement logoutBtn;
     public User(WebDriver driver) {
         super(driver);
@@ -33,7 +35,7 @@ public class User extends PageObject {
                object = new DevHomePage(webDriver);
                break;
             case RETAILER:
-                ///
+                object = new RetailerHomePage(webDriver);
                 break;
             case ADMIN:
                 object = new AdminPage(webDriver);
@@ -44,6 +46,10 @@ public class User extends PageObject {
         return object;
     }
     public void logout(){
-        logoutBtn.click();
+        try {
+            logoutBtn.click();
+        }catch (WebDriverException exception){
+            exception.getMessage();
+        }
     }
 }

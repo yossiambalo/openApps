@@ -4,19 +4,19 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.odysii.AppVersionsTest"/>
+            <class name="com.odysii.SanityTest"/>
         </classes>
     </test>
     <!--<test name="EdgeTest">-->
     <!--<parameter name="browser" value="edge"/>-->
     <!--<classes>-->
-    <!--<class name="com.odysii.SanityTest"/>-->
+    <!--<class name="com.odysii.RetailerTest"/>-->
     <!--</classes>-->
     <!--</test>-->
     <!--<test name="FireFoxTest">-->
     <!--<parameter name="browser" value="firefox"/>-->
     <!--<classes>-->
-    <!--<class name="com.odysii.SanityTest"/>-->
+    <!--<class name="com.odysii.RetailerTest"/>-->
     <!--</classes>-->
     <!--</test>-->
 </suite>
