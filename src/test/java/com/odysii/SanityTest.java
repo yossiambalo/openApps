@@ -179,7 +179,7 @@ public class SanityTest extends TestBase {
         int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(appListBeforeAdding+1,appListAfterAdding);
     }
-    @Test
+   // @Test
     public void _003_valid_add_new_version_to_application(){
         user.logout();
         DevHomePage devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
@@ -195,6 +195,38 @@ public class SanityTest extends TestBase {
         marketing.fillMarketing();
         wait(WAIT);
         Assert.assertEquals(showUp.getStatus(),ApplicationStatus.PRESUBMITTED.getStatus());
+    }
+    @Test
+    public void _005_edit_version(){
+        user.logout();
+        DevHomePage devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+        MyApps myApps = devUser.getMyAppsPage(driver);
+        ShowUp showUp = myApps.showUp(0);
+        showUp.edit();
+        wait(WAIT);
+        WebElement subtitleField = driver.findElement(By.id("appSubtitleSummary"));
+        subtitleField.clear();
+        subtitleField.sendKeys("QA test update of edit");
+        pageUpDown(true);
+        WebElement priceField = driver.findElement(By.id("appPrice"));
+        priceField.clear();
+        priceField.sendKeys("123");
+        pageUpDown(true);
+        WebElement finishbutton = driver.findElement(By.id("finishButton"));
+        finishbutton.click();
+        wait(WAIT);
+        showUp.edit();
+        wait(WAIT);
+        subtitleField = driver.findElement(By.id("appSubtitleSummary"));
+        String actualSubtitle = subtitleField.getAttribute("value");
+        String expectedValue = "QA test update of edit";
+        Assert.assertEquals(actualSubtitle,expectedValue, "Error message - failed to save the user's edit");
+        WebElement pricing = driver.findElement(By.id("appPrice"));
+        String actualPricing = pricing.getAttribute("value");
+        String expectedValue2 = "123";
+        Assert.assertEquals(actualPricing,expectedValue2, "Error message - failed to save the user's edit");
+
+
     }
     @AfterMethod
     public void afterMethod(){

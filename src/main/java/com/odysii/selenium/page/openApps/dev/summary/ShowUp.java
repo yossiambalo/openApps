@@ -69,6 +69,12 @@ public class ShowUp extends PageObject {
         this.nextBtn.click();
         this.finishBtn.click();
     }
+    public void edit(){
+        int counter = 0;
+        this.appVersionMenu.click();
+        this.editAppBtn.click();
+
+    }
     public void editApp(Summary summary){
         this.appVersionMenu.click();
         this.editAppBtn.click();

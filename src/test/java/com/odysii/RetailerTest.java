@@ -59,4 +59,5 @@ public class RetailerTest extends TestBase {
         wait(WAIT);
         Assert.assertEquals(actualCampaigns - 1,campaign.getNumOfCampaigns());
     }
+
 }
