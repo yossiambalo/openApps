@@ -53,6 +53,15 @@ public class AppDetails extends PageObject{
     @FindBy(id = "appPrice")
     WebElement appPrice;
 
+    public String getAppTitle() {
+        return appTitle;
+    }
+
+    public String getAppDescription() {
+        return appDescription;
+    }
+
+    private String appTitle,appDescription;
     private int WAIT = 200;
     public AppDetails(WebDriver driver) {
         super(driver);
@@ -62,9 +71,11 @@ public class AppDetails extends PageObject{
         Date date = new Date();
         PropertyLoader loader = new PropertyLoader();
         Properties properties = loader.loadPropFile("app_details.properties");
-        this.name.sendKeys(properties.getProperty("name")+": "+dateFormat.format(date));
+        this.appTitle = properties.getProperty("name");
+        this.appDescription = properties.getProperty("subtitle");
+        this.name.sendKeys(appTitle +": "+dateFormat.format(date));
         this.appVersion.sendKeys(properties.getProperty("app_version"));
-        this.subtitle.sendKeys(properties.getProperty("subtitle"));
+        this.subtitle.sendKeys(appDescription);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.englishLanguage);
         wait(WAIT);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",sportsCategory);

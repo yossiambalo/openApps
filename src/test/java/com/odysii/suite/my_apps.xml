@@ -4,7 +4,7 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.odysii.SanityTest"/>
+            <class name="com.odysii.ContentTest"/>
         </classes>
     </test>
     <!--<test name="EdgeTest">-->
