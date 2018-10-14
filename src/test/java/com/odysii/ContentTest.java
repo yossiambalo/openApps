@@ -9,18 +9,19 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class ContentTest extends TestBase{
-    DevHomePage adminPage;
+    DevHomePage devHomePage;
     User user;
     @BeforeMethod
     public void login(){
         user = new User(driver);
-        adminPage = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
+        devHomePage = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
     }
     @Test
     public void _001_valid_Dashboard_header(){
         String expected = "Dashboard";
-        adminPage.getDashboardPage(driver);
+        devHomePage.getDashboardPage(driver);
         String actualTxt = driver.findElement(By.className("h2")).getText();
         Assert.assertEquals(actualTxt,expected);
     }
+
 }
