@@ -1,6 +1,7 @@
 package com.odysii.selenium.page.openApps.amin;
 
 import com.odysii.selenium.page.util.PageObject;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +18,7 @@ public class AdminPage extends PageObject {
     WebElement loginBtn;
     @FindBy(className = "float-right")
     WebElement logoutBtn;
+    private final static String TICKET_ID_FREFIX = "ticket";
 
     public void login(String userName,String password){
         this.userName.clear();
@@ -34,6 +36,11 @@ public class AdminPage extends PageObject {
     public SupportTicket getSupportTickets() {
         this.supportTickets.click();
         return new SupportTicket(webDriver);
+    }
+    public SupportTicket getTicket(int index) {
+        webDriver.findElement(By.id(TICKET_ID_FREFIX+index+"0")).click();
+        return new SupportTicket(webDriver);
+
     }
 
 }
