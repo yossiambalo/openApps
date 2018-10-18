@@ -1,4 +1,4 @@
-package com.odysii.selenium.page.openApps.amin;
+package com.odysii.selenium.page.openApps.admin;
 
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.By;
@@ -8,8 +8,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class AdminPage extends PageObject {
 
-   @FindBy(xpath = "//span[contains(text(), 'Support Tickets')]")
-   private WebElement supportTickets;
+    @FindBy(xpath = "//span[contains(text(), 'Support Tickets')]")
+    private WebElement supportTickets;
     @FindBy(name = "username")
     WebElement userName;
     @FindBy(name = "password")

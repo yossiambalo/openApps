@@ -3,8 +3,7 @@ package com.odysii;
 
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
-import com.odysii.selenium.page.openApps.amin.AdminPage;
-import com.odysii.selenium.page.openApps.amin.SupportTicket;
+import com.odysii.selenium.page.openApps.admin.AdminPage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;

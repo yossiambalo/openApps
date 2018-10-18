@@ -1,6 +1,6 @@
 package com.odysii.selenium.page.openApps;
 
-import com.odysii.selenium.page.openApps.amin.AdminPage;
+import com.odysii.selenium.page.openApps.admin.AdminPage;
 import com.odysii.selenium.page.openApps.dev.DevHomePage;
 import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
 import com.odysii.selenium.page.util.PageObject;
