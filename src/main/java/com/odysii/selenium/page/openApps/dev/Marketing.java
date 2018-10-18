@@ -33,8 +33,8 @@ public class Marketing extends PageObject {
         Properties properties = loader.loadPropFile("marketing.properties");
         this.promotionalText.sendKeys(properties.getProperty("promotional_text"));
         this.keywords.sendKeys(properties.getProperty("keywords"));
-        this.appIcon.sendKeys(properties.getProperty("app_icon"));
-        this.screenshotsFile.sendKeys(properties.getProperty("app_preview_screenshots"));
+        this.appIcon.sendKeys(getFile(properties.getProperty("app_icon")));
+        this.screenshotsFile.sendKeys(getFile(properties.getProperty("app_preview_screenshots")));
         int counter = 0;
        if(isElementPresent(deleteBtn)){
             while ((!complete.isDisplayed() && counter < 5)){

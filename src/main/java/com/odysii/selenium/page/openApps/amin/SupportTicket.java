@@ -44,7 +44,7 @@ public class SupportTicket extends PageObject {
         this.rejectTicketWithFee.click();
         this.finishButton.click();
     }
-    private void sortBy(SORTBY sortBy){
+    private void sortBy(SortBy sortBy){
         this.sortBtn.click();
         switch (sortBy){
             case CREATION_TIME:
