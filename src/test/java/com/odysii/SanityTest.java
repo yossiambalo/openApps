@@ -129,7 +129,7 @@ public class SanityTest extends TestBase {
         int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(appListBeforeAdding,appListAfterAdding);
     }
-    //@Test
+    @Test
     public void _003_add_new_app_and_certify(){
         int appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         user.logout();
