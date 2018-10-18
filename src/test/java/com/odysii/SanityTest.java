@@ -195,7 +195,7 @@ public class SanityTest extends TestBase {
         Marketing marketing = uploadCode.upload(zipFile);
         wait(WAIT);
         marketing.fillMarketing();
-        wait(WAIT);
+        wait(7000);
         Assert.assertEquals(showUp.getStatus(),ApplicationStatus.PRESUBMITTED.getStatus());
     }
     @AfterMethod
