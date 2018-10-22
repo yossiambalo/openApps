@@ -23,8 +23,12 @@ public class Campaign extends PageObject {
     private List<WebElement> campaignListMenuBtn;
     @FindBy(xpath = "//button[contains(@id, 'deleteCampaign')]")
     private List<WebElement> deletBtn;
+    @FindBy(id = "editCampaign")
+    private WebElement editBtn;
     @FindBy(xpath = "//button[contains(text(), 'Confirm')]")
     private WebElement confirmBtn;
+    @FindBy(xpath = "//span[contains(text(), 'Design')]")
+    private WebElement designLink;
 
     public Campaign(WebDriver driver) {
         super(driver);
@@ -33,6 +37,7 @@ public class Campaign extends PageObject {
         return campaigns.size();
     }
     public void createCampaign(String campaignName, String description){
+        isElementPresent(addNewCampaignBtn);
         addNewCampaignBtn.click();
         camapginName.sendKeys(campaignName,description);
         campaignDescription.sendKeys(description);
@@ -43,5 +48,14 @@ public class Campaign extends PageObject {
         deletBtn.get(0).click();
         wait(WAIT);
         confirmBtn.click();
+    }
+    public CampaignDesigner getDesignerPage(){
+        campaignListMenuBtn.get(0).click();
+        editBtn.click();
+        isElementPresent(designLink);
+        designLink.click();
+        wait(1000);
+        designLink.click();
+        return new CampaignDesigner(webDriver);
     }
 }

@@ -65,6 +65,10 @@ public class PageObject {
             wait(4000);
             counter ++;
         }
-       return counter != 5;
+       if (counter == 5){
+           throw new ExplicitAssertionError("element not found");
+       }
+       wait(WAIT);
+       return true;
     }
 }

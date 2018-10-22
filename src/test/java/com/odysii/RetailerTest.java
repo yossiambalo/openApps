@@ -2,10 +2,10 @@ package com.odysii;
 
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
-import com.odysii.selenium.page.openApps.retailer.AppLibrary;
-import com.odysii.selenium.page.openApps.retailer.AppStore;
-import com.odysii.selenium.page.openApps.retailer.Campaign;
-import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
+import com.odysii.selenium.page.openApps.retailer.*;
+import com.odysii.selenium.page.openApps.retailer.helper.LayoutType;
+import com.odysii.selenium.page.openApps.retailer.helper.ScreenSize;
+import com.odysii.selenium.page.openApps.retailer.helper.StateType;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -59,4 +59,11 @@ public class RetailerTest extends TestBase {
         wait(WAIT);
         Assert.assertEquals(actualCampaigns - 1,campaign.getNumOfCampaigns());
     }
+    @Test
+    public void _003_set_up_campaign_layout1(){
+        Campaign campaign = retailerHomePage.getCampaigs();
+        CampaignDesigner campaignDesigner = campaign.getDesignerPage();
+        campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6);
+    }
+
 }

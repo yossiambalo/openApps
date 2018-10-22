@@ -1,4 +1,4 @@
-package com.odysii.selenium.page.openApps.amin;
+package com.odysii.selenium.page.openApps.admin;
 
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.WebDriver;

@@ -2,8 +2,8 @@ package com.odysii;
 
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
-import com.odysii.selenium.page.openApps.amin.AdminPage;
-import com.odysii.selenium.page.openApps.amin.SupportTicket;
+import com.odysii.selenium.page.openApps.admin.AdminPage;
+import com.odysii.selenium.page.openApps.admin.SupportTicket;
 import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;

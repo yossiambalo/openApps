@@ -11,31 +11,30 @@ public class AppVersion extends PageObject {
     WebElement newVersion;
     @FindBy(id = "codeFile")
     WebElement selectUpload;
-    @FindBy(id = "newVersionNumber")
+    @FindBy(id = "appVersion")
     WebElement newVersionNumber;
-    @FindBy(id = "new-version-text")
+    @FindBy(id = "appVersion")
     WebElement newVersionText;
-    @FindBy(id = "finish-button")
-    WebElement appName;
     @FindBy (id = "appName")
-    WebElement versionName;
-    @FindBy (id = "appVersion")
-    WebElement subtitle;
+    WebElement appName;
     @FindBy (id = "appSubtitle")
-    WebElement availability;
+    WebElement appSubtitle;
     @FindBy (id = "appAvailability")
-    WebElement promotionText;
+    WebElement availability;
     @FindBy(id = "app-promotion")
-    WebElement keywords;
+    WebElement promotionText;
     @FindBy(id = "app-keywords")
-    WebElement appIcon;
+    WebElement keywords;
     @FindBy(id = "newAppUploadIcon")
-    WebElement screenShots;
+    WebElement appIcon;
     @FindBy (id = "newAppUploadScreenshot")
-    WebElement finishCreationNewVersion;
+    WebElement screenShots;
     @FindBy (id = "finishButton")
-    WebElement continueButton;
+    WebElement finishCreationNewVersion;
     @FindBy (id = "nextButton")
+    WebElement continueButton;
+    @FindBy (id = "previousButton ")
+    WebElement backButton;
 
     public WebElement finishButton;
 
@@ -48,18 +47,15 @@ public class AppVersion extends PageObject {
         switch (type) {
 
             case NEW_VERSION_NUMBER:
-                newVersion.click();
                 this.newVersionNumber.clear();
                 this.newVersionNumber.sendKeys(newValue);
                 break;
             case NEW_VERSION_TEXT:
-                newVersion.click();
                 this.newVersionText.clear();
                 this.newVersionText.sendKeys(newValue);
                 break;
             case SELECT_UPLOAD:
-                newVersion.click();
-                this.selectUpload.sendKeys(newValue);
+                this.selectUpload.sendKeys(getFile("application//"+newValue ));
                 break;
 
             default:
@@ -73,9 +69,6 @@ public class AppVersion extends PageObject {
 //            this.newVersionText.clear();
 //            this.newVersionText.sendKeys(newVersionText);
 //            this.selectUpload.sendKeys(selectUpload);
-
-
-
 
     public void setAppName(WebElement appName) {
         this.appName = appName;

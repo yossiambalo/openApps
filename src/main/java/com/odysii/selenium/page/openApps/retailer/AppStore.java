@@ -17,7 +17,7 @@ public class AppStore extends PageObject {
     }
     public void addAppToLibrary(int appIndex){
         apps.get(appIndex).click();
-        wait(WAIT);
+        isElementPresent(addToLibrary);
         addToLibrary.click();
     }
 }
