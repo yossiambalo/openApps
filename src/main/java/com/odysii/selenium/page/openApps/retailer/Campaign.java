@@ -39,7 +39,7 @@ public class Campaign extends PageObject {
     public void createCampaign(String campaignName, String description){
         isElementPresent(addNewCampaignBtn);
         addNewCampaignBtn.click();
-        camapginName.sendKeys(campaignName,description);
+        camapginName.sendKeys(campaignName);
         campaignDescription.sendKeys(description);
         finishButton.click();
     }
@@ -57,5 +57,11 @@ public class Campaign extends PageObject {
         wait(1000);
         designLink.click();
         return new CampaignDesigner(webDriver);
+    }
+    public void editCampaign(String campaignName, String description){
+        editBtn.click();
+        camapginName.sendKeys(campaignName);
+        campaignDescription.sendKeys(description);
+        finishButton.click();
     }
 }
