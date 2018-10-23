@@ -22,13 +22,16 @@ public class PageObject {
          }
      }
      public boolean isElementExist(By by){
-         boolean res = true;
-         try{
-             webDriver.findElements(by);
-         }catch (NoSuchElementException e){
-             res = false;
+         int counter = 0;
+         while (webDriver.findElements(by).size() < 1 && counter < 5){
+             wait(4000);
+             counter ++;
          }
-         return res;
+         if (counter == 5){
+             throw new ExplicitAssertionError("element not found");
+         }
+         wait(WAIT);
+         return true;
      }
     protected String getFile(String fileName){
 

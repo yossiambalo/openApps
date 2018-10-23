@@ -23,6 +23,22 @@ public class RetailerTest extends TestBase {
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
 
     }
+    //@Test
+    public void _001_add_and_remove_app_library(){
+        retailerHomePage.getAppLibrary();
+        int expectedApp = driver.findElements(By.className(APP_CLASS_NAME)).size() + 1;
+        AppStore appStore = retailerHomePage.getAppStore();
+        wait(WAIT);
+        appStore.addAppToLibrary(driver.findElements(By.className(APP_CLASS_NAME)).size() - 1);
+        wait(WAIT);
+        AppLibrary appLibrary = retailerHomePage.getAppLibrary();
+        wait(WAIT);
+        int actualApps = driver.findElements(By.className(APP_CLASS_NAME)).size();
+        Assert.assertEquals(actualApps,expectedApp,"Failed to adding application to library!");
+        appLibrary.removeAppFromLibrary(driver.findElements(By.className(APP_CLASS_NAME)).size() - 1);
+        wait(WAIT);
+        Assert.assertEquals(actualApps - 1,driver.findElements(By.className(APP_CLASS_NAME)).size());
+    }
   //  @Test
     public void _002_search_apps(){
         retailerHomePage.getAppStore();
@@ -46,16 +62,17 @@ public class RetailerTest extends TestBase {
         Assert.assertEquals(actualCampaigns - 1,campaign.getNumOfCampaigns());
 
     }
-   // @Test
+    @Test
     public void _003_set_up_campaign_layout1(){
         Campaign campaign = retailerHomePage.getCampaigs();
         CampaignDesigner campaignDesigner = campaign.getDesignerPage();
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6);
-
+        Assert.assertEquals("","");
     }
-    @Test
+    //@Test
     public void _004_edit_name_and_description_campaign(){
         Campaign campaign = retailerHomePage.getCampaigs();
+        //wait(4000);
 //        campaign.editCampaign("name test","description test");
 //        String expected = "editCampaignSuccessErrorMessage";
 //        String actualTxt = driver.findElement(By.id("editCampaignSuccessErrorMessage")).getText();

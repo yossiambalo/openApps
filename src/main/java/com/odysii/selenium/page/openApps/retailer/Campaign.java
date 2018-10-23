@@ -50,11 +50,10 @@ public class Campaign extends PageObject {
         confirmBtn.click();
     }
     public CampaignDesigner getDesignerPage(){
+        isElementPresent(campaignListMenuBtn.get(0));
         campaignListMenuBtn.get(0).click();
         editBtn.click();
         isElementPresent(designLink);
-        designLink.click();
-        wait(1000);
         designLink.click();
         return new CampaignDesigner(webDriver);
     }
