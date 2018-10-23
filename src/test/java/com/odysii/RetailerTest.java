@@ -23,8 +23,8 @@ public class RetailerTest extends TestBase {
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
 
     }
-  //  @Test
-    public void _002_search_apps(){
+   // @Test
+    public void _001_search_apps(){
         retailerHomePage.getAppStore();
         int expectedApp = 3;
         retailerHomePage.searchApps("Spin");
@@ -33,8 +33,8 @@ public class RetailerTest extends TestBase {
         Assert.assertEquals(actualApps,expectedApp,"App store search functionality failed!");
 
     }
-   // @Test
-    public void _003_create_and_delete_campaign(){
+    //@Test
+    public void _002_create_and_delete_campaign(){
         Campaign campaign = retailerHomePage.getCampaigs();
         int expectedCampaigns = campaign.getNumOfCampaigns() + 1;
         campaign.createCampaign("Auto Campaign","auto description");
@@ -46,21 +46,27 @@ public class RetailerTest extends TestBase {
         Assert.assertEquals(actualCampaigns - 1,campaign.getNumOfCampaigns());
 
     }
-   // @Test
+    //@Test
     public void _003_set_up_campaign_layout1(){
         Campaign campaign = retailerHomePage.getCampaigs();
         CampaignDesigner campaignDesigner = campaign.getDesignerPage();
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6);
 
     }
-    @Test
+    //@Test
     public void _004_edit_name_and_description_campaign(){
         Campaign campaign = retailerHomePage.getCampaigs();
-//        campaign.editCampaign("name test","description test");
-//        String expected = "editCampaignSuccessErrorMessage";
-//        String actualTxt = driver.findElement(By.id("editCampaignSuccessErrorMessage")).getText();
-//        Assert.assertEquals(expected,actualTxt);
+        campaign.editCampaign("name test","description test");
+        String expected = "Succeeded saving campaign";
+        String actualTxt = driver.findElement(By.id("editCampaignSuccessErrorMessage")).getText();
+        Assert.assertEquals(expected,actualTxt);
 
     }
+    @Test
+    public void _005_add_app_to_library_from_app_store_page(){
+
+
+    }
+
 
 }

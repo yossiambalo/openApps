@@ -13,12 +13,12 @@ public class Campaign extends PageObject {
     private List<WebElement> campaigns;
     @FindBy(id = "newCampaignModalToggleButton")
     private WebElement addNewCampaignBtn;
-    @FindBy(id = "camapginName")
-    private WebElement camapginName;
+    @FindBy(id = "campaignName")
+    private WebElement campaignName;
     @FindBy(id = "campaignDescription")
     private WebElement campaignDescription;
-    @FindBy(id = "finishButton")
-    private WebElement finishButton;
+    @FindBy(id = "saveButton")
+    private WebElement saveButton;
     @FindBy(className = "block-item-menu-icon")
     private List<WebElement> campaignListMenuBtn;
     @FindBy(xpath = "//button[contains(@id, 'deleteCampaign')]")
@@ -39,9 +39,9 @@ public class Campaign extends PageObject {
     public void createCampaign(String campaignName, String description){
         isElementPresent(addNewCampaignBtn);
         addNewCampaignBtn.click();
-        camapginName.sendKeys(campaignName);
+        this.campaignName.sendKeys(campaignName);
         campaignDescription.sendKeys(description);
-        finishButton.click();
+        saveButton.click();
     }
     public void deleteCampaign(){
         campaignListMenuBtn.get(0).click();
@@ -59,9 +59,14 @@ public class Campaign extends PageObject {
         return new CampaignDesigner(webDriver);
     }
     public void editCampaign(String campaignName, String description){
+        isElementPresent(campaignListMenuBtn.get(0));
+        campaignListMenuBtn.get(0).click();
         editBtn.click();
-        camapginName.sendKeys(campaignName);
+        isElementPresent(this.campaignName);
+        this.campaignName.clear();
+        this.campaignName.sendKeys(campaignName);
+        this.campaignDescription.clear();
         campaignDescription.sendKeys(description);
-        finishButton.click();
+        saveButton.click();
     }
 }

@@ -20,4 +20,5 @@ public class AppStore extends PageObject {
         isElementPresent(addToLibrary);
         addToLibrary.click();
     }
+
 }
