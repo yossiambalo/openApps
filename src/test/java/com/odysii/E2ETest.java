@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class SanityTest extends TestBase {
+public class E2ETest extends TestBase {
     private final static String DEV_USER_NAME = "user";
     private final static String DEV_USER_PASS = "123456";
     private final static String ADMIN_USER_NAME = "admin";
@@ -36,6 +36,7 @@ public class SanityTest extends TestBase {
     }
     @Test
     public void _001_add_new_app_and_reject_no_fee(){
+        //get number of live apps from retailer page
         int appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         user.logout();
         DevHomePage devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
@@ -43,13 +44,9 @@ public class SanityTest extends TestBase {
         List<WebElement> appsList = driver.findElements(By.className(APP_CLASS_NAME));
         int appsSize = appsList.size();
         int expectedValue = appsSize+1;
-        wait(WAIT);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
-        wait(WAIT);
         UploadCode uploadCode = appDetails.setUpAppDetails();
-        wait(WAIT);
         Marketing marketing = uploadCode.upload(zipFile);
-        wait(WAIT);
         marketing.fillMarketing();
         wait(WAIT);
         List<WebElement> actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
@@ -59,7 +56,6 @@ public class SanityTest extends TestBase {
         Assert.assertTrue(myApps.getDescription(actualValue-1).toLowerCase().contains(appDetails.getAppDescription().toLowerCase()));
         //get the created app
         ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
-        wait(WAIT);
         showUp.certify();
         wait(WAIT);
         Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus());
@@ -72,8 +68,8 @@ public class SanityTest extends TestBase {
         //Valid rejected
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
+        wait(WAIT);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
-        wait(7000);
         showUp =  myApps.showUp(actualAppList.size()-1);
         wait(7000);
         Assert.assertEquals(showUp.getStatus(),ApplicationStatus.REJECT.getStatus());
@@ -106,9 +102,7 @@ public class SanityTest extends TestBase {
         Assert.assertEquals(expectedValue,actualValue,"Failed to create a new application!");
         //get the created app
         ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
-        wait(3000);
         showUp.certify();
-        wait(4000);
         Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus());
         user.logout();
         //Admin approve
@@ -188,12 +182,9 @@ public class SanityTest extends TestBase {
         MyApps myApps = devUser.getMyAppsPage(driver);
         ShowUp showUp = myApps.showUp(driver.findElements(By.className(APP_CLASS_NAME)).size() - 1);
         showUp.getAppVersion();
-        wait(WAIT);
         AppDetails appDetails = new AppDetails(driver);
         UploadCode uploadCode = appDetails.setUpAppDetails("1.0.7");
-        wait(WAIT);
         Marketing marketing = uploadCode.upload(zipFile);
-        wait(WAIT);
         marketing.fillMarketing();
         wait(7000);
         Assert.assertEquals(showUp.getStatus(),ApplicationStatus.PRESUBMITTED.getStatus());

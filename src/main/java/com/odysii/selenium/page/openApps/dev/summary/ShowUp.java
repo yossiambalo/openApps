@@ -47,6 +47,7 @@ public class ShowUp extends PageObject {
         return new Marketing(webDriver);
     }
     public AppVersion getAppVersion() {
+        isElementPresent(appVersions);
         appVersions.click();
         return new AppVersion(webDriver);
     }
@@ -60,6 +61,7 @@ public class ShowUp extends PageObject {
     }
     public void certify(){
         int counter = 0;
+        isElementPresent(appVersionMenu);
         this.appVersionMenu.click();
         this.certifyBtn.click();
        while (!nextBtn.isDisplayed() && counter < 5) {
@@ -85,6 +87,7 @@ public class ShowUp extends PageObject {
         this.addToAppStore.click();
     }
     public String getStatus(){
+        isElementPresent(versionDivs.get(0));
        return this.versionDivs.get(0).findElements(By.cssSelector(appStatusDivs)).get(0).getText();
     }
 }

@@ -73,6 +73,7 @@ public class AppDetails extends PageObject{
         Properties properties = loader.loadPropFile("app_details.properties");
         this.appTitle = properties.getProperty("name");
         this.appDescription = properties.getProperty("subtitle");
+        isElementPresent(name);
         this.name.sendKeys(appTitle +": "+dateFormat.format(date));
         this.appVersion.sendKeys(properties.getProperty("app_version"));
         this.subtitle.sendKeys(appDescription);
@@ -110,6 +111,7 @@ public class AppDetails extends PageObject{
     public UploadCode setUpAppDetails(String version){
         PropertyLoader loader = new PropertyLoader();
         Properties properties = loader.loadPropFile("app_details.properties");
+        isElementPresent(appVersion);
         appVersion.clear();
         this.appVersion.sendKeys(version);
         subtitle.clear();
