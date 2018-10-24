@@ -60,15 +60,14 @@ public class ShowUp extends PageObject {
         return new Statistics(webDriver);
     }
     public void certify(){
-        int counter = 0;
         isElementPresent(appVersionMenu);
         this.appVersionMenu.click();
         this.certifyBtn.click();
-       while (!nextBtn.isDisplayed() && counter < 5) {
-           pageUpDown(true);
-           counter++;
-       }
+        wait(WAIT);
+        scrollDown(nextBtn);
+        isElementPresent(nextBtn);
         this.nextBtn.click();
+        isElementPresent(finishBtn);
         this.finishBtn.click();
     }
     public void edit(){

@@ -124,7 +124,7 @@ public class E2ETest extends TestBase {
         Assert.assertEquals(appListBeforeAdding,appListAfterAdding);
     }
     @Test
-    public void _003_add_new_app_and_certify(){
+    public void _003_add_new_app_edit_and_and_certify(){
         int appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         user.logout();
         DevHomePage devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
@@ -149,7 +149,6 @@ public class E2ETest extends TestBase {
         wait(3000);
         Summary summary = new Summary(driver);
         showUp.editApp(summary);
-        wait(WAIT);
         showUp.certify();
         wait(4000);
         Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus());

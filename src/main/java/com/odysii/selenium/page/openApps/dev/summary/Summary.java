@@ -32,6 +32,8 @@ public class Summary extends PageObject {
     WebElement availability;
     @FindBy(id = "codeFileSummary")
     WebElement uploadCode;
+    @FindBy(id = "newAppUploadCodeSummary")
+    WebElement uploadCodeBtn;
     @FindBy(id = "promotionalTextSummary")
     WebElement promotionalTxt;
     @FindBy(id = "appKeywordsSummary")
@@ -90,6 +92,7 @@ public class Summary extends PageObject {
      * Edit application, field value are hardcoded, enough for testing this functionality
      */
     public void editSummary() {
+        isElementPresent(uploadCodeBtn);
         this.uploadCode.sendKeys(getFile("application//TH.zip"));
         ((JavascriptExecutor)webDriver).executeScript("document.getElementById('appSubtitleSummary').value = '';");
         ((JavascriptExecutor)webDriver).executeScript("document.getElementById('appSubtitleSummary').value = 'Edit subtitle';");
@@ -107,12 +110,13 @@ public class Summary extends PageObject {
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",availability);
         //Retailer field
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.exxonMobil);
-        pageUpDown(true);
-        wait(WAIT);
+        scrollDown(appPrice);
         appPrice.sendKeys("2");
         appPriceType.sendKeys("Per site per year");
         this.iconFileSummary.sendKeys(getFile("application//dog2.jpg"));
         this.screenshotsFileSummary.sendKeys(getFile("application//dog2.jpg"));
+        wait(WAIT);
+        scrollDown(finishBtn);
         finishBtn.click();
     }
     public void certifyApp(){

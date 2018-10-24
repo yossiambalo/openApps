@@ -74,4 +74,9 @@ public class PageObject {
        wait(WAIT);
        return true;
     }
+    protected void scrollDown(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+        js.executeScript("arguments[0].scrollIntoView();", element);
+        //js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
 }
