@@ -5,6 +5,7 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="com.odysii.E2ETest"/>
+            <!--<class name="com.odysii.Admi"/>-->
         </classes>
     </test>
     <!--<test name="EdgeTest">-->
@@ -16,7 +17,7 @@
     <!--<test name="FireFoxTest">-->
     <!--<parameter name="browser" value="firefox"/>-->
     <!--<classes>-->
-    <!--<class name="com.odysii.RetailerTest"/>-->
+    <!--<class name="com.odysii.E2ETest"/>-->
     <!--</classes>-->
     <!--</test>-->
 </suite>

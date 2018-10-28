@@ -34,6 +34,8 @@ public class ShowUp extends PageObject {
     private String appStatusDivs =  "[class~=text-body-small]";
     @FindBy(className = "cx-item-block")
     private List<WebElement> versionDivs;
+    @FindBy(id = "BackNavigationButton")
+    WebElement backNavigationButton;
 
     public ShowUp(WebDriver driver) {
         super(driver);
@@ -77,6 +79,7 @@ public class ShowUp extends PageObject {
 
     }
     public void editApp(Summary summary){
+        isElementPresent(appVersionMenu);
         this.appVersionMenu.click();
         this.editAppBtn.click();
         summary.editSummary();
@@ -88,5 +91,9 @@ public class ShowUp extends PageObject {
     public String getStatus(){
         isElementPresent(versionDivs.get(0));
        return this.versionDivs.get(0).findElements(By.cssSelector(appStatusDivs)).get(0).getText();
+    }
+    public void backToMyApps(){
+        isElementPresent(backNavigationButton);
+        backNavigationButton.click();
     }
 }

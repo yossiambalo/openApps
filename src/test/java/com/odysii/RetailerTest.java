@@ -23,7 +23,7 @@ public class RetailerTest extends TestBase {
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
 
     }
-    //@Test
+    @Test
     public void _001_add_and_remove_app_library(){
         retailerHomePage.getAppLibrary();
         int expectedApp = driver.findElements(By.className(APP_CLASS_NAME)).size() + 1;
@@ -39,7 +39,7 @@ public class RetailerTest extends TestBase {
         wait(WAIT);
         Assert.assertEquals(actualApps - 1,driver.findElements(By.className(APP_CLASS_NAME)).size());
     }
-  //  @Test
+   @Test
     public void _002_search_apps(){
         retailerHomePage.getAppStore();
         int expectedApp = 3;
@@ -49,7 +49,7 @@ public class RetailerTest extends TestBase {
         Assert.assertEquals(actualApps,expectedApp,"App store search functionality failed!");
 
     }
-   // @Test
+    @Test
     public void _003_create_and_delete_campaign(){
         Campaign campaign = retailerHomePage.getCampaigs();
         int expectedCampaigns = campaign.getNumOfCampaigns() + 1;
@@ -63,7 +63,7 @@ public class RetailerTest extends TestBase {
 
     }
     @Test
-    public void _003_set_up_campaign_layout1(){
+    public void _004_set_up_campaign_layout1(){
         Campaign campaign = retailerHomePage.getCampaigs();
         CampaignDesigner campaignDesigner = campaign.getDesignerPage();
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6);

@@ -45,69 +45,68 @@ public class SummaryTest extends TestBase {
         Assert.assertFalse(actualValue, "There's no validation on subtitle's field - it's empty!");
     }
 
-  /* @Ignore
-    public void _003_language_is_empty_negative(){
-        MyApps openApps = homePage.getMyAppsPage(driver);
-        Summary summary = openApps.showUp(2);
-        WebElement dropDownLanguage = driver.findElement(By.id("app-language"));
-        dropDownLanguage.click();
+//   @Test
+//    public void _003_language_is_empty_negative(){
+//        MyApps openApps = homePage.getMyAppsPage(driver);
+//        Summary summary = openApps.showUp(2);
+//        WebElement dropDownLanguage = driver.findElement(By.id("app-language"));
+//        dropDownLanguage.click();
+//
+//        // summary.editSummary(FieldType.LANGUAGE, "");
+//        WebElement finishButton = driver.findElement(By.id("finish-button"));
+//        finishButton.click();
+//        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
+//        Assert.assertFalse(actualValue, "There's no validation on language's field - it's empty!");
+//    }
 
-        // summary.editSummary(FieldType.LANGUAGE, "");
-        WebElement finishButton = driver.findElement(By.id("finish-button"));
-        finishButton.click();
-        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
-        Assert.assertFalse(actualValue, "There's no validation on language's field - it's empty!");
-    }
-
-    @Ignore
-    public void _004_category_is_empty_negative(){
-
-        MyApps openApps = homePage.getMyAppsPage(driver);
-        Summary summary = openApps.showUp(1);
-        summary.editSummary(FieldType.CATEGORY, "");
-        WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
-        finishButton.click();
-        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
-        Assert.assertFalse(actualValue, "There's no validation on category's field - it's empty!");
-    }
-
-    @Ignore
-    public void _005_availavility_is_empty_negative(){
-
-        MyApps openApps = homePage.getMyAppsPage(driver);
-        Summary summary = openApps.showUp(1);
-        summary.editSummary(FieldType.AVAILABILITY, "");
-        WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
-        finishButton.click();
-        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
-        Assert.assertFalse(actualValue, "There's no validation on availability's field - it's empty!");
-    }
-
-    @Ignore
-    public void _006_retailers_is_empty_negative(){
-
-        MyApps openApps = homePage.getMyAppsPage(driver);
-        Summary summary = openApps.showUp(0);
-        summary.editSummary(FieldType.RETAILERS, "");
-        WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
-        finishButton.click();
-        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
-        Assert.assertFalse(actualValue, "There's no validation on retailers's field - it's empty!");
-    }
-
-    @Ignore
-    public void _007_two_mandatory_fields_is_empty_negative(){
-
-        MyApps openApps = homePage.getMyAppsPage(driver);
-        Summary summary = openApps.showUp(0);
-        summary.editSummary(FieldType.RETAILERS, "");
-        summary.editSummary(FieldType.APPNAME, "");
-        WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
-        finishButton.click();
-        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
-        Assert.assertFalse(actualValue, "There's no validations on retailers & name fields - they both empty!");
-    }
-*/
+//    @Ignore
+//    public void _004_category_is_empty_negative(){
+//
+//        MyApps openApps = homePage.getMyAppsPage(driver);
+//        Summary summary = openApps.showUp(1);
+//        summary.editSummary(FieldType.CATEGORY, "");
+//        WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
+//        finishButton.click();
+//        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
+//        Assert.assertFalse(actualValue, "There's no validation on category's field - it's empty!");
+//    }
+//
+//    @Ignore
+//    public void _005_availavility_is_empty_negative(){
+//
+//        MyApps openApps = homePage.getMyAppsPage(driver);
+//        Summary summary = openApps.showUp(1);
+//        summary.editSummary(FieldType.AVAILABILITY, "");
+//        WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
+//        finishButton.click();
+//        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
+//        Assert.assertFalse(actualValue, "There's no validation on availability's field - it's empty!");
+//    }
+//
+//    @Ignore
+//    public void _006_retailers_is_empty_negative(){
+//
+//        MyApps openApps = homePage.getMyAppsPage(driver);
+//        Summary summary = openApps.showUp(0);
+//        summary.editSummary(FieldType.RETAILERS, "");
+//        WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
+//        finishButton.click();
+//        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
+//        Assert.assertFalse(actualValue, "There's no validation on retailers's field - it's empty!");
+//    }
+//
+//    @Ignore
+//    public void _007_two_mandatory_fields_is_empty_negative(){
+//
+//        MyApps openApps = homePage.getMyAppsPage(driver);
+//        Summary summary = openApps.showUp(0);
+//        summary.editSummary(FieldType.RETAILERS, "");
+//        summary.editSummary(FieldType.APPNAME, "");
+//        WebElement finishButton = driver.findElement(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
+//        finishButton.click();
+//        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
+//        Assert.assertFalse(actualValue, "There's no validations on retailers & name fields - they both empty!");
+//    }
   @Test
   public void _008_certify_app_positive(){
       MyApps myApps = devUser.getMyAppsPage(driver);
