@@ -37,7 +37,7 @@ public class E2ETest extends TestBase {
         user = new User(driver);
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
     }
-    @Test
+    @Test(priority = 1)
     public void _001_valid_add_new_app(){
         //get number of live apps from retailer page
         appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
@@ -58,7 +58,7 @@ public class E2ETest extends TestBase {
         Assert.assertTrue(myApps.getTitle(actualValue-1).toLowerCase().contains(appDetails.getAppTitle().toLowerCase()));
         Assert.assertTrue(myApps.getDescription(actualValue-1).toLowerCase().contains(appDetails.getAppDescription().toLowerCase()));
     }
-    @Test
+    @Test(priority = 2, dependsOnMethods = "_001_valid_add_new_app")
     public void _002_valid_app_reject_no_fee(){
         //get the created app
         ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
@@ -78,17 +78,10 @@ public class E2ETest extends TestBase {
         showUp =  myApps.showUp(actualAppList.size()-1);
         wait(7000);
         Assert.assertEquals(showUp.getStatus(),ApplicationStatus.REJECT.getStatus());
+        showUp.backToMyApps();
     }
-    @Test
-    public void _003_valid_app_add_to_app_store(){
-        user.logout();
-        //Valid app added to retailer store
-        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
-        int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
-        Assert.assertEquals(appListBeforeAdding,appListAfterAdding);
-    }
-    @Test
-    public void _004_valid_reject_with_fee(){
+    @Test(priority = 3, dependsOnMethods = "_002_valid_app_reject_no_fee")
+    public void _003_valid_reject_with_fee(){
         user.logout();
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
@@ -113,8 +106,8 @@ public class E2ETest extends TestBase {
         Assert.assertEquals(ApplicationStatus.REJECT.getStatus(),showUp.getStatus());
         showUp.backToMyApps();
     }
-    @Test
-    public void _005_add_new_app_edit_and_and_certify_and_go_live(){
+    @Test(priority = 4, dependsOnMethods = "_003_valid_reject_with_fee")
+    public void _004_edit_and_certify_and_go_live(){
         myApps = devUser.getMyAppsPage(driver);
         wait(WAIT);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
@@ -138,8 +131,19 @@ public class E2ETest extends TestBase {
         wait(7000);
         showUp =  myApps.showUp(actualAppList.size()-1);
         Assert.assertEquals(showUp.getStatus(),ApplicationStatus.CERTIFIED.getStatus());
+        showUp.addApplicationToStore();
+        wait(8000);
+        Assert.assertEquals(showUp.getStatus(),ApplicationStatus.LIVE.getStatus());
     }
-    @Test
+    @Test(priority = 5, dependsOnMethods = "_004_edit_and_certify_and_go_live")
+    public void _005_valid_app_add_to_app_store(){
+        user.logout();
+        //Valid app added to retailer store
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+        int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
+        Assert.assertEquals(appListBeforeAdding + 1,appListAfterAdding);
+    }
+    @Test(priority = 6)
     public void _006_valid_add_new_version_to_application(){
         user.logout();
         DevHomePage devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
