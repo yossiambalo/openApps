@@ -20,11 +20,15 @@ public class CampaignDesigner extends PageObject {
     @FindBy(id = "campaignLayoutsModalButton")
     private WebElement layoutBtn;
     @FindBy(className = "frame1")
-    private List<WebElement> layoutBox;
+    private List<WebElement> layoutBox1;
+    @FindBy(id = "saveButton")
+    private WebElement saveBtn;
     @FindBy(className = "position-absolute")
     private WebElement layoutTyp1;
     @FindBy(xpath = "//h5[contains(text(), 'Automation App:')]")
     private WebElement applicationForLayout;
+    @FindBy(css = ".col-8 .box-shadow .frame")
+    private List<WebElement> appContainer;
 
     public CampaignDesigner(WebDriver driver) {
         super(driver);
@@ -40,11 +44,42 @@ public class CampaignDesigner extends PageObject {
                 layoutBtn.click();
                 switch (layoutType){
                     case LAYOUT_1:
-                        isElementPresent(layoutBox.get(1));
-                        layoutBox.get(1).click();
-                        //(new Actions(webDriver)).dragAndDrop(applicationForLayout, layoutBox.get(0)).perform();
-                        SeleniumUtils.dragAndDrop(webDriver,applicationForLayout,layoutBox.get(0));
+                        setUpContainer(1);
+                        break;
+                    case LAYOUT_2:
+                        setUpContainer(2);
+                        break;
+                    case LAYOUT_3:
+                        setUpContainer(3);
+                        break;
+                    case LAYOUT_4:
+                        setUpContainer(4);
+                        break;
+                        default:
+                            ////
                 }
+        }
+        isElementPresent(saveBtn);
+        saveBtn.click();
+    }
+//    public boolean isSaveSucceeded(){
+//
+//    }
+    public boolean getNumOfDraggedApps(int expectedApps){
+        boolean res = true;
+        int i;
+        for(i = 0; i < expectedApps; i++){
+            if(!appContainer.get(i).getCssValue("background-image").contains("openAppStore/webapi/storage")){
+                res = false;
+            }
+        }
+        return res;
+    }
+    private void setUpContainer(int numOfApps){
+        isElementPresent(layoutBox1.get(numOfApps));
+        layoutBox1.get(numOfApps).click();
+        for (int i = 0; i < numOfApps; i++){
+            SeleniumUtils.dragAndDrop(webDriver,applicationForLayout, appContainer.get(i));
         }
     }
 }

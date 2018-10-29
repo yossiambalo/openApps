@@ -6,9 +6,7 @@ import com.odysii.selenium.page.util.DriverType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -33,7 +31,7 @@ public class TestBase {
     }
 
     @Parameters("browser")
-    @BeforeTest
+    @BeforeClass
     public void init(String browser){
         switch (browser){
             case "chrome":

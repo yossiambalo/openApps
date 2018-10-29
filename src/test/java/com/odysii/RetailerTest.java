@@ -16,6 +16,7 @@ public class RetailerTest extends TestBase {
     private final static String RETAILER_USER_NAME = "retailer";
     private final static String RETAILER_USER_PASS = "123456";
     RetailerHomePage retailerHomePage;
+    CampaignDesigner campaignDesigner;
     User user;
     @BeforeClass
     public void login(){
@@ -23,7 +24,7 @@ public class RetailerTest extends TestBase {
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
 
     }
-    @Test
+    @Test(priority = 1)
     public void _001_add_and_remove_app_library(){
         retailerHomePage.getAppLibrary();
         int expectedApp = driver.findElements(By.className(APP_CLASS_NAME)).size() + 1;
@@ -39,7 +40,7 @@ public class RetailerTest extends TestBase {
         wait(WAIT);
         Assert.assertEquals(actualApps - 1,driver.findElements(By.className(APP_CLASS_NAME)).size());
     }
-   @Test
+   @Test(priority = 2)
     public void _002_search_apps(){
         retailerHomePage.getAppStore();
         int expectedApp = 3;
@@ -49,7 +50,7 @@ public class RetailerTest extends TestBase {
         Assert.assertEquals(actualApps,expectedApp,"App store search functionality failed!");
 
     }
-    @Test
+    @Test(priority = 3)
     public void _003_create_and_delete_campaign(){
         Campaign campaign = retailerHomePage.getCampaigs();
         int expectedCampaigns = campaign.getNumOfCampaigns() + 1;
@@ -62,14 +63,29 @@ public class RetailerTest extends TestBase {
         Assert.assertEquals(actualCampaigns - 1,campaign.getNumOfCampaigns());
 
     }
-    @Test
-    public void _004_set_up_campaign_layout1(){
+    @Test(priority = 4)
+    public void _004_set_up_campaign_layout1_default_state(){
         Campaign campaign = retailerHomePage.getCampaigs();
-        CampaignDesigner campaignDesigner = campaign.getDesignerPage();
+        campaignDesigner = campaign.getDesignerPage();
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6);
-        Assert.assertEquals("","");
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(1));
     }
-    //@Test
+    @Test(priority = 5)
+    public void _005_set_up_campaign_layout2_default_state(){
+        campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_2, ScreenSize.SIZE_15_6);
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(2));
+    }
+    @Test(priority = 6)
+    public void _006_set_up_campaign_layout3_default_state(){
+        campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_3, ScreenSize.SIZE_15_6);
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(3));
+    }
+    @Test(priority = 7)
+    public void _007_set_up_campaign_layout4_default_state(){
+        campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_4, ScreenSize.SIZE_15_6);
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(3));
+    }
+    //`@Test
     public void _004_edit_name_and_description_campaign(){
         Campaign campaign = retailerHomePage.getCampaigs();
         //wait(4000);
