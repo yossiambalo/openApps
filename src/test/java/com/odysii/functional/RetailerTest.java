@@ -1,5 +1,6 @@
-package com.odysii;
+package com.odysii.functional;
 
+import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.retailer.*;
@@ -146,7 +147,7 @@ public class RetailerTest extends TestBase {
         Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(4));
     }
 
-    @Test
+    //@Test
     public void _004_edit_name_and_description_campaign(){
         Campaign campaign = retailerHomePage.getCampaigs();
         campaign.editCampaign("name test","description test");

@@ -13,9 +13,9 @@ public class Campaign extends PageObject {
     private List<WebElement> campaigns;
     @FindBy(id = "newCampaignModalToggleButton")
     private WebElement addNewCampaignBtn;
-    @FindBy(id = "camapginName")
-    private WebElement camapginName;
-    @FindBy(id = "campaignDescription")
+    @FindBy(xpath = "//input[contains(@id, 'camapginName')]")
+    private WebElement campaignName;
+    @FindBy(xpath = "//input[contains(@id, 'campaignDescription')]")
     private WebElement campaignDescription;
     @FindBy(id = "finishButton")
     private WebElement finishButton;
@@ -39,7 +39,7 @@ public class Campaign extends PageObject {
     public void createCampaign(String campaignName, String description){
         isElementPresent(addNewCampaignBtn);
         addNewCampaignBtn.click();
-        camapginName.sendKeys(campaignName);
+        this.campaignName.sendKeys(campaignName);
         campaignDescription.sendKeys(description);
         finishButton.click();
     }
@@ -61,8 +61,8 @@ public class Campaign extends PageObject {
         isElementPresent(campaignListMenuBtn.get(0));
         campaignListMenuBtn.get(0).click();
         editBtn.click();
-        isElementPresent(camapginName);
-        camapginName.sendKeys(campaignName);
+        isElementPresent(this.campaignName);
+        this.campaignName.sendKeys(campaignName);
         campaignDescription.sendKeys(description);
         finishButton.click();
     }

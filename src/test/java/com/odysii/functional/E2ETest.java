@@ -1,5 +1,6 @@
-package com.odysii;
+package com.odysii.functional;
 
+import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.admin.AdminPage;

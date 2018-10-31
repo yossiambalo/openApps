@@ -12,7 +12,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class TestBase {
-    WebDriver driver;
+    public WebDriver driver;
     protected final int WAIT = 5000;
     protected final String cancelID = "cancel-button";
     protected final String backTxt = "BACK";
@@ -38,10 +38,13 @@ public class TestBase {
                 driver = DriverManager.getWebDriver(DriverType.CHROME);
                 break;
             case "edge":
-                driver = DriverManager.getWebDriver(DriverType.IE);
+                driver = DriverManager.getWebDriver(DriverType.EDGE);
                 break;
             case "firefox":
                 driver = DriverManager.getWebDriver(DriverType.FIREFOX);
+                break;
+            case "ie":
+                driver = DriverManager.getWebDriver(DriverType.IE);
                 break;
             default:
         }
