@@ -58,7 +58,10 @@ public class Campaign extends PageObject {
         return new CampaignDesigner(webDriver);
     }
     public void editCampaign(String campaignName, String description){
+        isElementPresent(campaignListMenuBtn.get(0));
+        campaignListMenuBtn.get(0).click();
         editBtn.click();
+        isElementPresent(camapginName);
         camapginName.sendKeys(campaignName);
         campaignDescription.sendKeys(description);
         finishButton.click();

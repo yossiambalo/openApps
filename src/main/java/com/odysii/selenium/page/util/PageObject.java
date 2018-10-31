@@ -69,7 +69,7 @@ public class PageObject {
             counter ++;
         }
        if (counter == 5){
-           throw new ExplicitAssertionError("element not found");
+           throw new ExplicitAssertionError("==================================element not found=================================");
        }
        wait(WAIT);
        return true;

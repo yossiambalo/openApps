@@ -15,6 +15,14 @@ public class CampaignDesigner extends PageObject {
 
     @FindBy(xpath = "//a[contains(text(), 'Default')]")
     private WebElement defaultLink;
+    @FindBy(xpath = "//a[contains(text(), 'Idle')]")
+    private WebElement idleLink;
+    @FindBy(xpath = "//a[contains(text(), 'Fueling')]")
+    private WebElement fuelingLink;
+    @FindBy(xpath = "//a[contains(text(), 'Payment')]")
+    private WebElement paymentLink;
+    @FindBy(xpath = "//a[contains(text(), 'Post-fueling')]")
+    private WebElement postFuelingtLink;
     @FindBy(className = "ng-valid")
     private WebElement screenSizeDdl;
     @FindBy(id = "campaignLayoutsModalButton")
@@ -57,7 +65,100 @@ public class CampaignDesigner extends PageObject {
                         break;
                         default:
                             ////
+                            break;
                 }
+                break;
+            case IDLE:
+                idleLink.click();
+                isElementPresent(layoutBtn);
+                layoutBtn.click();
+                switch (layoutType){
+                    case LAYOUT_1:
+                        setUpContainer(1);
+                        break;
+                    case LAYOUT_2:
+                        setUpContainer(2);
+                        break;
+                    case LAYOUT_3:
+                        setUpContainer(3);
+                        break;
+                    case LAYOUT_4:
+                        setUpContainer(4);
+                        break;
+                    default:
+                        ////
+                        break;
+                }
+                break;
+            case FUELING:
+                fuelingLink.click();
+                isElementPresent(layoutBtn);
+                layoutBtn.click();
+                switch (layoutType){
+                    case LAYOUT_1:
+                        setUpContainer(1);
+                        break;
+                    case LAYOUT_2:
+                        setUpContainer(2);
+                        break;
+                    case LAYOUT_3:
+                        setUpContainer(3);
+                        break;
+                    case LAYOUT_4:
+                        setUpContainer(4);
+                        break;
+                    default:
+                        ////
+                        break;
+                }
+                break;
+            case PAYMENT:
+                paymentLink.click();
+                isElementPresent(layoutBtn);
+                layoutBtn.click();
+                switch (layoutType){
+                    case LAYOUT_1:
+                        setUpContainer(1);
+                        break;
+                    case LAYOUT_2:
+                        setUpContainer(2);
+                        break;
+                    case LAYOUT_3:
+                        setUpContainer(3);
+                        break;
+                    case LAYOUT_4:
+                        setUpContainer(4);
+                        break;
+                    default:
+                        ////
+                        break;
+                }
+                break;
+            case POST_FUELING:
+                postFuelingtLink.click();
+                isElementPresent(layoutBtn);
+                layoutBtn.click();
+                switch (layoutType){
+                    case LAYOUT_1:
+                        setUpContainer(1);
+                        break;
+                    case LAYOUT_2:
+                        setUpContainer(2);
+                        break;
+                    case LAYOUT_3:
+                        setUpContainer(3);
+                        break;
+                    case LAYOUT_4:
+                        setUpContainer(4);
+                        break;
+                    default:
+                        ////
+                        break;
+                }
+                break;
+                default:
+                    ////
+                    break;
         }
         isElementPresent(saveBtn);
         saveBtn.click();

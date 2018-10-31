@@ -83,16 +83,76 @@ public class RetailerTest extends TestBase {
     @Test(priority = 7)
     public void _007_set_up_campaign_layout4_default_state(){
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_4, ScreenSize.SIZE_15_6);
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(4));
+    }
+    @Test(priority = 8)
+    public void _008_set_up_campaign_layout1_idle_state(){
+        campaignDesigner.setUpCampaign(StateType.IDLE, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6);
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(1));
+    }
+    @Test(priority = 9)
+    public void _009_set_up_campaign_layout2_idle_state(){
+        campaignDesigner.setUpCampaign(StateType.IDLE, LayoutType.LAYOUT_2, ScreenSize.SIZE_15_6);
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(2));
+    }
+    @Test(priority = 10)
+    public void _010_set_up_campaign_layout3_idle_state(){
+        campaignDesigner.setUpCampaign(StateType.IDLE, LayoutType.LAYOUT_3, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(3));
     }
-    //`@Test
+    @Test(priority = 11)
+    public void _011_set_up_campaign_layout4_idle_state(){
+        campaignDesigner.setUpCampaign(StateType.IDLE, LayoutType.LAYOUT_4, ScreenSize.SIZE_15_6);
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(4));
+    }
+    @Test(priority = 12)
+    public void _012_set_up_campaign_layout1_fueling_state(){
+        campaignDesigner.setUpCampaign(StateType.FUELING, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6);
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(1));
+    }
+    @Test(priority = 13)
+    public void _013_set_up_campaign_layout2_fueling_state(){
+        campaignDesigner.setUpCampaign(StateType.FUELING, LayoutType.LAYOUT_2, ScreenSize.SIZE_15_6);
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(2));
+    }
+    @Test(priority = 14)
+    public void _014_set_up_campaign_layout3_fueling_state(){
+        campaignDesigner.setUpCampaign(StateType.FUELING, LayoutType.LAYOUT_3, ScreenSize.SIZE_15_6);
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(3));
+    }
+    @Test(priority = 15)
+    public void _011_set_up_campaign_layout4_fueling_state(){
+        campaignDesigner.setUpCampaign(StateType.FUELING, LayoutType.LAYOUT_4, ScreenSize.SIZE_15_6);
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(4));
+    }
+    @Test(priority = 16)
+    public void _016_set_up_campaign_layout1_payment_state(){
+        campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6);
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(1));
+    }
+    @Test(priority = 17)
+    public void _017_set_up_campaign_layout2_payment_state(){
+        campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_2, ScreenSize.SIZE_15_6);
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(2));
+    }
+    @Test(priority = 18)
+    public void _018_set_up_campaign_layout3_payment_state(){
+        campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_3, ScreenSize.SIZE_15_6);
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(3));
+    }
+    @Test(priority = 19)
+    public void _019_set_up_campaign_layout4_payment_state(){
+        campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_4, ScreenSize.SIZE_15_6);
+        Assert.assertTrue(campaignDesigner.getNumOfDraggedApps(4));
+    }
+
+    @Test
     public void _004_edit_name_and_description_campaign(){
         Campaign campaign = retailerHomePage.getCampaigs();
-        //wait(4000);
-//        campaign.editCampaign("name test","description test");
-//        String expected = "editCampaignSuccessErrorMessage";
-//        String actualTxt = driver.findElement(By.id("editCampaignSuccessErrorMessage")).getText();
-//        Assert.assertEquals(expected,actualTxt);
+        campaign.editCampaign("name test","description test");
+        String expected = "Succeeded saving campaign";
+        String actualTxt = driver.findElement(By.id("editCampaignSuccessErrorMessage")).getText();
+        Assert.assertEquals(expected,actualTxt);
 
     }
 
