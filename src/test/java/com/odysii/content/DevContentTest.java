@@ -1,5 +1,6 @@
-package com.odysii;
+package com.odysii.content;
 
+import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.dev.DevHomePage;
@@ -16,7 +17,7 @@ import org.testng.annotations.Test;
  * My apps: my_apps
  * Admin: admin_support_ticket
  */
-public class DevContentTest extends TestBase{
+public class DevContentTest extends TestBase {
     DevHomePage devHomePage;
     User user;
     @BeforeClass

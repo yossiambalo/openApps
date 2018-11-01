@@ -2,6 +2,7 @@ package com.odysii.selenium.page.openApps.retailer;
 
 
 import com.odysii.selenium.page.openApps.retailer.helper.LayoutType;
+import com.odysii.selenium.page.openApps.retailer.helper.ScreenSize;
 import com.odysii.selenium.page.openApps.retailer.helper.StateType;
 import com.odysii.selenium.page.util.PageObject;
 import com.odysii.selenium.page.util.SeleniumUtils;
@@ -52,16 +53,16 @@ public class CampaignDesigner extends PageObject {
                 layoutBtn.click();
                 switch (layoutType){
                     case LAYOUT_1:
-                        setUpContainer(1);
+                        setUpContainer(1,screenSize);
                         break;
                     case LAYOUT_2:
-                        setUpContainer(2);
+                        setUpContainer(2,screenSize);
                         break;
                     case LAYOUT_3:
-                        setUpContainer(3);
+                        setUpContainer(3,screenSize);
                         break;
                     case LAYOUT_4:
-                        setUpContainer(4);
+                        setUpContainer(4,screenSize);
                         break;
                         default:
                             ////
@@ -74,16 +75,16 @@ public class CampaignDesigner extends PageObject {
                 layoutBtn.click();
                 switch (layoutType){
                     case LAYOUT_1:
-                        setUpContainer(1);
+                        setUpContainer(1,screenSize);
                         break;
                     case LAYOUT_2:
-                        setUpContainer(2);
+                        setUpContainer(2,screenSize);
                         break;
                     case LAYOUT_3:
-                        setUpContainer(3);
+                        setUpContainer(3,screenSize);
                         break;
                     case LAYOUT_4:
-                        setUpContainer(4);
+                        setUpContainer(4,screenSize);
                         break;
                     default:
                         ////
@@ -96,16 +97,16 @@ public class CampaignDesigner extends PageObject {
                 layoutBtn.click();
                 switch (layoutType){
                     case LAYOUT_1:
-                        setUpContainer(1);
+                        setUpContainer(1,screenSize);
                         break;
                     case LAYOUT_2:
-                        setUpContainer(2);
+                        setUpContainer(2,screenSize);
                         break;
                     case LAYOUT_3:
-                        setUpContainer(3);
+                        setUpContainer(3,screenSize);
                         break;
                     case LAYOUT_4:
-                        setUpContainer(4);
+                        setUpContainer(4,screenSize);
                         break;
                     default:
                         ////
@@ -118,16 +119,16 @@ public class CampaignDesigner extends PageObject {
                 layoutBtn.click();
                 switch (layoutType){
                     case LAYOUT_1:
-                        setUpContainer(1);
+                        setUpContainer(1,screenSize);
                         break;
                     case LAYOUT_2:
-                        setUpContainer(2);
+                        setUpContainer(2,screenSize);
                         break;
                     case LAYOUT_3:
-                        setUpContainer(3);
+                        setUpContainer(3,screenSize);
                         break;
                     case LAYOUT_4:
-                        setUpContainer(4);
+                        setUpContainer(4,screenSize);
                         break;
                     default:
                         ////
@@ -140,16 +141,16 @@ public class CampaignDesigner extends PageObject {
                 layoutBtn.click();
                 switch (layoutType){
                     case LAYOUT_1:
-                        setUpContainer(1);
+                        setUpContainer(1,screenSize);
                         break;
                     case LAYOUT_2:
-                        setUpContainer(2);
+                        setUpContainer(2,screenSize);
                         break;
                     case LAYOUT_3:
-                        setUpContainer(3);
+                        setUpContainer(3,screenSize);
                         break;
                     case LAYOUT_4:
-                        setUpContainer(4);
+                        setUpContainer(4,screenSize);
                         break;
                     default:
                         ////
@@ -176,9 +177,11 @@ public class CampaignDesigner extends PageObject {
         }
         return res;
     }
-    private void setUpContainer(int numOfApps){
-        isElementPresent(layoutBox1.get(numOfApps));
-        layoutBox1.get(numOfApps).click();
+    private void setUpContainer(int numOfApps,String screenSize){
+        if (screenSize.equals(ScreenSize.SIZE_15_6)){
+            isElementPresent(layoutBox1.get(numOfApps));
+            layoutBox1.get(numOfApps).click();
+        }
         for (int i = 0; i < numOfApps; i++){
             SeleniumUtils.dragAndDrop(webDriver,applicationForLayout, appContainer.get(i));
         }

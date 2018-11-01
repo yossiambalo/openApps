@@ -1,5 +1,6 @@
-package com.odysii;
+package com.odysii.content;
 
+import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
@@ -8,7 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class RelailerContentTest extends TestBase{
+public class RelailerContentTest extends TestBase {
     RetailerHomePage retailerHomePage;
     User user;
     @BeforeClass

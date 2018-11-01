@@ -1,5 +1,6 @@
-package com.odysii;
+package com.odysii.negetive;
 
+import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.helper.appDetails.AvailabilityType;
 import com.odysii.selenium.page.openApps.helper.appDetails.CategoryType;
@@ -12,7 +13,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class MyAppsTest extends TestBase{
+public class MyAppsTest extends TestBase {
     private AppDetails appDetails;
     private final String zipFile = "dog2.jpg";
     private final String screenShotFile = "bike.jpg";

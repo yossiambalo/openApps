@@ -1,5 +1,6 @@
-package com.odysii;
+package com.odysii.negetive;
 
+import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.dev.AppVersion;
 import com.odysii.selenium.page.openApps.dev.DevHomePage;
 import com.odysii.selenium.page.openApps.dev.MyApps;
@@ -9,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class AppVersionsTest extends TestBase{
+public class AppVersionsTest extends TestBase {
     DevHomePage devUser;
     @BeforeClass
     public void login(){

@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -24,7 +25,9 @@ public class DriverManager {
                 break;
             case IE:
                 System.setProperty("webdriver.ie.driver",driverPath+"IEDriverServer.exe");
-                driver =  new InternetExplorerDriver();
+                DesiredCapabilities capabilities = new DesiredCapabilities();
+                capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
+                driver =  new InternetExplorerDriver(capabilities);
                 break;
             case FIREFOX:
                 System.setProperty("webdriver.gecko.driver",driverPath+"geckodriver.exe");

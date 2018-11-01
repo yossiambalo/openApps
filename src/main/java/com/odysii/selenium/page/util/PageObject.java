@@ -64,12 +64,17 @@ public class PageObject {
 
     public boolean isElementPresent(WebElement element) {
         int counter = 0;
-        while (!element.isDisplayed() && counter < 5){
-            wait(4000);
-            counter ++;
+        try {
+            while (!element.isDisplayed() && counter < 5){
+                wait(4000);
+                counter ++;
+            }
+        }catch (NoSuchElementException e){
+            System.out.println(e.getMessage());
+            return false;
         }
        if (counter == 5){
-           throw new ExplicitAssertionError("==================================element not found=================================");
+           return false;
        }
        wait(WAIT);
        return true;
