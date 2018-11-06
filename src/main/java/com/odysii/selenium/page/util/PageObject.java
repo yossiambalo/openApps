@@ -70,7 +70,7 @@ public class PageObject {
                 counter ++;
             }
         }catch (NoSuchElementException e){
-            System.out.println(e.getMessage());
+            System.out.println(e.fillInStackTrace());
             return false;
         }
        if (counter == 5){

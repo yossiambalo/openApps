@@ -24,7 +24,7 @@ public class CampaignDesigner extends PageObject {
     private WebElement paymentLink;
     @FindBy(xpath = "//a[contains(text(), 'Post-fueling')]")
     private WebElement postFuelingtLink;
-    @FindBy(className = "ng-valid")
+    @FindBy(id = "campaignLayoutScreenSize")
     private WebElement screenSizeDdl;
     @FindBy(id = "campaignLayoutsModalButton")
     private WebElement layoutBtn;
@@ -37,15 +37,21 @@ public class CampaignDesigner extends PageObject {
     @FindBy(xpath = "//h5[contains(text(), 'Automation App:')]")
     private WebElement applicationForLayout;
     @FindBy(css = ".col-8 .box-shadow .frame")
-    private List<WebElement> appContainer;
+    private List<WebElement> appContainer;//editCampaignSuccessErrorMessage
+    @FindBy(id = "editCampaignSuccessErrorMessage")
+    private WebElement isLayoutSavedIndicator;
 
     public CampaignDesigner(WebDriver driver) {
         super(driver);
     }
 
     public void setUpCampaign(StateType stateType, LayoutType layoutType, String screenSize){
+        int timeOut = 0;
         isElementPresent(screenSizeDdl);
-        screenSizeDdl.sendKeys(screenSize);
+        do {
+            screenSizeDdl.sendKeys(screenSize);
+            timeOut ++;
+        }while (!screenSizeDdl.getAttribute("value").equals(screenSize.replace(".","")) && timeOut < 5);
         switch (stateType){
             case DEFAULT:
                 defaultLink.click();
@@ -164,9 +170,9 @@ public class CampaignDesigner extends PageObject {
         isElementPresent(saveBtn);
         saveBtn.click();
     }
-//    public boolean isSaveSucceeded(){
-//
-//    }
+    public boolean isSaveSucceeded(){
+        return isLayoutSavedIndicator.getText().contains("Succeeded");
+    }
     public boolean getNumOfDraggedApps(int expectedApps){
         boolean res = true;
         int i;

@@ -39,6 +39,7 @@ public class Campaign extends PageObject {
     public void createCampaign(String campaignName, String description){
         isElementPresent(addNewCampaignBtn);
         addNewCampaignBtn.click();
+        isElementPresent(this.campaignName);
         this.campaignName.sendKeys(campaignName);
         campaignDescription.sendKeys(description);
         finishButton.click();

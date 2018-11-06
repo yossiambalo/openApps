@@ -18,6 +18,8 @@ public class AppStore extends PageObject {
         super(driver);
     }
     public void addAppToLibrary(int appIndex){
+        scrollDown(apps.get(appIndex));
+        isElementPresent(apps.get(appIndex));
         apps.get(appIndex).click();
          if (!isElementPresent(addToLibrary)){
              removeFromLibrary.click();

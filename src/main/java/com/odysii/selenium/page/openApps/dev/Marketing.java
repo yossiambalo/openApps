@@ -34,7 +34,11 @@ public class Marketing extends PageObject {
         this.promotionalText.sendKeys(properties.getProperty("promotional_text"));
         isElementPresent(keywords);
         this.keywords.sendKeys(properties.getProperty("keywords"));
+        isElementPresent(appIcon);
+        ((JavascriptExecutor)  webDriver).executeScript("document.getElementById('iconFile').removeAttribute('class')");
         this.appIcon.sendKeys(getFile(properties.getProperty("app_icon")));
+        isElementPresent(screenshotsFile);
+        ((JavascriptExecutor)  webDriver).executeScript("document.getElementById('screenshotsFile').removeAttribute('class')");
         this.screenshotsFile.sendKeys(getFile(properties.getProperty("app_preview_screenshots")));
         wait(WAIT);
         scrollDown(deleteBtn);

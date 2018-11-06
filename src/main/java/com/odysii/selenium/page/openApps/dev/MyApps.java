@@ -32,7 +32,9 @@ public class MyApps extends PageObject {
         return new ShowUp(webDriver);
     }
     public ShowUp showUp(WebElement appElement){
+        scrollDown(appElement);
         isElementPresent(appElement);
+        wait(WAIT);
         appElement.click();
         return new ShowUp(webDriver);
     }
