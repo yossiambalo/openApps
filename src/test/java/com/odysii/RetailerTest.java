@@ -64,6 +64,8 @@ public class RetailerTest extends TestBase {
     }
     @Test
     public void _005_add_app_to_library_from_app_store_page(){
+        AppStore appStore = retailerHomePage.getAppStore();
+        appStore.addAppToLibraryFromMainPage(0);
 
 
     }
