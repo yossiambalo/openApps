@@ -44,7 +44,7 @@ public class AppDetails extends PageObject{
     WebElement retailer;
     @FindBy(id = "appAvailability")
     WebElement availability;
-    @FindBy(id = "cancel-button")
+    @FindBy(id = "cancelButton")
     WebElement cancel;
     @FindBy(id = "nextButton")
     WebElement next;
@@ -91,7 +91,7 @@ public class AppDetails extends PageObject{
         this.next.click();
         return new UploadCode(webDriver);
     }
-    public UploadCode setUpAppDetails(String name,String subtitle,String language,String category,String availability, String retailer){
+    public UploadCode setUpAppDetails(String name,String version,String subtitle,String language,String category,String availability, String retailer){
         wait(3000);
         this.name.sendKeys(name);
         this.subtitle.sendKeys(subtitle);
@@ -99,6 +99,7 @@ public class AppDetails extends PageObject{
         this.category.sendKeys(category);
         this.availability.sendKeys(availability);
         this.retailer.sendKeys(retailer);
+        this.appVersion.sendKeys(version);
         this.next.click();
         return new UploadCode(webDriver);
     }
@@ -135,6 +136,7 @@ public class AppDetails extends PageObject{
         return new UploadCode(webDriver);
     }
     public void cancel(){
+        scrollDown(cancel);
         if (cancel.isDisplayed())
             cancel.click();
     }

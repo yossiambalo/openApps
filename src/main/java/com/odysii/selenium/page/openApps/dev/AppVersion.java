@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class AppVersion extends PageObject {
-    @FindBy(id = "newAppButton")
+    @FindBy(id = "editAppNewVersion")
     WebElement newVersion;
     @FindBy(id = "codeFile")
     WebElement selectUpload;

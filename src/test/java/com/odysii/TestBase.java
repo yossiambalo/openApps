@@ -6,16 +6,16 @@ import com.odysii.selenium.page.util.DriverType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class TestBase {
     public WebDriver driver;
-    protected final int WAIT = 5000;
+    protected final int WAIT = 7000;
     protected final String cancelID = "cancel-button";
     protected final String backTxt = "BACK";
     protected final String continueTxt = "CONTINUE";

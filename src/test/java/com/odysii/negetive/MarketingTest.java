@@ -1,6 +1,8 @@
 package com.odysii.negetive;
 
 import com.odysii.TestBase;
+import com.odysii.selenium.page.openApps.User;
+import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.dev.DevHomePage;
 import com.odysii.selenium.page.openApps.dev.MyApps;
 import com.odysii.selenium.page.openApps.dev.summary.Marketing;
@@ -15,13 +17,14 @@ import org.testng.annotations.Test;
 public class MarketingTest extends TestBase {
     private ShowUp showUp;
 
+    User user;
     DevHomePage devUser;
     @BeforeClass
     public void login(){
-        devUser = new DevHomePage(driver);
-        devUser.login("user","123456");
+        user = new User(driver);
+        devUser = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
     }
-    @Test
+    @Test(enabled = false)
     public void _001_promotional_token_is_empty_negative(){
 
         MyApps myApps = devUser.getMyAppsPage(driver);

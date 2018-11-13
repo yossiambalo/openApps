@@ -27,6 +27,7 @@ public class MyApps extends PageObject {
         return new AppDetails(webDriver);
     }
     public ShowUp showUp(int appIndex){
+        scrollDown(apps.get(appIndex));
         isElementPresent(apps.get(appIndex));
         apps.get(appIndex).click();
         return new ShowUp(webDriver);
