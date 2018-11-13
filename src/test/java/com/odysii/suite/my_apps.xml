@@ -4,13 +4,13 @@
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
     </listeners>
-    <!--<test name="ChromeTest">-->
-        <!--<parameter name="browser" value="chrome"/>-->
-        <!--<classes>-->
-            <!--<class name="com.odysii.functional.RetailerTest"/>-->
-            <!--&lt;!&ndash;<class name="com.odysii.content.AdminContentTest"/>&ndash;&gt;-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="ChromeTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.odysii.functional.DevTest"/>
+            <!--<class name="com.odysii.content.AdminContentTest"/>-->
+        </classes>
+    </test>
     <!--<test name="EdgeTest">-->
     <!--<parameter name="browser" value="edge"/>-->
     <!--<classes>-->
@@ -18,12 +18,12 @@
     <!--</classes>-->
     <!--</test>-->
     <!--IDE should be run as Administrator for IE working-->
-    <test name="InternetExplorerTest">
-        <parameter name="browser" value="ie"/>
-        <classes>
-            <class name="com.odysii.functional.RetailerTest"/>
-        </classes>
-    </test>
+    <!--<test name="InternetExplorerTest">-->
+        <!--<parameter name="browser" value="ie"/>-->
+        <!--<classes>-->
+            <!--<class name="com.odysii.functional.DevTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
     <!--<test name="FireFoxTest">-->
     <!--<parameter name="browser" value="firefox"/>-->
     <!--<classes>-->

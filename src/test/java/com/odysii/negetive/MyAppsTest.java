@@ -55,7 +55,7 @@ public class MyAppsTest extends TestBase {
     public void _003_subtitle_field_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("Roi", "", LanguageType.ITALIAN, CategoryType.NEWS_AND_WEATHER, AvailabilityType.PRIVATE, RetailerType.MOBILE);
+        appDetails.setUpAppDetails("Roi", "Avital", LanguageType.ITALIAN, CategoryType.NEWS_AND_WEATHER, AvailabilityType.PRIVATE, RetailerType.MOBILE);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory subtitle field ");
     }
