@@ -73,6 +73,7 @@ public class AppDetails extends PageObject{
         Properties properties = loader.loadPropFile("app_details.properties");
         this.appTitle = properties.getProperty("name");
         this.appDescription = properties.getProperty("subtitle");
+        isElementPresent(name);
         this.name.sendKeys(appTitle +": "+dateFormat.format(date));
         this.appVersion.sendKeys(properties.getProperty("app_version"));
         this.subtitle.sendKeys(appDescription);
@@ -85,9 +86,8 @@ public class AppDetails extends PageObject{
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",shellRetailer);
         appPriceType.sendKeys(properties.getProperty("app_price_type"));
         appPrice.sendKeys(properties.getProperty("app_price"));
-        wait(WAIT);
-        pageUpDown(true);
-        wait(2000);
+        scrollDown(next);
+        isElementPresent(next);
         this.next.click();
         return new UploadCode(webDriver);
     }
@@ -110,6 +110,7 @@ public class AppDetails extends PageObject{
     public UploadCode setUpAppDetails(String version){
         PropertyLoader loader = new PropertyLoader();
         Properties properties = loader.loadPropFile("app_details.properties");
+        isElementPresent(appVersion);
         appVersion.clear();
         this.appVersion.sendKeys(version);
         subtitle.clear();
@@ -119,8 +120,7 @@ public class AppDetails extends PageObject{
         wait(WAIT);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",sportsCategory);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",weatherCategory);
-        pageUpDown(true);
-        wait(WAIT);
+        scrollDown(availability);
         this.availability.sendKeys(properties.getProperty("availability"));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",availability);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",shellRetailer);
@@ -130,12 +130,7 @@ public class AppDetails extends PageObject{
         webDriver.findElements(By.id("appPriceType")).get(1).sendKeys(properties.getProperty("app_price_type"));
         //ToDo: find elements should be removed once id will unique
         webDriver.findElements(By.id("appPrice")).get(1).sendKeys(properties.getProperty("app_price"));
-        //appPrice.sendKeys(properties.getProperty("app_price"));
-        wait(WAIT);
-        pageUpDown(true);
-        wait(2000);
-        //ToDo: find elements should be removed once id will unique
-        //webDriver.findElements(By.id("nextButton")).get(1).click();
+        scrollDown(next);
         this.next.click();
         return new UploadCode(webDriver);
     }

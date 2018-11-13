@@ -28,19 +28,20 @@ public class SupportTicket extends PageObject {
     }
     public void approve(){
        this.ticket.click();
-       //this.openTicket.click();
+       isElementPresent(approveTicket);
        this.approveTicket.click();
        this.finishButton.click();
     }
     public void rejectNoFee(){
         this.ticket.click();
-        //this.openTicket.click();
+        isElementPresent(rejectTicketNoFee);
         this.rejectTicketNoFee.click();
+        isElementPresent(finishButton);
         this.finishButton.click();
     }
     public void rejectWithFee(){
         this.ticket.click();
-        //this.openTicket.click();
+        isElementPresent(rejectTicketWithFee);
         this.rejectTicketWithFee.click();
         this.finishButton.click();
     }

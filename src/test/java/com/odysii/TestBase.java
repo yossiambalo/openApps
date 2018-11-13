@@ -6,16 +6,16 @@ import com.odysii.selenium.page.util.DriverType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class TestBase {
-    WebDriver driver;
-    protected final int WAIT = 10000;
+    public WebDriver driver;
+    protected final int WAIT = 5000;
     protected final String cancelID = "cancel-button";
     protected final String backTxt = "BACK";
     protected final String continueTxt = "CONTINUE";
@@ -33,17 +33,20 @@ public class TestBase {
     }
 
     @Parameters("browser")
-    @BeforeTest
+    @BeforeClass
     public void init(String browser){
         switch (browser){
             case "chrome":
                 driver = DriverManager.getWebDriver(DriverType.CHROME);
                 break;
             case "edge":
-                driver = DriverManager.getWebDriver(DriverType.IE);
+                driver = DriverManager.getWebDriver(DriverType.EDGE);
                 break;
             case "firefox":
                 driver = DriverManager.getWebDriver(DriverType.FIREFOX);
+                break;
+            case "ie":
+                driver = DriverManager.getWebDriver(DriverType.IE);
                 break;
             default:
         }

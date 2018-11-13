@@ -46,6 +46,7 @@ public class DevHomePage extends PageObject{
     }
     //get MyApps object
     public MyApps getMyAppsPage(WebDriver driver){
+        isElementPresent(myAppsLink);
         this.myAppsLink.click();
         return new MyApps(driver);
     }

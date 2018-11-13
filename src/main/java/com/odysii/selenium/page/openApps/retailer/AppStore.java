@@ -12,12 +12,19 @@ public class AppStore extends PageObject {
     List<WebElement> apps;
     @FindBy(id = "StoreApplicationDetailsAddToLibraryButton")
     WebElement addToLibrary;
+    @FindBy(id = "libraryApplicationDetailsRemoveFromLibraryButton")
+    WebElement removeFromLibrary;
     public AppStore(WebDriver driver) {
         super(driver);
     }
     public void addAppToLibrary(int appIndex){
+        scrollDown(apps.get(appIndex));
+        isElementPresent(apps.get(appIndex));
         apps.get(appIndex).click();
-        isElementPresent(addToLibrary);
+         if (!isElementPresent(addToLibrary)){
+             removeFromLibrary.click();
+         }
+         isElementPresent(addToLibrary);
         addToLibrary.click();
     }
     public void addAppToLibraryFromMainPage(int appIndex){

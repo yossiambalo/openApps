@@ -34,6 +34,7 @@ public class AdminPage extends PageObject {
         super(driver);
     }
     public SupportTicket getSupportTickets() {
+        isElementPresent(supportTickets);
         this.supportTickets.click();
         return new SupportTicket(webDriver);
     }

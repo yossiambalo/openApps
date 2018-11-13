@@ -16,12 +16,15 @@ public class UploadCode extends PageObject{
     WebElement agreeAndUpload;//codeFile
     @FindBy(id = "nextButton")
     WebElement next;
+    @FindBy(id = "newAppUploadCode")
+    WebElement uploadCodeBtn;
     @FindBy(id = "nextButton")
     List<WebElement> nexts;
     public UploadCode(WebDriver driver) {
         super(driver);
     }
     public Marketing upload(String zipFile){
+        isElementPresent(uploadCodeBtn);
         this.agreeAndUpload.sendKeys(getFile("application//"+zipFile));
         wait(5000);
         if (next.isDisplayed()) {

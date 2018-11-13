@@ -22,14 +22,19 @@ public class MyApps extends PageObject {
         super(driver);
     }
     public AppDetails clickAddNewAppBtn(){
+        isElementPresent(addNewApp);
         this.addNewApp.click();
         return new AppDetails(webDriver);
     }
     public ShowUp showUp(int appIndex){
+        isElementPresent(apps.get(appIndex));
         apps.get(appIndex).click();
         return new ShowUp(webDriver);
     }
     public ShowUp showUp(WebElement appElement){
+        scrollDown(appElement);
+        isElementPresent(appElement);
+        wait(WAIT);
         appElement.click();
         return new ShowUp(webDriver);
     }

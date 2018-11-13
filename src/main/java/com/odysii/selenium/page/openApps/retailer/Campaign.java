@@ -13,12 +13,12 @@ public class Campaign extends PageObject {
     private List<WebElement> campaigns;
     @FindBy(id = "newCampaignModalToggleButton")
     private WebElement addNewCampaignBtn;
-    @FindBy(id = "campaignName")
+    @FindBy(xpath = "//input[contains(@id, 'camapginName')]")
     private WebElement campaignName;
-    @FindBy(id = "campaignDescription")
+    @FindBy(xpath = "//input[contains(@id, 'campaignDescription')]")
     private WebElement campaignDescription;
-    @FindBy(id = "saveButton")
-    private WebElement saveButton;
+    @FindBy(id = "finishButton")
+    private WebElement finishButton;
     @FindBy(className = "block-item-menu-icon")
     private List<WebElement> campaignListMenuBtn;
     @FindBy(xpath = "//button[contains(@id, 'deleteCampaign')]")
@@ -39,9 +39,10 @@ public class Campaign extends PageObject {
     public void createCampaign(String campaignName, String description){
         isElementPresent(addNewCampaignBtn);
         addNewCampaignBtn.click();
+        isElementPresent(this.campaignName);
         this.campaignName.sendKeys(campaignName);
         campaignDescription.sendKeys(description);
-        saveButton.click();
+        finishButton.click();
     }
     public void deleteCampaign(){
         campaignListMenuBtn.get(0).click();
@@ -50,11 +51,10 @@ public class Campaign extends PageObject {
         confirmBtn.click();
     }
     public CampaignDesigner getDesignerPage(){
+        isElementPresent(campaignListMenuBtn.get(0));
         campaignListMenuBtn.get(0).click();
         editBtn.click();
         isElementPresent(designLink);
-        designLink.click();
-        wait(1000);
         designLink.click();
         return new CampaignDesigner(webDriver);
     }
@@ -63,10 +63,8 @@ public class Campaign extends PageObject {
         campaignListMenuBtn.get(0).click();
         editBtn.click();
         isElementPresent(this.campaignName);
-        this.campaignName.clear();
         this.campaignName.sendKeys(campaignName);
-        this.campaignDescription.clear();
         campaignDescription.sendKeys(description);
-        saveButton.click();
+        finishButton.click();
     }
 }

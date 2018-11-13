@@ -25,6 +25,7 @@ public class User extends PageObject {
 
     public Object login(String userName,String password,UserType userType){
         Object object = null;
+        isElementPresent(this.userName);
         this.userName.clear();
         this.userName.sendKeys(userName);
         this.userPassword.clear();
@@ -47,6 +48,7 @@ public class User extends PageObject {
     }
     public void logout(){
         try {
+            isElementPresent(logoutBtn);
             logoutBtn.click();
         }catch (WebDriverException exception){
             exception.getMessage();

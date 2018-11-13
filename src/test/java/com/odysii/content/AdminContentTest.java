@@ -1,6 +1,7 @@
-package com.odysii;
+package com.odysii.content;
 
 
+import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.admin.AdminPage;
@@ -10,7 +11,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 
-public class AdminContentTest extends TestBase{
+public class AdminContentTest extends TestBase {
     AdminPage adminPage;
     User user;
     @BeforeClass

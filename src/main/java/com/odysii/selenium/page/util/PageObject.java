@@ -22,13 +22,16 @@ public class PageObject {
          }
      }
      public boolean isElementExist(By by){
-         boolean res = true;
-         try{
-             webDriver.findElements(by);
-         }catch (NoSuchElementException e){
-             res = false;
+         int counter = 0;
+         while (webDriver.findElements(by).size() < 1 && counter < 5){
+             wait(4000);
+             counter ++;
          }
-         return res;
+         if (counter == 5){
+             throw new ExplicitAssertionError("element not found");
+         }
+         wait(WAIT);
+         return true;
      }
     protected String getFile(String fileName){
 
@@ -61,14 +64,24 @@ public class PageObject {
 
     public boolean isElementPresent(WebElement element) {
         int counter = 0;
-        while (!element.isDisplayed() && counter < 5){
-            wait(4000);
-            counter ++;
+        try {
+            while (!element.isDisplayed() && counter < 5){
+                wait(4000);
+                counter ++;
+            }
+        }catch (NoSuchElementException e){
+            System.out.println(e.fillInStackTrace());
+            return false;
         }
        if (counter == 5){
-           throw new ExplicitAssertionError("element not found");
+           return false;
        }
        wait(WAIT);
        return true;
+    }
+    protected void scrollDown(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+        js.executeScript("arguments[0].scrollIntoView();", element);
+        //js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 }
