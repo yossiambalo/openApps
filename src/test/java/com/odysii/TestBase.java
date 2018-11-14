@@ -1,20 +1,21 @@
 package com.odysii;
 
-import com.odysii.selenium.DriverManager;
-import com.odysii.selenium.DriverType;
-import com.odysii.selenium.page.HomePage;
-import com.odysii.selenium.page.myApps.Login;
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.FindBy;
+
+import com.odysii.selenium.page.util.DriverManager;
+import com.odysii.selenium.page.util.DriverType;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
+
 public class TestBase {
-    WebDriver driver;
-    HomePage homePage;
-    protected final int WAIT = 2000;
+    public WebDriver driver;
+    protected final int WAIT = 7000;
     protected final String cancelID = "cancel-button";
     protected final String backTxt = "BACK";
     protected final String continueTxt = "CONTINUE";
@@ -32,22 +33,24 @@ public class TestBase {
     }
 
     @Parameters("browser")
-    @BeforeTest
+    @BeforeClass
     public void init(String browser){
         switch (browser){
             case "chrome":
                 driver = DriverManager.getWebDriver(DriverType.CHROME);
                 break;
-            case "ie":
-                driver = DriverManager.getWebDriver(DriverType.IE);
+            case "edge":
+                driver = DriverManager.getWebDriver(DriverType.EDGE);
                 break;
             case "firefox":
                 driver = DriverManager.getWebDriver(DriverType.FIREFOX);
                 break;
+            case "ie":
+                driver = DriverManager.getWebDriver(DriverType.IE);
+                break;
             default:
         }
-        driver.get("http://openapps.tveez.local:8080/openAppStore");
-        homePage = new HomePage(driver);
+        driver.get("http://openappsqa.tveez.local:8080/openAppStore");
     }
     protected boolean isElementExist(By by){
         boolean res = true;
@@ -57,5 +60,20 @@ public class TestBase {
             res = false;
         }
         return res;
+    }
+    protected void pageUpDown(boolean down){
+        Robot robot = null;
+        try {
+            robot = new Robot();
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+        if (down) {
+            robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+        } else {
+            robot.keyPress(KeyEvent.VK_PAGE_UP);
+        }
+        wait(3000);
+        robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
     }
 }
