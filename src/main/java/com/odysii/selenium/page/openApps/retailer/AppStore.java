@@ -17,14 +17,17 @@ public class AppStore extends PageObject {
     public AppStore(WebDriver driver) {
         super(driver);
     }
-    public void addAppToLibrary(int appIndex){
+    public int addAppToLibrary(int appIndex){
+        int res = 0;
         scrollDown(apps.get(appIndex));
         isElementPresent(apps.get(appIndex));
         apps.get(appIndex).click();
          if (!isElementPresent(addToLibrary)){
              removeFromLibrary.click();
+             res++;
          }
          isElementPresent(addToLibrary);
         addToLibrary.click();
+        return res;
     }
 }

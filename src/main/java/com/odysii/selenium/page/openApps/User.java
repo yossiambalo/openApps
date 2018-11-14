@@ -25,7 +25,9 @@ public class User extends PageObject {
 
     public Object login(String userName,String password,UserType userType){
         Object object = null;
-        isElementPresent(this.userName);
+        if (!isElementPresent(this.userName)){
+            logout();
+        }
         this.userName.clear();
         this.userName.sendKeys(userName);
         this.userPassword.clear();
