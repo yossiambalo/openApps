@@ -1,6 +1,8 @@
 package com.odysii.negetive;
 
 import com.odysii.TestBase;
+import com.odysii.selenium.page.openApps.User;
+import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.dev.DevHomePage;
 import com.odysii.selenium.page.openApps.dev.MyApps;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
@@ -14,13 +16,13 @@ import org.testng.annotations.Test;
 
 public class SummaryTest extends TestBase {
 
-
+    User user;
     DevHomePage devUser;
 
     @BeforeClass
     public void login(){
-        devUser = new DevHomePage(driver);
-        devUser.login("user","123456");
+        user = new User(driver);
+        devUser = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
     }
     @Test
     public void _001_name_is_empty_summary_negative() {

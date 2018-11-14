@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
  * My apps: my_apps
  * Admin: admin_support_ticket
  */
+
 public class DevContentTest extends TestBase {
     DevHomePage devHomePage;
     User user;

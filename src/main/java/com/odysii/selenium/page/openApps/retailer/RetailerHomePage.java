@@ -49,6 +49,7 @@ public class RetailerHomePage extends PageObject {
         return new Scheduling(webDriver);
     }
     public void searchApps(String keyWord){
+        isElementPresent(applicationSearchInput);
         applicationSearchInput.sendKeys(keyWord);
         isElementPresent(makeApplicationSearch);
         makeApplicationSearch.click();

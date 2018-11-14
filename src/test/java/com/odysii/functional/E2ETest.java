@@ -55,7 +55,7 @@ public class E2ETest extends TestBase {
         wait(WAIT);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
         actualValue = actualAppList.size();
-        Assert.assertEquals(expectedValue,actualValue,"Failed to create a new application!");
+        Assert.assertEquals(actualValue,expectedValue,"Failed to create a new application!");
         Assert.assertTrue(myApps.getTitle(actualValue-1).toLowerCase().contains(appDetails.getAppTitle().toLowerCase()));
         Assert.assertTrue(myApps.getDescription(actualValue-1).toLowerCase().contains(appDetails.getAppDescription().toLowerCase()));
     }
@@ -64,7 +64,7 @@ public class E2ETest extends TestBase {
         //get the created app
         ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
         showUp.certify();
-        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus());
+        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus().trim());
         user.logout();
         //Admin approve
         AdminPage adminPage = (AdminPage)user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
@@ -78,7 +78,7 @@ public class E2ETest extends TestBase {
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
         showUp =  myApps.showUp(actualAppList.size()-1);
         wait(7000);
-        Assert.assertEquals(showUp.getStatus(),ApplicationStatus.REJECT.getStatus());
+        Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.REJECT.getStatus());
         showUp.backToMyApps();
     }
     @Test(priority = 3, dependsOnMethods = "_002_valid_app_reject_no_fee")
@@ -91,7 +91,7 @@ public class E2ETest extends TestBase {
         ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
         showUp.certify();
         wait(WAIT);
-        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus());
+        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus().trim());
         user.logout();
         //Admin approve
         AdminPage adminPage = (AdminPage)user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
@@ -104,7 +104,7 @@ public class E2ETest extends TestBase {
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
         wait(7000);
         showUp =  myApps.showUp(actualAppList.size()-1);
-        Assert.assertEquals(ApplicationStatus.REJECT.getStatus(),showUp.getStatus());
+        Assert.assertEquals(ApplicationStatus.REJECT.getStatus(),showUp.getStatus().trim());
         showUp.backToMyApps();
     }
     @Test(priority = 4, dependsOnMethods = "_003_valid_reject_with_fee")
@@ -118,7 +118,7 @@ public class E2ETest extends TestBase {
         showUp.editApp(summary);
         showUp.certify();
         wait(WAIT);
-        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus());
+        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus().trim());
         user.logout();
         //Admin approve
         AdminPage adminPage = (AdminPage)user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
@@ -131,10 +131,10 @@ public class E2ETest extends TestBase {
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
         wait(7000);
         showUp =  myApps.showUp(actualAppList.size()-1);
-        Assert.assertEquals(showUp.getStatus(),ApplicationStatus.CERTIFIED.getStatus());
+        Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.CERTIFIED.getStatus());
         showUp.addApplicationToStore();
         wait(8000);
-        Assert.assertEquals(showUp.getStatus(),ApplicationStatus.LIVE.getStatus());
+        Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.LIVE.getStatus());
     }
     @Test(priority = 5, dependsOnMethods = "_004_edit_and_certify_and_go_live")
     public void _005_valid_app_add_to_app_store(){
@@ -156,6 +156,6 @@ public class E2ETest extends TestBase {
         Marketing marketing = uploadCode.upload(zipFile);
         marketing.fillMarketing();
         wait(7000);
-        Assert.assertEquals(showUp.getStatus(),ApplicationStatus.PRESUBMITTED.getStatus());
+        Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.PRESUBMITTED.getStatus());
     }
 }
