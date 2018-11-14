@@ -12,57 +12,57 @@
             <class name="com.odysii.content.DevContentTest"/>
             <class name="com.odysii.content.RelailerContentTest"/>
             <class name="com.odysii.functional.RetailerTest"/>
-            <!--=======Shuld maintaian======-->
-            <!--<class name="com.odysii.negetive.AppVersionsTest"/>-->
-            <!--<class name="com.odysii.negetive.MarketingTest"/>-->
-            <!--<class name="com.odysii.negetive.MyAppsTest"/>-->
-            <!--<class name="com.odysii.negetive.SummaryTest"/>-->
+            <!--&lt;!&ndash;=======Shuld maintaian======&ndash;&gt;-->
+            <!--&lt;!&ndash;<class name="com.odysii.negetive.AppVersionsTest"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<class name="com.odysii.negetive.MarketingTest"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<class name="com.odysii.negetive.MyAppsTest"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<class name="com.odysii.negetive.SummaryTest"/>&ndash;&gt;-->
         </classes>
     </test>
-    <test name="EdgeTest">
-    <parameter name="browser" value="edge"/>
-    <classes>
+    <!--<test name="EdgeTest">-->
+    <!--<parameter name="browser" value="edge"/>-->
+    <!--<classes>-->
+        <!--&lt;!&ndash;<class name="com.odysii.content.AdminContentTest"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<class name="com.odysii.content.DevContentTest"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<class name="com.odysii.content.RelailerContentTest"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<class name="com.odysii.functional.RetailerTest"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<class name="com.odysii.functional.E2ETest"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;=======Should maintain======&ndash;&gt;-->
+        <!--&lt;!&ndash;<class name="com.odysii.negetive.AppVersionsTest"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<class name="com.odysii.negetive.MarketingTest"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<class name="com.odysii.negetive.MyAppsTest"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<class name="com.odysii.negetive.SummaryTest"/>&ndash;&gt;-->
+    <!--</classes>-->
+    <!--</test>-->
+    <!--&lt;!&ndash;IDE should be run as Administrator for IE working&ndash;&gt;-->
+    <!--<test name="InternetExplorerTest">-->
+        <!--<parameter name="browser" value="ie"/>-->
+        <!--<classes>-->
+            <!--&lt;!&ndash;<class name="com.odysii.content.AdminContentTest"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<class name="com.odysii.content.DevContentTest"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<class name="com.odysii.content.RelailerContentTest"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<class name="com.odysii.functional.RetailerTest"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<class name="com.odysii.functional.E2ETest"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;=======Should maintain======&ndash;&gt;-->
+            <!--&lt;!&ndash;<class name="com.odysii.negetive.AppVersionsTest"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<class name="com.odysii.negetive.MarketingTest"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<class name="com.odysii.negetive.MyAppsTest"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<class name="com.odysii.negetive.SummaryTest"/>&ndash;&gt;-->
+        <!--</classes>-->
+    <!--</test>-->
+    <!--<test name="FireFoxTest">-->
+    <!--<parameter name="browser" value="firefox"/>-->
+    <!--<classes>-->
         <!--<class name="com.odysii.content.AdminContentTest"/>-->
         <!--<class name="com.odysii.content.DevContentTest"/>-->
         <!--<class name="com.odysii.content.RelailerContentTest"/>-->
         <!--<class name="com.odysii.functional.RetailerTest"/>-->
         <!--<class name="com.odysii.functional.E2ETest"/>-->
-        <!--=======Should maintain======-->
-        <!--<class name="com.odysii.negetive.AppVersionsTest"/>-->
-        <!--<class name="com.odysii.negetive.MarketingTest"/>-->
-        <!--<class name="com.odysii.negetive.MyAppsTest"/>-->
-        <!--<class name="com.odysii.negetive.SummaryTest"/>-->
-    </classes>
-    </test>
-    <!--IDE should be run as Administrator for IE working-->
-    <test name="InternetExplorerTest">
-        <parameter name="browser" value="ie"/>
-        <classes>
-            <!--<class name="com.odysii.content.AdminContentTest"/>-->
-            <!--<class name="com.odysii.content.DevContentTest"/>-->
-            <!--<class name="com.odysii.content.RelailerContentTest"/>-->
-            <!--<class name="com.odysii.functional.RetailerTest"/>-->
-            <!--<class name="com.odysii.functional.E2ETest"/>-->
-            <!--=======Should maintain======-->
-            <!--<class name="com.odysii.negetive.AppVersionsTest"/>-->
-            <!--<class name="com.odysii.negetive.MarketingTest"/>-->
-            <!--<class name="com.odysii.negetive.MyAppsTest"/>-->
-            <!--<class name="com.odysii.negetive.SummaryTest"/>-->
-        </classes>
-    </test>
-    <test name="FireFoxTest">
-    <parameter name="browser" value="firefox"/>
-    <classes>
-        <class name="com.odysii.content.AdminContentTest"/>
-        <class name="com.odysii.content.DevContentTest"/>
-        <class name="com.odysii.content.RelailerContentTest"/>
-        <class name="com.odysii.functional.RetailerTest"/>
-        <class name="com.odysii.functional.E2ETest"/>
-        <!--=======Should maintain======-->
-        <!--<class name="com.odysii.negetive.AppVersionsTest"/>-->
-        <!--<class name="com.odysii.negetive.MarketingTest"/>-->
-        <!--<class name="com.odysii.negetive.MyAppsTest"/>-->
-        <!--<class name="com.odysii.negetive.SummaryTest"/>-->
-    </classes>
-    </test>
+        <!--&lt;!&ndash;=======Should maintain======&ndash;&gt;-->
+        <!--&lt;!&ndash;<class name="com.odysii.negetive.AppVersionsTest"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<class name="com.odysii.negetive.MarketingTest"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<class name="com.odysii.negetive.MyAppsTest"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<class name="com.odysii.negetive.SummaryTest"/>&ndash;&gt;-->
+    <!--</classes>-->
+    <!--</test>-->
 </suite>
