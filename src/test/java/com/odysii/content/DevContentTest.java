@@ -49,7 +49,7 @@ public class DevContentTest extends TestBase {
         String expected = "ADD NEW APP";
         devHomePage.getMyAppsPage(driver);
         String actualTxt = driver.findElement(By.id("newAppButton")).getText();
-        Assert.assertEquals(actualTxt,expected);
+        Assert.assertEquals(actualTxt.trim(),expected.trim());
 
     }
     @Test
@@ -58,7 +58,7 @@ public class DevContentTest extends TestBase {
         MyApps myApps = devHomePage.getMyAppsPage(driver);
         myApps.showUp(0);
         String actualTxt = driver.findElement(By.id("editAppNewVersion")).getText();
-        Assert.assertEquals(expected,actualTxt);
+        Assert.assertEquals(expected.trim(),actualTxt.trim());
 
     }
     @Test

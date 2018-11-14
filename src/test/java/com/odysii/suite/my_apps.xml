@@ -7,15 +7,15 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <!--<class name="com.odysii.content.AdminContentTest"/>-->
-            <!--<class name="com.odysii.content.DevContentTest"/>-->
-            <!--<class name="com.odysii.content.RelailerContentTest"/>-->
-            <!--<class name="com.odysii.functional.RetailerTest"/>-->
-            <!--<class name="com.odysii.functional.E2ETest"/>-->
+            <class name="com.odysii.functional.E2ETest"/>
+            <class name="com.odysii.content.AdminContentTest"/>
+            <class name="com.odysii.content.DevContentTest"/>
+            <class name="com.odysii.content.RelailerContentTest"/>
+            <class name="com.odysii.functional.RetailerTest"/>
             <!--=======Shuld maintaian======-->
             <!--<class name="com.odysii.negetive.AppVersionsTest"/>-->
             <!--<class name="com.odysii.negetive.MarketingTest"/>-->
-            <class name="com.odysii.negetive.MyAppsTest"/>
+            <!--<class name="com.odysii.negetive.MyAppsTest"/>-->
             <!--<class name="com.odysii.negetive.SummaryTest"/>-->
         </classes>
     </test>
@@ -27,7 +27,7 @@
         <!--<class name="com.odysii.content.RelailerContentTest"/>-->
         <!--<class name="com.odysii.functional.RetailerTest"/>-->
         <!--<class name="com.odysii.functional.E2ETest"/>-->
-        <!--=======Shuld maintaian======-->
+        <!--=======Should maintain======-->
         <!--<class name="com.odysii.negetive.AppVersionsTest"/>-->
         <!--<class name="com.odysii.negetive.MarketingTest"/>-->
         <!--<class name="com.odysii.negetive.MyAppsTest"/>-->
@@ -43,7 +43,7 @@
             <!--<class name="com.odysii.content.RelailerContentTest"/>-->
             <!--<class name="com.odysii.functional.RetailerTest"/>-->
             <!--<class name="com.odysii.functional.E2ETest"/>-->
-            <!--=======Shuld maintaian======-->
+            <!--=======Should maintain======-->
             <!--<class name="com.odysii.negetive.AppVersionsTest"/>-->
             <!--<class name="com.odysii.negetive.MarketingTest"/>-->
             <!--<class name="com.odysii.negetive.MyAppsTest"/>-->
@@ -53,12 +53,12 @@
     <test name="FireFoxTest">
     <parameter name="browser" value="firefox"/>
     <classes>
-        <!--<class name="com.odysii.content.AdminContentTest"/>-->
-        <!--<class name="com.odysii.content.DevContentTest"/>-->
-        <!--<class name="com.odysii.content.RelailerContentTest"/>-->
-        <!--<class name="com.odysii.functional.RetailerTest"/>-->
-        <!--<class name="com.odysii.functional.E2ETest"/>-->
-        <!--=======Shuld maintaian======-->
+        <class name="com.odysii.content.AdminContentTest"/>
+        <class name="com.odysii.content.DevContentTest"/>
+        <class name="com.odysii.content.RelailerContentTest"/>
+        <class name="com.odysii.functional.RetailerTest"/>
+        <class name="com.odysii.functional.E2ETest"/>
+        <!--=======Should maintain======-->
         <!--<class name="com.odysii.negetive.AppVersionsTest"/>-->
         <!--<class name="com.odysii.negetive.MarketingTest"/>-->
         <!--<class name="com.odysii.negetive.MyAppsTest"/>-->

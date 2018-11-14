@@ -81,7 +81,7 @@ public class AdminContentTest extends TestBase {
     public void _009_valid_support_ticket_left_menu(){
         String expected = "SUPPORT TICKETS";
         String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'Support Tickets')]")).getText();
-        Assert.assertEquals(expected,actualTxt);
+        Assert.assertEquals(expected.toLowerCase(),actualTxt.toLowerCase());
 
     }
     @Test
@@ -97,14 +97,14 @@ public class AdminContentTest extends TestBase {
     public void _011_valid_button_text_preview(){
         String expected = "Preview";
         String actualTxt = driver.findElement(By.id("adminTicketPreview")).getText();
-        Assert.assertEquals(expected,actualTxt);
+        Assert.assertEquals(expected.trim(),actualTxt.trim());
 
     }
     @Test
     public void _012_valid_button_text_preview(){
         String expected = "Download";
         String actualTxt = driver.findElement(By.id("adminTicketDownload")).getText();
-        Assert.assertEquals(expected,actualTxt);
+        Assert.assertEquals(expected.trim(),actualTxt.trim());
 
     }
     @Test

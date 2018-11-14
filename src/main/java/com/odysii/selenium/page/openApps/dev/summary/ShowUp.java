@@ -66,8 +66,9 @@ public class ShowUp extends PageObject {
         this.appVersionMenu.click();
         this.certifyBtn.click();
         wait(WAIT);
-        scrollDown(nextBtn);
         isElementPresent(nextBtn);
+        scrollDown(nextBtn);
+        wait(WAIT);
         this.nextBtn.click();
         isElementPresent(finishBtn);
         this.finishBtn.click();
