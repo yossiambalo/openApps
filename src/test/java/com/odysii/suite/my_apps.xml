@@ -7,11 +7,11 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <!--<class name="com.odysii.functional.E2ETest"/>-->
+            <class name="com.odysii.functional.E2ETest"/>
             <class name="com.odysii.content.AdminContentTest"/>
-            <!--<class name="com.odysii.content.DevContentTest"/>-->
-            <!--<class name="com.odysii.content.RelailerContentTest"/>-->
-            <!--<class name="com.odysii.functional.RetailerTest"/>-->
+            <class name="com.odysii.content.DevContentTest"/>
+            <class name="com.odysii.content.RelailerContentTest"/>
+            <class name="com.odysii.functional.RetailerTest"/>
             <!--&lt;!&ndash;=======Shuld maintaian======&ndash;&gt;-->
             <!--&lt;!&ndash;<class name="com.odysii.negetive.AppVersionsTest"/>&ndash;&gt;-->
             <!--&lt;!&ndash;<class name="com.odysii.negetive.MarketingTest"/>&ndash;&gt;-->
@@ -50,19 +50,19 @@
             <!--&lt;!&ndash;<class name="com.odysii.negetive.SummaryTest"/>&ndash;&gt;-->
         <!--</classes>-->
     <!--</test>-->
-    <!--<test name="FireFoxTest">-->
-    <!--<parameter name="browser" value="firefox"/>-->
-    <!--<classes>-->
-        <!--<class name="com.odysii.content.AdminContentTest"/>-->
-        <!--<class name="com.odysii.content.DevContentTest"/>-->
-        <!--<class name="com.odysii.content.RelailerContentTest"/>-->
-        <!--<class name="com.odysii.functional.RetailerTest"/>-->
-        <!--<class name="com.odysii.functional.E2ETest"/>-->
+    <test name="FireFoxTest">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+        <class name="com.odysii.content.AdminContentTest"/>
+        <class name="com.odysii.content.DevContentTest"/>
+        <class name="com.odysii.content.RelailerContentTest"/>
+        <class name="com.odysii.functional.RetailerTest"/>
+        <class name="com.odysii.functional.E2ETest"/>
         <!--&lt;!&ndash;=======Should maintain======&ndash;&gt;-->
         <!--&lt;!&ndash;<class name="com.odysii.negetive.AppVersionsTest"/>&ndash;&gt;-->
         <!--&lt;!&ndash;<class name="com.odysii.negetive.MarketingTest"/>&ndash;&gt;-->
         <!--&lt;!&ndash;<class name="com.odysii.negetive.MyAppsTest"/>&ndash;&gt;-->
         <!--&lt;!&ndash;<class name="com.odysii.negetive.SummaryTest"/>&ndash;&gt;-->
-    <!--</classes>-->
-    <!--</test>-->
+    </classes>
+    </test>
 </suite>
