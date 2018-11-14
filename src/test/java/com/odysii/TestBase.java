@@ -3,9 +3,7 @@ package com.odysii;
 
 import com.odysii.selenium.page.util.DriverManager;
 import com.odysii.selenium.page.util.DriverType;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -75,5 +73,10 @@ public class TestBase {
         }
         wait(3000);
         robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
+    }
+    protected void scrollDown(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView();", element);
+        //js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 }

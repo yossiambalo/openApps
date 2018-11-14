@@ -92,7 +92,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Test failed - no validation of max characters in name field");
     }
 
-    @Test
+    @Test (enabled = false)//No limition for chars
     public void _010_subtitle_field_length_255_chars_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -114,6 +114,8 @@ public class MyAppsTest extends TestBase {
     public void _012_cancel_button_app_details_is_function_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
+        WebElement continueButton = driver.findElement(By.id("nextButton"));
+        scrollDown(continueButton);
         appDetails.cancel();
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
         Assert.assertTrue(actualValue, "Cancel button function and back to My apps page");
