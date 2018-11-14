@@ -91,15 +91,22 @@ public class AppDetails extends PageObject{
         this.next.click();
         return new UploadCode(webDriver);
     }
-    public UploadCode setUpAppDetails(String name,String version,String subtitle,String language,String category,String availability, String retailer){
-        wait(3000);
+    public UploadCode setUpAppDetails(String name,String version,String subtitle,String priceType,String price,String availability){
+        isElementPresent(this.name);
         this.name.sendKeys(name);
-        this.subtitle.sendKeys(subtitle);
-        this.language.sendKeys(language);
-        this.category.sendKeys(category);
-        this.availability.sendKeys(availability);
-        this.retailer.sendKeys(retailer);
         this.appVersion.sendKeys(version);
+        this.subtitle.sendKeys(subtitle);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.englishLanguage);
+        wait(WAIT);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",sportsCategory);
+        wait(WAIT);
+        this.availability.sendKeys(availability);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",this.availability);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",shellRetailer);
+        appPriceType.sendKeys(priceType);
+        appPrice.sendKeys(price);
+        scrollDown(next);
+        isElementPresent(next);
         this.next.click();
         return new UploadCode(webDriver);
     }
