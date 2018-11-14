@@ -9,7 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class RelailerContentTest extends TestBase {
+public class RetailerContentTest extends TestBase {
     RetailerHomePage retailerHomePage;
     User user;
     @BeforeClass

@@ -28,7 +28,6 @@ public class DevTest extends TestBase {
     MyApps myApps;
 
 
-
     @BeforeClass
     public void login() {
         user = new User(driver);

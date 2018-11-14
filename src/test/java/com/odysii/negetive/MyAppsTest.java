@@ -4,6 +4,7 @@ import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.dev.*;
+import com.odysii.selenium.page.openApps.dev.summary.Availabilty;
 import com.odysii.selenium.page.openApps.helper.appDetails.AvailabilityType;
 import com.odysii.selenium.page.openApps.helper.appDetails.CategoryType;
 import com.odysii.selenium.page.openApps.helper.appDetails.LanguageType;
@@ -17,11 +18,12 @@ import org.testng.annotations.Test;
 
 public class MyAppsTest extends TestBase {
     private AppDetails appDetails;
-    private final String zipFile = "dog2.jpg";
-    private final String screenShotFile = "bike.jpg";
+
 
     User user;
     DevHomePage devUser;
+    private Marketing marketing;
+
     @BeforeClass
     public void login(){
         user = new User(driver);
@@ -31,35 +33,35 @@ public class MyAppsTest extends TestBase {
     public void _001_name_field_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("", "1.0.2","LALALA", LanguageType.ENGLISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, RetailerType.SHELL);
+        appDetails.setUpAppDetails("","1.2.5","Subtitle",PriceType.PER_SITE_PER_YEAR,"3",Availabilty.PUBLIC);
         //String expectedValue ="custom-file-input";
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory name field");
     }
 
-    @Test
+    @Test (enabled = false)
     public void _002_subtitle_field_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("Roi", "1.0.2","", LanguageType.ITALIAN, CategoryType.NEWS_AND_WEATHER, AvailabilityType.PRIVATE, RetailerType.MOBILE);
+        appDetails.setUpAppDetails("Roi", "1.0.2","", PriceType.ON_TIME_FLAT_FEE, "5", Availabilty.PUBLIC);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory subtitle field ");
     }
 
-    @Test
+    @Test (enabled = false)
     public void _003_language_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("Yossi","1.0.2", "Arau", "", CategoryType.SPORTS, AvailabilityType.PRIVATE, RetailerType.MOBILE);
+        appDetails.setUpAppDetails("Yossi","1.0.2", "Arau", CategoryType.SPORTS, AvailabilityType.PRIVATE, RetailerType.MOBILE);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory language field");
     }
 
-    @Test
+    @Test (enabled = false)
     public void _004_category_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("Liron","1.0.2", "IT", LanguageType.DANISH, "", AvailabilityType.PRIVATE, RetailerType.SHELL);
+        appDetails.setUpAppDetails("Liron","1.0.2", "IT", PriceType.PER_DISPENSER_PER_YEAR,"3",Availabilty.PRIVATE);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory category field");
     }
@@ -68,16 +70,16 @@ public class MyAppsTest extends TestBase {
     public void _005_availability_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("XXX","1.0.2", "PP", LanguageType.FRENCH, CategoryType.SPORTS, "", RetailerType.SHELL);
+        appDetails.setUpAppDetails("XXX","1.0.2", "PP",PriceType.PER_DISPENSER_PER_MONTH,"4","");
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory availability field");
     }
 
-    @Test
+    @Test (enabled = false)
     public void _008_retailer_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("Evgeny", "1.0.2","Lev", LanguageType.FRENCH, CategoryType.SPORTS, AvailabilityType.PRIVATE, "");
+        appDetails.setUpAppDetails("Evgeny", "1.0.2","Lev", CategoryType.SPORTS, AvailabilityType.PRIVATE, "");
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory retailer field");
     }
@@ -87,7 +89,7 @@ public class MyAppsTest extends TestBase {
     public void _009_name_field_length_257_chars_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567", "1.0.2","Max is 256 chars", LanguageType.DANISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, RetailerType.SHELL);
+        appDetails.setUpAppDetails("12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567", "1.0.2","Max is 256 chars", PriceType.PER_DISPENSER_PER_YEAR,"3",Availabilty.PRIVATE);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of max characters in name field");
     }
@@ -96,17 +98,17 @@ public class MyAppsTest extends TestBase {
     public void _010_subtitle_field_length_255_chars_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567", "1.0.2","Max is 256 chars", LanguageType.DANISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, RetailerType.SHELL);
+        appDetails.setUpAppDetails("345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567", "1.0.2","Max is 256 chars",PriceType.PER_DISPENSER_PER_YEAR,"3",Availabilty.PRIVATE);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertTrue(actualValue, "Subtitle can contain 255 chars");
     }
 
-    @Test//TODo: ask devs should be validation for those chars?
+    @Test (enabled = false) //TODo: ask devs should be validation for those chars?
     public void _011_valid_name_field_special_chars_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("@!*#$%!","1.0.2", "+-/*", LanguageType.DANISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, RetailerType.SHELL);
-        Boolean actualValue = isElementExist(By.className("custom-file-input"));
+        appDetails.setUpAppDetails("@!*#$%!","1.0.2", "+-/*",PriceType.ON_TIME_FLAT_FEE,"77",Availabilty.PUBLIC);
+        Boolean actualValue = isElementExist(By.id("newAppUploadCode"));
         Assert.assertFalse(actualValue, "Test failed - no validation of special characters in name field");
     }
 
@@ -117,7 +119,7 @@ public class MyAppsTest extends TestBase {
         WebElement continueButton = driver.findElement(By.id("nextButton"));
         scrollDown(continueButton);
         appDetails.cancel();
-        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
+        Boolean actualValue = isElementExist(By.id("newAppButton"));
         Assert.assertTrue(actualValue, "Cancel button function and back to My apps page");
     }
 
@@ -125,16 +127,16 @@ public class MyAppsTest extends TestBase {
     public void _013_language_input_name_field_chinese_128_chars_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对断对","1.0.2", "Max is 256 chars", LanguageType.DANISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, RetailerType.SHELL);
+        appDetails.setUpAppDetails("品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对断对","1.0.2", "Max is 256 chars",PriceType.PER_DISPENSER_PER_YEAR,"66",Availabilty.PRIVATE);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Japanese is supported");
     }
 
-    @Test(enabled = false)//No limitation for chars
+    //@Test(enabled = false)//No limitation for chars
     public void _014_language_input_subtitle_field_hebrew_128_chars_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("hebrew test","1.0.2", "אני כותב טקסט בעברית... פםדחגפסךןקג]םח ]םחקגךלמאני כותב טקסט בעברית... פםדחגפסךןקג]םח ]םחקגךלמאני כותב טקסט בעברית... פםדחגפסךן", LanguageType.DANISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, RetailerType.SHELL);
+        appDetails.setUpAppDetails("hebrew test","1.0.2", "אני כותב טקסט בעברית... פםדחגפסךןקג]םח ]םחקגךלמאני כותב טקסט בעברית... פםדחגפסךןקג]םח ]םחקגךלמאני כותב טקסט בעברית... פםדחגפסךן",PriceType.PER_SITE_PER_YEAR,"3",Availabilty.PRIVATE);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Hebrew is supported");
     }
@@ -143,10 +145,11 @@ public class MyAppsTest extends TestBase {
     public void _015_back_button_upload_code(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("test","1.0.2", "scvs", LanguageType.DANISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, RetailerType.SHELL);
-        WebElement backButton = driver.findElement(By.xpath("//*[contains(text(), '"+ backTxt +"')]"));
+        appDetails.setUpAppDetails("test","1.0.2", "scvs",PriceType.PER_DISPENSER_PER_YEAR,"3",Availabilty.PUBLIC);
+        WebElement backButton = driver.findElement(By.id("previousButton"));
         backButton.click();
-        Boolean actualValue = isElementExist(By.id("app-name"));
+        wait(WAIT);
+        Boolean actualValue = isElementExist(By.id("appName"));
         Assert.assertTrue(actualValue,"back button is function");
     }
 
@@ -154,10 +157,11 @@ public class MyAppsTest extends TestBase {
     public void _016_cancel_button_upload_code_page() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("test2","1.0.2", "scdvdvs", LanguageType.DANISH, CategoryType.SPORTS, AvailabilityType.PRIVATE, RetailerType.SHELL);
-        WebElement cancelButton = driver.findElement(By.id(cancelID));
+        appDetails.setUpAppDetails("test2","1.0.2", "scdvdvs", PriceType.PER_DISPENSER_PER_YEAR,"3",Availabilty.PUBLIC);
+        WebElement cancelButton = driver.findElement(By.id("cancelButton"));
         cancelButton.click();
-        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
+        wait(WAIT);
+        Boolean actualValue = isElementExist(By.id("appName"));
         Assert.assertTrue(actualValue, "Previous button is function");
     }
 
@@ -165,10 +169,14 @@ public class MyAppsTest extends TestBase {
     public void _017_continue_button_upload_code_page_positive(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, RetailerType.SHELL);
+        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_DISPENSER_PER_MONTH,"4",Availabilty.PUBLIC);
         wait(WAIT);
-        uploadCode.upload(zipFile);
-        Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), '"+ finishTxt +"')]"));
+        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
+        agreeAndUpload.sendKeys("C:\\Users\\roi.avital\\Desktop\\Zip applications for tests\\appConfig_1541669841907.zip");
+        wait(WAIT);
+        WebElement continurButton = driver.findElement(By.id("nextButton"));
+        continurButton.click();
+        Boolean actualValue = isElementExist(By.id("app-promotion"));
         Assert.assertTrue(actualValue,"Moved to marketing page successfully");
     }
 
@@ -176,10 +184,21 @@ public class MyAppsTest extends TestBase {
     public void _018_promotional_text_empty_marketing_page_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, RetailerType.SHELL);
+        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PUBLIC);
         wait(WAIT);
-        Marketing marketing = uploadCode.upload(zipFile);
-        marketing.fillMarketing("", "Keyword field", screenShotFile, zipFile);
+        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
+        agreeAndUpload.sendKeys("C:\\Users\\roi.avital\\Desktop\\Zip applications for tests\\appConfig_1541669841907.zip");
+        wait(WAIT);
+        WebElement continurButton = driver.findElement(By.id("nextButton"));
+        continurButton.click();
+        WebElement appPromotion = driver.findElement(By.id("app-promotion"));
+        appPromotion.sendKeys("");
+        WebElement appKeywords = driver.findElement(By.id("app-keywords"));
+        appKeywords.sendKeys("Test");
+        WebElement appIcon = driver.findElement(By.id("iconFile"));
+        appIcon.sendKeys("C:\\Users\\roi.avital\\Desktop\\Zip applications for tests\\Configuration.png");
+        WebElement appPreviewAndScreenShot = driver.findElement(By.id("screenshotsFile"));
+        appPreviewAndScreenShot.sendKeys("C:\\Users\\roi.avital\\Desktop\\Zip applications for tests\\Configuration2.jpg");
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
         Assert.assertFalse(actualValue, "Promotional token field is mandatory - it's empty!");
     }
@@ -188,10 +207,21 @@ public class MyAppsTest extends TestBase {
     public void _019_keywords_empty_marketing_page_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, RetailerType.SHELL);
+        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"33",Availabilty.PUBLIC);
         wait(WAIT);
-        Marketing marketing = uploadCode.upload(zipFile);
-        marketing.fillMarketing("P_Token", "", screenShotFile, zipFile);
+        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
+        agreeAndUpload.sendKeys("C:\\Users\\roi.avital\\Desktop\\Zip applications for tests\\appConfig_1541669841907.zip");
+        wait(WAIT);
+        WebElement continurButton = driver.findElement(By.id("nextButton"));
+        continurButton.click();
+        WebElement appPromotion = driver.findElement(By.id("app-promotion"));
+        appPromotion.sendKeys("TEST");
+        WebElement appKeywords = driver.findElement(By.id("app-keywords"));
+        appKeywords.sendKeys("");
+        WebElement appIcon = driver.findElement(By.id("iconFile"));
+        appIcon.sendKeys("C:\\Users\\roi.avital\\Desktop\\Zip applications for tests\\Configuration.png");
+        WebElement appPreviewAndScreenShot = driver.findElement(By.id("screenshotsFile"));
+        appPreviewAndScreenShot.sendKeys("C:\\Users\\roi.avital\\Desktop\\Zip applications for tests\\Configuration2.jpg");
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
         Assert.assertFalse(actualValue,"No validation for field!");
     }
@@ -200,10 +230,21 @@ public class MyAppsTest extends TestBase {
     public void _020_screenshot_file_path_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, RetailerType.SHELL);
+        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"444",Availabilty.PUBLIC);
         wait(WAIT);
-        Marketing marketing = uploadCode.upload(zipFile);
-        marketing.fillMarketing("P_Token", "sfg", "", zipFile);
+        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
+        agreeAndUpload.sendKeys("C:\\Users\\roi.avital\\Desktop\\Zip applications for tests\\appConfig_1541669841907.zip");
+        WebElement continurButton = driver.findElement(By.id("nextButton"));
+        continurButton.click();
+        wait(WAIT);
+        WebElement appPromotion = driver.findElement(By.id("app-promotion"));
+        appPromotion.sendKeys("");
+        WebElement appKeywords = driver.findElement(By.id("app-keywords"));
+        appKeywords.sendKeys("Test");
+        WebElement appIcon = driver.findElement(By.id("iconFile"));
+        appIcon.sendKeys("C:\\Users\\roi.avital\\Desktop\\Zip applications for tests\\Configuration.png");
+        WebElement appPreviewAndScreenShot = driver.findElement(By.id("screenshotsFile"));
+        appPreviewAndScreenShot.sendKeys("");
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
         Assert.assertFalse(actualValue,"No validation for field!");
     }
@@ -212,17 +253,27 @@ public class MyAppsTest extends TestBase {
     public void _021_appicon_path_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",LanguageType.FRENCH,CategoryType.SPORTS,AvailabilityType.PRIVATE, RetailerType.SHELL);
+        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_DISPENSER_PER_YEAR,"52",Availabilty.PRIVATE);
         wait(WAIT);
-        Marketing marketing = uploadCode.upload(zipFile);
-        marketing.fillMarketing("P_Token", "sfg", screenShotFile, "");
+        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
+        agreeAndUpload.sendKeys("C:\\Users\\roi.avital\\Desktop\\Zip applications for tests\\appConfig_1541669841907.zip");
+        wait(WAIT);
+        WebElement continurButton = driver.findElement(By.id("nextButton"));
+        continurButton.click();
+        WebElement appPromotion = driver.findElement(By.id("app-promotion"));
+        appPromotion.sendKeys("");
+        WebElement appKeywords = driver.findElement(By.id("app-keywords"));
+        appKeywords.sendKeys("Test");
+        WebElement appIcon = driver.findElement(By.id("iconFile"));
+        appIcon.sendKeys("");
+        WebElement appPreviewAndScreenShot = driver.findElement(By.id("screenshotsFile"));
+        appPreviewAndScreenShot.sendKeys("C:\\Users\\roi.avital\\Desktop\\Zip applications for tests\\Configuration2.jpg");
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
         Assert.assertFalse(actualValue,"No validation for field!");
 
     }
     @AfterMethod
     public void afterMethod(){
-        appDetails.cancel();
         driver.navigate().refresh();
     }
 }
