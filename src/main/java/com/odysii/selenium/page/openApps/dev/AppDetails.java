@@ -53,6 +53,7 @@ public class AppDetails extends PageObject{
     @FindBy(id = "appPrice")
     WebElement appPrice;
 
+
     public String getAppTitle() {
         return appTitle;
     }
