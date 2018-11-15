@@ -15,7 +15,7 @@
             <!--=======Shuld maintaian======-->
             <!--<class name="com.odysii.negetive.AppVersionsTest"/>-->
             <!--<class name="com.odysii.negetive.MarketingTest"/>-->
-            <class name="com.odysii.negetive.MyAppsTest"/>
+            <!--<class name="com.odysii.negetive.MyAppsTest"/>-->
             <!--<class name="com.odysii.negetive.SummaryTest"/>-->
         </classes>
     </test>
@@ -61,7 +61,7 @@
         <!--=======Should maintain======-->
         <!--<class name="com.odysii.negetive.AppVersionsTest"/>-->
         <!--<class name="com.odysii.negetive.MarketingTest"/>-->
-        <!--<class name="com.odysii.negetive.MyAppsTest"/>-->
+        <class name="com.odysii.negetive.MyAppsTest"/>
         <!--<class name="com.odysii.negetive.SummaryTest"/>-->
     </classes>
     </test>
