@@ -25,9 +25,8 @@ public class DriverManager {
                 break;
             case IE:
                 System.setProperty("webdriver.ie.driver",driverPath+"IEDriverServer.exe");
-                DesiredCapabilities capabilities = new DesiredCapabilities();
-                capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
-                driver =  new InternetExplorerDriver(capabilities);
+                driver =  new InternetExplorerDriver();
+                driver.manage().deleteAllCookies();
                 break;
             case FIREFOX:
                 System.setProperty("webdriver.gecko.driver",driverPath+"geckodriver.exe");

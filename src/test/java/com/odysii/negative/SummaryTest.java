@@ -1,4 +1,4 @@
-package com.odysii.negetive;
+package com.odysii.negative;
 
 import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;

@@ -32,7 +32,7 @@ public class RetailerTest extends TestBase {
         int expectedApp = driver.findElements(By.className(APP_CLASS_NAME)).size() + 1;
         AppStore appStore = retailerHomePage.getAppStore();
         wait(WAIT);
-        appStore.addAppToLibrary(driver.findElements(By.className(APP_CLASS_NAME)).size() - 1);
+        expectedApp = expectedApp - appStore.addAppToLibrary(driver.findElements(By.className(APP_CLASS_NAME)).size() - 1);
         wait(WAIT);
         AppLibrary appLibrary = retailerHomePage.getAppLibrary();
         wait(WAIT);
