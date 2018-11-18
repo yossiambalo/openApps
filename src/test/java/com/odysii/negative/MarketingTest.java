@@ -24,21 +24,20 @@ public class MarketingTest extends TestBase {
         user = new User(driver);
         devUser = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
     }
-    @Test
+    @Test // Test will failed until fix of back space counts as a valid input!
     public void _001_promotional_text_is_empty_negative(){
 
         MyApps myApps = devUser.getMyAppsPage(driver);
-        showUp = myApps.showUp(2);
+        showUp = myApps.showUp(4);
         showUp.getAppVersion();
         WebElement version = driver.findElement(By.id("appVersion"));
-        version.sendKeys("1.7.1");
-        wait(WAIT);
+        version.sendKeys("1.9.3");
         WebElement continueButton = driver.findElement(By.id("nextButton"));
         scrollDown(continueButton);
         continueButton.click();
         WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
         wait(WAIT);
-        agreeAndUpload.sendKeys("C:\\Users\\roi.avital\\Desktop\\Zip applications for tests\\appConfig_1541669841907.zip");
+        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\barcodeApp_1541669891338.zip");
         WebElement continueButtonInUploadPage = driver.findElement(By.id("nextButton"));
         continueButtonInUploadPage.click();
         wait(WAIT);
@@ -53,7 +52,7 @@ public class MarketingTest extends TestBase {
 
     }
 
-    @Test
+    @Test // Test will failed until fix of back space counts as a valid input!
     public void _002_keywords_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         showUp = myApps.showUp(3);
