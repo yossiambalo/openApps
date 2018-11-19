@@ -17,6 +17,8 @@ public class AppLibrary extends PageObject {
         super(driver);
     }
     public void removeAppFromLibrary(int appIndex){
+        scrollDown(apps.get(appIndex));
+        isElementPresent(apps.get(appIndex));
         apps.get(appIndex).click();
         wait(WAIT);
         removeFromLibrary.click();

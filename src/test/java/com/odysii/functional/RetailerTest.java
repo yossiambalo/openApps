@@ -197,7 +197,7 @@ public class RetailerTest extends TestBase {
     public void _029_valid_application_packing() {
         String url = "http://openappsqa.tveez.local:8080/openAppStore/webapi/application/4346/version/4349/pack";
         RequestHelper requestHelper = new RequestHelper();
-        Assert.assertTrue(requestHelper.getRequest(url));
+        Assert.assertTrue(requestHelper.getRequest(url),"Failed to pack an application!");
     }
     //@Test
     public void _004_edit_name_and_description_campaign(){

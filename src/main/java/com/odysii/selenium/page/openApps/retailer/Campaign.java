@@ -27,7 +27,7 @@ public class Campaign extends PageObject {
     private WebElement editBtn;
     @FindBy(xpath = "//button[contains(text(), 'Confirm')]")
     private WebElement confirmBtn;
-    @FindBy(xpath = "//span[contains(text(), 'Design')]")
+    @FindBy(id = "navItem1")
     private WebElement designLink;
 
     public Campaign(WebDriver driver) {
