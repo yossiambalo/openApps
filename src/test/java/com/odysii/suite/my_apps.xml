@@ -8,10 +8,10 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <!--<class name="com.odysii.functional.E2ETest"/>-->
-            <!--<class name="com.odysii.content.AdminContentTest"/>-->
+            <class name="com.odysii.content.AdminContentTest"/>
             <!--<class name="com.odysii.content.DevContentTest"/>-->
             <!--<class name="com.odysii.content.RelailerContentTest"/>-->
-            <class name="com.odysii.functional.RetailerTest"/>
+            <!--<class name="com.odysii.functional.RetailerTest"/>-->
             <!--&lt;!&ndash;=======Shuld maintaian======&ndash;&gt;-->
             <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
             <!--<class name="com.odysii.negative.MarketingTest"/>-->
@@ -24,7 +24,7 @@
         <!--<class name="com.odysii.content.AdminContentTest"/>-->
         <!--<class name="com.odysii.content.DevContentTest"/>-->
         <!--<class name="com.odysii.content.RelailerContentTest"/>-->
-        <class name="com.odysii.functional.RetailerTest"/>
+        <!--<class name="com.odysii.functional.RetailerTest"/>-->
         <!--<class name="com.odysii.functional.E2ETest"/>-->
         <!--=======Should maintain======-->
         <!--<class name="com.odysii.negetive.AppVersionsTest"/>-->
@@ -40,7 +40,7 @@
             <!--<class name="com.odysii.content.AdminContentTest"/>-->
             <!--<class name="com.odysii.content.DevContentTest"/>-->
             <!--<class name="com.odysii.content.RelailerContentTest"/>-->
-            <class name="com.odysii.functional.RetailerTest"/>
+            <!--<class name="com.odysii.functional.RetailerTest"/>-->
             <!--<class name="com.odysii.functional.E2ETest"/>-->
             <!--=======Should maintain======-->
             <!--<class name="com.odysii.negetive.AppVersionsTest"/>-->
@@ -55,7 +55,7 @@
         <!--<class name="com.odysii.content.AdminContentTest"/>-->
         <!--<class name="com.odysii.content.DevContentTest"/>-->
         <!--<class name="com.odysii.content.RelailerContentTest"/>-->
-        <class name="com.odysii.functional.RetailerTest"/>
+        <!--<class name="com.odysii.functional.RetailerTest"/>-->
         <!--<class name="com.odysii.functional.E2ETest"/>-->
         <!--=======Should maintain======-->
         <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
