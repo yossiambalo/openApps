@@ -30,4 +30,9 @@ public class AppStore extends PageObject {
         addToLibrary.click();
         return res;
     }
+    public void addAppToLibraryFromMainPage(int appIndex){
+        apps.get(appIndex).click();
+
+    }
+
 }
