@@ -25,6 +25,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/java/com/odysii/suite/my_apps.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <reportsDirectory>C:\inetpub\wwwroot\auto_report</reportsDirectory>
                 </configuration>
             </plugin>
         </plugins>
