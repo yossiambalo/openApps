@@ -20,13 +20,54 @@ public class RetailerContentTest extends TestBase {
     }
     @Test
     public void _001_header_valid_text_app_store(){
-
-        String expected = "App Store";
+        test = extent.createTest("_001_header_valid_text_app_store");
+        String expected = "APP STORE";
         retailerHomePage.getAppStore();
-        String actualTxt = driver.findElement(By.xpath("//h1[contains(text(), 'App Store')]")).getText();
+        String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'App Store')]")).getText();
         Assert.assertEquals(expected,actualTxt);
 
     }
+
+    @Test
+    public void _002_header_valid_text_app_library(){
+        test = extent.createTest("_002_header_valid_text_app_library");
+        String expected = "APP LIBRARY";
+        retailerHomePage.getAppLibrary();
+        String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'App Library')]")).getText();
+        Assert.assertEquals(expected,actualTxt);
+
+    }
+
+    @Test
+    public void _003_header_valid_text_campaigns() {
+        test = extent.createTest("_003_header_valid_text_campaigns");
+        String expected = "CAMPAIGNS";
+        retailerHomePage.getCampaigs();
+        String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'Campaigns')]")).getText();
+        Assert.assertEquals(expected, actualTxt);
+
+    }
+        @Test
+        public void _004_header_valid_text_scheduling(){
+            test = extent.createTest("_004_header_valid_text_scheduling");
+            String expected = "SCHEDULING";
+            retailerHomePage.getScheduling();
+            String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'Scheduling')]")).getText();
+            Assert.assertEquals(expected,actualTxt);
+
+    }
+
+    @Test
+    public void _005_header_valid_text_keymanagement(){
+        test = extent.createTest("_005_header_valid_text_keymanagement");
+        String expected = "KEY MANAGEMENT";
+        retailerHomePage.getKeysMGMT();
+        String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'Key Management')]")).getText();
+        Assert.assertEquals(expected,actualTxt);
+
+    }
+
+
 
 
 
