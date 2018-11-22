@@ -6,6 +6,7 @@ import com.odysii.selenium.page.openApps.retailer.helper.ScreenSize;
 import com.odysii.selenium.page.openApps.retailer.helper.StateType;
 import com.odysii.selenium.page.util.PageObject;
 import com.odysii.selenium.page.util.SeleniumUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,15 +41,19 @@ public class CampaignDesigner extends PageObject {
     private List<WebElement> appContainer;//editCampaignSuccessErrorMessage
     @FindBy(id = "editCampaignSuccessErrorMessage")
     private WebElement isLayoutSavedIndicator;
-
+    @FindBy(id = "navItem1")
+    private WebElement designerLink;
     public CampaignDesigner(WebDriver driver) {
         super(driver);
     }
 
     public void setUpCampaign(StateType stateType, LayoutType layoutType, String screenSize){
         int timeOut = 0;
-        isElementPresent(screenSizeDdl);
+        if (!Boolean.valueOf(designerLink.getAttribute("aria-expanded"))){
+            designerLink.click();
+        }
         do {
+            isElementPresent(screenSizeDdl);
             screenSizeDdl.sendKeys(screenSize);
             timeOut ++;
         }while (!screenSizeDdl.getAttribute("value").equals(screenSize.replace(".","")) && timeOut < 5);
