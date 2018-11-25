@@ -20,17 +20,18 @@ public class RetailerContentTest extends TestBase {
     }
     @Test
     public void _001_header_valid_text_app_store(){
-        test = extent.createTest("_001_header_valid_text_app_store");
+        logger = extent.startTest("_001_header_valid_text_app_store");
         String expected = "APP STORE";
-        retailerHomePage.getAppStore();
         String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'App Store')]")).getText();
         Assert.assertEquals(expected,actualTxt);
+        retailerHomePage.getAppStore();
+
 
     }
 
     @Test
     public void _002_header_valid_text_app_library(){
-        test = extent.createTest("_002_header_valid_text_app_library");
+        logger = extent.startTest("_002_header_valid_text_app_library");
         String expected = "APP LIBRARY";
         retailerHomePage.getAppLibrary();
         String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'App Library')]")).getText();
@@ -40,7 +41,7 @@ public class RetailerContentTest extends TestBase {
 
     @Test
     public void _003_header_valid_text_campaigns() {
-        test = extent.createTest("_003_header_valid_text_campaigns");
+        logger = extent.startTest("_003_header_valid_text_campaigns");
         String expected = "CAMPAIGNS";
         retailerHomePage.getCampaigs();
         String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'Campaigns')]")).getText();
@@ -49,7 +50,7 @@ public class RetailerContentTest extends TestBase {
     }
         @Test
         public void _004_header_valid_text_scheduling(){
-            test = extent.createTest("_004_header_valid_text_scheduling");
+            logger = extent.startTest("_004_header_valid_text_scheduling");
             String expected = "SCHEDULING";
             retailerHomePage.getScheduling();
             String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'Scheduling')]")).getText();
@@ -59,7 +60,7 @@ public class RetailerContentTest extends TestBase {
 
     @Test
     public void _005_header_valid_text_keymanagement(){
-        test = extent.createTest("_005_header_valid_text_keymanagement");
+        logger = extent.startTest("_005_header_valid_text_keymanagement");
         String expected = "KEY MANAGEMENT";
         retailerHomePage.getKeysMGMT();
         String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'Key Management')]")).getText();

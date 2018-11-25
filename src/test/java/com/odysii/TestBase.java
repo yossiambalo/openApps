@@ -1,25 +1,21 @@
 package com.odysii;
 
+import java.io.File;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.markuputils.ExtentColor;
-import com.aventstack.extentreports.markuputils.MarkupHelper;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.configuration.ChartLocation;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.odysii.selenium.page.util.DriverManager;
 import com.odysii.selenium.page.util.DriverType;
 import org.openqa.selenium.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
-
-import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.ITestResult;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -34,9 +30,8 @@ public class TestBase {
     protected final String backTxt = "BACK";
     protected final String continueTxt = "CONTINUE";
     protected final String finishTxt = "FINISH";
-    public static ExtentHtmlReporter htmlReporter;
     public static ExtentReports extent;
-    public static ExtentTest test;
+    public static ExtentTest logger;
     public static String getHostName() {
         String hostName = "";
         try {
@@ -49,43 +44,28 @@ public class TestBase {
     @BeforeSuite
     public void setUp()
     {
-
-        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") +"/test-output/OpenApps_Automation_Report.html");
-        extent = new ExtentReports();
-        extent.attachReporter(htmlReporter);
-        String userName = System.getProperty("user.name");
+        extent = new ExtentReports (System.getProperty("user.dir") +"/test-output/OpenApps_Automation_Report.html", true);
         String Os = System.getProperty("os.name");
-        extent.setSystemInfo("OS", Os);
-        extent.setSystemInfo("Host Name", getHostName());
-        extent.setSystemInfo("Environment", "QA");
-        extent.setSystemInfo("User Name", userName);
+        String userName = System.getProperty("user.name");
+        extent.addSystemInfo("Host Name", getHostName())
+        .addSystemInfo("Environment", "QA")
+        .addSystemInfo("User Name", userName);
+        extent.loadConfig(new File(System.getProperty("user.dir")+"\\extent-config.xml"));
 
-        htmlReporter.config().setChartVisibilityOnOpen(true);
-        htmlReporter.config().setDocumentTitle("AutomationTesting.in Demo Report");
-        htmlReporter.config().setReportName("Open Apps Automation Report");
-        htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
-        htmlReporter.config().setTheme(Theme.STANDARD);
     }
 
     @AfterMethod
-    public void getResult(ITestResult result)
-    {
-        if(result.getStatus() == ITestResult.FAILURE)
-        {
-            test.log(Status.FAIL, MarkupHelper.createLabel(result.getName()+" Test case FAILED due to below issues:", ExtentColor.RED));
-            test.fail(result.getThrowable());
-        }
-        else if(result.getStatus() == ITestResult.SUCCESS)
-        {
-            test.log(Status.PASS, MarkupHelper.createLabel(result.getName()+" Test Case PASSED", ExtentColor.GREEN));
-        }
-        else
-        {
-            test.log(Status.SKIP, MarkupHelper.createLabel(result.getName()+" Test Case SKIPPED", ExtentColor.ORANGE));
-            test.skip(result.getThrowable());
+    public void getResult(ITestResult result) {
+        if (result.getStatus() == ITestResult.FAILURE) {
+            logger.log(LogStatus.FAIL, "Test Case Failed is " + result.getName());
+            logger.log(LogStatus.FAIL, "Test Case Failed is " + result.getThrowable());
+        } else if (result.getStatus() == ITestResult.SKIP) {
+            logger.log(LogStatus.SKIP, "Test Case Skipped is " + result.getName());
+        } else if (result.getStatus() == ITestResult.SUCCESS) {
+            logger.log(LogStatus.PASS, "Test Case Passed " + result.getName());
+            extent.endTest(logger);
         }
     }
-
 
     @AfterClass
     public void tearDownExt(){
