@@ -3,9 +3,8 @@ package com.odysii.negative;
 import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
-import com.odysii.selenium.page.openApps.dev.DevHomePage;
-import com.odysii.selenium.page.openApps.dev.MyApps;
-import com.odysii.selenium.page.openApps.dev.summary.Marketing;
+import com.odysii.selenium.page.openApps.dev.*;
+import com.odysii.selenium.page.openApps.dev.summary.Availabilty;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
 import com.odysii.selenium.page.util.FieldType;
 import org.openqa.selenium.By;
@@ -16,6 +15,7 @@ import org.testng.annotations.Test;
 
 public class MarketingTest extends TestBase {
     private ShowUp showUp;
+    private final String zipFile = "TH.zip";
 
     User user;
     DevHomePage devUser;
@@ -23,36 +23,42 @@ public class MarketingTest extends TestBase {
     public void login(){
         user = new User(driver);
         devUser = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
+
     }
-    @Test // Test will failed until fix of back space counts as a valid input!
+    @Test // Test will failed until fix of space counts as a valid input!
     public void _001_promotional_text_is_empty_negative(){
 
         MyApps myApps = devUser.getMyAppsPage(driver);
         showUp = myApps.showUp(4);
         showUp.getAppVersion();
-        WebElement version = driver.findElement(By.id("appVersion"));
-        version.sendKeys("1.9.3");
-        WebElement continueButton = driver.findElement(By.id("nextButton"));
-        scrollDown(continueButton);
-        continueButton.click();
-        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
-        wait(WAIT);
-        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\barcodeApp_1541669891338.zip");
-        WebElement continueButtonInUploadPage = driver.findElement(By.id("nextButton"));
-        continueButtonInUploadPage.click();
-        wait(WAIT);
-        WebElement promotionalText = driver.findElement(By.id("app-promotion"));
-        promotionalText.clear();
-        WebElement finishButton = driver.findElement(By.id("finishButton"));
-        scrollDown(finishButton);
-        finishButton.click();
+        AppDetails appDetails = new AppDetails(driver);
+        UploadCode uploadCode = appDetails.setUpAppDetails("1.4.88");
+        Marketing marketing = uploadCode.upload(zipFile);
+        marketing.fillMarketing("","keyWords","app.jpg","Barcode.png");
         wait(WAIT);
         Boolean actualValue = isElementExist(By.id("new-application-success-error-message"));
         Assert.assertEquals(actualValue,"Some required fields are missing");
 
+
+//        WebElement version = driver.findElement(By.id("appVersion"));
+//        version.sendKeys("1.9.5");
+//        WebElement continueButton = driver.findElement(By.id("nextButton"));
+//        scrollDown(continueButton);
+//        continueButton.click();
+//        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
+//        wait(WAIT);
+//        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\barcodeApp_1541669891338.zip");
+//        WebElement continueButtonInUploadPage = driver.findElement(By.id("nextButton"));
+//        continueButtonInUploadPage.click();
+//        WebElement promotionalText = driver.findElement(By.id("app-promotion"));
+//        promotionalText.clear();
+//        WebElement finishButton = driver.findElement(By.id("finishButton"));
+//        scrollDown(finishButton);
+//        finishButton.click();
+
     }
 
-    @Test // Test will failed until fix of back space counts as a valid input!
+    //@Test // Test will failed until fix of back space counts as a valid input!
     public void _002_keywords_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         showUp = myApps.showUp(3);
