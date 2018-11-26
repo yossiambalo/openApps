@@ -1,18 +1,18 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="OpenApps" parallel="false">
+<suite name="OpenApps" parallel="tests">
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
     </listeners>
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <!--<class name="com.odysii.functional.E2ETest"/>-->
-            <class name="com.odysii.content.AdminContentTest"/>
-            <class name="com.odysii.content.DevContentTest"/>
-            <!--<class name="com.odysii.content.RelailerContentTest"/>-->
+            <class name="com.odysii.functional.E2ETest"/>
+            <!--<class name="com.odysii.content.AdminContentTest"/>-->
+            <!--<class name="com.odysii.content.DevContentTest"/>-->
+            <!--<class name="com.odysii.content.RetailerContentTest"/>-->
             <!--<class name="com.odysii.functional.RetailerTest"/>-->
-            <!--&lt;!&ndash;=======Shuld maintaian======&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;=======Shuld maintaian======&ndash;&gt;&ndash;&gt;-->
             <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
             <!--<class name="com.odysii.negative.MarketingTest"/>-->
             <!--<class name="com.odysii.negative.MyAppsTest"/>-->
@@ -21,43 +21,41 @@
     <test name="EdgeTest">
     <parameter name="browser" value="edge"/>
     <classes>
+        <!--<class name="com.odysii.functional.E2ETest"/>-->
         <!--<class name="com.odysii.content.AdminContentTest"/>-->
         <!--<class name="com.odysii.content.DevContentTest"/>-->
-        <!--<class name="com.odysii.content.RelailerContentTest"/>-->
+        <!--<class name="com.odysii.content.RetailerContentTest"/>-->
         <!--<class name="com.odysii.functional.RetailerTest"/>-->
-        <!--<class name="com.odysii.functional.E2ETest"/>-->
-        <!--=======Should maintain======-->
-        <!--<class name="com.odysii.negetive.AppVersionsTest"/>-->
-        <!--<class name="com.odysii.negetive.MarketingTest"/>-->
-        <!--<class name="com.odysii.negetive.MyAppsTest"/>-->
-        <!--<class name="com.odysii.negetive.SummaryTest"/>-->
+        <!--&lt;!&ndash;&lt;!&ndash;=======Shuld maintaian======&ndash;&gt;&ndash;&gt;-->
+        <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
+        <!--<class name="com.odysii.negative.MarketingTest"/>-->
+        <!--<class name="com.odysii.negative.MyAppsTest"/>-->
     </classes>
     </test>
     <!--&lt;!&ndash;IDE should be run as Administrator for IE working&ndash;&gt;-->
     <test name="InternetExplorerTest">
         <parameter name="browser" value="ie"/>
         <classes>
+            <!--<class name="com.odysii.functional.E2ETest"/>-->
             <!--<class name="com.odysii.content.AdminContentTest"/>-->
             <!--<class name="com.odysii.content.DevContentTest"/>-->
-            <!--<class name="com.odysii.content.RelailerContentTest"/>-->
+            <!--<class name="com.odysii.content.RetailerContentTest"/>-->
             <!--<class name="com.odysii.functional.RetailerTest"/>-->
-            <!--<class name="com.odysii.functional.E2ETest"/>-->
-            <!--=======Should maintain======-->
-            <!--<class name="com.odysii.negetive.AppVersionsTest"/>-->
-            <!--<class name="com.odysii.negetive.MarketingTest"/>-->
-            <!--<class name="com.odysii.negetive.MyAppsTest"/>-->
-            <!--<class name="com.odysii.negetive.SummaryTest"/>-->
+            <!--&lt;!&ndash;&lt;!&ndash;=======Shuld maintaian======&ndash;&gt;&ndash;&gt;-->
+            <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
+            <!--<class name="com.odysii.negative.MarketingTest"/>-->
+            <!--<class name="com.odysii.negative.MyAppsTest"/>-->
         </classes>
     </test>
     <test name="FireFoxTest">
     <parameter name="browser" value="firefox"/>
     <classes>
+        <!--<class name="com.odysii.functional.E2ETest"/>-->
         <!--<class name="com.odysii.content.AdminContentTest"/>-->
         <!--<class name="com.odysii.content.DevContentTest"/>-->
-        <!--<class name="com.odysii.content.RelailerContentTest"/>-->
+        <!--<class name="com.odysii.content.RetailerContentTest"/>-->
         <!--<class name="com.odysii.functional.RetailerTest"/>-->
-        <!--<class name="com.odysii.functional.E2ETest"/>-->
-        <!--=======Should maintain======-->
+        <!--&lt;!&ndash;=======Shuld maintaian======&ndash;&gt;-->
         <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
         <!--<class name="com.odysii.negative.MarketingTest"/>-->
         <!--<class name="com.odysii.negative.MyAppsTest"/>-->

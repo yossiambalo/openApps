@@ -113,8 +113,8 @@ public class Summary extends PageObject {
         scrollDown(appPrice);
         appPrice.sendKeys("2");
         appPriceType.sendKeys("Per site per year");
-        this.iconFileSummary.sendKeys(getFile("application//dog2.jpg"));
-        this.screenshotsFileSummary.sendKeys(getFile("application//dog2.jpg"));
+        this.iconFileSummary.sendKeys(getFile("image//dog2.jpg"));
+        this.screenshotsFileSummary.sendKeys(getFile("image//dog2.jpg"));
         wait(WAIT);
         scrollDown(finishBtn);
         finishBtn.click();
