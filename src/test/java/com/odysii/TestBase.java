@@ -48,8 +48,8 @@ public class TestBase {
         String Os = System.getProperty("os.name");
         String userName = System.getProperty("user.name");
         extent.addSystemInfo("Host Name", getHostName())
-        .addSystemInfo("Environment", "QA")
-        .addSystemInfo("User Name", userName);
+                .addSystemInfo("Environment", "QA")
+                .addSystemInfo("User Name", userName);
         extent.loadConfig(new File(System.getProperty("user.dir")+"\\extent-config.xml"));
 
     }
@@ -134,5 +134,22 @@ public class TestBase {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", element);
         //js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+    public boolean isElementPresent(WebElement element) {
+        int counter = 0;
+        try {
+            while (!element.isDisplayed() && counter < 5){
+                wait(4000);
+                counter ++;
+            }
+        }catch (NoSuchElementException e){
+            System.out.println(e.fillInStackTrace());
+            return false;
+        }
+        if (counter == 5){
+            return false;
+        }
+        wait(WAIT);
+        return true;
     }
 }

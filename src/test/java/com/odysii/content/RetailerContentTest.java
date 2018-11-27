@@ -12,6 +12,9 @@ import org.testng.annotations.Test;
 public class RetailerContentTest extends TestBase {
     RetailerHomePage retailerHomePage;
     User user;
+    final String CATEGORYTEST = "Retailer Content Tests";
+
+
     @BeforeClass
     public void login(){
         user = new User(driver);
@@ -19,55 +22,78 @@ public class RetailerContentTest extends TestBase {
 
     }
     @Test
-    public void _001_header_valid_text_app_store(){
-        logger = extent.startTest("_001_header_valid_text_app_store");
+    public void _001_valid_text_app_store(){
+        logger = extent.startTest("_001_valid_text_app_store").assignCategory(CATEGORYTEST);
         String expected = "APP STORE";
-        String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'App Store')]")).getText();
-        Assert.assertEquals(expected,actualTxt);
+        String expectedHeader = "App Store";
+        String expectedSearch = "Search";
         retailerHomePage.getAppStore();
+        String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'App Store')]")).getText();
+        String actualHeader = driver.findElement(By.className("h2")).getText();
+        String actualSearch = driver.findElement(By.id("applicationSearchInput")).getAttribute("placeholder");
+        Assert.assertEquals(actualTxt,expected);
+        Assert.assertEquals(actualHeader,expectedHeader);
+        Assert.assertEquals(actualSearch,expectedSearch);
+
 
 
     }
 
     @Test
-    public void _002_header_valid_text_app_library(){
-        logger = extent.startTest("_002_header_valid_text_app_library");
+    public void _002_valid_text_app_library(){
+        logger = extent.startTest("_002_valid_text_app_library").assignCategory(CATEGORYTEST);;
         String expected = "APP LIBRARY";
+        String expectedHeader = "App Library";
+        String expectedSearch = "Search";
         retailerHomePage.getAppLibrary();
         String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'App Library')]")).getText();
+        String actualHeader = driver.findElement(By.className("h2")).getText();
+        String actualSearch = driver.findElement(By.id("libraryApplicationSearchInput")).getAttribute("placeholder");
         Assert.assertEquals(expected,actualTxt);
-
+        Assert.assertEquals(actualHeader,expectedHeader);
+        Assert.assertEquals(actualSearch,expectedSearch);
     }
 
     @Test
-    public void _003_header_valid_text_campaigns() {
-        logger = extent.startTest("_003_header_valid_text_campaigns");
+    public void _003_valid_text_campaigns() {
+        logger = extent.startTest("_003_valid_text_campaigns").assignCategory(CATEGORYTEST);;
         String expected = "CAMPAIGNS";
+        String expectedHeader = "Campaigns";
+        String expectedSearch = "Search";
         retailerHomePage.getCampaigs();
         String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'Campaigns')]")).getText();
+        String actualHeader = driver.findElement(By.className("h2")).getText();
+        String actualSearch = driver.findElement(By.id("campaignSearchInput")).getAttribute("placeholder");
         Assert.assertEquals(expected, actualTxt);
-
+        Assert.assertEquals(actualHeader,expectedHeader);
+        Assert.assertEquals(actualSearch,expectedSearch);
     }
-        @Test
-        public void _004_header_valid_text_scheduling(){
-            logger = extent.startTest("_004_header_valid_text_scheduling");
-            String expected = "SCHEDULING";
-            retailerHomePage.getScheduling();
-            String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'Scheduling')]")).getText();
-            Assert.assertEquals(expected,actualTxt);
-
+    @Test
+    public void _004_header_valid_text_scheduling(){
+        logger = extent.startTest("_004_header_valid_text_scheduling").assignCategory(CATEGORYTEST);;
+        String expected = "SCHEDULING";
+        String expectedHeader = "Scheduling";
+        String expectedSearch = "Search";
+        retailerHomePage.getScheduling();
+        String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'Scheduling')]")).getText();
+        String actualHeader = driver.findElement(By.className("h2")).getText();
+        String actualSearch = driver.findElement(By.id("schedulingCampaignSearchInput")).getAttribute("placeholder");
+        Assert.assertEquals(expected,actualTxt);
+        Assert.assertEquals(actualHeader,expectedHeader);
+        Assert.assertEquals(actualSearch,expectedSearch);
     }
 
     @Test
     public void _005_header_valid_text_keymanagement(){
-        logger = extent.startTest("_005_header_valid_text_keymanagement");
+        logger = extent.startTest("_005_header_valid_text_keymanagement").assignCategory(CATEGORYTEST);
         String expected = "KEY MANAGEMENT";
+        String expectedHeader = "MANAGE KEYS";
         retailerHomePage.getKeysMGMT();
         String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'Key Management')]")).getText();
+        String actualHeader = driver.findElement(By.className("h2")).getText();
         Assert.assertEquals(expected,actualTxt);
-
+        Assert.assertEquals(actualHeader,expectedHeader);
     }
-
 
 
 

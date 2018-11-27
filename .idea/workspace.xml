@@ -2,25 +2,70 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb026f54-409c-48a3-a866-64444a5af109" name="Default Changelist" comment="Nir - Added tests for search input texts on new App wizard, Key Management page and Extent Reports handle">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_relevantcodes_extentreports_2_41_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/RetailersPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/UsersPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-output/OpenApps_Automation_Report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/openApps.iml" beforeDir="false" afterPath="$PROJECT_DIR$/openApps.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/AdminPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/AppDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/AppDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/Marketing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/Marketing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/UploadCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/UploadCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/summary/Summary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/summary/Summary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/functional/E2ETest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/functional/E2ETest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/negative/MarketingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/negative/MarketingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/html/overview.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/html/overview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/html/suite1_test1_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/html/suite1_test1_results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/html/suite1_test2_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/html/suite1_test2_results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/html/suite1_test3_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/html/suite1_test3_results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/html/suite1_test4_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/html/suite1_test4_results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/html/suites.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/html/suites.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/RetailersPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/UsersPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/content/AdminContentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/content/AdminContentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/content/DevContentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/content/DevContentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/content/RetailerContentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/content/RetailerContentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/SignUpPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/User$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/UserType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/admin/AdminPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/admin/SortBy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/admin/SupportTicket$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/admin/SupportTicket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/AppDetails.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/AppVersion$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/AppVersion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/DashBoard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/DevHomePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/Marketing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/MyApps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/PriceType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/PublicProfile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/RevenueReport.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/SupportTickets.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/TransactionHistory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/UploadCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/summary/ApplicationStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/summary/Availabilty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/summary/Marketing$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/summary/Marketing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/summary/ShowUp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/summary/Statistics.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/summary/SubmissionHistory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/summary/Summary$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/dev/summary/Summary.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/helper/appDetails/AvailabilityType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/helper/appDetails/CategoryType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/helper/appDetails/LanguageType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/helper/appDetails/RetailerType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/retailer/AppLibrary.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/retailer/AppStore.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/retailer/Campaign.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/retailer/CampaignDesigner$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/retailer/CampaignDesigner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/retailer/KeyManagement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/retailer/RetailerHomePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/retailer/Scheduling.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/retailer/helper/LayoutType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/retailer/helper/ScreenSize.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/openApps/retailer/helper/StateType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/util/DriverManager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/util/DriverManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/util/DriverType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/util/ExplicitAssertionError.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/util/FieldType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/util/FileHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/util/PageObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/util/PropertyLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/util/RequestHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/odysii/selenium/page/util/SeleniumUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/OpenApps_Automation_Report.html" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,7 +83,66 @@
     <favorites_list name="openApps" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/content/AdminContentTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-265">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/content/DevContentTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4166">
+              <caret line="85" column="12" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1202#1210#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="754">
+              <caret line="154" column="1" selection-start-line="154" selection-start-column="1" selection-end-line="154" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/content/RetailerContentTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1914">
+              <caret line="87" column="103" lean-forward="true" selection-start-line="87" selection-start-column="103" selection-end-line="87" selection-end-column="103" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="402">
+              <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -75,13 +179,13 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/retailer/KeyManagement.java" />
         <option value="$PROJECT_DIR$/extent-config.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/content/AdminContentTest.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/retailer/RetailerHomePage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/content/RetailerContentTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/content/DevContentTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/odysii/content/AdminContentTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/odysii/content/RetailerContentTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -126,60 +230,6 @@
               <item name="openApps" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openApps" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openApps" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openApps" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openApps" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openApps" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openApps" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="openApps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openApps" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openApps" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="openApps" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openApps" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openApps" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="openApps" type="462c0819:PsiDirectoryNode" />
-              <item name="appDetails" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openApps" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openApps" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="openApps" type="462c0819:PsiDirectoryNode" />
-              <item name="retailer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="openApps" type="b2602c69:ProjectViewProjectNode" />
@@ -259,7 +309,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543311012730" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543319084477" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -378,8 +428,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49917898" visible="true" weight="0.18733226" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49917898" visible="true" weight="0.18923241" />
       <window_info id="Structure" order="1" sideWeight="0.500821" side_tool="true" weight="0.25266525" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -388,17 +439,15 @@
       <window_info id="Favorites" order="6" sideWeight="0.500821" side_tool="true" weight="0.25266525" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919486" visible="true" weight="0.2988889" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919486" weight="0.2988889" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988889" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4989339" weight="0.32929516" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50080514" side_tool="true" visible="true" weight="0.2988889" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50080514" side_tool="true" visible="true" weight="0.2979415" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49946696" weight="0.32929516" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3288889" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32957596" />
-      <window_info anchor="right" id="Maven" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.3288889" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24959743" />
@@ -407,6 +456,8 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.32995737" />
+      <window_info anchor="right" id="Maven" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32957596" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -548,13 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -611,13 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/content/AdminContentTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.11/testng-6.11-sources.jar!/org/testng/internal/MethodInvocationHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -635,30 +672,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/content/RetailerContentTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/retailer/RetailerHomePage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="140" column="26" lean-forward="true" selection-start-line="140" selection-start-column="26" selection-end-line="140" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -727,14 +744,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/content/DevContentTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="203" column="60" lean-forward="true" selection-start-line="203" selection-start-column="60" selection-end-line="203" selection-end-column="60" />
+        <state relative-caret-position="754">
+          <caret line="154" column="1" selection-start-line="154" selection-start-column="1" selection-end-line="154" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1174#1182#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/content/DevContentTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4166">
+          <caret line="85" column="12" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1202#1210#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/content/AdminContentTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-265">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/content/RetailerContentTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1914">
+          <caret line="87" column="103" lean-forward="true" selection-start-line="87" selection-start-column="103" selection-end-line="87" selection-end-column="103" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -796,6 +850,18 @@
               <list>
                 <option value="0.2" />
                 <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>
