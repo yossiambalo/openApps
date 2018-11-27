@@ -13,7 +13,8 @@ import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.util.List;
 
@@ -152,7 +153,7 @@ public class E2ETest extends TestBase {
         ShowUp showUp = myApps.showUp(driver.findElements(By.className(APP_CLASS_NAME)).size() - 1);
         showUp.getAppVersion();
         AppDetails appDetails = new AppDetails(driver);
-        UploadCode uploadCode = appDetails.setUpAppDetails("1.0.7");
+        UploadCode uploadCode = appDetails.setUpAppDetails("1.0.8");
         Marketing marketing = uploadCode.upload(zipFile);
         marketing.fillMarketing();
         wait(7000);

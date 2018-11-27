@@ -91,6 +91,7 @@ public class AppDetails extends PageObject{
         isElementPresent(next);
         this.next.click();
         return new UploadCode(webDriver);
+
     }
     public UploadCode setUpAppDetails(String name,String version,String subtitle,String priceType,String price,String availability){
         isElementPresent(this.name);

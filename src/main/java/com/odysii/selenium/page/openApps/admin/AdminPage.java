@@ -10,6 +10,10 @@ public class AdminPage extends PageObject {
 
     @FindBy(xpath = "//span[contains(text(), 'Support Tickets')]")
     private WebElement supportTickets;
+    @FindBy(xpath = "//span[contains(text(), 'Users')]")
+    private WebElement users;
+    @FindBy(xpath = "//span[contains(text(), 'Retailers')]")
+    private WebElement retailers;
     @FindBy(name = "username")
     WebElement userName;
     @FindBy(name = "password")
@@ -42,6 +46,16 @@ public class AdminPage extends PageObject {
         webDriver.findElement(By.id(TICKET_ID_FREFIX+index+"0")).click();
         return new SupportTicket(webDriver);
 
+    }
+    public UsersPage getUsersPage(){
+        isElementPresent(this.users);
+        this.users.click();
+        return new UsersPage(webDriver);
+    }
+    public RetailersPage getRetailersPage(){
+        isElementPresent(this.retailers);
+        this.retailers.click();
+        return new RetailersPage(webDriver);
     }
 
 }
