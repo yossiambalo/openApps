@@ -34,6 +34,7 @@ public class E2ETest extends TestBase {
     int actualValue;
     DevHomePage devUser;
     int appListBeforeAdding;
+    final String CATEGORYTEST = "E2E Tests";
     @BeforeClass
     public void login(){
         user = new User(driver);
@@ -42,6 +43,7 @@ public class E2ETest extends TestBase {
     @Test(priority = 1)
     public void _001_valid_add_new_app(){
         //get number of live apps from retailer page
+        logger = extent.startTest("_001_valid_add_new_app").assignCategory(CATEGORYTEST);
         appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         user.logout();
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
@@ -63,6 +65,7 @@ public class E2ETest extends TestBase {
     @Test(priority = 2, dependsOnMethods = "_001_valid_add_new_app")
     public void _002_valid_app_reject_no_fee(){
         //get the created app
+        logger = extent.startTest("_002_valid_app_reject_no_fee").assignCategory(CATEGORYTEST);
         ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
         showUp.certify();
         Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus().trim());
@@ -86,6 +89,7 @@ public class E2ETest extends TestBase {
     }
     @Test(priority = 3, dependsOnMethods = "_002_valid_app_reject_no_fee")
     public void _003_valid_reject_with_fee(){
+        logger = extent.startTest("_003_valid_reject_with_fee").assignCategory(CATEGORYTEST);
         user.logout();
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
@@ -116,6 +120,7 @@ public class E2ETest extends TestBase {
     }
     @Test(priority = 4, dependsOnMethods = "_003_valid_reject_with_fee")
     public void _004_edit_and_certify_and_go_live(){
+        logger = extent.startTest("_004_edit_and_certify_and_go_live").assignCategory(CATEGORYTEST);
         myApps = devUser.getMyAppsPage(driver);
         wait(WAIT);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
@@ -148,6 +153,7 @@ public class E2ETest extends TestBase {
     }
     @Test(priority = 5, dependsOnMethods = "_004_edit_and_certify_and_go_live")
     public void _005_valid_app_add_to_app_store(){
+        logger = extent.startTest("_005_valid_app_add_to_app_store").assignCategory(CATEGORYTEST);
         user.logout();
         //Valid app added to retailer store
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
@@ -156,6 +162,7 @@ public class E2ETest extends TestBase {
     }
     @Test(priority = 6)
     public void _006_valid_add_new_version_to_application(){
+        logger = extent.startTest("_006_valid_add_new_version_to_application").assignCategory(CATEGORYTEST);
         user.logout();
         DevHomePage devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         MyApps myApps = devUser.getMyAppsPage(driver);
@@ -165,6 +172,7 @@ public class E2ETest extends TestBase {
         UploadCode uploadCode = appDetails.setUpAppDetails("1.0.8");
         Marketing marketing = uploadCode.upload(zipFile);
         marketing.fillMarketing();
+        wait(3000);
         Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.PRESUBMITTED.getStatus());
     }
 }

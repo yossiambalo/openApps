@@ -7,7 +7,7 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.odysii.functional.E2ETest"/>
+            <!--<class name="com.odysii.functional.E2ETest"/>-->
             <!--<class name="com.odysii.content.AdminContentTest"/>-->
             <!--<class name="com.odysii.content.DevContentTest"/>-->
             <!--<class name="com.odysii.content.RetailerContentTest"/>-->
@@ -26,7 +26,7 @@
     <test name="EdgeTest">
     <parameter name="browser" value="edge"/>
     <classes>
-        <class name="com.odysii.functional.E2ETest"/>
+        <!--<class name="com.odysii.functional.E2ETest"/>-->
         <!--<class name="com.odysii.content.AdminContentTest"/>-->
         <!--<class name="com.odysii.content.DevContentTest"/>-->
         <!--<class name="com.odysii.content.RetailerContentTest"/>-->
@@ -55,7 +55,7 @@
     <test name="FireFoxTest">
     <parameter name="browser" value="firefox"/>
     <classes>
-        <class name="com.odysii.functional.E2ETest"/>
+        <!--<class name="com.odysii.functional.E2ETest"/>-->
         <!--<class name="com.odysii.content.AdminContentTest"/>-->
         <!--<class name="com.odysii.content.DevContentTest"/>-->
         <!--<class name="com.odysii.content.RetailerContentTest"/>-->
