@@ -16,6 +16,8 @@ public class RetailerHomePage extends PageObject {
     WebElement campaigns;
     @FindBy(xpath = "//span[contains(text(), 'Scheduling')]")
     WebElement scheduling;
+    @FindBy(xpath = "//span[contains(text(), 'Key Management')]")
+    WebElement manageKeys;
     @FindBy(id = "applicationSearchInput")
     WebElement applicationSearchInput;
     @FindBy(id = "makeApplicationSearch")
@@ -47,6 +49,11 @@ public class RetailerHomePage extends PageObject {
     public Scheduling getScheduling() {
         scheduling.click();
         return new Scheduling(webDriver);
+    }
+
+    public KeyManagement getKeysMGMT() {
+        manageKeys.click();
+        return new KeyManagement(webDriver);
     }
     public void searchApps(String keyWord){
         isElementPresent(applicationSearchInput);

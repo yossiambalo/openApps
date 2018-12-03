@@ -12,121 +12,28 @@
 <body>
 <h1>InternetExplorerTest</h1>
 <p>
-  Test duration: 12.641s
+  Test duration: 193.477s
 </p>
 
-  <table class="resultsTable configTable">
-    <tr><th colspan="3" class="header failedConfig">Failed Configuration</th></tr>
-              <tr class="group">
-        <td colspan="3">com.odysii.functional.E2ETest</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  login
-      </td>
-  <td class="duration">
-    10.307s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.NoSuchWindowException: Currently focused window has been closed.<br/>
-Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;<br/>
-System info: host: &apos;YOSSIA&apos;, ip: &apos;10.28.76.76&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;10.0.2&apos;<br/>
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver<br/>
-Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:40343/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}<br/>
-Session ID: a5d28f3e-3816-410e-992b-16cdfb3012e1<br/>
-*** Element info: {Using=name, value=username}</b></a><br />
-    <div class="stackTrace" id="exception-0">
-              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
-              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
-              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
-              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.findElementByName(RemoteWebDriver.java:400)<br />
-              org.openqa.selenium.By$ByName.findElement(By.java:284)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)<br />
-              org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br />
-              org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br />
-              com.sun.proxy.$Proxy12.clear(Unknown Source)<br />
-              com.odysii.selenium.page.openApps.User.login(User.java:31)<br />
-              com.odysii.functional.E2ETest.login(E2ETest.java:40)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)<br />
-              org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:166)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:744)<br />
-              org.testng.TestRunner.run(TestRunner.java:602)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:380)<br />
-              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)<br />
-              org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)<br />
-              org.testng.SuiteRunner.run(SuiteRunner.java:289)<br />
-              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
-              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
-              org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)<br />
-              org.testng.TestNG.runSuitesLocally(TestNG.java:1226)<br />
-              org.testng.TestNG.runSuites(TestNG.java:1144)<br />
-              org.testng.TestNG.run(TestNG.java:1115)<br />
-              org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)<br />
-              org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)<br />
-                </div>
-      </td>
-</tr>
-    
-          <tr><td colspan="3">&nbsp;</td></tr>
-      <tr><td colspan="3" class="header skippedConfig">Skipped Configuration</td></tr>
-                    <tr>
-          <td colspan="3" class="group">com.odysii.functional.E2ETest</td>
-        </tr>
-                
-<tr>
-  <td class="method">
-                  tearDown
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-            </table>
 
 
 
-  <table class="resultsTable" width="100%">
-    <tr><th colspan="3" class="header skipped">Skipped Tests</th></tr>
+
+  <table class="resultsTable">
+    <tr><th colspan="3" class="header passed">Passed Tests</th></tr>
           <tr>
-        <td colspan="3" class="group">com.odysii.functional.E2ETest</td>
+        <td colspan="3" class="group">com.odysii.content.DevContentTest</td>
       </tr>
             
 <tr>
   <td class="method">
-                  _001_valid_add_new_app
+                  _001_dev_home_page_valid_MyApps_texts
       </td>
   <td class="duration">
-    0.000s
+    6.358s
   </td>
   <td class="result">
-                               
+        
     
         
 
@@ -134,15 +41,13 @@ Session ID: a5d28f3e-3816-410e-992b-16cdfb3012e1<br/>
 </tr>
 <tr>
   <td class="method">
-                  _002_valid_app_reject_no_fee
+                  _002_my_apps_valid_app_status
       </td>
   <td class="duration">
-    0.000s
+    29.972s
   </td>
   <td class="result">
-                             <i>Depends on method(s): </i>
-        <span class="dependency">com.odysii.functional.E2ETest._001_valid_add_new_app</span>
-                
+        
     
         
 
@@ -150,15 +55,13 @@ Session ID: a5d28f3e-3816-410e-992b-16cdfb3012e1<br/>
 </tr>
 <tr>
   <td class="method">
-                  _003_valid_reject_with_fee
+                  _003_my_apps_add_new_app_valid_header
       </td>
   <td class="duration">
-    0.000s
+    18.343s
   </td>
   <td class="result">
-                             <i>Depends on method(s): </i>
-        <span class="dependency">com.odysii.functional.E2ETest._002_valid_app_reject_no_fee</span>
-                
+        
     
         
 
@@ -166,15 +69,13 @@ Session ID: a5d28f3e-3816-410e-992b-16cdfb3012e1<br/>
 </tr>
 <tr>
   <td class="method">
-                  _004_edit_and_certify_and_go_live
+                  _004_my_apps_add_new_app_valid_text_appName
       </td>
   <td class="duration">
-    0.000s
+    0.426s
   </td>
   <td class="result">
-                             <i>Depends on method(s): </i>
-        <span class="dependency">com.odysii.functional.E2ETest._003_valid_reject_with_fee</span>
-                
+        
     
         
 
@@ -182,15 +83,13 @@ Session ID: a5d28f3e-3816-410e-992b-16cdfb3012e1<br/>
 </tr>
 <tr>
   <td class="method">
-                  _005_valid_app_add_to_app_store
+                  _005_my_apps_add_new_app_valid_text_version
       </td>
   <td class="duration">
-    0.000s
+    0.405s
   </td>
   <td class="result">
-                             <i>Depends on method(s): </i>
-        <span class="dependency">com.odysii.functional.E2ETest._004_edit_and_certify_and_go_live</span>
-                
+        
     
         
 
@@ -198,20 +97,243 @@ Session ID: a5d28f3e-3816-410e-992b-16cdfb3012e1<br/>
 </tr>
 <tr>
   <td class="method">
-                  _006_valid_add_new_version_to_application
+                  _006_my_apps_add_new_app_valid_text_SubTitle
       </td>
   <td class="duration">
-    0.000s
+    0.433s
   </td>
   <td class="result">
-                               
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _007_my_apps_add_new_app_valid_text_language
+      </td>
+  <td class="duration">
+    3.224s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _008_my_apps_add_new_app_valid_text_category
+      </td>
+  <td class="duration">
+    5.687s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _009_my_apps_add_new_app_valid_text_availability
+      </td>
+  <td class="duration">
+    2.645s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _010_my_apps_add_new_app_valid_text_retailers
+      </td>
+  <td class="duration">
+    2.881s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _011_my_apps_add_new_app_valid_text_pricing
+      </td>
+  <td class="duration">
+    16.395s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _013_add_new_app_code_valid_texts
+      </td>
+  <td class="duration">
+    11.697s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _014_add_new_app_marketing_valid_texts
+      </td>
+  <td class="duration">
+    3.386s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _015_my_apps_new_version_valid_text
+      </td>
+  <td class="duration">
+    11.958s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _016_my_apps_what_new_in_this_version_valid_text
+      </td>
+  <td class="duration">
+    12.596s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _017_my_apps_version_valid_texts
+      </td>
+  <td class="duration">
+    20.913s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _018_my_apps_back_to_my_apps_valid_text
+      </td>
+  <td class="duration">
+    18.425s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _019_dev_home_page_valid_Dashboard_header
+      </td>
+  <td class="duration">
+    1.442s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _020_dev_home_page_valid_TransactionHistory_header
+      </td>
+  <td class="duration">
+    1.338s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _021_home_page_valid_RevenueReport_header
+      </td>
+  <td class="duration">
+    1.292s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _022_home_page_valid_SupportTickets_header
+      </td>
+  <td class="duration">
+    1.313s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _023_home_page_valid_PublicProfile_header
+      </td>
+  <td class="duration">
+    1.295s
+  </td>
+  <td class="result">
+        
     
         
 
       </td>
 </tr>
       </table>
-
   
 </body>
 </html>

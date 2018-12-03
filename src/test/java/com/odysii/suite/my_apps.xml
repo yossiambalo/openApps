@@ -7,10 +7,15 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.odysii.functional.E2ETest"/>
+            <!--<class name="com.odysii.functional.E2ETest"/>-->
             <!--<class name="com.odysii.content.AdminContentTest"/>-->
             <!--<class name="com.odysii.content.DevContentTest"/>-->
             <!--<class name="com.odysii.content.RetailerContentTest"/>-->
+            <!--<class name="com.odysii.functional.E2ETest"/>-->
+            <!--<class name="com.odysii.content.AdminContentTest"/>-->
+            <!--<class name="com.odysii.content.DevContentTest"/>-->
+            <!--<class name="com.odysii.content.RetailerContentTest"/>-->
+
             <!--<class name="com.odysii.functional.RetailerTest"/>-->
             <!--&lt;!&ndash;&lt;!&ndash;=======Shuld maintaian======&ndash;&gt;&ndash;&gt;-->
             <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
@@ -38,7 +43,7 @@
         <classes>
             <!--<class name="com.odysii.functional.E2ETest"/>-->
             <!--<class name="com.odysii.content.AdminContentTest"/>-->
-            <!--<class name="com.odysii.content.DevContentTest"/>-->
+            <class name="com.odysii.content.DevContentTest"/>
             <!--<class name="com.odysii.content.RetailerContentTest"/>-->
             <!--<class name="com.odysii.functional.RetailerTest"/>-->
             <!--&lt;!&ndash;&lt;!&ndash;=======Shuld maintaian======&ndash;&gt;&ndash;&gt;-->
