@@ -281,7 +281,7 @@
     </option>
   </component>
   <component name="RunManager" selected="TestNG.C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml">
-    <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <module name="openApps" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
@@ -291,7 +291,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RetailerContentTest._002_valid_text_app_library" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="RetailerContentTest._002_valid_text_app_library" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <module name="openApps" />
       <extension name="coverage">
         <pattern>
@@ -311,6 +311,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="TestNG.C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" />
+      <item itemvalue="TestNG.RetailerContentTest._002_valid_text_app_library" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" />

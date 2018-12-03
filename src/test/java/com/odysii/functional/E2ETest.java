@@ -56,7 +56,7 @@ public class E2ETest extends TestBase {
         wait(WAIT);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
         actualValue = actualAppList.size();
-        Assert.assertEquals(actualValue,expectedValue,"Failed to create a new application!");
+        Assert.assertEquals(expectedValue,actualValue,"Failed to create a new application!");
         Assert.assertTrue(myApps.getTitle(actualValue-1).toLowerCase().contains(appDetails.getAppTitle().toLowerCase()));
         Assert.assertTrue(myApps.getDescription(actualValue-1).toLowerCase().contains(appDetails.getAppDescription().toLowerCase()));
     }
@@ -75,10 +75,12 @@ public class E2ETest extends TestBase {
         //Valid rejected
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
-        wait(WAIT);
-        actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        int counter = 0;
+        do {
+            wait(2000);
+            counter++;
+        }while (driver.findElements(By.className(APP_CLASS_NAME)).size() < actualAppList.size() && counter < 5);
         showUp =  myApps.showUp(actualAppList.size()-1);
-        wait(7000);
         Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.REJECT.getStatus());
         showUp.backToMyApps();
     }
@@ -103,7 +105,11 @@ public class E2ETest extends TestBase {
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
-        wait(7000);
+        int counter = 0;
+        do {
+            wait(2000);
+            counter++;
+        }while (driver.findElements(By.className(APP_CLASS_NAME)).size() < actualAppList.size() && counter < 5);
         showUp =  myApps.showUp(actualAppList.size()-1);
         Assert.assertEquals(ApplicationStatus.REJECT.getStatus(),showUp.getStatus().trim());
         showUp.backToMyApps();
@@ -130,11 +136,14 @@ public class E2ETest extends TestBase {
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
-        wait(7000);
+        int counter = 0;
+        do {
+            wait(2000);
+            counter++;
+        }while (driver.findElements(By.className(APP_CLASS_NAME)).size() < actualAppList.size() && counter < 5);
         showUp =  myApps.showUp(actualAppList.size()-1);
         Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.CERTIFIED.getStatus());
         showUp.addApplicationToStore();
-        wait(8000);
         Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.LIVE.getStatus());
     }
     @Test(priority = 5, dependsOnMethods = "_004_edit_and_certify_and_go_live")
@@ -156,7 +165,6 @@ public class E2ETest extends TestBase {
         UploadCode uploadCode = appDetails.setUpAppDetails("1.0.8");
         Marketing marketing = uploadCode.upload(zipFile);
         marketing.fillMarketing();
-        wait(7000);
         Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.PRESUBMITTED.getStatus());
     }
 }

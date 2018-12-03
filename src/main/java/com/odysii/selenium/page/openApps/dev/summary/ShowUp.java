@@ -64,11 +64,10 @@ public class ShowUp extends PageObject {
     public void certify(){
         isElementPresent(appVersionMenu);
         this.appVersionMenu.click();
+        isElementPresent(this.certifyBtn);
         this.certifyBtn.click();
-        wait(WAIT);
         isElementPresent(nextBtn);
         scrollDown(nextBtn);
-        wait(WAIT);
         this.nextBtn.click();
         isElementPresent(finishBtn);
         this.finishBtn.click();
