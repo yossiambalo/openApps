@@ -5,12 +5,7 @@ import java.io.File;
 import com.odysii.selenium.page.util.DriverManager;
 import com.odysii.selenium.page.util.DriverType;
 import org.openqa.selenium.*;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 import org.testng.ITestResult;
 
 import com.relevantcodes.extentreports.ExtentReports;
@@ -19,6 +14,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.rmi.server.ExportException;
@@ -32,6 +28,7 @@ public class TestBase {
     protected final String finishTxt = "FINISH";
     public static ExtentReports extent;
     public static ExtentTest logger;
+
     public static String getHostName() {
         String hostName = "";
         try {
@@ -151,5 +148,14 @@ public class TestBase {
         }
         wait(WAIT);
         return true;
+    }
+    @BeforeMethod
+    public void handleTestMethodName(Method method)
+    {
+        try {
+            logger = extent.startTest(method.getName()).assignCategory(this.getClass().getField("APP_CLASS_NAME")+" Tests");
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
     }
 }

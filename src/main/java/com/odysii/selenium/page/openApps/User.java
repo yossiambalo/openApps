@@ -17,8 +17,10 @@ public class User extends PageObject {
     WebElement userPassword;
     @FindBy(xpath = "//button[contains(text(), 'Login')]")
     WebElement loginBtn;
-    @FindBy(id = "user-popover")
+    @FindBy(id = "user-popover")//btn-xs
     WebElement logoutBtn;
+    @FindBy(xpath = "//button[contains(text(), 'LOG OUT')]")
+    WebElement logOutPopUp;
     public User(WebDriver driver) {
         super(driver);
     }
@@ -52,6 +54,8 @@ public class User extends PageObject {
         try {
             isElementPresent(logoutBtn);
             logoutBtn.click();
+            isElementPresent(logOutPopUp);
+            logOutPopUp.click();
         }catch (WebDriverException exception){
             exception.getMessage();
         }
