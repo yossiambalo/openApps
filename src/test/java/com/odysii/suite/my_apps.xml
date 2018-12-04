@@ -11,15 +11,11 @@
             <!--<class name="com.odysii.content.AdminContentTest"/>-->
             <!--<class name="com.odysii.content.DevContentTest"/>-->
             <!--<class name="com.odysii.content.RetailerContentTest"/>-->
-            <!--<class name="com.odysii.functional.E2ETest"/>-->
-            <!--<class name="com.odysii.content.AdminContentTest"/>-->
-            <!--<class name="com.odysii.content.DevContentTest"/>-->
-            <!--<class name="com.odysii.content.RetailerContentTest"/>-->
 
             <!--<class name="com.odysii.functional.RetailerTest"/>-->
             <!--&lt;!&ndash;&lt;!&ndash;=======Shuld maintaian======&ndash;&gt;&ndash;&gt;-->
             <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
-            <!--<class name="com.odysii.negative.MarketingTest"/>-->
+            <class name="com.odysii.negative.MarketingTest"/>
             <!--<class name="com.odysii.negative.MyAppsTest"/>-->
         </classes>
     </test>
@@ -41,7 +37,7 @@
     <test name="InternetExplorerTest">
         <parameter name="browser" value="ie"/>
         <classes>
-            <class name="com.odysii.functional.E2ETest"/>
+            <!--<class name="com.odysii.functional.E2ETest"/>-->
             <!--<class name="com.odysii.content.AdminContentTest"/>-->
             <!--<class name="com.odysii.content.DevContentTest"/>-->
             <!--<class name="com.odysii.content.RetailerContentTest"/>-->

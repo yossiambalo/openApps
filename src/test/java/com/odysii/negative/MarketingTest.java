@@ -8,6 +8,7 @@ import com.odysii.selenium.page.openApps.dev.summary.Availabilty;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
 import com.odysii.selenium.page.util.FieldType;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -19,6 +20,7 @@ public class MarketingTest extends TestBase {
 
     User user;
     DevHomePage devUser;
+    final String CATEGORYTEST = "Marketing Tests";
     @BeforeClass
     public void login(){
         user = new User(driver);
@@ -27,16 +29,22 @@ public class MarketingTest extends TestBase {
     }
     @Test // Test will failed until fix of space counts as a valid input!
     public void _001_promotional_text_is_empty_negative(){
-
+        logger = extent.startTest("_001_promotional_text_is_empty_negative").assignCategory(CATEGORYTEST);
         MyApps myApps = devUser.getMyAppsPage(driver);
         showUp = myApps.showUp(4);
+        String curVer = driver.findElement(By.className("text-medium-title")).getText().split(" ")[1].split("\\.")[0];
+        int newVerNum = Integer.parseInt(curVer)+1;
+        String newVer = String.valueOf(newVerNum);
         showUp.getAppVersion();
         AppDetails appDetails = new AppDetails(driver);
-        UploadCode uploadCode = appDetails.setUpAppDetails("1.4.88");
+        UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
         Marketing marketing = uploadCode.upload(zipFile);
-        marketing.fillMarketing("","keyWords","app.jpg","Barcode.png");
+        driver.findElement(By.id("app-promotion")).sendKeys(Keys.CONTROL + "a");
+        driver.findElement(By.id("app-promotion")).sendKeys(Keys.DELETE);
         wait(WAIT);
-        Boolean actualValue = isElementExist(By.id("new-application-success-error-message"));
+        driver.findElement(By.id("finishButton")).click();
+        wait(WAIT);
+        String actualValue =driver.findElement(By.id("new-application-success-error-message")).getText().trim();
         Assert.assertEquals(actualValue,"Some required fields are missing");
 
 
