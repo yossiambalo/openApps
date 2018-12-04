@@ -152,10 +152,6 @@ public class TestBase {
     @BeforeMethod
     public void handleTestMethodName(Method method)
     {
-        try {
-            logger = extent.startTest(method.getName()).assignCategory(this.getClass().getField("APP_CLASS_NAME")+" Tests");
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        }
+        logger = extent.startTest(method.getName()).assignCategory(this.getClass().getName()+" Tests");
     }
 }
