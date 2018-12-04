@@ -24,10 +24,14 @@ public class AdminContentTest extends TestBase {
     @Test
     public void _001_valid_header_support_tickets(){
         logger = extent.startTest("_001_valid_header_support_tickets").assignCategory(CATEGORYTEST);
-        String expected = "Support Tickets1";
+        String expected = "Support Tickets";
         adminPage.getSupportTickets();
         String actualTxt = driver.findElement(By.className("h2")).getText();
         Assert.assertEquals(expected,actualTxt);
+        String expectedSdbr = "SUPPORT TICKETS";
+        String actualSdbr = driver.findElement(By.id("navItem0")).getText().toUpperCase().trim();
+        Assert.assertEquals(actualSdbr,expectedSdbr);
+
 
     }
     @Test
