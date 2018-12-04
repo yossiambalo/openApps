@@ -29,7 +29,6 @@ public class MarketingTest extends TestBase {
     }
     @Test // Test will failed until fix of space counts as a valid input!
     public void _001_promotional_text_is_empty_negative(){
-        logger = extent.startTest("_001_promotional_text_is_empty_negative").assignCategory(CATEGORYTEST);
         MyApps myApps = devUser.getMyAppsPage(driver);
         showUp = myApps.showUp(4);
         String curVer = driver.findElement(By.className("text-medium-title")).getText().split(" ")[1].split("\\.")[0];
@@ -46,6 +45,7 @@ public class MarketingTest extends TestBase {
         wait(WAIT);
         String actualValue =driver.findElement(By.id("new-application-success-error-message")).getText().trim();
         Assert.assertEquals(actualValue,"Some required fields are missing");
+        driver.findElement(By.id("cancelButton")).click();
 
 
 //        WebElement version = driver.findElement(By.id("appVersion"));
@@ -66,43 +66,45 @@ public class MarketingTest extends TestBase {
 
     }
 
-    //@Test // Test will failed until fix of back space counts as a valid input!
+    @Test
     public void _002_keywords_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
-        showUp = myApps.showUp(3);
+        showUp = myApps.showUp(4);
+        String curVer = driver.findElement(By.className("text-medium-title")).getText().split(" ")[1].split("\\.")[0];
+        int newVerNum = Integer.parseInt(curVer)+1;
+        String newVer = String.valueOf(newVerNum);
         showUp.getAppVersion();
-        WebElement version = driver.findElement(By.id("appVersion"));
-        version.sendKeys("1.5.7");
+        AppDetails appDetails = new AppDetails(driver);
+        UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
+        Marketing marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        WebElement continueButton = driver.findElement(By.id("nextButton"));
-        scrollDown(continueButton);
-        continueButton.click();
-        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
+        driver.findElement(By.id("app-keywords")).sendKeys(Keys.CONTROL + "a");
+        driver.findElement(By.id("app-keywords")).sendKeys(Keys.DELETE);
         wait(WAIT);
-        agreeAndUpload.sendKeys("C:\\Users\\roi.avital\\Desktop\\Zip applications for tests\\appConfig_1541669841907.zip");
-        WebElement continueButtonInUploadPage = driver.findElement(By.id("nextButton"));
-        continueButtonInUploadPage.click();
+        driver.findElement(By.id("finishButton")).click();
         wait(WAIT);
-        WebElement keywords = driver.findElement(By.id("app-keywords"));
-        keywords.clear();
-        WebElement finishButton = driver.findElement(By.id("finishButton"));
-        scrollDown(finishButton);
-        finishButton.click();
-        wait(WAIT);
-        Boolean actualValue = isElementExist(By.id("new-application-success-error-message"));
+        String actualValue =driver.findElement(By.id("new-application-success-error-message")).getText().trim();
         Assert.assertEquals(actualValue,"Some required fields are missing");
+        driver.findElement(By.id("cancelButton")).click();
     }
 
-//    @Test
-//    public void _003_add_new_screenshot_positive(){
-//        if (!driver.getCurrentUrl().contains("marketing")){
-//            MyApps myApps = devUser.getMyAppsPage(driver);
-//            showUp = myApps.showUp(1);
-//        }
-//        Marketing marketing = showUp.getMarketing();
-//        marketing.editMarketing(FieldType.SCREEN_SHOTS_FILE,"C:\\yossi\\dog3.jpg");
-//
-//    }
+    @Test
+    public void _003_add_new_screenshot_positive(){
+        MyApps myApps = devUser.getMyAppsPage(driver);
+        showUp = myApps.showUp(4);
+        String curVer = driver.findElement(By.className("text-medium-title")).getText().split(" ")[1].split("\\.")[0];
+        int newVerNum = Integer.parseInt(curVer)+1;
+        String newVer = String.valueOf(newVerNum);
+        showUp.getAppVersion();
+        AppDetails appDetails = new AppDetails(driver);
+        UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
+        Marketing marketing = uploadCode.upload(zipFile);
+        wait(WAIT);
+        marketing.fillMarketing("Promotion Text","Key Words","bike.jpg","app.jpg");
 
-    //ToDo: add test to upload appicon's button (waiting for ID)
+
+
+
+    }
+
 }

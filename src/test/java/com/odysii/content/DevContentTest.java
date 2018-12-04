@@ -386,7 +386,6 @@ public class DevContentTest extends TestBase {
     }
     @Test
     public void _018_my_apps_back_to_my_apps_valid_text() {
-        logger = extent.startTest("_018_my_apps_back_to_my_apps_valid_text").assignCategory(CATEGORYTEST);
         String expected = "Back to My Apps";
         MyApps myApps = devHomePage.getMyAppsPage(driver);
         showUp = myApps.showUp(0);
@@ -398,7 +397,6 @@ public class DevContentTest extends TestBase {
 
     @Test
     public void _019_dev_home_page_valid_Dashboard_header(){
-        logger = extent.startTest("_019_dev_home_page_valid_Dashboard_header").assignCategory(CATEGORYTEST);
         String expected = "Dashboard";
         devHomePage.getDashboardPage(driver);
         String actualTxt = driver.findElement(By.className("h2")).getText();
@@ -411,7 +409,6 @@ public class DevContentTest extends TestBase {
     }
     @Test
     public void _020_dev_home_page_valid_TransactionHistory_header(){
-        logger = extent.startTest("_020_dev_home_page_valid_TransactionHistory_header").assignCategory(CATEGORYTEST);
         String expected = "Transaction History";
         devHomePage.getTrasactionHistoryPage(driver);
         String actualTxt = driver.findElement(By.className("h2")).getText();
@@ -423,7 +420,6 @@ public class DevContentTest extends TestBase {
 
     @Test
     public void _021_home_page_valid_RevenueReport_header(){
-        logger = extent.startTest("_021_home_page_valid_RevenueReport_header").assignCategory(CATEGORYTEST);
         String expected = "Revenue Report";
         devHomePage.getRevenueReportPage(driver);
         String actualTxt = driver.findElement(By.className("h2")).getText().trim();
@@ -435,7 +431,6 @@ public class DevContentTest extends TestBase {
     }
     @Test
     public void _022_home_page_valid_SupportTickets_header(){
-        logger = extent.startTest("_022_home_page_valid_SupportTickets_header").assignCategory(CATEGORYTEST);
         String expected = "Support Tickets";
         devHomePage.getSupportTicketstPage(driver);
         String actualTxt = driver.findElement(By.className("h2")).getText().trim();
@@ -447,7 +442,6 @@ public class DevContentTest extends TestBase {
     }
     @Test
     public void _023_home_page_valid_PublicProfile_header(){
-        logger = extent.startTest("_023_home_page_valid_PublicProfile_header").assignCategory(CATEGORYTEST);
         String expected = "Public Profile";
         devHomePage.getPublicProfilePage(driver);
         String actualTxt = driver.findElement(By.className("h2")).getText().trim();

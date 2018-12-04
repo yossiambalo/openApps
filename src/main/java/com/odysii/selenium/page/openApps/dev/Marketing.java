@@ -49,7 +49,7 @@ public class Marketing extends PageObject {
     public void fillMarketing(String promotionalText,String keywords,String screenshotFileName,String appIconFileName){
         isElementPresent(this.promotionalText);
         this.promotionalText.clear();
-     //   this.promotionalText.sendKeys(promotionalText);
+        this.promotionalText.sendKeys(promotionalText);
         isElementPresent(this.keywords);
         this.keywords.sendKeys(keywords);
         isElementPresent(this.screenshotsFile);

@@ -23,7 +23,6 @@ public class RetailerContentTest extends TestBase {
     }
     @Test
     public void _001_valid_text_app_store(){
-        logger = extent.startTest("_001_valid_text_app_store").assignCategory(CATEGORYTEST);
         String expected = "APP STORE";
         String expectedHeader = "App Store";
         String expectedSearch = "Search";
@@ -41,7 +40,6 @@ public class RetailerContentTest extends TestBase {
 
     @Test
     public void _002_valid_text_app_library(){
-        logger = extent.startTest("_002_valid_text_app_library").assignCategory(CATEGORYTEST);;
         String expected = "APP LIBRARY";
         String expectedHeader = "App Library";
         String expectedSearch = "Search";
@@ -56,7 +54,6 @@ public class RetailerContentTest extends TestBase {
 
     @Test
     public void _003_valid_text_campaigns() {
-        logger = extent.startTest("_003_valid_text_campaigns").assignCategory(CATEGORYTEST);;
         String expected = "CAMPAIGNS";
         String expectedHeader = "Campaigns";
         String expectedSearch = "Search";
@@ -70,7 +67,6 @@ public class RetailerContentTest extends TestBase {
     }
     @Test
     public void _004_header_valid_text_scheduling(){
-        logger = extent.startTest("_004_header_valid_text_scheduling").assignCategory(CATEGORYTEST);;
         String expected = "SCHEDULING";
         String expectedHeader = "Scheduling";
         String expectedSearch = "Search";
@@ -85,7 +81,6 @@ public class RetailerContentTest extends TestBase {
 
     @Test
     public void _005_header_valid_text_keymanagement(){
-        logger = extent.startTest("_005_header_valid_text_keymanagement").assignCategory(CATEGORYTEST);
         String expected = "KEY MANAGEMENT";
         String expectedHeader = "MANAGE KEYS";
         retailerHomePage.getKeysMGMT();
