@@ -3,19 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="eb026f54-409c-48a3-a866-64444a5af109" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/functional/RetailerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/functional/RetailerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/negative/AppVersionsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/negative/AppVersionsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/AdminPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/UsersPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/UsersPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/odysii/TestBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/odysii/TestBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/odysii/functional/E2ETest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/odysii/functional/E2ETest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/odysii/functional/RetailerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/odysii/functional/RetailerTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/OpenApps_Automation_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/OpenApps_Automation_Report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/html/overview.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/html/overview.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/html/suite1_test1_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/html/suite1_test1_results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/html/suite1_test2_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/html/suite1_test2_results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/html/suite1_test3_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/html/suite1_test3_results.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/html/suite1_test4_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/html/suite1_test4_results.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/html/suites.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/html/suites.html" afterDir="false" />
     </list>
@@ -43,27 +36,29 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="19" />
-          <entry key="xml" value="1" />
+          <entry key="java" value="22" />
+          <entry key="properties" value="1" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="19" />
-          <entry key="XML" value="1" />
+          <entry key="JAVA" value="22" />
+          <entry key="Properties" value="1" />
+          <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="203" />
-          <entry key="txt" value="78" />
+          <entry key="java" value="261" />
+          <entry key="txt" value="95" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="203" />
-          <entry key="PLAIN_TEXT" value="78" />
+          <entry key="JAVA" value="261" />
+          <entry key="PLAIN_TEXT" value="95" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
@@ -75,19 +70,23 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/AdminPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+            <state relative-caret-position="596">
+              <caret line="52" column="23" lean-forward="true" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/functional/RetailerTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+            <state relative-caret-position="187">
+              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+              <folding>
+                <marker date="1543938650244" expanded="true" signature="1894:1944" ph="..." />
+                <marker date="1543938650244" expanded="true" signature="1964:2014" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -95,38 +94,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/functional/E2ETest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+            <state relative-caret-position="-499">
+              <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="426">
+              <caret line="44" column="23" lean-forward="true" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/User.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/UsersPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/content/RetailerContentTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="87" column="103" selection-start-line="87" selection-start-column="103" selection-end-line="87" selection-end-column="103" />
+            <state relative-caret-position="340">
+              <caret line="20" column="47" lean-forward="true" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#557#558#0" expanded="true" />
+                <element signature="e#586#587#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/negative/AppVersionsTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="16" column="31" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -134,32 +126,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="664">
-              <caret line="155" column="48" selection-start-line="155" selection-start-column="48" selection-end-line="155" selection-end-column="48" />
+            <state relative-caret-position="715">
+              <caret line="154" column="103" selection-start-line="154" selection-start-column="103" selection-end-line="154" selection-end-column="103" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/negative/MarketingTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/UploadCode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-              <folding>
-                <element signature="e#686#687#0" expanded="true" />
-                <element signature="e#715#716#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -168,8 +138,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/Marketing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="55" column="58" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="58" />
+            <state relative-caret-position="460">
+              <caret line="45" column="23" lean-forward="true" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/value/marketing.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -220,12 +199,13 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/content/DevContentTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/RetailersPage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/UsersPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/functional/RetailerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/negative/AppVersionsTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/User.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/AdminPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/UsersPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" />
       </list>
     </option>
   </component>
@@ -415,7 +395,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="Market&#9;FILE&#9;file://C:/git_repo/openApps/src/main/java/com/odysii/selenium/page/openApps/dev/Marketing.java" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543925786628" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543997337053" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -527,46 +507,59 @@
       <option name="project" value="LOCAL" />
       <updated>1543917974199</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Logout pop handle">
+      <created>1543925895516</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1543925895516</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Logout pop handle">
+      <created>1543926622421</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1543926622421</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.03 at 17h 36m 58s.xml">
-      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.03 at 17h 56m 44s.xml">
-      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.03 at 18h 11m 37s.xml">
-      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.04 at 10h 26m 10s.xml">
-      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.04 at 11h 14m 31s.xml">
-      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.04 at 11h 51m 02s.xml">
-      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.04 at 11h 58m 23s.xml">
-      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.04 at 14h 01m 52s.xml">
-      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.04 at 14h 08m 50s.xml">
       <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
     </history-entry>
     <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.04 at 14h 09m 52s.xml">
       <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.04 at 14h 15m 04s.xml">
+      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.04 at 14h 17m 01s.xml">
+      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.04 at 16h 17m 25s.xml">
+      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.04 at 16h 35m 35s.xml">
+      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.04 at 17h 20m 22s.xml">
+      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.04 at 17h 52m 58s.xml">
+      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.04 at 17h 55m 12s.xml">
+      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="C__Automation_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2018.12.04 at 18h 06m 54s.xml">
+      <configuration name="C:/Automation/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49917898" visible="true" weight="0.18123667" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49917898" visible="true" weight="0.20575693" />
       <window_info id="Structure" order="1" sideWeight="0.500821" side_tool="true" weight="0.25266525" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -606,7 +599,8 @@
     <MESSAGE value="Nir - Added tests for search input texts on new App wizard, Key Management page and Extent Reports handle" />
     <MESSAGE value="Yossi: More funcionality for admin user" />
     <MESSAGE value="export logger to beforeMethod anotation" />
-    <option name="LAST_COMMIT_MESSAGE" value="export logger to beforeMethod anotation" />
+    <MESSAGE value="Logout pop handle" />
+    <option name="LAST_COMMIT_MESSAGE" value="Logout pop handle" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -616,12 +610,6 @@
           <line>193</line>
           <properties />
           <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/odysii/functional/E2ETest.java</url>
-          <line>129</line>
-          <properties />
-          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -835,25 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/UsersPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#221#222#0" expanded="true" />
-            <element signature="e#250#251#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/AdminPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="50" column="37" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/summary/ShowUp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
@@ -934,27 +903,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/Marketing.java">
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/Properties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="55" column="58" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="155" column="48" selection-start-line="155" selection-start-column="48" selection-end-line="155" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+        <state relative-caret-position="181">
+          <caret line="1102" column="18" selection-start-line="1102" selection-start-column="18" selection-end-line="1102" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -965,17 +917,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/functional/E2ETest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+        <state relative-caret-position="426">
+          <caret line="44" column="23" lean-forward="true" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/User.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        <state relative-caret-position="715">
+          <caret line="154" column="103" selection-start-line="154" selection-start-column="103" selection-end-line="154" selection-end-column="103" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/value/marketing.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/functional/E2ETest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-499">
+          <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding>
+            <marker date="1543938650244" expanded="true" signature="1894:1944" ph="..." />
+            <marker date="1543938650244" expanded="true" signature="1964:2014" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/Marketing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="45" column="23" lean-forward="true" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/AdminPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="52" column="23" lean-forward="true" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/UsersPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="47" lean-forward="true" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#586#587#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
