@@ -13,7 +13,6 @@ import org.testng.annotations.Test;
 
 public class AdminContentTest extends TestBase {
     AdminPage adminPage;
-    User user;
     final String CATEGORYTEST = "Admin Content Tests";
     @BeforeClass
     public void login(){

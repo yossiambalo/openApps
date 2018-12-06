@@ -17,8 +17,6 @@ import org.testng.annotations.Test;
 public class MarketingTest extends TestBase {
     private ShowUp showUp;
     private final String zipFile = "TH.zip";
-
-    User user;
     DevHomePage devUser;
     final String CATEGORYTEST = "Marketing Tests";
     @BeforeClass

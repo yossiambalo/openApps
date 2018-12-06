@@ -13,7 +13,6 @@ import org.testng.annotations.Test;
 
 public class AppVersionsTest extends TestBase {
     DevHomePage devHomePage;
-    User user;
     final String APP_CLASS_NAME = "Negative App Version";
     @BeforeClass
     public void login() {

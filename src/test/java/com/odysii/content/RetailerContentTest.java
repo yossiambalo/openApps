@@ -11,7 +11,6 @@ import org.testng.annotations.Test;
 
 public class RetailerContentTest extends TestBase {
     RetailerHomePage retailerHomePage;
-    User user;
     final String CATEGORYTEST = "Retailer Content Tests";
 
 

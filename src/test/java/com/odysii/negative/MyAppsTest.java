@@ -18,9 +18,6 @@ import org.testng.annotations.Test;
 
 public class MyAppsTest extends TestBase {
     private AppDetails appDetails;
-
-
-    User user;
     DevHomePage devUser;
     private Marketing marketing;
 

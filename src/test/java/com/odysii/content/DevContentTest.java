@@ -30,7 +30,6 @@ import java.util.List;
 
 public class DevContentTest extends TestBase {
     DevHomePage devHomePage;
-    User user;
     ShowUp showUp;
     MyApps myApps;
     AppDetails appDetails;

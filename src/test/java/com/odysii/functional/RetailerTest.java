@@ -15,11 +15,8 @@ import org.testng.annotations.Test;
 
 public class RetailerTest extends TestBase {
     private final static String APP_CLASS_NAME = "card";
-    private final static String RETAILER_USER_NAME = "retailer";
-    private final static String RETAILER_USER_PASS = "123456";
     RetailerHomePage retailerHomePage;
     CampaignDesigner campaignDesigner;
-    User user;
     final String CATEGORYTEST = "Retailer Tests";
     @BeforeClass
     public void login(){

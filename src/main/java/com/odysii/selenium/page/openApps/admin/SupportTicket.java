@@ -1,5 +1,6 @@
 package com.odysii.selenium.page.openApps.admin;
 
+import com.odysii.selenium.page.openApps.admin.helper.SortBy;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
