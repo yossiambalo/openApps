@@ -250,7 +250,7 @@ public class RetailerTest extends TestBase {
         Assert.assertTrue(requestHelper.getRequest(url),"Failed to pack an application!");
     }
 
-    //@Test
+    @Test
     public void _004_edit_name_and_description_campaign(){
         Campaign campaign = retailerHomePage.getCampaigs();
         campaign.editCampaign("name test","description test");

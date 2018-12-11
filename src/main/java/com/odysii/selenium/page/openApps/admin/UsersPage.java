@@ -16,14 +16,14 @@ public class UsersPage extends PageObject {
     private List<WebElement> userList;
     @FindBy(id = "makeSearch")
     private WebElement makeSearchBtn;
-    @FindBy(className = "mb-2")//dropdown-btn
+    @FindBy(xpath = "//select[@class='mb-2']")
     private WebElement userRoleDDL;
-    @FindBy(className = "dropdown-btn")
+    @FindBy(className = "dropdown-btn")//multiselect-dropdown
     private WebElement delegationDDL;
     public UsersPage(WebDriver driver) {
         super(driver);
     }
-    public void editUser(String developerName, RoleType roleType, List<String> delegations){
+    public void editUser(String developerName, RoleType roleType, List<String> retailers){
         boolean flag = false;
         isElementPresent(makeSearchBtn);
         for (WebElement e : userList){
@@ -39,5 +39,10 @@ public class UsersPage extends PageObject {
         isElementPresent(userRoleDDL);
         Select dropdown = new Select(userRoleDDL);
         dropdown.selectByIndex(roleType.getIndex());
+        isElementPresent(delegationDDL);
+        delegationDDL.click();
+        for (String retailer : retailers){
+            webDriver.findElement(By.xpath("//div[contains(text(), '"+retailer+"')]")).click();
+        }
     }
 }

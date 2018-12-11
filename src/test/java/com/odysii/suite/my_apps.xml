@@ -1,18 +1,18 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="OpenApps" parallel="tests">
+<suite name="OpenApps" parallel="false">
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
     </listeners>
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
+            <class name="com.odysii.functional.AdminTest"/>
             <!--<class name="com.odysii.functional.DevTest"/>-->
             <!--<class name="com.odysii.content.AdminContentTest"/>-->
             <!--<class name="com.odysii.content.DevContentTest"/>-->
             <!--<class name="com.odysii.content.RetailerContentTest"/>-->
-            <class name="com.odysii.functional.RetailerTest"/>
-            <!--&lt;!&ndash;&lt;!&ndash;=======Shuld maintaian======&ndash;&gt;&ndash;&gt;-->
+            <!--<class name="com.odysii.functional.RetailerTest"/>-->
             <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
             <!--<class name="com.odysii.negative.MarketingTest"/>-->
             <!--<class name="com.odysii.negative.MyAppsTest"/>-->
@@ -25,8 +25,7 @@
         <!--<class name="com.odysii.content.AdminContentTest"/>-->
         <!--<class name="com.odysii.content.DevContentTest"/>-->
         <!--<class name="com.odysii.content.RetailerContentTest"/>-->
-        <class name="com.odysii.functional.RetailerTest"/>
-        <!--&lt;!&ndash;&lt;!&ndash;=======Shuld maintaian======&ndash;&gt;&ndash;&gt;-->
+        <!--<class name="com.odysii.functional.RetailerTest"/>-->
         <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
         <!--<class name="com.odysii.negative.MarketingTest"/>-->
         <!--<class name="com.odysii.negative.MyAppsTest"/>-->
@@ -40,8 +39,7 @@
             <!--<class name="com.odysii.content.AdminContentTest"/>-->
             <!--<class name="com.odysii.content.DevContentTest"/>-->
             <!--<class name="com.odysii.content.RetailerContentTest"/>-->
-            <class name="com.odysii.functional.RetailerTest"/>
-            <!--&lt;!&ndash;&lt;!&ndash;=======Shuld maintaian======&ndash;&gt;&ndash;&gt;-->
+            <!--<class name="com.odysii.functional.RetailerTest"/>-->
             <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
             <!--<class name="com.odysii.negative.MarketingTest"/>-->
             <!--<class name="com.odysii.negative.MyAppsTest"/>-->
@@ -54,8 +52,7 @@
         <!--<class name="com.odysii.content.AdminContentTest"/>-->
         <!--<class name="com.odysii.content.DevContentTest"/>-->
         <!--<class name="com.odysii.content.RetailerContentTest"/>-->
-        <class name="com.odysii.functional.RetailerTest"/>
-        <!--&lt;!&ndash;=======Shuld maintaian======&ndash;&gt;-->
+        <!--<class name="com.odysii.functional.RetailerTest"/>-->
         <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
         <!--<class name="com.odysii.negative.MarketingTest"/>-->
         <!--<class name="com.odysii.negative.MyAppsTest"/>-->

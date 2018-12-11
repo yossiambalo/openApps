@@ -20,6 +20,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class TestBase {
+    public String category;
     public final static String DEV_USER_NAME = "user";
     public final static String DEV_USER_PASS = "123456";
     public final static String ADMIN_USER_NAME = "admin";
@@ -159,6 +160,6 @@ public class TestBase {
     @BeforeMethod
     public void handleTestMethodName(Method method)
     {
-        logger = extent.startTest(method.getName()).assignCategory(this.getClass().getName()+" Tests");
+        logger = extent.startTest(method.getName()).assignCategory(this.category+" Tests");
     }
 }
