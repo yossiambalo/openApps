@@ -12,39 +12,43 @@
 <body>
 <h1>ChromeTest</h1>
 <p>
-  Test duration: 55.031s
+  Test duration: 283.428s
 </p>
 
-  <table class="resultsTable configTable">
-    <tr><th colspan="3" class="header failedConfig">Failed Configuration</th></tr>
-              <tr class="group">
-        <td colspan="3">com.odysii.negative.MarketingTest</td>
+
+
+  <table class="resultsTable">
+    <tr><th colspan="3" class="header failed">Failed Tests</th></tr>
+          <tr>
+        <td colspan="3" class="group">com.odysii.functional.E2ETest</td>
       </tr>
             
 <tr>
   <td class="method">
-                  getResult
+                  _003_valid_reject_with_fee
       </td>
   <td class="duration">
-    0.001s
+    26.662s
   </td>
   <td class="result">
         
-          <i>Method arguments: </i><span class="arguments">[TestResult name=_001_promotional_text_is_empty_negative status=SUCCESS method=MarketingTest._001_promotional_text_is_empty_negative()[pri:0, instance:com.odysii.negative.MarketingTest@3bf7ca37] output={null}]</span><br />
     
         
 
-        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.NullPointerException</b></a><br />
+        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.IndexOutOfBoundsException: Index 339 out of bounds for length 0</b></a><br />
     <div class="stackTrace" id="exception-0">
-              com.odysii.TestBase.getResult(TestBase.java:65)<br />
+              java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)<br />
+              java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)<br />
+              java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)<br />
+              java.base/java.util.Objects.checkIndex(Objects.java:372)<br />
+              java.base/java.util.ArrayList.get(ArrayList.java:458)<br />
+              com.odysii.functional.E2ETest._003_valid_reject_with_fee(E2ETest.java:95)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
               java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
               org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:723)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:661)<br />
               org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)<br />
               org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)<br />
               org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)<br />
@@ -66,44 +70,128 @@
                 </div>
       </td>
 </tr>
-    
-          <tr><td colspan="3">&nbsp;</td></tr>
-      <tr><td colspan="3" class="header skippedConfig">Skipped Configuration</td></tr>
-                    <tr>
-          <td colspan="3" class="group">com.odysii.negative.MarketingTest</td>
-        </tr>
-                
 <tr>
   <td class="method">
-                  tearDownExt
+                  _006_valid_add_new_version_to_application
+      </td>
+  <td class="duration">
+    40.635s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse"><b>java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 0</b></a><br />
+    <div class="stackTrace" id="exception-1">
+              java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)<br />
+              java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)<br />
+              java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)<br />
+              java.base/java.util.Objects.checkIndex(Objects.java:372)<br />
+              java.base/java.util.ArrayList.get(ArrayList.java:458)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)<br />
+              com.sun.proxy.$Proxy17.get(Unknown Source)<br />
+              com.odysii.selenium.page.openApps.dev.MyApps.showUp(MyApps.java:29)<br />
+              com.odysii.functional.E2ETest._006_valid_add_new_version_to_application(E2ETest.java:163)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:661)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:744)<br />
+              org.testng.TestRunner.run(TestRunner.java:602)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:380)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:289)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1226)<br />
+              org.testng.TestNG.runSuites(TestNG.java:1144)<br />
+              org.testng.TestNG.run(TestNG.java:1115)<br />
+              org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:73)<br />
+              org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)<br />
+                </div>
+      </td>
+</tr>
+      </table>
+
+  <table class="resultsTable" width="100%">
+    <tr><th colspan="3" class="header skipped">Skipped Tests</th></tr>
+          <tr>
+        <td colspan="3" class="group">com.odysii.functional.E2ETest</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  _004_edit_and_certify_and_go_live
       </td>
   <td class="duration">
     0.000s
   </td>
   <td class="result">
-                               
+                             <i>Depends on method(s): </i>
+        <span class="dependency">com.odysii.functional.E2ETest._003_valid_reject_with_fee</span>
+                
     
         
 
       </td>
 </tr>
-            </table>
+<tr>
+  <td class="method">
+                  _005_valid_app_add_to_app_store
+      </td>
+  <td class="duration">
+    0.000s
+  </td>
+  <td class="result">
+                             <i>Depends on method(s): </i>
+        <span class="dependency">com.odysii.functional.E2ETest._004_edit_and_certify_and_go_live</span>
+                
+    
+        
 
-
-
+      </td>
+</tr>
+      </table>
 
   <table class="resultsTable">
     <tr><th colspan="3" class="header passed">Passed Tests</th></tr>
           <tr>
-        <td colspan="3" class="group">com.odysii.negative.MarketingTest</td>
+        <td colspan="3" class="group">com.odysii.functional.E2ETest</td>
       </tr>
             
 <tr>
   <td class="method">
-                  _001_promotional_text_is_empty_negative
+                  _001_valid_add_new_app
       </td>
   <td class="duration">
-    45.983s
+    107.375s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _002_valid_app_reject_no_fee
+      </td>
+  <td class="duration">
+    98.241s
   </td>
   <td class="result">
         
