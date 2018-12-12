@@ -45,8 +45,8 @@ public class RetailerTest extends TestBase {
     public void _002_search_apps(){
        logger = extent.startTest("_002_search_apps").assignCategory(CATEGORYTEST);
         retailerHomePage.getAppStore();
-        int expectedApp = 3;
-        retailerHomePage.searchApps("Spin");
+        int expectedApp = 2;
+        retailerHomePage.searchApps("auto");
         wait(WAIT);
         int actualApps = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(actualApps,expectedApp,"App store search functionality failed!");

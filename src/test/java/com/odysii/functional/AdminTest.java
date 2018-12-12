@@ -20,7 +20,7 @@ public class AdminTest extends TestBase {
     public void init(){
         category = "Admin Console";
     }
-    @Test(priority = 7)
+    @Test(priority = 1)
     public void _001_valid_edit_users_in_admin_console(){
         user = new User(driver);
         devUser = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
@@ -29,6 +29,7 @@ public class AdminTest extends TestBase {
         retailers.add(RetailerType.SHELL);
         retailers.add(RetailerType.EXXON_MOBIL);
         usersPage.editUser("DEVELOPER A", RoleType.THIRD_PARTY,retailers);
+        //TODO: add assertion when indicator will be ready by developers
         Assert.assertTrue(true);
     }
 }

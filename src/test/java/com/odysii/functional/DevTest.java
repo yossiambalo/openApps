@@ -153,7 +153,7 @@ public class DevTest extends TestBase {
            //Valid app added to retailer store
            retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
            int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
-           Assert.assertEquals(appListBeforeAdding + 1,appListAfterAdding);
+           Assert.assertEquals(appListAfterAdding,appListBeforeAdding + 1);
        }catch (Exception e){
            e.getMessage();
        }finally {
