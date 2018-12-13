@@ -5,6 +5,7 @@ import java.io.File;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.util.DriverManager;
 import com.odysii.selenium.page.util.DriverType;
+import com.odysii.selenium.page.util.RequestHelper;
 import org.openqa.selenium.*;
 import org.testng.annotations.*;
 import org.testng.ITestResult;
@@ -20,6 +21,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class TestBase {
+    public String applicationIDToDelete = null;
     public String category;
     public final static String DEV_USER_NAME = "user";
     public final static String DEV_USER_PASS = "123456";
@@ -87,6 +89,11 @@ public class TestBase {
     @AfterSuite
     public void tearDown()
     {
+        RequestHelper requestHelper = null;
+        if (applicationIDToDelete != null){
+            requestHelper = new RequestHelper();
+            requestHelper.deleteRequest("http://openappsqa.tveez.local:8080/openAppStore/webapi/application/"+applicationIDToDelete);
+        }
         extent.flush();
     }
 

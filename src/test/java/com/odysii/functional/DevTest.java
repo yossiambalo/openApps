@@ -59,6 +59,7 @@ public class DevTest extends TestBase {
     public void _002_valid_app_reject_no_fee(){
         //get the created app
         ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
+        setApplicationID();
         showUp.certify();
         Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus().trim());
         user.logout();
@@ -79,6 +80,7 @@ public class DevTest extends TestBase {
         Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.REJECT.getStatus());
         showUp.backToMyApps();
     }
+
     @Test(priority = 3, dependsOnMethods = "_002_valid_app_reject_no_fee")
     public void _003_valid_reject_with_fee(){
         user.logout();
@@ -172,5 +174,8 @@ public class DevTest extends TestBase {
         marketing.fillMarketing();
         wait(3000);
         Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.PRESUBMITTED.getStatus());
+    }
+    private void setApplicationID() {
+        applicationIDToDelete = driver.getCurrentUrl().split("my-apps/")[1].split("/")[0];
     }
 }
