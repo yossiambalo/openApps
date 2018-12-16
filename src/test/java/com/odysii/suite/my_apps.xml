@@ -7,8 +7,8 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <!--<class name="com.odysii.functional.AdminTest"/>-->
-            <class name="com.odysii.functional.DevTest"/>
+            <class name="com.odysii.functional.AdminTest"/>
+            <!--<class name="com.odysii.functional.DevTest"/>-->
             <!--<class name="com.odysii.content.AdminContentTest"/>-->
             <!--<class name="com.odysii.content.DevContentTest"/>-->
             <!--<class name="com.odysii.content.RetailerContentTest"/>-->
