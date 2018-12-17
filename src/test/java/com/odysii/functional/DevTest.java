@@ -20,14 +20,6 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class DevTest extends TestBase {
-    private final static String APP_CLASS_NAME = "card";
-    private final String zipFile = "TH.zip";
-    RetailerHomePage retailerHomePage;
-    MyApps myApps;
-    List<WebElement> actualAppList;
-    int actualValue;
-    DevHomePage devUser;
-    int appListBeforeAdding;
     final String CATEGORYTEST = "E2E Tests";
     @BeforeClass
     public void login(){

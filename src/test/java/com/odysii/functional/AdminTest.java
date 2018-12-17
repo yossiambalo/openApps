@@ -4,6 +4,7 @@ import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.admin.AdminPage;
+import com.odysii.selenium.page.openApps.admin.KeyMnagerPage;
 import com.odysii.selenium.page.openApps.admin.RetailersPage;
 import com.odysii.selenium.page.openApps.admin.UsersPage;
 import com.odysii.selenium.page.openApps.admin.helper.EnviromentType;
@@ -22,7 +23,9 @@ public class AdminTest extends TestBase {
     AdminPage adminPage;
     RetailersPage retailersPage;
     FileHandler fileHandler = null;
+    KeyMnagerPage keyMnagerPage = null;
     final String GENERATED_KEY_FILE_PATH = System.getProperty("user.home")+"\\Downloads\\cert_pub_retailer_id_1.txt";
+    private final String CURRENT_PAGE_INDICATOR = "manage-keys";
     @BeforeClass
     public void init(){
         category = "Admin Console";
@@ -44,18 +47,18 @@ public class AdminTest extends TestBase {
         user = new User(driver);
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
         retailersPage = adminPage.getRetailersPage();
-        retailersPage.getEditPage(RetailerType.EXXON_MOBIL);
-        Assert.assertTrue(retailersPage.generate(EnviromentType.PROD));
+        keyMnagerPage = retailersPage.editRetailer(RetailerType.EXXON_MOBIL);
+        Assert.assertTrue(keyMnagerPage.generate(EnviromentType.PROD));
     }
     @Test(priority = 3)
     public void _003_valid_generate_key(){
-        if(!driver.getCurrentUrl().contains("manage-keys")){
+        if(!driver.getCurrentUrl().contains(CURRENT_PAGE_INDICATOR)){
             user = new User(driver);
             adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
             retailersPage = adminPage.getRetailersPage();
-            retailersPage.getEditPage(RetailerType.EXXON_MOBIL);
+            retailersPage.editRetailer(RetailerType.EXXON_MOBIL);
         }
-        retailersPage.downloadKey(EnviromentType.PROD);
+        keyMnagerPage.downloadKey(EnviromentType.PROD);
         int counter = 0;
         fileHandler = new FileHandler();
         while (!fileHandler.isFileExist(GENERATED_KEY_FILE_PATH) && counter < 5){
@@ -66,23 +69,23 @@ public class AdminTest extends TestBase {
     }
     @Test(priority = 4)
     public void _004_valid_upload_key_omnia(){
-        if(!driver.getCurrentUrl().contains("manage-keys")){
+        if(!driver.getCurrentUrl().contains(CURRENT_PAGE_INDICATOR)){
             user = new User(driver);
             adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
             retailersPage = adminPage.getRetailersPage();
-            retailersPage.getEditPage(RetailerType.EXXON_MOBIL);
+            retailersPage.editRetailer(RetailerType.EXXON_MOBIL);
         }
-        Assert.assertTrue(retailersPage.uploadOmnia(EnviromentType.PROD,GENERATED_KEY_FILE_PATH));
+        Assert.assertTrue(keyMnagerPage.uploadOmnia(EnviromentType.PROD,GENERATED_KEY_FILE_PATH));
     }
     @Test(priority = 5)
     public void _005_valid_upload_key_gesom(){
-        if(!driver.getCurrentUrl().contains("manage-keys")){
+        if(!driver.getCurrentUrl().contains(CURRENT_PAGE_INDICATOR)){
             user = new User(driver);
             adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
             retailersPage = adminPage.getRetailersPage();
-            retailersPage.getEditPage(RetailerType.EXXON_MOBIL);
+            retailersPage.editRetailer(RetailerType.EXXON_MOBIL);
         }
-        Assert.assertTrue(retailersPage.uploadGSOM(EnviromentType.PROD,GENERATED_KEY_FILE_PATH));
+        Assert.assertTrue(keyMnagerPage.uploadGSOM(EnviromentType.PROD,GENERATED_KEY_FILE_PATH));
     }
     @AfterClass
     public void clean(){

@@ -1,8 +1,6 @@
 package com.odysii.functional;
 
 import com.odysii.TestBase;
-import com.odysii.selenium.page.openApps.User;
-import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.retailer.*;
 import com.odysii.selenium.page.openApps.retailer.helper.LayoutType;
 import com.odysii.selenium.page.openApps.retailer.helper.ScreenSize;
@@ -19,9 +17,8 @@ public class RetailerTest extends TestBase {
     CampaignDesigner campaignDesigner;
     final String CATEGORYTEST = "Retailer Tests";
     @BeforeClass
-    public void login(){
-        user = new User(driver);
-        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
+    public void prepare(){
+       prepareTest();
 
     }
     @Test//(priority = 1)
