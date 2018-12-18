@@ -20,7 +20,6 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class DevTest extends TestBase {
-    final String CATEGORYTEST = "E2E Tests";
     @BeforeClass
     public void login(){
         user = new User(driver);
@@ -100,7 +99,14 @@ public class DevTest extends TestBase {
             counter++;
         }while (driver.findElements(By.className(APP_CLASS_NAME)).size() < actualAppList.size() && counter < 5);
         showUp =  myApps.showUp(actualAppList.size()-1);
-        Assert.assertEquals(ApplicationStatus.REJECT.getStatus(),showUp.getStatus().trim());
+        String status = null;
+        counter = 0;
+        do {
+            status = showUp.getStatus().trim();
+            wait(2000);
+            counter++;
+        }while (!status.equals(ApplicationStatus.REJECT.getStatus()) && counter < 5);
+        Assert.assertEquals(status,ApplicationStatus.REJECT.getStatus());
         showUp.backToMyApps();
     }
     @Test(priority = 4, dependsOnMethods = "_003_valid_reject_with_fee")
