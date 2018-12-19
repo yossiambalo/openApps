@@ -67,11 +67,11 @@ public class AppDetails extends PageObject{
     public AppDetails(WebDriver driver) {
         super(driver);
     }
-    public UploadCode setUpAppDetails(){
+    public UploadCode setUpAppDetailsFromPropFile(String propFile){
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         PropertyLoader loader = new PropertyLoader();
-        Properties properties = loader.loadPropFile("");
+        Properties properties = loader.loadPropFile(propFile);
         this.appTitle = properties.getProperty("name");
         this.appDescription = properties.getProperty("subtitle");
         isElementPresent(name);

@@ -29,7 +29,6 @@ import java.util.List;
  */
 
 public class DevContentTest extends TestBase {
-    DevHomePage devHomePage;
     ShowUp showUp;
     MyApps myApps;
     AppDetails appDetails;
@@ -51,8 +50,11 @@ public class DevContentTest extends TestBase {
 
     @BeforeClass
     public void login(){
-        user = new User(driver);
-        devHomePage = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
+        prepareTest("app_details_DevContent_Submitted.properties",ApplicationStatus.SUBMITTED);
+        prepareTest("app_details_DevContent_PreSubmitted.properties",ApplicationStatus.PRESUBMITTED);
+        prepareTest("app_details_DevContent_Certified.properties",ApplicationStatus.CERTIFIED);
+        prepareTest("app_details_DevContent_Rejected.properties",ApplicationStatus.REJECT);
+        prepareTest("app_details_DevContent_Live.properties",ApplicationStatus.LIVE);
         category = "Dev Content";
 
     }
@@ -60,7 +62,7 @@ public class DevContentTest extends TestBase {
     public void _001_dev_home_page_valid_MyApps_texts(){
         String expected = "MY APPS";
         String expectedHeader = "My Apps";
-        devHomePage.getMyAppsPage(driver);
+        devUser.getMyAppsPage(driver);
         WebElement myAppsPage = driver.findElement(By.cssSelector(".col.row.mx-0.mx-sm-2.mx-lg-3.mt-1"));
         String actualHeaderTxt = myAppsPage.findElement(By.className("h2")).getText().trim();
         String actualTxt = driver.findElement(By.id("navItem1")).getText().trim().toUpperCase();
@@ -70,7 +72,7 @@ public class DevContentTest extends TestBase {
     }
     @Test
     public void _002_my_apps_valid_app_status(){
-        MyApps myApps = devHomePage.getMyAppsPage(driver);
+        MyApps myApps = devUser.getMyAppsPage(driver);
         Assert.assertTrue((myApps.getApplicationStatus(0).toLowerCase().equals(ApplicationStatus.SUBMITTED.getStatus().toLowerCase())
                 || myApps.getApplicationStatus(0).toLowerCase().equals(ApplicationStatus.PRESUBMITTED.getStatus().toLowerCase())
                 || myApps.getApplicationStatus(0).toLowerCase().equals(ApplicationStatus.CERTIFIED.getStatus().toLowerCase())
@@ -80,7 +82,7 @@ public class DevContentTest extends TestBase {
     @Test
     public void _003_my_apps_add_new_app_valid_header() {
         String expected = "ADD NEW APP";
-        MyApps myApps = devHomePage.getMyAppsPage(driver);
+        MyApps myApps = devUser.getMyAppsPage(driver);
         String actualTxt = driver.findElement(By.id("newAppButton")).getText();
         Assert.assertEquals(actualTxt.trim(), expected.trim());
         appDetails = myApps.clickAddNewAppBtn();
@@ -286,7 +288,7 @@ public class DevContentTest extends TestBase {
         if (! browserName.equals("microsoftedge")) {
             prcDrpDwn.click();
         }
-        uploadCode = appDetails.setUpAppDetails();
+        uploadCode = appDetails.setUpAppDetailsFromPropFile("app_details.properties");
 
 
 

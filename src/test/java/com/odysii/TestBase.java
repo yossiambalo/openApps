@@ -187,7 +187,7 @@ public class TestBase {
     {
         logger = extent.startTest(method.getName()).assignCategory(this.category+" Tests");
     }
-    public void prepareTest(){
+    public void prepareTest(String propFile , ApplicationStatus applicationStatus){
         user = new User(driver);
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
         //get number of live apps from retailer page
@@ -199,7 +199,7 @@ public class TestBase {
         int appsSize = appsList.size();
         int expectedValue = appsSize+1;
         AppDetails appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails();
+        UploadCode uploadCode = appDetails.setUpAppDetailsFromPropFile(propFile);
         Marketing marketing = uploadCode.upload(zipFile);
         marketing.fillMarketing();
         wait(WAIT);
@@ -208,10 +208,14 @@ public class TestBase {
         Assert.assertEquals(expectedValue,actualValue,"Failed to create a new application!");
         Assert.assertTrue(myApps.getTitle(actualValue-1).toLowerCase().contains(appDetails.getAppTitle().toLowerCase()));
         Assert.assertTrue(myApps.getDescription(actualValue-1).toLowerCase().contains(appDetails.getAppDescription().toLowerCase()));
-        certifyAppAndGoAlive();
-        addAppToAppStore();
+        if (!applicationStatus.equals(ApplicationStatus.PRESUBMITTED)){
+            setApplicationStatus(applicationStatus);
+        }
+       if (applicationStatus.equals(ApplicationStatus.LIVE)){
+           addAppToAppStore();
+       }
     }
-    private void certifyAppAndGoAlive(){
+    private void setApplicationStatus(ApplicationStatus applicationStatus){
         try {
             myApps = devUser.getMyAppsPage(driver);
             wait(WAIT);
@@ -227,7 +231,16 @@ public class TestBase {
             //Admin approve
             AdminPage adminPage = (AdminPage)user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
             SupportTicket supportTicket = adminPage.getSupportTickets();
-            supportTicket.approve();
+            switch (applicationStatus){
+                case LIVE:
+                    supportTicket.approve();
+                    break;
+                case REJECT:
+                    supportTicket.rejectNoFee();
+                    break;
+                    default:
+                        //do nothing
+            }
             user.logout();
             //Valid certified
             devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
