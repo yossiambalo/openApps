@@ -36,7 +36,7 @@ public class DevTest extends TestBase {
         int appsSize = appsList.size();
         int expectedValue = appsSize+1;
         AppDetails appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails();
+        UploadCode uploadCode = appDetails.setUpAppDetailsFromPropFile("app_details.properties");
         Marketing marketing = uploadCode.upload(zipFile);
         marketing.fillMarketing();
         wait(WAIT);
