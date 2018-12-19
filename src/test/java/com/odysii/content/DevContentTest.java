@@ -30,7 +30,6 @@ import java.util.List;
 
 public class DevContentTest extends TestBase {
     DevHomePage devHomePage;
-    User user;
     ShowUp showUp;
     MyApps myApps;
     AppDetails appDetails;
@@ -54,11 +53,11 @@ public class DevContentTest extends TestBase {
     public void login(){
         user = new User(driver);
         devHomePage = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
+        category = "Dev Content";
 
     }
     @Test
     public void _001_dev_home_page_valid_MyApps_texts(){
-        logger = extent.startTest("_001_dev_home_page_valid_MyApps_texts").assignCategory(CATEGORYTEST);
         String expected = "MY APPS";
         String expectedHeader = "My Apps";
         devHomePage.getMyAppsPage(driver);
@@ -71,7 +70,6 @@ public class DevContentTest extends TestBase {
     }
     @Test
     public void _002_my_apps_valid_app_status(){
-        logger = extent.startTest("_002_my_apps_valid_app_status").assignCategory(CATEGORYTEST);
         MyApps myApps = devHomePage.getMyAppsPage(driver);
         Assert.assertTrue((myApps.getApplicationStatus(0).toLowerCase().equals(ApplicationStatus.SUBMITTED.getStatus().toLowerCase())
                 || myApps.getApplicationStatus(0).toLowerCase().equals(ApplicationStatus.PRESUBMITTED.getStatus().toLowerCase())
@@ -81,7 +79,6 @@ public class DevContentTest extends TestBase {
     }
     @Test
     public void _003_my_apps_add_new_app_valid_header() {
-        logger = extent.startTest("_003_my_apps_add_new_app_valid_text").assignCategory(CATEGORYTEST);
         String expected = "ADD NEW APP";
         MyApps myApps = devHomePage.getMyAppsPage(driver);
         String actualTxt = driver.findElement(By.id("newAppButton")).getText();
@@ -99,7 +96,6 @@ public class DevContentTest extends TestBase {
     }
     @Test
     public void _004_my_apps_add_new_app_valid_text_appName() {
-        logger = extent.startTest("_004_my_apps_add_new_app_valid_text_appName").assignCategory(CATEGORYTEST);
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedNameLbl = "Name";
         String actualNameLbl = newAppForm.findElement(By.tagName("label")).getText();
@@ -113,7 +109,6 @@ public class DevContentTest extends TestBase {
 
     @Test
     public void _005_my_apps_add_new_app_valid_text_version() {
-        logger = extent.startTest("_005_my_apps_add_new_app_valid_text_version").assignCategory(CATEGORYTEST);
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedVerLbl = "Version";
         String actualVerLbl = newAppForm.findElement(By.xpath("//*[contains(text(), 'Version')]")).getText();
@@ -127,7 +122,6 @@ public class DevContentTest extends TestBase {
 
     @Test
     public void _006_my_apps_add_new_app_valid_text_SubTitle() {
-        logger = extent.startTest("_006_my_apps_add_new_app_valid_text_SubTitle").assignCategory(CATEGORYTEST);
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedSubLbl = "Subtitle";
         String actualSubLbl = newAppForm.findElement(By.xpath("//*[contains(text(), 'Subtitle')]")).getText();
@@ -139,7 +133,6 @@ public class DevContentTest extends TestBase {
     }
     @Test
     public void _007_my_apps_add_new_app_valid_text_language() {
-        logger = extent.startTest("_007_my_apps_add_new_app_valid_text_language").assignCategory(CATEGORYTEST);
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedLangLbl = "Language";
         String actualLangLbl = newAppForm.findElement(By.xpath("//*[contains(text(), 'Language')]")).getText();
@@ -179,7 +172,6 @@ public class DevContentTest extends TestBase {
 
     @Test
     public void _008_my_apps_add_new_app_valid_text_category() {
-        logger = extent.startTest("_008_my_apps_add_new_app_valid_text_category").assignCategory(CATEGORYTEST);
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedCatgLbl = "Category";
         String actualCatLbl = newAppForm.findElement(By.xpath("//*[contains(text(), 'Category')]")).getText();
@@ -209,7 +201,6 @@ public class DevContentTest extends TestBase {
     }
     @Test
     public void _009_my_apps_add_new_app_valid_text_availability() {
-        logger = extent.startTest("_009_my_apps_add_new_app_valid_text_availability").assignCategory(CATEGORYTEST);
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedAvlLbl = "Availability";
         String actualAvlLbl = newAppForm.findElement(By.xpath("//*[contains(text(), 'Availability')]")).getText().trim();
@@ -230,7 +221,6 @@ public class DevContentTest extends TestBase {
 
     @Test
     public void _010_my_apps_add_new_app_valid_text_retailers() {
-        logger = extent.startTest("_010_my_apps_add_new_app_valid_text_retailers").assignCategory(CATEGORYTEST);
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedRtlLbl = "Retailers";
         String actualRtlLbl = newAppForm.findElement(By.xpath("//*[contains(text(), 'Retailers')]")).getText();
@@ -262,7 +252,6 @@ public class DevContentTest extends TestBase {
 
     @Test
     public void _011_my_apps_add_new_app_valid_text_pricing() {
-        logger = extent.startTest("_011_my_apps_add_new_app_valid_text_pricing").assignCategory(CATEGORYTEST);
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedPrcLbl = "Pricing";
         String actualPrcLbl = newAppForm.findElement(By.xpath("//*[contains(text(), 'Pricing')]")).getText();
@@ -305,7 +294,6 @@ public class DevContentTest extends TestBase {
 
     @Test
     public void _013_add_new_app_code_valid_texts() {
-        logger = extent.startTest("_013_add_new_app_code_valid_texts").assignCategory(CATEGORYTEST);
         String expectedHdr = "Add New App";
         WebElement newAppForm = driver.findElement(By.cssSelector(".col.mx-0.mx-sm-2.mx-lg-3.mt-1.pr-0"));
         String actualHdr = newAppForm.findElement(By.tagName("h2")).getText();
@@ -317,7 +305,6 @@ public class DevContentTest extends TestBase {
     }
     @Test
     public void _014_add_new_app_marketing_valid_texts() {
-        logger = extent.startTest("_014_add_new_app_marketing_valid_texts").assignCategory(CATEGORYTEST);
         wait(1000);
         String expectedPrmLbl = "Promotional Text";
         String actualPrmLbl = driver.findElement(By.xpath("//*[contains(text(), 'Promotional Text')]")).getText().trim();
@@ -349,7 +336,6 @@ public class DevContentTest extends TestBase {
     }
     @Test
     public void _015_my_apps_new_version_valid_text(){
-        logger = extent.startTest("_015_my_apps_new_version_valid_text").assignCategory(CATEGORYTEST);
         String expected = "NEW VERSION";
         MyApps myApps = devHomePage.getMyAppsPage(driver);
         myApps.showUp(0);
@@ -360,7 +346,6 @@ public class DevContentTest extends TestBase {
     }
    @Test
     public void _016_my_apps_what_new_in_this_version_valid_text(){
-        logger = extent.startTest("_016_my_apps_what_new_in_this_version_valid_text").assignCategory(CATEGORYTEST);
         String expected = "What's new in this version?";
         MyApps myApps = devHomePage.getMyAppsPage(driver);
         myApps.showUp(0);
@@ -370,7 +355,6 @@ public class DevContentTest extends TestBase {
     }
     @Test
     public void _017_my_apps_version_valid_texts(){
-        logger = extent.startTest("_017_my_apps_version_valid_texts").assignCategory(CATEGORYTEST);
         String expected = "Versions";
         MyApps myApps = devHomePage.getMyAppsPage(driver);
         wait(1000);

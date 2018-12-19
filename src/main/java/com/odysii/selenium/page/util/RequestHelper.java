@@ -18,4 +18,18 @@ public class RequestHelper {
         }
         return res;
     }
+    public boolean deleteRequest(String url) {
+        boolean res = false;
+        HttpURLConnection conn = null;
+        try {
+            URL myUrl = new URL(url);
+            conn = (HttpURLConnection) myUrl.openConnection();
+            conn.setDoOutput(true);
+            conn.setRequestMethod("DELETE");
+            res = conn.getResponseCode() == HttpURLConnection.HTTP_OK;
+        }catch (Exception e){
+            e.fillInStackTrace();
+        }
+        return res;
+    }
 }

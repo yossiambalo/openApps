@@ -18,9 +18,6 @@ import org.testng.annotations.Test;
 
 public class MyAppsTest extends TestBase {
     private AppDetails appDetails;
-
-
-    User user;
     DevHomePage devUser;
     private Marketing marketing;
 
@@ -28,6 +25,7 @@ public class MyAppsTest extends TestBase {
     public void login(){
         user = new User(driver);
         devUser = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
+        category = "My Apps";
     }
     @Test
     public void _001_name_field_is_empty_negative() {

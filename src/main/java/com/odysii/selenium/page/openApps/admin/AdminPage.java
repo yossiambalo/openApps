@@ -10,10 +10,10 @@ public class AdminPage extends PageObject {
 
     @FindBy(xpath = "//span[contains(text(), 'Support Tickets')]")
     private WebElement supportTickets;
-    @FindBy(xpath = "//span[contains(text(), 'Users')]")
-    private WebElement users;
-    @FindBy(xpath = "//span[contains(text(), 'Retailers')]")
-    private WebElement retailers;
+    @FindBy(id = "navItem2")
+    private WebElement userPageLink;
+    @FindBy(id = "navItem3")
+    private WebElement retailersPageLink;
     @FindBy(name = "username")
     WebElement userName;
     @FindBy(name = "password")
@@ -48,13 +48,13 @@ public class AdminPage extends PageObject {
 
     }
     public UsersPage getUsersPage(){
-        isElementPresent(this.users);
-        this.users.click();
+        isElementPresent(this.userPageLink);
+        this.userPageLink.click();
         return new UsersPage(webDriver);
     }
     public RetailersPage getRetailersPage(){
-        isElementPresent(this.retailers);
-        this.retailers.click();
+        isElementPresent(this.retailersPageLink);
+        this.retailersPageLink.click();
         return new RetailersPage(webDriver);
     }
 

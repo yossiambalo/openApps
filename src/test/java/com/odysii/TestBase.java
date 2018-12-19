@@ -2,6 +2,7 @@ package com.odysii;
 
 import java.io.File;
 
+import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.util.DriverManager;
 import com.odysii.selenium.page.util.DriverType;
 import org.openqa.selenium.*;
@@ -17,9 +18,16 @@ import java.awt.event.KeyEvent;
 import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.rmi.server.ExportException;
 
 public class TestBase {
+    public String category;
+    public final static String DEV_USER_NAME = "user";
+    public final static String DEV_USER_PASS = "123456";
+    public final static String ADMIN_USER_NAME = "admin";
+    public final static String ADMIN_USER_PASS = "admin";
+    public final static String RETAILER_USER_NAME = "retailer";
+    public final static String RETAILER_USER_PASS = "123456";
+    public User user;
     public WebDriver driver;
     protected final int WAIT = 7000;
     protected final String cancelID = "cancel-button";
@@ -152,6 +160,6 @@ public class TestBase {
     @BeforeMethod
     public void handleTestMethodName(Method method)
     {
-        logger = extent.startTest(method.getName()).assignCategory(this.getClass().getName()+" Tests");
+        logger = extent.startTest(method.getName()).assignCategory(this.category+" Tests");
     }
 }
