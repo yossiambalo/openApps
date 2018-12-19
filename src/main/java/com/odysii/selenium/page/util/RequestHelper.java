@@ -28,7 +28,7 @@ public class RequestHelper {
             conn.setRequestMethod("DELETE");
             res = conn.getResponseCode() == HttpURLConnection.HTTP_OK;
         }catch (Exception e){
-            e.fillInStackTrace();
+            System.out.println(e.getMessage());
         }
         return res;
     }

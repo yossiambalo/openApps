@@ -3,9 +3,19 @@ package com.odysii;
 import java.io.File;
 
 import com.odysii.selenium.page.openApps.User;
+import com.odysii.selenium.page.openApps.UserType;
+import com.odysii.selenium.page.openApps.admin.AdminPage;
+import com.odysii.selenium.page.openApps.admin.SupportTicket;
+import com.odysii.selenium.page.openApps.dev.*;
+import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
+import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
+import com.odysii.selenium.page.openApps.dev.summary.Summary;
+import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
 import com.odysii.selenium.page.util.DriverManager;
 import com.odysii.selenium.page.util.DriverType;
+import com.odysii.selenium.page.util.RequestHelper;
 import org.openqa.selenium.*;
+import org.testng.Assert;
 import org.testng.annotations.*;
 import org.testng.ITestResult;
 
@@ -20,6 +30,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class TestBase {
+    public String applicationIDToDelete = null;
     public String category;
     public final static String DEV_USER_NAME = "user";
     public final static String DEV_USER_PASS = "123456";
@@ -29,6 +40,12 @@ public class TestBase {
     public final static String RETAILER_USER_PASS = "123456";
     public User user;
     public WebDriver driver;
+    public RetailerHomePage retailerHomePage;
+    public int appListBeforeAdding;
+    public DevHomePage devUser;
+    public MyApps myApps;
+    public java.util.List<WebElement> actualAppList;
+    public int actualValue;
     protected final int WAIT = 7000;
     protected final String cancelID = "cancel-button";
     protected final String backTxt = "BACK";
@@ -36,6 +53,8 @@ public class TestBase {
     protected final String finishTxt = "FINISH";
     public static ExtentReports extent;
     public static ExtentTest logger;
+    public final static String APP_CLASS_NAME = "card";
+    public final String zipFile = "TH.zip";
 
     public static String getHostName() {
         String hostName = "";
@@ -87,6 +106,11 @@ public class TestBase {
     @AfterSuite
     public void tearDown()
     {
+        RequestHelper requestHelper = null;
+        if (applicationIDToDelete != null){
+            requestHelper = new RequestHelper();
+            requestHelper.deleteRequest("http://openappsqa.tveez.local:8080/openAppStore/webapi/application/"+applicationIDToDelete);
+        }
         extent.flush();
     }
 
@@ -157,9 +181,83 @@ public class TestBase {
         wait(WAIT);
         return true;
     }
+
     @BeforeMethod
     public void handleTestMethodName(Method method)
     {
         logger = extent.startTest(method.getName()).assignCategory(this.category+" Tests");
+    }
+    public void prepareTest(){
+        user = new User(driver);
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
+        //get number of live apps from retailer page
+        appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
+        user.logout();
+        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+        myApps = devUser.getMyAppsPage(driver);
+        java.util.List<WebElement> appsList = driver.findElements(By.className(APP_CLASS_NAME));
+        int appsSize = appsList.size();
+        int expectedValue = appsSize+1;
+        AppDetails appDetails = myApps.clickAddNewAppBtn();
+        UploadCode uploadCode = appDetails.setUpAppDetails();
+        Marketing marketing = uploadCode.upload(zipFile);
+        marketing.fillMarketing();
+        wait(WAIT);
+        actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        actualValue = actualAppList.size();
+        Assert.assertEquals(expectedValue,actualValue,"Failed to create a new application!");
+        Assert.assertTrue(myApps.getTitle(actualValue-1).toLowerCase().contains(appDetails.getAppTitle().toLowerCase()));
+        Assert.assertTrue(myApps.getDescription(actualValue-1).toLowerCase().contains(appDetails.getAppDescription().toLowerCase()));
+        certifyAppAndGoAlive();
+        addAppToAppStore();
+    }
+    private void certifyAppAndGoAlive(){
+        try {
+            myApps = devUser.getMyAppsPage(driver);
+            wait(WAIT);
+            actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+            actualValue = actualAppList.size();
+            ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
+            Summary summary = new Summary(driver);
+            showUp.editApp(summary);
+            showUp.certify();
+            wait(WAIT);
+            Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus().trim());
+            user.logout();
+            //Admin approve
+            AdminPage adminPage = (AdminPage)user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+            SupportTicket supportTicket = adminPage.getSupportTickets();
+            supportTicket.approve();
+            user.logout();
+            //Valid certified
+            devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+            myApps = devUser.getMyAppsPage(driver);
+            actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+            int counter = 0;
+            do {
+                wait(2000);
+                counter++;
+            }while (driver.findElements(By.className(APP_CLASS_NAME)).size() < actualAppList.size() && counter < 5);
+            showUp =  myApps.showUp(actualAppList.size()-1);
+            Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.CERTIFIED.getStatus());
+            showUp.addApplicationToStore();
+            Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.LIVE.getStatus());
+        }catch (Exception e){
+            e.getMessage();
+        }finally {
+            user.logout();
+        }
+    }
+    private void addAppToAppStore(){
+        try {
+            //Valid app added to retailer store
+            retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+            int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
+            Assert.assertEquals(appListAfterAdding,appListBeforeAdding + 1);
+        }catch (Exception e){
+            e.getMessage();
+        }finally {
+            user.logout();
+        }
     }
 }

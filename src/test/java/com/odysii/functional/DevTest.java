@@ -20,15 +20,6 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class DevTest extends TestBase {
-    private final static String APP_CLASS_NAME = "card";
-    private final String zipFile = "TH.zip";
-    RetailerHomePage retailerHomePage;
-    MyApps myApps;
-    List<WebElement> actualAppList;
-    int actualValue;
-    DevHomePage devUser;
-    int appListBeforeAdding;
-    final String CATEGORYTEST = "E2E Tests";
     @BeforeClass
     public void login(){
         user = new User(driver);
@@ -60,6 +51,7 @@ public class DevTest extends TestBase {
     public void _002_valid_app_reject_no_fee(){
         //get the created app
         ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
+        setApplicationID();
         showUp.certify();
         Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus().trim());
         user.logout();
@@ -80,6 +72,7 @@ public class DevTest extends TestBase {
         Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.REJECT.getStatus());
         showUp.backToMyApps();
     }
+
     @Test(priority = 3, dependsOnMethods = "_002_valid_app_reject_no_fee")
     public void _003_valid_reject_with_fee(){
         user.logout();
@@ -107,7 +100,14 @@ public class DevTest extends TestBase {
             counter++;
         }while (driver.findElements(By.className(APP_CLASS_NAME)).size() < actualAppList.size() && counter < 5);
         showUp =  myApps.showUp(actualAppList.size()-1);
-        Assert.assertEquals(ApplicationStatus.REJECT.getStatus(),showUp.getStatus().trim());
+        String status = null;
+        counter = 0;
+        do {
+            status = showUp.getStatus().trim();
+            wait(2000);
+            counter++;
+        }while (!status.equals(ApplicationStatus.REJECT.getStatus()) && counter < 5);
+        Assert.assertEquals(status,ApplicationStatus.REJECT.getStatus());
         showUp.backToMyApps();
     }
     @Test(priority = 4, dependsOnMethods = "_003_valid_reject_with_fee")
@@ -154,7 +154,7 @@ public class DevTest extends TestBase {
            //Valid app added to retailer store
            retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
            int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
-           Assert.assertEquals(appListBeforeAdding + 1,appListAfterAdding);
+           Assert.assertEquals(appListAfterAdding,appListBeforeAdding + 1);
        }catch (Exception e){
            e.getMessage();
        }finally {
@@ -173,5 +173,8 @@ public class DevTest extends TestBase {
         marketing.fillMarketing();
         wait(3000);
         Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.PRESUBMITTED.getStatus());
+    }
+    private void setApplicationID() {
+        applicationIDToDelete = driver.getCurrentUrl().split("my-apps/")[1].split("/")[0];
     }
 }

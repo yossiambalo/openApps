@@ -71,7 +71,7 @@ public class AppDetails extends PageObject{
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         PropertyLoader loader = new PropertyLoader();
-        Properties properties = loader.loadPropFile("app_details.properties");
+        Properties properties = loader.loadPropFile("");
         this.appTitle = properties.getProperty("name");
         this.appDescription = properties.getProperty("subtitle");
         isElementPresent(name);

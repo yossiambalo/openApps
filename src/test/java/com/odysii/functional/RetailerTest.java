@@ -15,13 +15,17 @@ import org.testng.annotations.Test;
 
 public class RetailerTest extends TestBase {
     private final static String APP_CLASS_NAME = "card";
-    RetailerHomePage retailerHomePage;
     CampaignDesigner campaignDesigner;
+    final String CATEGORYTEST = "Retailer Tests";
     @BeforeClass
-    public void login(){
+    public void prepare(){
         user = new User(driver);
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
-        category = "Retailer Content";
+    }
+    @Test//(priority = 1)
+    public void _001_aaa_valid_deploy_to_dispenser(){
+        Scheduling scheduling = retailerHomePage.getScheduling();
+        scheduling.deployToAll(AreaType.NORTH_US);
     }
     @Test//(priority = 1)
     public void _001_add_and_remove_app_library(){
@@ -42,8 +46,8 @@ public class RetailerTest extends TestBase {
    @Test//(priority = 2)
     public void _002_search_apps(){
         retailerHomePage.getAppStore();
-        int expectedApp = 3;
-        retailerHomePage.searchApps("Spin");
+        int expectedApp = 2;
+        retailerHomePage.searchApps("auto");
         wait(WAIT);
         int actualApps = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(actualApps,expectedApp,"App store search functionality failed!");
@@ -227,7 +231,7 @@ public class RetailerTest extends TestBase {
         campaign.editCampaign("name test","description test");
         String expected = "Succeeded saving campaign";
         String actualTxt = driver.findElement(By.id("editCampaignSuccessErrorMessage")).getText();
-        Assert.assertEquals(expected,actualTxt);
+        Assert.assertEquals(actualTxt,expected);
 
     }
 
