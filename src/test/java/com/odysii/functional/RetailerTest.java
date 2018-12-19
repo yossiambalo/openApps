@@ -16,7 +16,6 @@ import org.testng.annotations.Test;
 public class RetailerTest extends TestBase {
     private final static String APP_CLASS_NAME = "card";
     CampaignDesigner campaignDesigner;
-    final String CATEGORYTEST = "Retailer Tests";
     @BeforeClass
     public void prepare(){
         user = new User(driver);

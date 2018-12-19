@@ -296,10 +296,7 @@ public class DevContentTest extends TestBase {
         if (! browserName.equals("microsoftedge")) {
             prcDrpDwn.click();
         }
-        uploadCode = appDetails.setUpAppDetails();
-
-
-
+        uploadCode = appDetails.setUpAppDetailsFromPropFile(null);
     }
 
     @Test
