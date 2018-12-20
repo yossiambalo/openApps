@@ -28,11 +28,10 @@ import java.awt.event.KeyEvent;
 import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
 
 public class TestBase {
-    public Set<String> applicationIDToDelete = new HashSet<>();
+    public ArrayList<String> applicationIDToDelete = new ArrayList<>();
     public String category;
     public final static String DEV_USER_NAME = "user";
     public final static String DEV_USER_PASS = "123456";
@@ -117,8 +116,6 @@ public class TestBase {
         }
         extent.flush();
     }
-
-
     @Parameters("browser")
     @BeforeClass
     public void init(String browser){
@@ -222,9 +219,9 @@ public class TestBase {
             ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
             setApplicationID();
         }
-       if (applicationStatus.equals(ApplicationStatus.LIVE)){
-           addAppToAppStore();
-       }
+//       if (applicationStatus.equals(ApplicationStatus.LIVE)){
+//           addAppToAppStore();
+//       }
     }
     private void setApplicationStatus(ApplicationStatus applicationStatus){
         try {
@@ -234,22 +231,27 @@ public class TestBase {
             actualValue = actualAppList.size();
             ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
             setApplicationID();
-            Summary summary = new Summary(driver);
-            showUp.editApp(summary);
-            showUp.certify();
             wait(WAIT);
-            Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus().trim());
+            //Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus().trim());
+            //Summary summary = new Summary(driver);
+            //showUp.editApp(summary);
+            showUp.certify();
+            if (ApplicationStatus.SUBMITTED.equals(applicationStatus)){
+                return;
+            }
             user.logout();
             //Admin approve
             AdminPage adminPage = (AdminPage)user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
             SupportTicket supportTicket = adminPage.getSupportTickets();
             switch (applicationStatus){
-                case LIVE:
+                case CERTIFIED:
                     supportTicket.approve();
                     break;
                 case REJECT:
                     supportTicket.rejectNoFee();
                     break;
+                case LIVE:
+                    supportTicket.approve();
                     default:
                         //do nothing
             }
@@ -264,13 +266,13 @@ public class TestBase {
                 counter++;
             }while (driver.findElements(By.className(APP_CLASS_NAME)).size() < actualAppList.size() && counter < 5);
             showUp =  myApps.showUp(actualAppList.size()-1);
-            Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.CERTIFIED.getStatus());
-            showUp.addApplicationToStore();
-            Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.LIVE.getStatus());
+//            Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.CERTIFIED.getStatus());
+            if (ApplicationStatus.LIVE.equals(applicationStatus)) {
+                showUp.addApplicationToStore();
+            }
+//            Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.LIVE.getStatus());
         }catch (Exception e){
             e.getMessage();
-        }finally {
-            user.logout();
         }
     }
     private void addAppToAppStore(){
