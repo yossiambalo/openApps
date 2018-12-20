@@ -174,7 +174,4 @@ public class DevTest extends TestBase {
         wait(3000);
         Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.PRESUBMITTED.getStatus());
     }
-    private void setApplicationID() {
-        applicationIDToDelete = driver.getCurrentUrl().split("my-apps/")[1].split("/")[0];
-    }
 }

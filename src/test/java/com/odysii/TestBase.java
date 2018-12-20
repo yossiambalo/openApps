@@ -28,9 +28,11 @@ import java.awt.event.KeyEvent;
 import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.HashSet;
+import java.util.Set;
 
 public class TestBase {
-    public String applicationIDToDelete = null;
+    public Set<String> applicationIDToDelete = new HashSet<>();
     public String category;
     public final static String DEV_USER_NAME = "user";
     public final static String DEV_USER_PASS = "123456";
@@ -109,7 +111,9 @@ public class TestBase {
         RequestHelper requestHelper = null;
         if (applicationIDToDelete != null){
             requestHelper = new RequestHelper();
-            requestHelper.deleteRequest("http://openappsqa.tveez.local:8080/openAppStore/webapi/application/"+applicationIDToDelete);
+            for (String appID: applicationIDToDelete){
+                requestHelper.deleteRequest("http://openappsqa.tveez.local:8080/openAppStore/webapi/application/"+appID);
+            }
         }
         extent.flush();
     }
@@ -210,6 +214,13 @@ public class TestBase {
         Assert.assertTrue(myApps.getDescription(actualValue-1).toLowerCase().contains(appDetails.getAppDescription().toLowerCase()));
         if (!applicationStatus.equals(ApplicationStatus.PRESUBMITTED)){
             setApplicationStatus(applicationStatus);
+        }else {
+            myApps = devUser.getMyAppsPage(driver);
+            wait(WAIT);
+            actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+            actualValue = actualAppList.size();
+            ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
+            setApplicationID();
         }
        if (applicationStatus.equals(ApplicationStatus.LIVE)){
            addAppToAppStore();
@@ -222,6 +233,7 @@ public class TestBase {
             actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
             actualValue = actualAppList.size();
             ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
+            setApplicationID();
             Summary summary = new Summary(driver);
             showUp.editApp(summary);
             showUp.certify();
@@ -252,7 +264,6 @@ public class TestBase {
                 counter++;
             }while (driver.findElements(By.className(APP_CLASS_NAME)).size() < actualAppList.size() && counter < 5);
             showUp =  myApps.showUp(actualAppList.size()-1);
-            Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.CERTIFIED.getStatus());
             showUp.addApplicationToStore();
             Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.LIVE.getStatus());
         }catch (Exception e){
@@ -272,5 +283,8 @@ public class TestBase {
         }finally {
             user.logout();
         }
+    }
+    public void setApplicationID() {
+        applicationIDToDelete.add( driver.getCurrentUrl().split("my-apps/")[1].split("/")[0]);
     }
 }

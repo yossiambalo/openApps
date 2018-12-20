@@ -35,7 +35,6 @@ public class DevContentTest extends TestBase {
     UploadCode uploadCode;
     Marketing marketing ;
     Capabilities cap;
-    final String CATEGORYTEST = "Developer Content Tests";
     final String zipFile = "TH.zip";
     List<String> getAllOptions(By by) {
         List<String> options = new ArrayList<String>();
@@ -50,15 +49,15 @@ public class DevContentTest extends TestBase {
 
     @BeforeClass
     public void login(){
+        //prepareTest("app_details_DevContent_PreSubmitted.properties",ApplicationStatus.PRESUBMITTED);
         prepareTest("app_details_DevContent_Submitted.properties",ApplicationStatus.SUBMITTED);
-        prepareTest("app_details_DevContent_PreSubmitted.properties",ApplicationStatus.PRESUBMITTED);
-        prepareTest("app_details_DevContent_Certified.properties",ApplicationStatus.CERTIFIED);
-        prepareTest("app_details_DevContent_Rejected.properties",ApplicationStatus.REJECT);
-        prepareTest("app_details_DevContent_Live.properties",ApplicationStatus.LIVE);
+        //prepareTest("app_details_DevContent_Certified.properties",ApplicationStatus.CERTIFIED);
+        //prepareTest("app_details_DevContent_Rejected.properties",ApplicationStatus.REJECT);
+        //prepareTest("app_details_DevContent_Live.properties",ApplicationStatus.LIVE);
         category = "Dev Content";
 
     }
-    @Test
+    //@Test
     public void _001_dev_home_page_valid_MyApps_texts(){
         String expected = "MY APPS";
         String expectedHeader = "My Apps";
@@ -70,17 +69,45 @@ public class DevContentTest extends TestBase {
         Assert.assertEquals(actualHeaderTxt,expectedHeader);
 
     }
-    @Test
-    public void _002_my_apps_valid_app_status(){
+
+    //@Test
+    public void _02_check_app_status_presubmitted(){
         MyApps myApps = devUser.getMyAppsPage(driver);
-        Assert.assertTrue((myApps.getApplicationStatus(0).toLowerCase().equals(ApplicationStatus.SUBMITTED.getStatus().toLowerCase())
-                || myApps.getApplicationStatus(0).toLowerCase().equals(ApplicationStatus.PRESUBMITTED.getStatus().toLowerCase())
-                || myApps.getApplicationStatus(0).toLowerCase().equals(ApplicationStatus.CERTIFIED.getStatus().toLowerCase())
-                || myApps.getApplicationStatus(0).toLowerCase().equals(ApplicationStatus.REJECT.getStatus().toLowerCase())));
+        String expectedAppName = "DEVCONTENT_APP_PRESUBMITTED";
+        String actualAppName = driver.findElement(By.xpath("//*[contains(text(), 'DevContent_App_PreSubmitted')]")).getText().toUpperCase().split(":")[0];
+        Assert.assertEquals(actualAppName,expectedAppName);
+        String expectedAppStatus = "PRESUBMITTED";
+        String actualAppStatus = driver.findElement(By.xpath("//*[contains(text(), 'Presubmitted')]")).getText().toUpperCase();
+        Assert.assertEquals(actualAppStatus,expectedAppStatus);
+
+
 
     }
+
+    //@Test
+    public void _03_check_app_status_certified(){
+        MyApps myApps = devUser.getMyAppsPage(driver);
+        String expectedAppName = "DEVCONTENT_APP_CERTIFIED";
+        String actualAppName = driver.findElement(By.xpath("//*[contains(text(), 'DevContent_App_Certified')]")).getText().toUpperCase().split(":")[0];
+        Assert.assertEquals(actualAppName, expectedAppName);
+        String expectedAppStatus = "CERTIFIED";
+        String actualAppStatus = driver.findElement(By.xpath("//*[contains(text(), 'certified')]")).getText().toUpperCase();
+        Assert.assertEquals(actualAppStatus, expectedAppStatus);
+    }
+
     @Test
-    public void _003_my_apps_add_new_app_valid_header() {
+    public void _04_check_app_status_submitted(){
+        MyApps myApps = devUser.getMyAppsPage(driver);
+        String expectedAppName = "DEVCONTENT_APP_SUBMITTED";
+        String actualAppName = driver.findElement(By.xpath("//*[contains(text(), 'DevContent_App_Submitted')]")).getText().toUpperCase().split(":")[0];
+        Assert.assertEquals(actualAppName, expectedAppName);
+        String expectedAppStatus = "SUBMITTED";
+        String actualAppStatus = driver.findElement(By.xpath("//*[contains(text(), 'submitted')]")).getText().toUpperCase();
+        Assert.assertEquals(actualAppStatus, expectedAppStatus);
+    }
+
+    //@Test
+    public void _003_my_apps_add_new_app_valid_header(){
         String expected = "ADD NEW APP";
         MyApps myApps = devUser.getMyAppsPage(driver);
         String actualTxt = driver.findElement(By.id("newAppButton")).getText();
@@ -96,7 +123,7 @@ public class DevContentTest extends TestBase {
         String actualAppDtls = wizardNewApp.findElement(By.tagName("a")).getText().trim();
         Assert.assertEquals(actualAppDtls, expectedAppDtls);
     }
-    @Test
+    //@Test
     public void _004_my_apps_add_new_app_valid_text_appName() {
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedNameLbl = "Name";
@@ -109,7 +136,7 @@ public class DevContentTest extends TestBase {
 
     }
 
-    @Test
+    //@Test
     public void _005_my_apps_add_new_app_valid_text_version() {
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedVerLbl = "Version";
@@ -122,7 +149,7 @@ public class DevContentTest extends TestBase {
 
     }
 
-    @Test
+    //@Test
     public void _006_my_apps_add_new_app_valid_text_SubTitle() {
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedSubLbl = "Subtitle";
@@ -133,7 +160,7 @@ public class DevContentTest extends TestBase {
         Assert.assertEquals(actualSubPlhdr, expectedSubPlhdr);
 
     }
-    @Test
+    //@Test
     public void _007_my_apps_add_new_app_valid_text_language() {
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedLangLbl = "Language";
@@ -172,7 +199,7 @@ public class DevContentTest extends TestBase {
 
     }
 
-    @Test
+    //@Test
     public void _008_my_apps_add_new_app_valid_text_category() {
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedCatgLbl = "Category";
@@ -201,7 +228,7 @@ public class DevContentTest extends TestBase {
         }
 
     }
-    @Test
+    //@Test
     public void _009_my_apps_add_new_app_valid_text_availability() {
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedAvlLbl = "Availability";
@@ -221,7 +248,7 @@ public class DevContentTest extends TestBase {
         avalDrp.click();
     }
 
-    @Test
+    //@Test
     public void _010_my_apps_add_new_app_valid_text_retailers() {
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedRtlLbl = "Retailers";
@@ -252,7 +279,7 @@ public class DevContentTest extends TestBase {
 
     }
 
-    @Test
+    //@Test
     public void _011_my_apps_add_new_app_valid_text_pricing() {
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
         String expectedPrcLbl = "Pricing";
@@ -294,7 +321,7 @@ public class DevContentTest extends TestBase {
 
     }
 
-    @Test
+    //@Test
     public void _013_add_new_app_code_valid_texts() {
         String expectedHdr = "Add New App";
         WebElement newAppForm = driver.findElement(By.cssSelector(".col.mx-0.mx-sm-2.mx-lg-3.mt-1.pr-0"));
@@ -305,7 +332,7 @@ public class DevContentTest extends TestBase {
         Assert.assertEquals(actualUpldBtn,expectedUpldBtn);
         marketing = uploadCode.upload(zipFile);
     }
-    @Test
+    //@Test
     public void _014_add_new_app_marketing_valid_texts() {
         wait(1000);
         String expectedPrmLbl = "Promotional Text";
@@ -336,29 +363,29 @@ public class DevContentTest extends TestBase {
         driver.findElement(By.id("cancelButton")).click();
 
     }
-    @Test
+    //@Test
     public void _015_my_apps_new_version_valid_text(){
         String expected = "NEW VERSION";
-        MyApps myApps = devHomePage.getMyAppsPage(driver);
+        MyApps myApps = devUser.getMyAppsPage(driver);
         myApps.showUp(0);
         String actualTxt = driver.findElement(By.id("editAppNewVersion")).getText().trim();
         Assert.assertEquals(expected.trim(),actualTxt.trim());
 
 
     }
-   @Test
+   //@Test
     public void _016_my_apps_what_new_in_this_version_valid_text(){
         String expected = "What's new in this version?";
-        MyApps myApps = devHomePage.getMyAppsPage(driver);
+        MyApps myApps = devUser.getMyAppsPage(driver);
         myApps.showUp(0);
         String actualTxt = driver.findElement(By.className("mb-2")).getText().trim();
         Assert.assertEquals(expected,actualTxt);
 
     }
-    @Test
+    //@Test
     public void _017_my_apps_version_valid_texts(){
         String expected = "Versions";
-        MyApps myApps = devHomePage.getMyAppsPage(driver);
+        MyApps myApps = devUser.getMyAppsPage(driver);
         wait(1000);
         myApps.showUp(0);
         WebElement appsVersions = driver.findElement(By.cssSelector(".ui-body-main.container-fluid.mt-2.mt-lg-0.pt-2.px-3"));
@@ -370,10 +397,10 @@ public class DevContentTest extends TestBase {
         Assert.assertEquals(actualHeader,expectedHeader);
 
     }
-    @Test
+    //@Test
     public void _018_my_apps_back_to_my_apps_valid_text() {
         String expected = "Back to My Apps";
-        MyApps myApps = devHomePage.getMyAppsPage(driver);
+        MyApps myApps = devUser.getMyAppsPage(driver);
         showUp = myApps.showUp(0);
         String actualTxt = driver.findElement(By.className("nav-text")).getText();
         showUp.backToMyApps();
@@ -381,10 +408,10 @@ public class DevContentTest extends TestBase {
 
     }
 
-    @Test
+    //@Test
     public void _019_dev_home_page_valid_Dashboard_header(){
         String expected = "Dashboard";
-        devHomePage.getDashboardPage(driver);
+        devUser.getDashboardPage(driver);
         String actualTxt = driver.findElement(By.className("h2")).getText();
         Assert.assertEquals(actualTxt,expected);
         String expectedSdbr = "DASHBOARD";
@@ -393,10 +420,10 @@ public class DevContentTest extends TestBase {
 
 
     }
-    @Test
+    //@Test
     public void _020_dev_home_page_valid_TransactionHistory_header(){
         String expected = "Transaction History";
-        devHomePage.getTrasactionHistoryPage(driver);
+        devUser.getTrasactionHistoryPage(driver);
         String actualTxt = driver.findElement(By.className("h2")).getText();
         Assert.assertEquals(actualTxt,expected);
         String expectedSdbr = "TRANSACTION HISTORY";
@@ -404,10 +431,10 @@ public class DevContentTest extends TestBase {
         Assert.assertEquals(actualSdbr,expectedSdbr);
     }
 
-    @Test
+    //@Test
     public void _021_home_page_valid_RevenueReport_header(){
         String expected = "Revenue Report";
-        devHomePage.getRevenueReportPage(driver);
+        devUser.getRevenueReportPage(driver);
         String actualTxt = driver.findElement(By.className("h2")).getText().trim();
         Assert.assertEquals(actualTxt,expected);
         String expectedSdbr = "REVENUE REPORT";
@@ -415,10 +442,10 @@ public class DevContentTest extends TestBase {
         Assert.assertEquals(actualSdbr,expectedSdbr);
 
     }
-    @Test
+    //@Test
     public void _022_home_page_valid_SupportTickets_header(){
         String expected = "Support Tickets";
-        devHomePage.getSupportTicketstPage(driver);
+        devUser.getSupportTicketstPage(driver);
         String actualTxt = driver.findElement(By.className("h2")).getText().trim();
         Assert.assertEquals(actualTxt,expected);
         String expectedSdbr = "SUPPORT TICKETS";
@@ -426,10 +453,10 @@ public class DevContentTest extends TestBase {
         Assert.assertEquals(actualSdbr,expectedSdbr);
 
     }
-    @Test
+    //@Test
     public void _023_home_page_valid_PublicProfile_header(){
         String expected = "Public Profile";
-        devHomePage.getPublicProfilePage(driver);
+        devUser.getPublicProfilePage(driver);
         String actualTxt = driver.findElement(By.className("h2")).getText().trim();
         Assert.assertEquals(actualTxt,expected);
         String expectedSdbr = "PUBLIC PROFILE";
@@ -437,5 +464,7 @@ public class DevContentTest extends TestBase {
         Assert.assertEquals(actualSdbr,expectedSdbr);
 
     }
+
+
 
 }
