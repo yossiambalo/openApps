@@ -16,10 +16,15 @@ public class Scheduling extends PageObject {
     private List<WebElement> campaignListMenuBtn;
     @FindBy(id = "editCampaignSchedule")
     private List<WebElement> editCampaignSchedule;
+    @FindBy(id = "schedulingDeployButton")
+    private WebElement schedulingDeployButton;
+    @FindBy(className = "footer-message")
+    private WebElement footerMessage;
+
     public Scheduling(WebDriver driver) {
         super(driver);
     }
-    public void deployToAll(AreaType areaType){
+    public boolean deployToAll(AreaType areaType){
         isElementPresent(campaignListMenuBtn.get(0));
         campaignListMenuBtn.get(0).click();
         isElementPresent(editCampaignSchedule.get(0));
@@ -27,7 +32,7 @@ public class Scheduling extends PageObject {
         switch (areaType){
             case NORTH_US:
                 isElementPresent(siteArea);
-                WebElement e =  siteArea.findElements(By.className(siteAreaCheckBoxTagName)).get(0);
+                WebElement e =  siteArea.findElements(By.tagName(siteAreaCheckBoxTagName)).get(0);
                 if (!e.getAttribute("class").contains("check")){
                    e.click();
             }
@@ -38,6 +43,9 @@ public class Scheduling extends PageObject {
                 default:;
                 ///do nothing
         }
+        isElementPresent(schedulingDeployButton);
+        schedulingDeployButton.click();
+        return footerMessage.getText().contains("Finished deploying campaign");
     }
     public void deployToDispenser(AreaType areaType) {
     }

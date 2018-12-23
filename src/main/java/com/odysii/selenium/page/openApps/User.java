@@ -4,6 +4,7 @@ import com.odysii.selenium.page.openApps.admin.AdminPage;
 import com.odysii.selenium.page.openApps.dev.DevHomePage;
 import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
 import com.odysii.selenium.page.util.PageObject;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
@@ -15,7 +16,7 @@ public class User extends PageObject {
     WebElement userName;
     @FindBy(name = "password")
     WebElement userPassword;
-    @FindBy(xpath = "//button[contains(text(), 'Login')]")
+    @FindBy(id = "kc-login")
     WebElement loginBtn;
     @FindBy(id = "user-popover")//btn-xs
     WebElement logoutBtn;
@@ -54,8 +55,8 @@ public class User extends PageObject {
         try {
             isElementPresent(logoutBtn);
             logoutBtn.click();
-            isElementPresent(logOutPopUp);
-            logOutPopUp.click();
+            isElementPresent(By.id("user-popover-content"));
+            webDriver.findElement(By.id("user-popover-content")).findElements(By.className("btn-xs")).get(1).click();
         }catch (WebDriverException exception){
             exception.getMessage();
         }
