@@ -25,6 +25,7 @@ public class MyAppsTest extends TestBase {
     public void login(){
         user = new User(driver);
         devUser = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
+        category = "My Apps";
     }
     @Test
     public void _001_name_field_is_empty_negative() {

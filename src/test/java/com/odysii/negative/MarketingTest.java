@@ -18,17 +18,17 @@ public class MarketingTest extends TestBase {
     private ShowUp showUp;
     private final String zipFile = "TH.zip";
     DevHomePage devUser;
-    final String CATEGORYTEST = "Marketing Tests";
     @BeforeClass
     public void login(){
         user = new User(driver);
         devUser = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
+        category = "Marketing";
 
     }
     @Test // Test will failed until fix of space counts as a valid input!
     public void _001_promotional_text_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
-        showUp = myApps.showUp(4);
+        showUp = myApps.showUp(2);
         String curVer = driver.findElement(By.className("text-medium-title")).getText().split(" ")[1].split("\\.")[0];
         int newVerNum = Integer.parseInt(curVer)+1;
         String newVer = String.valueOf(newVerNum);
@@ -67,7 +67,7 @@ public class MarketingTest extends TestBase {
     @Test
     public void _002_keywords_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
-        showUp = myApps.showUp(4);
+        showUp = myApps.showUp(2);
         String curVer = driver.findElement(By.className("text-medium-title")).getText().split(" ")[1].split("\\.")[0];
         int newVerNum = Integer.parseInt(curVer)+1;
         String newVer = String.valueOf(newVerNum);
@@ -89,7 +89,7 @@ public class MarketingTest extends TestBase {
     @Test
     public void _003_add_new_screenshot_positive(){
         MyApps myApps = devUser.getMyAppsPage(driver);
-        showUp = myApps.showUp(4);
+        showUp = myApps.showUp(2);
         String curVer = driver.findElement(By.className("text-medium-title")).getText().split(" ")[1].split("\\.")[0];
         int newVerNum = Integer.parseInt(curVer)+1;
         String newVer = String.valueOf(newVerNum);

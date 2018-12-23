@@ -11,14 +11,14 @@ import org.testng.annotations.Test;
 
 public class RetailerContentTest extends TestBase {
     RetailerHomePage retailerHomePage;
-    final String CATEGORYTEST = "Retailer Content Tests";
+
 
 
     @BeforeClass
     public void login(){
         user = new User(driver);
         retailerHomePage = (RetailerHomePage) user.login("retailer","123456",UserType.RETAILER);
-
+        category = "Retailer Content";
     }
     @Test
     public void _001_valid_text_app_store(){
