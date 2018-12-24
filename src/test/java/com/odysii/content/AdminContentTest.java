@@ -16,7 +16,7 @@ public class AdminContentTest extends TestBase {
     @BeforeClass
     public void login(){
         user = new User(driver);
-        adminPage =(AdminPage) user.login("admin", "admin",UserType.ADMIN);
+        adminPage =(AdminPage) user.login("yossi.ambalo.odysii@gmail.com", "Aa123456",UserType.ADMIN);
         category = "Admin Content";
 
     }
@@ -26,7 +26,7 @@ public class AdminContentTest extends TestBase {
         adminPage.getSupportTickets();
         String actualTxt = driver.findElement(By.className("h2")).getText();
         Assert.assertEquals(actualTxt,expected);
-        String expectedSdbr = "SUPPORT TICKETS";
+        String expectedSdbr = "ADMIN - TICKETS";
         String actualSdbr = driver.findElement(By.id("navItem0")).getText().toUpperCase().trim();
         Assert.assertEquals(actualSdbr,expectedSdbr);
 
@@ -82,156 +82,149 @@ public class AdminContentTest extends TestBase {
 
     }
     @Test
-    public void _009_valid_support_ticket_left_menu(){
-        String expected = "SUPPORT TICKETS";
-        String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'Support Tickets')]")).getText();
-        Assert.assertEquals(expected.toLowerCase(),actualTxt.toLowerCase());
-
-    }
-    @Test
-    public void _010_valid_button_text_back_to_support_tickets(){
+    public void _009_valid_button_text_back_to_support_tickets(){
         adminPage.getSupportTickets();
         adminPage.getTicket(2);
-        String expected = "Back to Support Tickets";
-        String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'Back to Support Tickets')]")).getText();
+        String expected = "Back to Admin - Tickets";
+        String actualTxt = driver.findElement(By.id("BackNavigationButton")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _011_valid_button_text_preview(){
+    public void _010_valid_button_text_preview(){
         String expected = "Preview";
         String actualTxt = driver.findElement(By.id("adminTicketPreview")).getText();
         Assert.assertEquals(expected.trim(),actualTxt.trim());
 
     }
     @Test
-    public void _012_valid_button_text_preview(){
+    public void _011_valid_button_text_preview(){
         String expected = "Download";
         String actualTxt = driver.findElement(By.id("adminTicketDownload")).getText();
         Assert.assertEquals(expected.trim(),actualTxt.trim());
 
     }
     @Test
-    public void _013_valid_text_status(){
+    public void _012_valid_text_status(){
         String expected = "Status";
         String actualTxt = driver.findElement(By.xpath("//h6[contains(text(), 'Status')]")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _014_valid_text_comments(){
+    public void _013_valid_text_comments(){
         String expected = "Comments";
         String actualTxt = driver.findElement(By.xpath("//h6[contains(text(), 'Comments')]")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _015_valid_text_status_approved(){
+    public void _014_valid_text_status_approved(){
         String expected = "Approved";
         String actualTxt = driver.findElement(By.id("adminTicketApproved")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _016_valid_text_status_reject_no_fee(){
+    public void _015_valid_text_status_reject_no_fee(){
         String expected = "Reject - no fee";
         String actualTxt = driver.findElement(By.id("adminTicketReject")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _017_valid_text_status_reject_with_fee(){
+    public void _016_valid_text_status_reject_with_fee(){
         String expected = "Reject with fee";
         String actualTxt = driver.findElement(By.id("adminTicketRejectFee")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _018_valid_text_status_open(){
+    public void _017_valid_text_status_open(){
         String expected = "Open";
         String actualTxt = driver.findElement(By.id("adminTicketOpen")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _019_valid_button_text_update(){
+    public void _018_valid_button_text_update(){
         String expected = "UPDATE";
         String actualTxt = driver.findElement(By.id("finishButtonAdminTicket")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _020_valid_header_inside_ticket_name(){
+    public void _019_valid_header_inside_ticket_name(){
         String expected = "Developer";
         String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'Developer')]")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _021_valid_header_inside_ticket_subtitle(){
+    public void _020_valid_header_inside_ticket_subtitle(){
         String expected = "Subtitle";
         String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'Subtitle')]")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _022_valid_header_inside_ticket_category(){
+    public void _021_valid_header_inside_ticket_category(){
         String expected = "Category";
         String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'Category')]")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _023_valid_header_inside_ticket_language(){
+    public void _022_valid_header_inside_ticket_language(){
         String expected = "Language";
         String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'Language')]")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _024_valid_header_inside_ticket_availability(){
+    public void _023_valid_header_inside_ticket_availability(){
         String expected = "Availability";
         String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'Availability')]")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _025_valid_header_inside_ticket_retailers(){
+    public void _024_valid_header_inside_ticket_retailers(){
         String expected = "Retailers";
         String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'Retailers')]")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _026_valid_header_inside_ticket_promotional_text(){
+    public void _025_valid_header_inside_ticket_promotional_text(){
         String expected = "Promotional Text";
         String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'Promotional Text')]")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _027_valid_header_inside_ticket_price(){
+    public void _026_valid_header_inside_ticket_price(){
         String expected = "Price";
         String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'Price')]")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _028_valid_header_inside_ticket_price_type(){
+    public void _027_valid_header_inside_ticket_price_type(){
         String expected = "Price Type";
         String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'Price Type')]")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _029_valid_header_inside_ticket_app_icon(){
+    public void _028_valid_header_inside_ticket_app_icon(){
         String expected = "App Icon";
         String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'App Icon')]")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
     @Test
-    public void _030_valid_header_inside_ticket_apppreview_plus_screenshots(){
+    public void _029_valid_header_inside_ticket_apppreview_plus_screenshots(){
         String expected = "App Preview + Screenshots";
         String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'App Preview + Screenshots')]")).getText();
         Assert.assertEquals(actualTxt,expected);

@@ -288,17 +288,17 @@ public class DevContentTest extends TestBase {
             RtlDrpDwn.findElement(By.className("dropdown-btn")).click();
         }
 
-        //String expectedRtlOpt1 = "ExxonMobil";
-        //String actualRtlOpt1 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(0).getText().trim();
-        //Assert.assertEquals(actualRtlOpt1,expectedRtlOpt1);
+        String expectedRtlOpt1 = "ExxonMobil";
+        String actualRtlOpt1 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(0).getText().trim();
+        Assert.assertEquals(actualRtlOpt1,expectedRtlOpt1);
         String expectedRtlOpt2 = "Shell";
-        String actualRtlOpt2 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(0).getText().trim();
+        String actualRtlOpt2 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(1).getText().trim();
         Assert.assertEquals(actualRtlOpt2,expectedRtlOpt2);
-        //String expectedRtlOpt3 = "Sprint Mart / Morris Petro";
-        //String actualRtlOpt3 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(2).getText().trim();
-        //Assert.assertEquals(actualRtlOpt3,expectedRtlOpt3);
+        String expectedRtlOpt3 = "Sprint Mart / Morris Petro";
+        String actualRtlOpt3 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(2).getText().trim();
+        Assert.assertEquals(actualRtlOpt3,expectedRtlOpt3);
         String expectedRtlOpt4 = "Odysii";
-        String actualRtlOpt4 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(1).getText().trim();
+        String actualRtlOpt4 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(3).getText().trim();
         Assert.assertEquals(actualRtlOpt4,expectedRtlOpt4);
         if (! browserName.equals("microsoftedge")) {
             RtlDrpDwn.findElement(By.className("dropdown-btn")).click();
