@@ -29,6 +29,9 @@ import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class TestBase {
     public ArrayList<String> applicationIDToDelete = new ArrayList<>();
@@ -91,11 +94,6 @@ public class TestBase {
             extent.endTest(logger);
         }
     }
-
-    @AfterClass
-    public void tearDownExt(){
-        driver.quit();
-    }
     protected void wait(int milliseconds){
         try {
             Thread.sleep(milliseconds);
@@ -107,14 +105,23 @@ public class TestBase {
     @AfterSuite
     public void tearDown()
     {
+        String token = null;
+        Set<Cookie> allcookies = driver.manage().getCookies();
+        for (Cookie cookie : allcookies){
+            if (cookie.getName().equals("gvr-token")){
+                token = cookie.toString();
+                break;
+            }
+        }
         RequestHelper requestHelper = null;
         if (applicationIDToDelete != null){
             requestHelper = new RequestHelper();
             for (String appID: applicationIDToDelete){
-                requestHelper.deleteRequest("http://openappsqa.tveez.local:8080/openAppStore/webapi/application/"+appID);
+                requestHelper.deleteRequest("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/application/"+appID,token);
             }
         }
         extent.flush();
+        driver.quit();
     }
     @Parameters("browser")
     @BeforeClass

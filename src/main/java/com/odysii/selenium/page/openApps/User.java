@@ -20,7 +20,7 @@ public class User extends PageObject {
     WebElement loginBtn;
     @FindBy(id = "user-popover")//btn-xs
     WebElement logoutBtn;
-    @FindBy(xpath = "//button[contains(text(), 'LOG OUT')]")
+    @FindBy(id = "user-popover-content")
     WebElement logOutPopUp;
     public User(WebDriver driver) {
         super(driver);
@@ -55,8 +55,8 @@ public class User extends PageObject {
         try {
             isElementPresent(logoutBtn);
             logoutBtn.click();
-            isElementPresent(By.id("user-popover-content"));
-            webDriver.findElement(By.id("user-popover-content")).findElements(By.className("btn-xs")).get(1).click();
+            isElementPresent(logOutPopUp);
+            logOutPopUp.findElements(By.className("btn-xs")).get(1).click();
         }catch (WebDriverException exception){
             exception.getMessage();
         }
