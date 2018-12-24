@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class AdminPage extends PageObject {
 
-    @FindBy(xpath = "//span[contains(text(), 'Support Tickets')]")
+    @FindBy(id = "navItem0")
     private WebElement supportTickets;
     @FindBy(id = "navItem2")
     private WebElement userPageLink;

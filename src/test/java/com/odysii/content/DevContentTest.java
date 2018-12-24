@@ -64,14 +64,14 @@ public class DevContentTest extends TestBase {
         devUser.getMyAppsPage(driver);
         WebElement myAppsPage = driver.findElement(By.cssSelector(".col.row.mx-0.mx-sm-2.mx-lg-3.mt-1"));
         String actualHeaderTxt = myAppsPage.findElement(By.className("h2")).getText().trim();
-        String actualTxt = driver.findElement(By.id("navItem1")).getText().trim().toUpperCase();
+        String actualTxt = driver.findElement(By.id("navItem5")).getText().trim().toUpperCase();
         Assert.assertEquals(actualTxt,expected);
         Assert.assertEquals(actualHeaderTxt,expectedHeader);
 
     }
 
-    @Test
-    public void _02_check_app_status_presubmitted(){
+   @Test
+    public void _002_check_app_status_presubmitted(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         String expectedAppName = "DEVCONTENT_APP_PRESUBMITTED";
         String actualAppName = driver.findElement(By.xpath("//*[contains(text(), 'DevContent_App_PreSubmitted')]")).getText().toUpperCase().split(":")[0];
@@ -85,7 +85,7 @@ public class DevContentTest extends TestBase {
     }
 
     @Test
-    public void _03_check_app_status_submitted(){
+    public void _003_check_app_status_submitted(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         String expectedAppName = "DEVCONTENT_APP_SUBMITTED";
         String actualAppName = driver.findElement(By.xpath("//*[contains(text(), 'DevContent_App_Submitted')]")).getText().toUpperCase().split(":")[0];
@@ -96,7 +96,7 @@ public class DevContentTest extends TestBase {
     }
 
     @Test
-    public void _04_check_app_status_certified(){
+    public void _004_check_app_status_certified(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         String expectedAppName = "DEVCONTENT_APP_CERTIFIED";
         String actualAppName = driver.findElement(By.xpath("//*[contains(text(), 'DevContent_App_Certified')]")).getText().toUpperCase().split(":")[0];
@@ -108,7 +108,7 @@ public class DevContentTest extends TestBase {
 
 
     @Test
-    public void _05_check_app_status_rejected(){
+    public void _005_check_app_status_rejected(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         String expectedAppName = "DEVCONTENT_APP_REJECTED";
         String actualAppName = driver.findElement(By.xpath("//*[contains(text(), 'DevContent_App_Rejected')]")).getText().toUpperCase().split(":")[0];
@@ -119,7 +119,7 @@ public class DevContentTest extends TestBase {
     }
 
     @Test
-    public void _06_check_app_status_live(){
+    public void _006_check_app_status_live(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         String expectedAppName = "DEVCONTENT_APP_LIVE";
         String actualAppName = driver.findElement(By.xpath("//*[contains(text(), 'DevContent_App_Live')]")).getText().toUpperCase().split(":")[0];
@@ -288,15 +288,18 @@ public class DevContentTest extends TestBase {
             RtlDrpDwn.findElement(By.className("dropdown-btn")).click();
         }
 
-        String expectedRtlOpt1 = "ExxonMobil";
-        String actualRtlOpt1 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(0).getText().trim();
-        Assert.assertEquals(actualRtlOpt1,expectedRtlOpt1);
+        //String expectedRtlOpt1 = "ExxonMobil";
+        //String actualRtlOpt1 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(0).getText().trim();
+        //Assert.assertEquals(actualRtlOpt1,expectedRtlOpt1);
         String expectedRtlOpt2 = "Shell";
-        String actualRtlOpt2 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(1).getText().trim();
+        String actualRtlOpt2 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(0).getText().trim();
         Assert.assertEquals(actualRtlOpt2,expectedRtlOpt2);
-        String expectedRtlOpt3 = "Sprint Mart / Morris Petro";
-        String actualRtlOpt3 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(2).getText().trim();
-        Assert.assertEquals(actualRtlOpt3,expectedRtlOpt3);
+        //String expectedRtlOpt3 = "Sprint Mart / Morris Petro";
+        //String actualRtlOpt3 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(2).getText().trim();
+        //Assert.assertEquals(actualRtlOpt3,expectedRtlOpt3);
+        String expectedRtlOpt4 = "Odysii";
+        String actualRtlOpt4 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(1).getText().trim();
+        Assert.assertEquals(actualRtlOpt4,expectedRtlOpt4);
         if (! browserName.equals("microsoftedge")) {
             RtlDrpDwn.findElement(By.className("dropdown-btn")).click();
         }
@@ -439,7 +442,7 @@ public class DevContentTest extends TestBase {
         String actualTxt = driver.findElement(By.className("h2")).getText();
         Assert.assertEquals(actualTxt,expected);
         String expectedSdbr = "DASHBOARD";
-        String actualSdbr = driver.findElement(By.id("navItem0")).getText().toUpperCase().trim();
+        String actualSdbr = driver.findElement(By.id("navItem4")).getText().toUpperCase().trim();
         Assert.assertEquals(actualSdbr,expectedSdbr);
 
 
@@ -451,7 +454,7 @@ public class DevContentTest extends TestBase {
         String actualTxt = driver.findElement(By.className("h2")).getText();
         Assert.assertEquals(actualTxt,expected);
         String expectedSdbr = "TRANSACTION HISTORY";
-        String actualSdbr = driver.findElement(By.id("navItem2")).getText().toUpperCase().trim();
+        String actualSdbr = driver.findElement(By.id("navItem6")).getText().toUpperCase().trim();
         Assert.assertEquals(actualSdbr,expectedSdbr);
     }
 
@@ -462,7 +465,7 @@ public class DevContentTest extends TestBase {
         String actualTxt = driver.findElement(By.className("h2")).getText().trim();
         Assert.assertEquals(actualTxt,expected);
         String expectedSdbr = "REVENUE REPORT";
-        String actualSdbr = driver.findElement(By.id("navItem3")).getText().toUpperCase().trim();
+        String actualSdbr = driver.findElement(By.id("navItem7")).getText().toUpperCase().trim();
         Assert.assertEquals(actualSdbr,expectedSdbr);
 
     }
@@ -473,7 +476,7 @@ public class DevContentTest extends TestBase {
         String actualTxt = driver.findElement(By.className("h2")).getText().trim();
         Assert.assertEquals(actualTxt,expected);
         String expectedSdbr = "SUPPORT TICKETS";
-        String actualSdbr = driver.findElement(By.id("navItem4")).getText().toUpperCase().trim();
+        String actualSdbr = driver.findElement(By.id("navItem8")).getText().toUpperCase().trim();
         Assert.assertEquals(actualSdbr,expectedSdbr);
 
     }
@@ -484,7 +487,7 @@ public class DevContentTest extends TestBase {
         String actualTxt = driver.findElement(By.className("h2")).getText().trim();
         Assert.assertEquals(actualTxt,expected);
         String expectedSdbr = "PUBLIC PROFILE";
-        String actualSdbr = driver.findElement(By.id("navItem5")).getText().toUpperCase().trim();
+        String actualSdbr = driver.findElement(By.id("navItem9")).getText().toUpperCase().trim();
         Assert.assertEquals(actualSdbr,expectedSdbr);
 
     }
