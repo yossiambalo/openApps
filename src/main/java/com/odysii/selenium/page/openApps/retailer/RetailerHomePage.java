@@ -8,15 +8,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RetailerHomePage extends PageObject {
-    @FindBy(xpath = "//span[contains(text(), 'App Store')]")
+    @FindBy(id = "navItem12")
     WebElement appStore;
-    @FindBy(xpath = "//span[contains(text(), 'App Library')]")
+    @FindBy(id = "navItem13")
     WebElement appLibrary;
-    @FindBy(xpath = "//span[contains(text(), 'Campaigns')]")
+    @FindBy(id = "navItem14")
     WebElement campaigns;
-    @FindBy(xpath = "//span[contains(text(), 'Scheduling')]")
+    @FindBy(id = "navItem15")
     WebElement scheduling;
-    @FindBy(xpath = "//span[contains(text(), 'Key Management')]")
+    @FindBy(id = "navItem16")
     WebElement manageKeys;
     @FindBy(id = "applicationSearchInput")
     WebElement applicationSearchInput;
