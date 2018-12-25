@@ -1,6 +1,7 @@
 package com.odysii.selenium.page.openApps.retailer;
 
 import com.odysii.selenium.page.util.PageObject;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,10 +14,14 @@ public class Campaign extends PageObject {
     private List<WebElement> campaigns;
     @FindBy(id = "newCampaignModalToggleButton")
     private WebElement addNewCampaignBtn;
-    @FindBy(xpath = "//input[contains(@id, 'camapginName')]")
-    private WebElement campaignName;
-    @FindBy(xpath = "//input[contains(@id, 'campaignDescription')]")
-    private WebElement campaignDescription;
+//    @FindBy(id = "campaignName")
+//    private WebElement campaignName;
+    private final String campaignNameID = "camapginName";
+//    @FindBy(xpath = "//input[contains(@id, 'campaignDescription')]")
+//    private WebElement campaignDescription;
+    private final String campaignDescriptionID = "campaignDescription";
+    @FindBy(id = "saveButton")
+    private WebElement saveButton;
     @FindBy(id = "finishButton")
     private WebElement finishButton;
     @FindBy(className = "block-item-menu-icon")
@@ -39,9 +44,9 @@ public class Campaign extends PageObject {
     public void createCampaign(String campaignName, String description){
         isElementPresent(addNewCampaignBtn);
         addNewCampaignBtn.click();
-        isElementPresent(this.campaignName);
-        this.campaignName.sendKeys(campaignName);
-        campaignDescription.sendKeys(description);
+        isElementPresent(webDriver.findElement(By.id(campaignNameID)));
+        webDriver.findElement(By.id(campaignNameID)).sendKeys(campaignName);
+        webDriver.findElement(By.id(campaignDescriptionID)).sendKeys(description);
         finishButton.click();
     }
     public void deleteCampaign(){
@@ -59,12 +64,16 @@ public class Campaign extends PageObject {
         return new CampaignDesigner(webDriver);
     }
     public void editCampaign(String campaignName, String description){
+        int counter = 0;
         isElementPresent(campaignListMenuBtn.get(0));
         campaignListMenuBtn.get(0).click();
         editBtn.click();
-        isElementPresent(this.campaignName);
-        this.campaignName.sendKeys(campaignName);
-        campaignDescription.sendKeys(description);
-        finishButton.click();
+        while (!isElementPresent(By.id("campaignName")) && counter < 5){
+            wait(WAIT);
+            counter ++;
+        }
+        webDriver.findElement(By.id("campaignName")).sendKeys(campaignName);
+        webDriver.findElement(By.id(campaignDescriptionID)).sendKeys(description);
+        saveButton.click();
     }
 }

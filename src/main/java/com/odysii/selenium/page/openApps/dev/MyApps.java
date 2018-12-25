@@ -10,7 +10,6 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class MyApps extends PageObject {
-
     private static final String APP_TITLE = "cx-card-title";
     private static final String APP_DESCRIPTION = "card-text";//cx-status
     private static final String APP_STATUS = "cx-status";

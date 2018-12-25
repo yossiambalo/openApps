@@ -18,9 +18,6 @@ import org.testng.annotations.Test;
 
 public class MyAppsTest extends TestBase {
     private AppDetails appDetails;
-
-
-    User user;
     DevHomePage devUser;
     private Marketing marketing;
 
@@ -28,6 +25,7 @@ public class MyAppsTest extends TestBase {
     public void login(){
         user = new User(driver);
         devUser = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
+        category = "My Apps";
     }
     @Test
     public void _001_name_field_is_empty_negative() {
@@ -198,11 +196,11 @@ public class MyAppsTest extends TestBase {
         WebElement appIcon = driver.findElement(By.id("iconFile"));
         ((JavascriptExecutor)driver).executeScript("document.getElementById('iconFile').removeAttribute('class')");
         wait(WAIT);
-        appIcon.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\image\\dog2.jpg");
+        appIcon.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\content\\dog2.jpg");
         WebElement appPreviewAndScreenShot = driver.findElement(By.id("screenshotsFile"));
         ((JavascriptExecutor)driver).executeScript("document.getElementById('screenshotsFile').removeAttribute('class')");
         wait(WAIT);
-        appPreviewAndScreenShot.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\image\\dog2.jpg");
+        appPreviewAndScreenShot.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\content\\dog2.jpg");
         WebElement finishButton = driver.findElement(By.id("finishButton"));
         finishButton.click();
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
@@ -232,7 +230,7 @@ public class MyAppsTest extends TestBase {
         WebElement appPreviewAndScreenShot = driver.findElement(By.id("screenshotsFile"));
         ((JavascriptExecutor)driver).executeScript("document.getElementById('screenshotsFile').removeAttribute('class')");
         wait(WAIT);
-        appPreviewAndScreenShot.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\image\\dog2.jpg");
+        appPreviewAndScreenShot.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\content\\dog2.jpg");
         WebElement finishButton = driver.findElement(By.id("finishButton"));
         scrollDown(finishButton);
         finishButton.click();
@@ -258,7 +256,7 @@ public class MyAppsTest extends TestBase {
         WebElement appIcon = driver.findElement(By.id("iconFile"));
         ((JavascriptExecutor)driver).executeScript("document.getElementById('iconFile').removeAttribute('class')");
         wait(WAIT);
-        appIcon.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\image\\dog2.jpg");
+        appIcon.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\content\\dog2.jpg");
 //        WebElement appPreviewAndScreenShot = driver.findElement(By.id("screenshotsFile"));
 //        ((JavascriptExecutor)driver).executeScript("document.getElementById('screenshotsFile').removeAttribute('class')");
 //        wait(WAIT);
@@ -289,7 +287,7 @@ public class MyAppsTest extends TestBase {
         WebElement appPreviewAndScreenShot = driver.findElement(By.id("screenshotsFile"));
         ((JavascriptExecutor)driver).executeScript("document.getElementById('screenshotsFile').removeAttribute('class')");
         wait(WAIT);
-        appPreviewAndScreenShot.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\image\\dog2.jpg");
+        appPreviewAndScreenShot.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\content\\dog2.jpg");
         WebElement finishButton = driver.findElement(By.id("finishButton"));
         scrollDown(finishButton);
         finishButton.click();

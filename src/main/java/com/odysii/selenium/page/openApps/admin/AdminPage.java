@@ -8,8 +8,12 @@ import org.openqa.selenium.support.FindBy;
 
 public class AdminPage extends PageObject {
 
-    @FindBy(xpath = "//span[contains(text(), 'Support Tickets')]")
+    @FindBy(xpath = "//span[contains(text(), 'Admin - Tickets')]")
     private WebElement supportTickets;
+    @FindBy(id = "navItem2")
+    private WebElement userPageLink;
+    @FindBy(id = "navItem3")
+    private WebElement retailersPageLink;
     @FindBy(name = "username")
     WebElement userName;
     @FindBy(name = "password")
@@ -42,6 +46,16 @@ public class AdminPage extends PageObject {
         webDriver.findElement(By.id(TICKET_ID_FREFIX+index+"0")).click();
         return new SupportTicket(webDriver);
 
+    }
+    public UsersPage getUsersPage(){
+        isElementPresent(this.userPageLink);
+        this.userPageLink.click();
+        return new UsersPage(webDriver);
+    }
+    public RetailersPage getRetailersPage(){
+        isElementPresent(this.retailersPageLink);
+        this.retailersPageLink.click();
+        return new RetailersPage(webDriver);
     }
 
 }

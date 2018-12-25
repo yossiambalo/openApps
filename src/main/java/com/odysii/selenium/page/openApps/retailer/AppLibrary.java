@@ -10,8 +10,10 @@ import java.util.List;
 public class AppLibrary extends PageObject {
     @FindBy(className = "card")
     List<WebElement> apps;
-    @FindBy(id = "libraryApplicationDetailsRemoveFromLibraryButton")
+    @FindBy(id = "libraryApplicationDetailsRemoveFromLibraryButton")//BackNavigationButton
     WebElement removeFromLibrary;
+    @FindBy(id = "BackNavigationButton")
+    WebElement backNavigationButton;
 
     public AppLibrary(WebDriver driver) {
         super(driver);
@@ -22,5 +24,6 @@ public class AppLibrary extends PageObject {
         apps.get(appIndex).click();
         wait(WAIT);
         removeFromLibrary.click();
+        backNavigationButton.click();
     }
 }

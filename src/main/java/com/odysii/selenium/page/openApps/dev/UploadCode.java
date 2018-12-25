@@ -1,6 +1,5 @@
 package com.odysii.selenium.page.openApps.dev;
 
-import com.odysii.selenium.page.openApps.dev.Marketing;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,7 +24,7 @@ public class UploadCode extends PageObject{
     }
     public Marketing upload(String zipFile){
         isElementPresent(uploadCodeBtn);
-        this.agreeAndUpload.sendKeys(getFile("image//"+zipFile));
+        this.agreeAndUpload.sendKeys(getFile("application//"+zipFile));
         wait(5000);
         if (next.isDisplayed()) {
             this.next.click();

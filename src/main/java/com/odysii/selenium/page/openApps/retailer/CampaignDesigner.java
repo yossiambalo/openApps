@@ -182,7 +182,7 @@ public class CampaignDesigner extends PageObject {
         boolean res = true;
         int i;
         for(i = 0; i < expectedApps; i++){
-            if(!appContainer.get(i).getCssValue("background-image").contains("openAppStore/webapi/storage")){
+            if(!appContainer.get(i).getCssValue("background-content").contains("openAppStore/webapi/storage")){
                 res = false;
             }
         }

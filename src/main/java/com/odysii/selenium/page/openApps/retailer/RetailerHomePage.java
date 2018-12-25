@@ -8,18 +8,22 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RetailerHomePage extends PageObject {
-    @FindBy(xpath = "//span[contains(text(), 'App Store')]")
+    @FindBy(id = "navItem12")
     WebElement appStore;
-    @FindBy(xpath = "//span[contains(text(), 'App Library')]")
+    @FindBy(id = "navItem13")
     WebElement appLibrary;
-    @FindBy(xpath = "//span[contains(text(), 'Campaigns')]")
+    @FindBy(id = "navItem14")
     WebElement campaigns;
-    @FindBy(xpath = "//span[contains(text(), 'Scheduling')]")
+    @FindBy(id = "navItem15")
     WebElement scheduling;
+    @FindBy(id = "navItem16")
+    WebElement manageKeys;
     @FindBy(id = "applicationSearchInput")
     WebElement applicationSearchInput;
     @FindBy(id = "makeApplicationSearch")
     WebElement makeApplicationSearch;
+    @FindBy(id = "BackNavigationButton")
+    WebElement backNavigationButton;
     private final static String STOREAPP_PREFIX = "storeApp";
 
     public RetailerHomePage(WebDriver driver) {
@@ -38,15 +42,24 @@ public class RetailerHomePage extends PageObject {
         return new AppLibrary(webDriver);
     }
 
-    public Campaign getCampaigs() {
+    public Campaign getCampaign() {
+        if (isElementPresent(backNavigationButton)) {
+            backNavigationButton.click();
+        }
         isElementPresent(campaigns);
         campaigns.click();
         return new Campaign(webDriver);
     }
 
     public Scheduling getScheduling() {
+        isElementPresent(scheduling);
         scheduling.click();
         return new Scheduling(webDriver);
+    }
+
+    public KeyManagement getKeysMGMT() {
+        manageKeys.click();
+        return new KeyManagement(webDriver);
     }
     public void searchApps(String keyWord){
         isElementPresent(applicationSearchInput);

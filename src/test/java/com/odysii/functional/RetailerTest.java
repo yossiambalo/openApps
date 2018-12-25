@@ -15,19 +15,21 @@ import org.testng.annotations.Test;
 
 public class RetailerTest extends TestBase {
     private final static String APP_CLASS_NAME = "card";
-    private final static String RETAILER_USER_NAME = "retailer";
-    private final static String RETAILER_USER_PASS = "123456";
-    RetailerHomePage retailerHomePage;
     CampaignDesigner campaignDesigner;
-    User user;
     @BeforeClass
-    public void login(){
+    public void prepare(){
         user = new User(driver);
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
-
+//        prepareTest("app_details.properties", ApplicationStatus.SUBMITTED);
+//        prepareTest("app_details.properties", ApplicationStatus.LIVE);
     }
     @Test//(priority = 1)
-    public void _001_add_and_remove_app_library(){
+    public void _001_valid_deploy_to_dispenser(){
+        Scheduling scheduling = retailerHomePage.getScheduling();
+        Assert.assertTrue(scheduling.deployToAll(AreaType.NORTH_US));
+    }
+    @Test//(priority = 1)
+    public void _002_add_and_remove_app_library(){
         retailerHomePage.getAppLibrary();
         int expectedApp = driver.findElements(By.className(APP_CLASS_NAME)).size() + 1;
         AppStore appStore = retailerHomePage.getAppStore();
@@ -43,18 +45,18 @@ public class RetailerTest extends TestBase {
         Assert.assertEquals(actualApps - 1,driver.findElements(By.className(APP_CLASS_NAME)).size());
     }
    @Test//(priority = 2)
-    public void _002_search_apps(){
+    public void _003_search_apps(){
         retailerHomePage.getAppStore();
-        int expectedApp = 3;
-        retailerHomePage.searchApps("Spin");
+        int expectedApp = 2;
+        retailerHomePage.searchApps("auto");
         wait(WAIT);
         int actualApps = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(actualApps,expectedApp,"App store search functionality failed!");
 
     }
     @Test//(priority = 3)
-    public void _003_create_and_delete_campaign(){
-        Campaign campaign = retailerHomePage.getCampaigs();
+    public void _004_create_and_delete_campaign(){
+        Campaign campaign = retailerHomePage.getCampaign();
         wait(WAIT);
         int expectedCampaigns = campaign.getNumOfCampaigns() + 1;
         campaign.createCampaign("Auto Campaign","auto description");
@@ -67,170 +69,170 @@ public class RetailerTest extends TestBase {
 
     }
     @Test//(priority = 4)
-    public void _004_set_up_campaign_screen_size_15_6_layout1_default_state(){
-        Campaign campaign = retailerHomePage.getCampaigs();
+    public void _005_set_up_campaign_screen_size_15_6_layout1_default_state(){
+        Campaign campaign = retailerHomePage.getCampaign();
         campaignDesigner = campaign.getDesignerPage();
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
     @Test//(priority = 5)
-    public void _005_set_up_campaign_screen_size_15_6_layout2_default_state(){
+    public void _006_set_up_campaign_screen_size_15_6_layout2_default_state(){
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_2, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 6)
-    public void _006_set_up_campaign_screen_size_15_6_layout3_default_state(){
+    public void _007_set_up_campaign_screen_size_15_6_layout3_default_state(){
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_3, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 7)
-    public void _007_set_up_campaign_screen_size_15_6_layout4_default_state(){
+    public void _008_set_up_campaign_screen_size_15_6_layout4_default_state(){
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_4, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 8)
-    public void _008_set_up_campaign_screen_size_15_6_layout1_idle_state(){
+    public void _009_set_up_campaign_screen_size_15_6_layout1_idle_state(){
         campaignDesigner.setUpCampaign(StateType.IDLE, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 9)
-    public void _009_set_up_campaign_screen_size_15_6_layout2_idle_state(){
+    public void _010_set_up_campaign_screen_size_15_6_layout2_idle_state(){
         campaignDesigner.setUpCampaign(StateType.IDLE, LayoutType.LAYOUT_2, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 10)
-    public void _010_set_up_campaign_screen_size_15_6_layout3_idle_state(){
+    public void _011_set_up_campaign_screen_size_15_6_layout3_idle_state(){
         campaignDesigner.setUpCampaign(StateType.IDLE, LayoutType.LAYOUT_3, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 11)
-    public void _011_set_up_campaign_screen_size_15_6_layout4_idle_state(){
+    public void _012_set_up_campaign_screen_size_15_6_layout4_idle_state(){
         campaignDesigner.setUpCampaign(StateType.IDLE, LayoutType.LAYOUT_4, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 12)
-    public void _012_set_up_campaign_screen_size_15_6_layout1_fueling_state(){
+    public void _013_set_up_campaign_screen_size_15_6_layout1_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.FUELING, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 13)
-    public void _013_set_up_campaign_screen_size_15_6_layout2_fueling_state(){
+    public void _014_set_up_campaign_screen_size_15_6_layout2_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.FUELING, LayoutType.LAYOUT_2, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 14)
-    public void _014_set_up_campaign_screen_size_15_6_layout3_fueling_state(){
+    public void _015_set_up_campaign_screen_size_15_6_layout3_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.FUELING, LayoutType.LAYOUT_3, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 15)
-    public void _011_set_up_campaign_screen_size_15_6_layout4_fueling_state(){
+    public void _016_set_up_campaign_screen_size_15_6_layout4_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.FUELING, LayoutType.LAYOUT_4, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 16)
-    public void _016_set_up_campaign_screen_size_15_6_layout1_payment_state(){
+    public void _017_set_up_campaign_screen_size_15_6_layout1_payment_state(){
         campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 17)
-    public void _017_set_up_campaign_screen_size_15_6_layout2_payment_state(){
+    public void _018_set_up_campaign_screen_size_15_6_layout2_payment_state(){
         campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_2, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 18)
-    public void _018_set_up_campaign_screen_size_15_6_layout3_payment_state(){
+    public void _019_set_up_campaign_screen_size_15_6_layout3_payment_state(){
         campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_3, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 19)
-    public void _019_set_up_campaign_screen_size_15_6_layout4_payment_state(){
+    public void _020_set_up_campaign_screen_size_15_6_layout4_payment_state(){
         campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_4, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 20)
-    public void _020_set_up_campaign_screen_size_15_6_layout1_post_fueling_state(){
+    public void _021_set_up_campaign_screen_size_15_6_layout1_post_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.POST_FUELING, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 21)
-    public void _021_set_up_campaign_screen_size_15_6_layout2_post_fueling_state(){
+    public void _022_set_up_campaign_screen_size_15_6_layout2_post_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.POST_FUELING, LayoutType.LAYOUT_2, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 22)
-    public void _022_set_up_campaign_screen_size_15_6_layout3_post_fueling_state(){
+    public void _023_set_up_campaign_screen_size_15_6_layout3_post_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.POST_FUELING, LayoutType.LAYOUT_3, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 23)
-    public void _023_set_up_campaign_screen_size_15_6_layout4_post_fueling_state(){
+    public void _024_set_up_campaign_screen_size_15_6_layout4_post_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.POST_FUELING, LayoutType.LAYOUT_4, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 24)
-    public void _024_set_up_campaign_screen_size_10_4_layout1_default_state() {
+    public void _025_set_up_campaign_screen_size_10_4_layout1_default_state() {
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1, ScreenSize.SIZE_10_4);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 25)
-    public void _025_set_up_campaign_screen_size_10_4_layout1_payment_state() {
+    public void _026_set_up_campaign_screen_size_10_4_layout1_payment_state() {
         campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_1, ScreenSize.SIZE_10_4);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 26)
-    public void _026_set_up_campaign_screen_size_10_4_layout1_fueling_state() {
+    public void _027_set_up_campaign_screen_size_10_4_layout1_fueling_state() {
         campaignDesigner.setUpCampaign(StateType.FUELING, LayoutType.LAYOUT_1, ScreenSize.SIZE_10_4);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 27)
-    public void _027_set_up_campaign_screen_size_10_4_layout1_idle_state() {
+    public void _028_set_up_campaign_screen_size_10_4_layout1_idle_state() {
         campaignDesigner.setUpCampaign(StateType.IDLE, LayoutType.LAYOUT_1, ScreenSize.SIZE_10_4);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 28)
-    public void _028_set_up_campaign_screen_size_10_4_layout1_post_fueling_state() {
+    public void _029_set_up_campaign_screen_size_10_4_layout1_post_fueling_state() {
         campaignDesigner.setUpCampaign(StateType.POST_FUELING, LayoutType.LAYOUT_1, ScreenSize.SIZE_10_4);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test//(priority = 29)
-    public void _029_valid_application_packing() {
+    public void _030_valid_application_packing() {
         String url = "http://openappsqa.tveez.local:8080/openAppStore/webapi/application/4346/version/4349/pack";
         RequestHelper requestHelper = new RequestHelper();
         Assert.assertTrue(requestHelper.getRequest(url),"Failed to pack an application!");
     }
 
-    //@Test
-    public void _004_edit_name_and_description_campaign(){
-        Campaign campaign = retailerHomePage.getCampaigs();
+    @Test
+    public void _031_edit_name_and_description_campaign(){
+        Campaign campaign = retailerHomePage.getCampaign();
         campaign.editCampaign("name test","description test");
         String expected = "Succeeded saving campaign";
         String actualTxt = driver.findElement(By.id("editCampaignSuccessErrorMessage")).getText();
-        Assert.assertEquals(expected,actualTxt);
+        Assert.assertEquals(actualTxt,expected);
 
     }
 

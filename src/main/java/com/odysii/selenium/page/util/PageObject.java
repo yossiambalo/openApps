@@ -70,7 +70,7 @@ public class PageObject {
                 counter ++;
             }
         }catch (NoSuchElementException e){
-            System.out.println(e.fillInStackTrace());
+            e.getMessage();
             return false;
         }
        if (counter == 5){
@@ -78,6 +78,16 @@ public class PageObject {
        }
        wait(WAIT);
        return true;
+    }
+    public boolean isElementPresent(By by) {
+        try {
+            webDriver.findElement(by);
+        }catch (NoSuchElementException e){
+            e.getMessage();
+            return false;
+        }
+        wait(WAIT);
+        return true;
     }
     protected void scrollDown(WebElement element){
         JavascriptExecutor js = (JavascriptExecutor) webDriver;

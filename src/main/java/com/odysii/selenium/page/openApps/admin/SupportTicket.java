@@ -1,5 +1,6 @@
 package com.odysii.selenium.page.openApps.admin;
 
+import com.odysii.selenium.page.openApps.admin.helper.SortBy;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,11 +10,11 @@ public class SupportTicket extends PageObject {
     @FindBy(className = "btn-group-toggle")
     private WebElement sortBtn;
     @FindBy(xpath = "//button[contains(text(), 'Creation Time')]")
-    private WebElement creationTimeBtn;//ticket00
+    private WebElement creationTimeBtn;
     @FindBy(id = "ticket00")
     private WebElement ticket;
     @FindBy(id = "adminTicketOpen")
-    private WebElement openTicket;//adminTicketApproved
+    private WebElement openTicket;
     @FindBy(id = "adminTicketApproved")
     private WebElement approveTicket;//finishButton
     @FindBy(id = "finishButtonAdminTicket")
