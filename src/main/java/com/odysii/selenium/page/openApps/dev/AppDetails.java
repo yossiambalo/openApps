@@ -135,8 +135,10 @@ public class AppDetails extends PageObject{
         scrollDown(availability);
         this.availability.sendKeys(properties.getProperty("availability"));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",availability);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",shellRetailer);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",exxonMobilRetailer);
+//        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",shellRetailer);
+//        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",exxonMobilRetailer);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",retailerFirstOption.findElements(By.className("multiselect-item-checkbox")).get(0).findElements(By.tagName("div")).get(0));
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",retailerFirstOption.findElements(By.className("multiselect-item-checkbox")).get(0).findElements(By.tagName("div")).get(0));
         //appPriceType.sendKeys(properties.getProperty("app_price_type"));
         //ToDo: find elements should be removed once id will unique
         webDriver.findElements(By.id("appPriceType")).get(1).sendKeys(properties.getProperty("app_price_type"));

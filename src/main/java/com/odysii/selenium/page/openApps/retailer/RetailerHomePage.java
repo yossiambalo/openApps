@@ -43,7 +43,9 @@ public class RetailerHomePage extends PageObject {
     }
 
     public Campaign getCampaign() {
-        backNavigationButton.click();
+        if (isElementPresent(backNavigationButton)) {
+            backNavigationButton.click();
+        }
         isElementPresent(campaigns);
         campaigns.click();
         return new Campaign(webDriver);

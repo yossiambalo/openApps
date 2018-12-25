@@ -30,6 +30,7 @@ public class DevTest extends TestBase {
     @Test(priority = 1)
     public void _001_valid_add_new_app(){
         //get number of live apps from retailer page
+        retailerHomePage.getAppStore();
         appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         user.logout();
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
@@ -154,6 +155,7 @@ public class DevTest extends TestBase {
        try {
            //Valid app added to retailer store
            retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+           retailerHomePage.getAppStore();
            int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
            Assert.assertEquals(appListAfterAdding,appListBeforeAdding + 1);
        }catch (Exception e){
