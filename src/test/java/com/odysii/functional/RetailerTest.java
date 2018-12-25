@@ -56,7 +56,7 @@ public class RetailerTest extends TestBase {
     }
     @Test//(priority = 3)
     public void _004_create_and_delete_campaign(){
-        Campaign campaign = retailerHomePage.getCampaigs();
+        Campaign campaign = retailerHomePage.getCampaign();
         wait(WAIT);
         int expectedCampaigns = campaign.getNumOfCampaigns() + 1;
         campaign.createCampaign("Auto Campaign","auto description");
@@ -70,7 +70,7 @@ public class RetailerTest extends TestBase {
     }
     @Test//(priority = 4)
     public void _005_set_up_campaign_screen_size_15_6_layout1_default_state(){
-        Campaign campaign = retailerHomePage.getCampaigs();
+        Campaign campaign = retailerHomePage.getCampaign();
         campaignDesigner = campaign.getDesignerPage();
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
@@ -228,7 +228,7 @@ public class RetailerTest extends TestBase {
 
     @Test
     public void _031_edit_name_and_description_campaign(){
-        Campaign campaign = retailerHomePage.getCampaigs();
+        Campaign campaign = retailerHomePage.getCampaign();
         campaign.editCampaign("name test","description test");
         String expected = "Succeeded saving campaign";
         String actualTxt = driver.findElement(By.id("editCampaignSuccessErrorMessage")).getText();

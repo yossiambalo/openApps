@@ -29,14 +29,12 @@ import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
 
 public class TestBase {
     public ArrayList<String> applicationIDToDelete = new ArrayList<>();
     public String category;
-    public final static String DEV_USER_NAME = "auto.dev.odysii@gmail.com";
+    public final static String DEV_USER_NAME = "auto.dev.odysii@gmail.com";//auto.open.apps@gmail.com
     public final static String DEV_USER_PASS = "Aa123456";
     public final static String ADMIN_USER_NAME = "yossi.ambalo.odysii@gmail.com";
     public final static String ADMIN_USER_PASS = "Aa123456";

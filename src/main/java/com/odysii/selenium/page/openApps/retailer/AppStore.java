@@ -14,6 +14,8 @@ public class AppStore extends PageObject {
     WebElement addToLibrary;
     @FindBy(id = "libraryApplicationDetailsRemoveFromLibraryButton")
     WebElement removeFromLibrary;
+    @FindBy(id = "BackNavigationButton")
+    WebElement backNavigationButton;
     public AppStore(WebDriver driver) {
         super(driver);
     }
@@ -28,6 +30,7 @@ public class AppStore extends PageObject {
          }
          isElementPresent(addToLibrary);
         addToLibrary.click();
+        backNavigationButton.click();
         return res;
     }
     public void addAppToLibraryFromMainPage(int appIndex){

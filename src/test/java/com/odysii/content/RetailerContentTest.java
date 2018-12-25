@@ -56,7 +56,7 @@ public class RetailerContentTest extends TestBase {
         String expected = "CAMPAIGNS";
         String expectedHeader = "Campaigns";
         String expectedSearch = "Search";
-        retailerHomePage.getCampaigs();
+        retailerHomePage.getCampaign();
         String actualTxt = driver.findElement(By.xpath("//span[contains(text(), 'Campaigns')]")).getText();
         String actualHeader = driver.findElement(By.className("h2")).getText();
         String actualSearch = driver.findElement(By.id("campaignSearchInput")).getAttribute("placeholder");

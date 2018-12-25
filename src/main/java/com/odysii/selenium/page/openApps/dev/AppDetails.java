@@ -36,6 +36,8 @@ public class AppDetails extends PageObject{
     WebElement shellRetailer;
     @FindBy(xpath = "//div[contains(text(), 'ExxonMobil')]")
     WebElement exxonMobilRetailer;
+    @FindBy(id = "appRetailers")
+    WebElement retailerFirstOption;
     @FindBy(className = "dropdown-btn")
     List<WebElement> dropDown;
     @FindBy(id = "AppCategories")
@@ -84,7 +86,7 @@ public class AppDetails extends PageObject{
         wait(WAIT);
         this.availability.sendKeys(properties.getProperty("availability"));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",availability);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",shellRetailer);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",retailerFirstOption.findElements(By.className("multiselect-item-checkbox")).get(0).findElements(By.tagName("div")).get(0));
         appPriceType.sendKeys(properties.getProperty("app_price_type"));
         appPrice.sendKeys(properties.getProperty("app_price"));
         scrollDown(next);
