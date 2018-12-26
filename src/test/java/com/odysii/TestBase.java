@@ -45,6 +45,7 @@ public class TestBase {
     public RetailerHomePage retailerHomePage;
     public int appListBeforeAdding;
     public DevHomePage devUser;
+    AdminPage adminPage;
     public MyApps myApps;
     public java.util.List<WebElement> actualAppList;
     public int actualValue;
@@ -198,10 +199,10 @@ public class TestBase {
     }
     public void prepareTest(String propFile , ApplicationStatus applicationStatus){
         user = new User(driver);
-        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
-        //get number of live apps from retailer page
-        appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
-        user.logout();
+//        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
+//        //get number of live apps from retailer page
+//        appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
+//        user.logout();
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
         java.util.List<WebElement> appsList = driver.findElements(By.className(APP_CLASS_NAME));
@@ -249,7 +250,7 @@ public class TestBase {
             }
             user.logout();
             //Admin approve
-            AdminPage adminPage = (AdminPage)user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+            adminPage = (AdminPage)user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
             SupportTicket supportTicket = adminPage.getSupportTickets();
             switch (applicationStatus){
                 case CERTIFIED:
