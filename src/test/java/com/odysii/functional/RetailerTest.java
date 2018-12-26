@@ -3,6 +3,7 @@ package com.odysii.functional;
 import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
+import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.retailer.*;
 import com.odysii.selenium.page.openApps.retailer.helper.LayoutType;
 import com.odysii.selenium.page.openApps.retailer.helper.ScreenSize;
@@ -18,6 +19,7 @@ public class RetailerTest extends TestBase {
     CampaignDesigner campaignDesigner;
     @BeforeClass
     public void prepare(){
+        DEV_USER_NAME = "auto.open.apps@gmail.com";
         user = new User(driver);
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
 //        prepareTest("app_details.properties", ApplicationStatus.SUBMITTED);
@@ -30,9 +32,25 @@ public class RetailerTest extends TestBase {
     }
     @Test//(priority = 1)
     public void _002_add_and_remove_app_library(){
+        boolean flag = false;
+        AppStore appStore = null;
         retailerHomePage.getAppLibrary();
         int expectedApp = driver.findElements(By.className(APP_CLASS_NAME)).size() + 1;
-        AppStore appStore = retailerHomePage.getAppStore();
+        if (expectedApp < 2){
+            prepareTest("app_details.properties", ApplicationStatus.LIVE);
+            prepareTest("app_details.properties",ApplicationStatus.LIVE);
+            flag = true;
+        }
+        if (flag){
+            retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
+            appStore = retailerHomePage.getAppStore();
+            wait(WAIT);
+            appStore.addAppToLibrary(0);
+            appStore.addAppToLibrary(1);
+            retailerHomePage.getAppLibrary();
+            expectedApp = driver.findElements(By.className(APP_CLASS_NAME)).size() + 1;
+        }
+        appStore = retailerHomePage.getAppStore();
         wait(WAIT);
         expectedApp = expectedApp - appStore.addAppToLibrary(driver.findElements(By.className(APP_CLASS_NAME)).size() - 1);
         wait(WAIT);
@@ -41,8 +59,9 @@ public class RetailerTest extends TestBase {
         int actualApps = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(actualApps,expectedApp,"Failed to adding application to library!");
         appLibrary.removeAppFromLibrary(driver.findElements(By.className(APP_CLASS_NAME)).size() - 1);
+        driver.navigate().refresh();
         wait(WAIT);
-        Assert.assertEquals(actualApps - 1,driver.findElements(By.className(APP_CLASS_NAME)).size());
+        Assert.assertEquals(driver.findElements(By.className(APP_CLASS_NAME)).size(), actualApps - 1);
     }
    @Test//(priority = 2)
     public void _003_search_apps(){
