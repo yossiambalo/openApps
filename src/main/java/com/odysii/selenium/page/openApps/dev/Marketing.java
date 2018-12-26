@@ -31,16 +31,17 @@ public class Marketing extends PageObject {
     public void fillMarketing(){
         PropertyLoader loader = new PropertyLoader();
         Properties properties = loader.loadPropFile("marketing.properties");
+        isElementPresent(promotionalText);
         this.promotionalText.sendKeys(properties.getProperty("promotional_text"));
-        isElementPresent(keywords);
+        //isElementPresent(keywords);
         this.keywords.sendKeys(properties.getProperty("keywords"));
-        isElementPresent(appIcon);
+        //isElementPresent(appIcon);
         ((JavascriptExecutor)  webDriver).executeScript("document.getElementById('iconFile').removeAttribute('class')");
         this.appIcon.sendKeys(getFile(properties.getProperty("app_icon")));
-        isElementPresent(screenshotsFile);
+        //isElementPresent(screenshotsFile);
         ((JavascriptExecutor)  webDriver).executeScript("document.getElementById('screenshotsFile').removeAttribute('class')");
         this.screenshotsFile.sendKeys(getFile(properties.getProperty("app_preview_screenshots")));
-        wait(WAIT);
+        //wait(WAIT);
         scrollDown(deleteBtn);
         scrollDown(complete);
         isElementPresent(complete);

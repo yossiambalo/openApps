@@ -19,6 +19,7 @@ public class RetailerTest extends TestBase {
     CampaignDesigner campaignDesigner;
     @BeforeClass
     public void prepare(){
+        DEV_USER_NAME = "auto.open.apps@gmail.com";
         user = new User(driver);
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
 //        prepareTest("app_details.properties", ApplicationStatus.SUBMITTED);
@@ -43,8 +44,9 @@ public class RetailerTest extends TestBase {
         if (flag){
             retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
             appStore = retailerHomePage.getAppStore();
-            appStore.addAppToLibrary(driver.findElements(By.className(APP_CLASS_NAME)).size() - 1);
-            appStore.addAppToLibrary(driver.findElements(By.className(APP_CLASS_NAME)).size() - 2);
+            wait(WAIT);
+            appStore.addAppToLibrary(0);
+            appStore.addAppToLibrary(1);
             retailerHomePage.getAppLibrary();
             expectedApp = driver.findElements(By.className(APP_CLASS_NAME)).size() + 1;
         }
