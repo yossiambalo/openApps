@@ -103,6 +103,10 @@ public class TestBase {
     @AfterSuite
     public void tearDown()
     {
+        extent.flush();
+    }
+    @AfterClass
+    public void clean(){
         String token = null;
         Set<Cookie> allcookies = driver.manage().getCookies();
         for (Cookie cookie : allcookies){
@@ -119,10 +123,6 @@ public class TestBase {
             }
         }
         driver.quit();
-        extent.flush();
-    }
-    @AfterTest
-    public void clean(){
     }
     @Parameters("browser")
     @BeforeClass

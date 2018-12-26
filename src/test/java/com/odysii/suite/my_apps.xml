@@ -21,7 +21,7 @@
     <test name="EdgeTest">
     <parameter name="browser" value="edge"/>
     <classes>
-        <!--<class name="com.odysii.functional.DevTest"/>-->
+        <class name="com.odysii.functional.DevTest"/>
         <!--<class name="com.odysii.content.AdminContentTest"/>-->
         <!--<class name="com.odysii.content.DevContentTest"/>-->
         <!--<class name="com.odysii.content.RetailerContentTest"/>-->
