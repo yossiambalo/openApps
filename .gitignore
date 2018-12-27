@@ -1,5 +1,12 @@
-#IDE metadata
-**.idea/**
-**.target/**
-**.test-output/**
-/openApps.iml
+/dependency-reduced-pom.xml
+target/
+*~
+.classpath
+.m2
+.project
+.settings/
+test-output/
+.idea/
+*iml
+.m2/
+
