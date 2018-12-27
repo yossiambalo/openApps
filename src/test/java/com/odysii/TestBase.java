@@ -44,6 +44,7 @@ public class TestBase {
     public WebDriver driver;
     public RetailerHomePage retailerHomePage;
     public int appListBeforeAdding;
+    public AdminPage adminPage;
     public DevHomePage devUser;
     public MyApps myApps;
     public java.util.List<WebElement> actualAppList;
