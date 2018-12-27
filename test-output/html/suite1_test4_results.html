@@ -12,7 +12,7 @@
 <body>
 <h1>FireFoxTest</h1>
 <p>
-  Test duration: 708.913s
+  Test duration: 254.071s
 </p>
 
 
@@ -20,28 +20,30 @@
   <table class="resultsTable">
     <tr><th colspan="3" class="header failed">Failed Tests</th></tr>
           <tr>
-        <td colspan="3" class="group">com.odysii.functional.RetailerTest</td>
+        <td colspan="3" class="group">com.odysii.content.DevContentTest</td>
       </tr>
             
 <tr>
   <td class="method">
-                  _001_valid_deploy_to_dispenser
+                  _014_my_apps_add_new_app_valid_text_retailers
       </td>
   <td class="duration">
-    21.936s
+    0.354s
   </td>
   <td class="result">
         
     
         
 
-        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: expected [true] but found [false]</b></a><br />
+        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: expected [ExxonMobil] but found [Shell]</b></a><br />
     <div class="stackTrace" id="exception-0">
               org.testng.Assert.fail(Assert.java:93)<br />
               org.testng.Assert.failNotEquals(Assert.java:512)<br />
-              org.testng.Assert.assertTrue(Assert.java:41)<br />
-              org.testng.Assert.assertTrue(Assert.java:51)<br />
-              com.odysii.functional.RetailerTest._001_valid_deploy_to_dispenser(RetailerTest.java:31)<br />
+              org.testng.Assert.assertEqualsImpl(Assert.java:134)<br />
+              org.testng.Assert.assertEquals(Assert.java:115)<br />
+              org.testng.Assert.assertEquals(Assert.java:189)<br />
+              org.testng.Assert.assertEquals(Assert.java:199)<br />
+              com.odysii.content.DevContentTest._014_my_apps_add_new_app_valid_text_retailers(DevContentTest.java:292)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -71,22 +73,747 @@
 </tr>
 <tr>
   <td class="method">
-                  _030_valid_application_packing
+                  _015_my_apps_add_new_app_valid_text_pricing
       </td>
   <td class="duration">
-    1.076s
+    0.147s
   </td>
   <td class="result">
         
     
         
 
-        <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Failed to pack an application! expected [true] but found [false]</b></a><br />
+        <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.ElementClickInterceptedException: Element &lt;select id=&quot;appPriceType&quot; class=&quot;form-control cx-form-control-lg ng-untouched ng-pristine ng-invalid&quot;&gt; is not clickable at point (1047,940.7166748046875) because another element &lt;div&gt; obscures it<br/>
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;<br/>
+System info: host: &apos;YOSSIA&apos;, ip: &apos;10.28.76.76&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.1&apos;<br/>
+Driver info: org.openqa.selenium.firefox.FirefoxDriver<br/>
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.1, capabilities: {desiredCapabilities: {acceptInsecureCerts: true, browserName: firefox}}, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 36528, moz:profile: C:\Users\yossi.ambalo\AppDa..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}<br/>
+Session ID: e3f42142-8da0-4ebd-848f-48de1086a72c</b></a><br />
     <div class="stackTrace" id="exception-1">
-              org.testng.Assert.fail(Assert.java:93)<br />
-              org.testng.Assert.failNotEquals(Assert.java:512)<br />
-              org.testng.Assert.assertTrue(Assert.java:41)<br />
-              com.odysii.functional.RetailerTest._030_valid_application_packing(RetailerTest.java:246)<br />
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
+              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
+              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
+              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)<br />
+              org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)<br />
+              org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)<br />
+              com.odysii.content.DevContentTest._015_my_apps_add_new_app_valid_text_pricing(DevContentTest.java:327)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:661)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:744)<br />
+              org.testng.TestRunner.run(TestRunner.java:602)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:380)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:289)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1226)<br />
+              org.testng.TestNG.runSuites(TestNG.java:1144)<br />
+              org.testng.TestNG.run(TestNG.java:1115)<br />
+              org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)<br />
+              org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _016_add_new_app_code_valid_texts
+      </td>
+  <td class="duration">
+    10.058s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-2', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.NoSuchElementException: Unable to locate element: #newAppUploadCode<br/>
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html<br/>
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;<br/>
+System info: host: &apos;YOSSIA&apos;, ip: &apos;10.28.76.76&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.1&apos;<br/>
+Driver info: org.openqa.selenium.firefox.FirefoxDriver<br/>
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.1, capabilities: {desiredCapabilities: {acceptInsecureCerts: true, browserName: firefox}}, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 36528, moz:profile: C:\Users\yossi.ambalo\AppDa..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}<br/>
+Session ID: e3f42142-8da0-4ebd-848f-48de1086a72c<br/>
+*** Element info: {Using=id, value=newAppUploadCode}</b></a><br />
+    <div class="stackTrace" id="exception-2">
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
+              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
+              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
+              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:368)<br />
+              org.openqa.selenium.By$ById.findElement(By.java:188)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)<br />
+              com.odysii.content.DevContentTest._016_add_new_app_code_valid_texts(DevContentTest.java:357)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:661)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:744)<br />
+              org.testng.TestRunner.run(TestRunner.java:602)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:380)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:289)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1226)<br />
+              org.testng.TestNG.runSuites(TestNG.java:1144)<br />
+              org.testng.TestNG.run(TestNG.java:1115)<br />
+              org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)<br />
+              org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _017_add_new_app_marketing_valid_texts
+      </td>
+  <td class="duration">
+    11.019s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-3', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.NoSuchElementException: Unable to locate element: //*[contains(text(), &apos;Promotional Text&apos;)]<br/>
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html<br/>
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;<br/>
+System info: host: &apos;YOSSIA&apos;, ip: &apos;10.28.76.76&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.1&apos;<br/>
+Driver info: org.openqa.selenium.firefox.FirefoxDriver<br/>
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.1, capabilities: {desiredCapabilities: {acceptInsecureCerts: true, browserName: firefox}}, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 36528, moz:profile: C:\Users\yossi.ambalo\AppDa..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}<br/>
+Session ID: e3f42142-8da0-4ebd-848f-48de1086a72c<br/>
+*** Element info: {Using=xpath, value=//*[contains(text(), &apos;Promotional Text&apos;)]}</b></a><br />
+    <div class="stackTrace" id="exception-3">
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
+              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
+              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
+              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)<br />
+              org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)<br />
+              com.odysii.content.DevContentTest._017_add_new_app_marketing_valid_texts(DevContentTest.java:365)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:661)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:744)<br />
+              org.testng.TestRunner.run(TestRunner.java:602)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:380)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:289)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1226)<br />
+              org.testng.TestNG.runSuites(TestNG.java:1144)<br />
+              org.testng.TestNG.run(TestNG.java:1115)<br />
+              org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)<br />
+              org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _018_my_apps_new_version_valid_text
+      </td>
+  <td class="duration">
+    4.084s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-4', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.ElementClickInterceptedException: Element &lt;span class=&quot;nav-text&quot;&gt; is not clickable at point (89.39166259765625,172) because another element &lt;div id=&quot;newAppModal&quot; class=&quot;modal fade show&quot;&gt; obscures it<br/>
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;<br/>
+System info: host: &apos;YOSSIA&apos;, ip: &apos;10.28.76.76&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.1&apos;<br/>
+Driver info: org.openqa.selenium.firefox.FirefoxDriver<br/>
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.1, capabilities: {desiredCapabilities: {acceptInsecureCerts: true, browserName: firefox}}, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 36528, moz:profile: C:\Users\yossi.ambalo\AppDa..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}<br/>
+Session ID: e3f42142-8da0-4ebd-848f-48de1086a72c</b></a><br />
+    <div class="stackTrace" id="exception-4">
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
+              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
+              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
+              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)<br />
+              org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)<br />
+              org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)<br />
+              jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)<br />
+              com.sun.proxy.$Proxy16.click(Unknown Source)<br />
+              com.odysii.selenium.page.openApps.dev.DevHomePage.getMyAppsPage(DevHomePage.java:50)<br />
+              com.odysii.content.DevContentTest._018_my_apps_new_version_valid_text(DevContentTest.java:395)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:661)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:744)<br />
+              org.testng.TestRunner.run(TestRunner.java:602)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:380)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:289)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1226)<br />
+              org.testng.TestNG.runSuites(TestNG.java:1144)<br />
+              org.testng.TestNG.run(TestNG.java:1115)<br />
+              org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)<br />
+              org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _019_my_apps_what_new_in_this_version_valid_text
+      </td>
+  <td class="duration">
+    4.069s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-5', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.ElementClickInterceptedException: Element &lt;span class=&quot;nav-text&quot;&gt; is not clickable at point (89.39166259765625,172) because another element &lt;div id=&quot;newAppModal&quot; class=&quot;modal fade show&quot;&gt; obscures it<br/>
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;<br/>
+System info: host: &apos;YOSSIA&apos;, ip: &apos;10.28.76.76&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.1&apos;<br/>
+Driver info: org.openqa.selenium.firefox.FirefoxDriver<br/>
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.1, capabilities: {desiredCapabilities: {acceptInsecureCerts: true, browserName: firefox}}, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 36528, moz:profile: C:\Users\yossi.ambalo\AppDa..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}<br/>
+Session ID: e3f42142-8da0-4ebd-848f-48de1086a72c</b></a><br />
+    <div class="stackTrace" id="exception-5">
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
+              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
+              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
+              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)<br />
+              org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)<br />
+              org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)<br />
+              jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)<br />
+              com.sun.proxy.$Proxy16.click(Unknown Source)<br />
+              com.odysii.selenium.page.openApps.dev.DevHomePage.getMyAppsPage(DevHomePage.java:50)<br />
+              com.odysii.content.DevContentTest._019_my_apps_what_new_in_this_version_valid_text(DevContentTest.java:405)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:661)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:744)<br />
+              org.testng.TestRunner.run(TestRunner.java:602)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:380)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:289)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1226)<br />
+              org.testng.TestNG.runSuites(TestNG.java:1144)<br />
+              org.testng.TestNG.run(TestNG.java:1115)<br />
+              org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)<br />
+              org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _020_my_apps_version_valid_texts
+      </td>
+  <td class="duration">
+    4.088s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-6', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.ElementClickInterceptedException: Element &lt;span class=&quot;nav-text&quot;&gt; is not clickable at point (89.39166259765625,172) because another element &lt;div id=&quot;newAppModal&quot; class=&quot;modal fade show&quot;&gt; obscures it<br/>
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;<br/>
+System info: host: &apos;YOSSIA&apos;, ip: &apos;10.28.76.76&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.1&apos;<br/>
+Driver info: org.openqa.selenium.firefox.FirefoxDriver<br/>
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.1, capabilities: {desiredCapabilities: {acceptInsecureCerts: true, browserName: firefox}}, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 36528, moz:profile: C:\Users\yossi.ambalo\AppDa..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}<br/>
+Session ID: e3f42142-8da0-4ebd-848f-48de1086a72c</b></a><br />
+    <div class="stackTrace" id="exception-6">
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
+              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
+              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
+              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)<br />
+              org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)<br />
+              org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)<br />
+              jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)<br />
+              com.sun.proxy.$Proxy16.click(Unknown Source)<br />
+              com.odysii.selenium.page.openApps.dev.DevHomePage.getMyAppsPage(DevHomePage.java:50)<br />
+              com.odysii.content.DevContentTest._020_my_apps_version_valid_texts(DevContentTest.java:414)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:661)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:744)<br />
+              org.testng.TestRunner.run(TestRunner.java:602)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:380)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:289)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1226)<br />
+              org.testng.TestNG.runSuites(TestNG.java:1144)<br />
+              org.testng.TestNG.run(TestNG.java:1115)<br />
+              org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)<br />
+              org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _021_my_apps_back_to_my_apps_valid_text
+      </td>
+  <td class="duration">
+    4.077s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-7', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.ElementClickInterceptedException: Element &lt;span class=&quot;nav-text&quot;&gt; is not clickable at point (89.39166259765625,172) because another element &lt;div id=&quot;newAppModal&quot; class=&quot;modal fade show&quot;&gt; obscures it<br/>
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;<br/>
+System info: host: &apos;YOSSIA&apos;, ip: &apos;10.28.76.76&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.1&apos;<br/>
+Driver info: org.openqa.selenium.firefox.FirefoxDriver<br/>
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.1, capabilities: {desiredCapabilities: {acceptInsecureCerts: true, browserName: firefox}}, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 36528, moz:profile: C:\Users\yossi.ambalo\AppDa..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}<br/>
+Session ID: e3f42142-8da0-4ebd-848f-48de1086a72c</b></a><br />
+    <div class="stackTrace" id="exception-7">
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
+              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
+              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
+              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)<br />
+              org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)<br />
+              org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)<br />
+              jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)<br />
+              com.sun.proxy.$Proxy16.click(Unknown Source)<br />
+              com.odysii.selenium.page.openApps.dev.DevHomePage.getMyAppsPage(DevHomePage.java:50)<br />
+              com.odysii.content.DevContentTest._021_my_apps_back_to_my_apps_valid_text(DevContentTest.java:429)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:661)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:744)<br />
+              org.testng.TestRunner.run(TestRunner.java:602)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:380)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:289)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1226)<br />
+              org.testng.TestNG.runSuites(TestNG.java:1144)<br />
+              org.testng.TestNG.run(TestNG.java:1115)<br />
+              org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)<br />
+              org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _022_dev_home_page_valid_Dashboard_header
+      </td>
+  <td class="duration">
+    0.038s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-8', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.ElementClickInterceptedException: Element &lt;span class=&quot;nav-text&quot;&gt; is not clickable at point (100.74166107177734,95) because another element &lt;div id=&quot;newAppModal&quot; class=&quot;modal fade show&quot;&gt; obscures it<br/>
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;<br/>
+System info: host: &apos;YOSSIA&apos;, ip: &apos;10.28.76.76&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.1&apos;<br/>
+Driver info: org.openqa.selenium.firefox.FirefoxDriver<br/>
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.1, capabilities: {desiredCapabilities: {acceptInsecureCerts: true, browserName: firefox}}, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 36528, moz:profile: C:\Users\yossi.ambalo\AppDa..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}<br/>
+Session ID: e3f42142-8da0-4ebd-848f-48de1086a72c</b></a><br />
+    <div class="stackTrace" id="exception-8">
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
+              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
+              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
+              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)<br />
+              org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)<br />
+              org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)<br />
+              jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)<br />
+              com.sun.proxy.$Proxy16.click(Unknown Source)<br />
+              com.odysii.selenium.page.openApps.dev.DevHomePage.getDashboardPage(DevHomePage.java:55)<br />
+              com.odysii.content.DevContentTest._022_dev_home_page_valid_Dashboard_header(DevContentTest.java:440)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:661)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:744)<br />
+              org.testng.TestRunner.run(TestRunner.java:602)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:380)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:289)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1226)<br />
+              org.testng.TestNG.runSuites(TestNG.java:1144)<br />
+              org.testng.TestNG.run(TestNG.java:1115)<br />
+              org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)<br />
+              org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _023_dev_home_page_valid_TransactionHistory_header
+      </td>
+  <td class="duration">
+    0.031s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-9', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.ElementClickInterceptedException: Element &lt;span class=&quot;nav-text&quot;&gt; is not clickable at point (137.00833129882812,249) because another element &lt;div id=&quot;newAppModal&quot; class=&quot;modal fade show&quot;&gt; obscures it<br/>
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;<br/>
+System info: host: &apos;YOSSIA&apos;, ip: &apos;10.28.76.76&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.1&apos;<br/>
+Driver info: org.openqa.selenium.firefox.FirefoxDriver<br/>
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.1, capabilities: {desiredCapabilities: {acceptInsecureCerts: true, browserName: firefox}}, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 36528, moz:profile: C:\Users\yossi.ambalo\AppDa..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}<br/>
+Session ID: e3f42142-8da0-4ebd-848f-48de1086a72c</b></a><br />
+    <div class="stackTrace" id="exception-9">
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
+              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
+              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
+              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)<br />
+              org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)<br />
+              org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)<br />
+              jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)<br />
+              com.sun.proxy.$Proxy16.click(Unknown Source)<br />
+              com.odysii.selenium.page.openApps.dev.DevHomePage.getTrasactionHistoryPage(DevHomePage.java:60)<br />
+              com.odysii.content.DevContentTest._023_dev_home_page_valid_TransactionHistory_header(DevContentTest.java:452)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:661)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:744)<br />
+              org.testng.TestRunner.run(TestRunner.java:602)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:380)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:289)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1226)<br />
+              org.testng.TestNG.runSuites(TestNG.java:1144)<br />
+              org.testng.TestNG.run(TestNG.java:1115)<br />
+              org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)<br />
+              org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _024_home_page_valid_RevenueReport_header
+      </td>
+  <td class="duration">
+    0.037s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-10', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.ElementClickInterceptedException: Element &lt;span class=&quot;nav-text&quot;&gt; is not clickable at point (118.19166564941406,326) because another element &lt;div id=&quot;newAppModal&quot; class=&quot;modal fade show&quot;&gt; obscures it<br/>
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;<br/>
+System info: host: &apos;YOSSIA&apos;, ip: &apos;10.28.76.76&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.1&apos;<br/>
+Driver info: org.openqa.selenium.firefox.FirefoxDriver<br/>
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.1, capabilities: {desiredCapabilities: {acceptInsecureCerts: true, browserName: firefox}}, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 36528, moz:profile: C:\Users\yossi.ambalo\AppDa..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}<br/>
+Session ID: e3f42142-8da0-4ebd-848f-48de1086a72c</b></a><br />
+    <div class="stackTrace" id="exception-10">
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
+              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
+              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
+              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)<br />
+              org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)<br />
+              org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)<br />
+              jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)<br />
+              com.sun.proxy.$Proxy16.click(Unknown Source)<br />
+              com.odysii.selenium.page.openApps.dev.DevHomePage.getRevenueReportPage(DevHomePage.java:65)<br />
+              com.odysii.content.DevContentTest._024_home_page_valid_RevenueReport_header(DevContentTest.java:463)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:661)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:744)<br />
+              org.testng.TestRunner.run(TestRunner.java:602)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:380)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:289)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1226)<br />
+              org.testng.TestNG.runSuites(TestNG.java:1144)<br />
+              org.testng.TestNG.run(TestNG.java:1115)<br />
+              org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)<br />
+              org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _025_home_page_valid_SupportTickets_header
+      </td>
+  <td class="duration">
+    0.047s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-11', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.ElementClickInterceptedException: Element &lt;span class=&quot;nav-text&quot;&gt; is not clickable at point (119.89166259765625,403) because another element &lt;div id=&quot;newAppModal&quot; class=&quot;modal fade show&quot;&gt; obscures it<br/>
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;<br/>
+System info: host: &apos;YOSSIA&apos;, ip: &apos;10.28.76.76&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.1&apos;<br/>
+Driver info: org.openqa.selenium.firefox.FirefoxDriver<br/>
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.1, capabilities: {desiredCapabilities: {acceptInsecureCerts: true, browserName: firefox}}, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 36528, moz:profile: C:\Users\yossi.ambalo\AppDa..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}<br/>
+Session ID: e3f42142-8da0-4ebd-848f-48de1086a72c</b></a><br />
+    <div class="stackTrace" id="exception-11">
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
+              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
+              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
+              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)<br />
+              org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)<br />
+              org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)<br />
+              jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)<br />
+              com.sun.proxy.$Proxy16.click(Unknown Source)<br />
+              com.odysii.selenium.page.openApps.dev.DevHomePage.getSupportTicketstPage(DevHomePage.java:70)<br />
+              com.odysii.content.DevContentTest._025_home_page_valid_SupportTickets_header(DevContentTest.java:474)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:661)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:744)<br />
+              org.testng.TestRunner.run(TestRunner.java:602)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:380)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:289)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1226)<br />
+              org.testng.TestNG.runSuites(TestNG.java:1144)<br />
+              org.testng.TestNG.run(TestNG.java:1115)<br />
+              org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)<br />
+              org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  _026_home_page_valid_PublicProfile_header
+      </td>
+  <td class="duration">
+    0.038s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-12', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.ElementClickInterceptedException: Element &lt;span class=&quot;nav-text&quot;&gt; is not clickable at point (112.375,480) because another element &lt;div id=&quot;newAppModal&quot; class=&quot;modal fade show&quot;&gt; obscures it<br/>
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;<br/>
+System info: host: &apos;YOSSIA&apos;, ip: &apos;10.28.76.76&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.1&apos;<br/>
+Driver info: org.openqa.selenium.firefox.FirefoxDriver<br/>
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.1, capabilities: {desiredCapabilities: {acceptInsecureCerts: true, browserName: firefox}}, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 36528, moz:profile: C:\Users\yossi.ambalo\AppDa..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}<br/>
+Session ID: e3f42142-8da0-4ebd-848f-48de1086a72c</b></a><br />
+    <div class="stackTrace" id="exception-12">
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
+              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
+              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
+              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)<br />
+              org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)<br />
+              org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)<br />
+              jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)<br />
+              com.sun.proxy.$Proxy16.click(Unknown Source)<br />
+              com.odysii.selenium.page.openApps.dev.DevHomePage.getPublicProfilePage(DevHomePage.java:75)<br />
+              com.odysii.content.DevContentTest._026_home_page_valid_PublicProfile_header(DevContentTest.java:485)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -120,15 +847,15 @@
   <table class="resultsTable">
     <tr><th colspan="3" class="header passed">Passed Tests</th></tr>
           <tr>
-        <td colspan="3" class="group">com.odysii.functional.RetailerTest</td>
+        <td colspan="3" class="group">com.odysii.content.DevContentTest</td>
       </tr>
             
 <tr>
   <td class="method">
-                  _002_add_and_remove_app_library
+                  _001_dev_home_page_valid_MyApps_texts
       </td>
   <td class="duration">
-    70.498s
+    4.423s
   </td>
   <td class="result">
         
@@ -139,10 +866,10 @@
 </tr>
 <tr>
   <td class="method">
-                  _003_search_apps
+                  _002_check_app_status_presubmitted
       </td>
   <td class="duration">
-    19.771s
+    4.384s
   </td>
   <td class="result">
         
@@ -153,10 +880,10 @@
 </tr>
 <tr>
   <td class="method">
-                  _004_create_and_delete_campaign
+                  _003_check_app_status_submitted
       </td>
   <td class="duration">
-    49.039s
+    4.356s
   </td>
   <td class="result">
         
@@ -167,10 +894,10 @@
 </tr>
 <tr>
   <td class="method">
-                  _005_set_up_campaign_screen_size_15_6_layout1_default_state
+                  _004_check_app_status_certified
       </td>
   <td class="duration">
-    40.837s
+    4.339s
   </td>
   <td class="result">
         
@@ -181,10 +908,10 @@
 </tr>
 <tr>
   <td class="method">
-                  _006_set_up_campaign_screen_size_15_6_layout2_default_state
+                  _005_check_app_status_rejected
       </td>
   <td class="duration">
-    21.586s
+    4.344s
   </td>
   <td class="result">
         
@@ -195,10 +922,10 @@
 </tr>
 <tr>
   <td class="method">
-                  _007_set_up_campaign_screen_size_15_6_layout3_default_state
+                  _006_check_app_status_live
       </td>
   <td class="duration">
-    21.682s
+    4.319s
   </td>
   <td class="result">
         
@@ -209,10 +936,10 @@
 </tr>
 <tr>
   <td class="method">
-                  _008_set_up_campaign_screen_size_15_6_layout4_default_state
+                  _007_my_apps_add_new_app_valid_header
       </td>
   <td class="duration">
-    21.876s
+    15.766s
   </td>
   <td class="result">
         
@@ -223,10 +950,10 @@
 </tr>
 <tr>
   <td class="method">
-                  _009_set_up_campaign_screen_size_15_6_layout1_idle_state
+                  _008_my_apps_add_new_app_valid_text_appName
       </td>
   <td class="duration">
-    17.484s
+    0.069s
   </td>
   <td class="result">
         
@@ -237,10 +964,10 @@
 </tr>
 <tr>
   <td class="method">
-                  _010_set_up_campaign_screen_size_15_6_layout2_idle_state
+                  _009_my_apps_add_new_app_valid_text_version
       </td>
   <td class="duration">
-    21.775s
+    0.063s
   </td>
   <td class="result">
         
@@ -251,10 +978,10 @@
 </tr>
 <tr>
   <td class="method">
-                  _011_set_up_campaign_screen_size_15_6_layout3_idle_state
+                  _010_my_apps_add_new_app_valid_text_SubTitle
       </td>
   <td class="duration">
-    21.719s
+    0.078s
   </td>
   <td class="result">
         
@@ -265,10 +992,10 @@
 </tr>
 <tr>
   <td class="method">
-                  _012_set_up_campaign_screen_size_15_6_layout4_idle_state
+                  _011_my_apps_add_new_app_valid_text_language
       </td>
   <td class="duration">
-    21.987s
+    0.686s
   </td>
   <td class="result">
         
@@ -279,10 +1006,10 @@
 </tr>
 <tr>
   <td class="method">
-                  _013_set_up_campaign_screen_size_15_6_layout1_fueling_state
+                  _012_my_apps_add_new_app_valid_text_category
       </td>
   <td class="duration">
-    21.629s
+    3.660s
   </td>
   <td class="result">
         
@@ -293,234 +1020,10 @@
 </tr>
 <tr>
   <td class="method">
-                  _014_set_up_campaign_screen_size_15_6_layout2_fueling_state
+                  _013_my_apps_add_new_app_valid_text_availability
       </td>
   <td class="duration">
-    21.680s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _015_set_up_campaign_screen_size_15_6_layout3_fueling_state
-      </td>
-  <td class="duration">
-    21.767s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _016_set_up_campaign_screen_size_15_6_layout4_fueling_state
-      </td>
-  <td class="duration">
-    21.942s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _017_set_up_campaign_screen_size_15_6_layout1_payment_state
-      </td>
-  <td class="duration">
-    21.696s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _018_set_up_campaign_screen_size_15_6_layout2_payment_state
-      </td>
-  <td class="duration">
-    17.623s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _019_set_up_campaign_screen_size_15_6_layout3_payment_state
-      </td>
-  <td class="duration">
-    21.734s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _020_set_up_campaign_screen_size_15_6_layout4_payment_state
-      </td>
-  <td class="duration">
-    17.685s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _021_set_up_campaign_screen_size_15_6_layout1_post_fueling_state
-      </td>
-  <td class="duration">
-    21.677s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _022_set_up_campaign_screen_size_15_6_layout2_post_fueling_state
-      </td>
-  <td class="duration">
-    21.638s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _023_set_up_campaign_screen_size_15_6_layout3_post_fueling_state
-      </td>
-  <td class="duration">
-    21.757s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _024_set_up_campaign_screen_size_15_6_layout4_post_fueling_state
-      </td>
-  <td class="duration">
-    21.794s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _025_set_up_campaign_screen_size_10_4_layout1_default_state
-      </td>
-  <td class="duration">
-    13.333s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _026_set_up_campaign_screen_size_10_4_layout1_payment_state
-      </td>
-  <td class="duration">
-    14.171s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _027_set_up_campaign_screen_size_10_4_layout1_fueling_state
-      </td>
-  <td class="duration">
-    13.082s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _028_set_up_campaign_screen_size_10_4_layout1_idle_state
-      </td>
-  <td class="duration">
-    13.103s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _029_set_up_campaign_screen_size_10_4_layout1_post_fueling_state
-      </td>
-  <td class="duration">
-    13.155s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  _031_edit_name_and_description_campaign
-      </td>
-  <td class="duration">
-    17.753s
+    0.579s
   </td>
   <td class="result">
         

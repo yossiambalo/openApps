@@ -1,21 +1,20 @@
 package com.odysii.content;
 
 import com.odysii.TestBase;
-import com.odysii.selenium.page.openApps.User;
-import com.odysii.selenium.page.openApps.UserType;
-import com.odysii.selenium.page.openApps.dev.*;
+import com.odysii.selenium.page.openApps.dev.AppDetails;
+import com.odysii.selenium.page.openApps.dev.Marketing;
+import com.odysii.selenium.page.openApps.dev.MyApps;
+import com.odysii.selenium.page.openApps.dev.UploadCode;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
-import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +47,7 @@ public class DevContentTest extends TestBase {
 
 
     @BeforeClass
-    public void login(){
+    public void prepare(){
         prepareTest("app_details_DevContent_PreSubmitted.properties",ApplicationStatus.PRESUBMITTED);
         prepareTest("app_details_DevContent_Submitted.properties",ApplicationStatus.SUBMITTED);
         prepareTest("app_details_DevContent_Certified.properties",ApplicationStatus.CERTIFIED);
