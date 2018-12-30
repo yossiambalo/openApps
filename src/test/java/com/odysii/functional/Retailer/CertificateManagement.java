@@ -8,6 +8,7 @@ import com.odysii.selenium.page.openApps.admin.KeyMnagerPage;
 import com.odysii.selenium.page.openApps.admin.RetailersPage;
 import com.odysii.selenium.page.openApps.admin.helper.EnviromentType;
 //import com.odysii.selenium.page.openApps.admin.helper.RetailerName;
+import com.odysii.selenium.page.openApps.admin.helper.RetailerName;
 import com.odysii.selenium.page.openApps.helper.appDetails.RetailerType;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -27,13 +28,13 @@ public class CertificateManagement extends TestBase {
     @Test
     public void _001_generate_download_upload_deploy_GSOM_E2E(){
         retailersPage = adminPage.getRetailersPage();
-        keyMnagerPage = retailersPage.editRetailer(RetailerType.SHELL);
+        keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
         KeyMnagerPage keyMnagerPage = new KeyMnagerPage(driver);
         keyMnagerPage.generate(EnviromentType.PROD);
         keyMnagerPage.downloadKey(EnviromentType.PROD);
         keyMnagerPage.uploadGSOM(EnviromentType.PROD,"C:\\Git_repository\\openApps\\src\\main\\resources\\content\\UploadKeyGSOM.txt");
-
-//        Boolean actualValue = driver.findElement(By.xpath(//*[contains(text(), '')]);
-//                Assert.assertEquals(expectedValue, );
+        wait(WAIT);
+        user.logout();
+//        System.out.println("sss");
     }
 }
