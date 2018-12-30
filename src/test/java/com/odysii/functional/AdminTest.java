@@ -8,6 +8,7 @@ import com.odysii.selenium.page.openApps.admin.KeyMnagerPage;
 import com.odysii.selenium.page.openApps.admin.RetailersPage;
 import com.odysii.selenium.page.openApps.admin.UsersPage;
 import com.odysii.selenium.page.openApps.admin.helper.EnviromentType;
+import com.odysii.selenium.page.openApps.admin.helper.RetailerName;
 import com.odysii.selenium.page.openApps.admin.helper.RoleType;
 import com.odysii.selenium.page.openApps.helper.appDetails.RetailerType;
 import com.odysii.selenium.page.util.FileHandler;
@@ -47,7 +48,7 @@ public class AdminTest extends TestBase {
         user = new User(driver);
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
         retailersPage = adminPage.getRetailersPage();
-        keyMnagerPage = retailersPage.editRetailer(RetailerType.EXXON_MOBIL);
+        keyMnagerPage = retailersPage.editRetailer(RetailerName.ODYSII);
         Assert.assertTrue(keyMnagerPage.generate(EnviromentType.PROD));
     }
     @Test(priority = 3)
@@ -56,7 +57,7 @@ public class AdminTest extends TestBase {
             user = new User(driver);
             adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
             retailersPage = adminPage.getRetailersPage();
-            retailersPage.editRetailer(RetailerType.EXXON_MOBIL);
+            retailersPage.editRetailer(RetailerName.SHELL);
         }
         keyMnagerPage.downloadKey(EnviromentType.PROD);
         int counter = 0;
@@ -73,7 +74,7 @@ public class AdminTest extends TestBase {
             user = new User(driver);
             adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
             retailersPage = adminPage.getRetailersPage();
-            retailersPage.editRetailer(RetailerType.EXXON_MOBIL);
+            retailersPage.editRetailer(RetailerName.SPRINT_MART);
         }
         Assert.assertTrue(keyMnagerPage.uploadOmnia(EnviromentType.PROD,GENERATED_KEY_FILE_PATH));
     }
@@ -83,7 +84,7 @@ public class AdminTest extends TestBase {
             user = new User(driver);
             adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
             retailersPage = adminPage.getRetailersPage();
-            retailersPage.editRetailer(RetailerType.EXXON_MOBIL);
+            retailersPage.editRetailer(RetailerName.SPRINT_MART);
         }
         Assert.assertTrue(keyMnagerPage.uploadGSOM(EnviromentType.PROD,GENERATED_KEY_FILE_PATH));
     }
