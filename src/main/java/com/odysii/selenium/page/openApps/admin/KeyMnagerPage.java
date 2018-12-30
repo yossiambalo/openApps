@@ -33,12 +33,12 @@ public class KeyMnagerPage extends PageObject {
         }
         boolean res = false;
         if (enviromentType.equals(EnviromentType.PROD)){
-            if(isElementPresent(revokeProdKeys)){
-                revokeProdKeys.click();
-                wait(WAIT);
-            }
-            if(isElementPresent(generateProdKeys))
-                generateProdKeys.click();
+           if(isElementPresent(revokeProdKeys)){
+               revokeProdKeys.click();
+               wait(WAIT);
+           }
+           if(isElementPresent(generateProdKeys))
+            generateProdKeys.click();
             counter = 0;
             while (!isElementPresent(revokeProdKeys) && counter < 5){
                 wait(WAIT);
