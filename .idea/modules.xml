@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/openApps.iml" filepath="$PROJECT_DIR$/openApps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/openApps.iml" filepath="$PROJECT_DIR$/.idea/openApps.iml" />
     </modules>
   </component>
 </project>

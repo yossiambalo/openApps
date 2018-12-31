@@ -1,0 +1,13 @@
+/dependency-reduced-pom.xml
+target/
+*~
+.classpath
+.m2
+.project
+.settings/
+test-output/
+.idea/
+*iml
+.m2/
+
+.idea/workspace.xml

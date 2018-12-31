@@ -1,32 +1,33 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="OpenApps" parallel="false">
-    <!--<listeners>-->
-        <!--<listener class-name="org.uncommons.reportng.HTMLReporter"/>-->
-    <!--</listeners>-->
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    </listeners>
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <!--<class name="com.odysii.functional.DevTest"/>-->
+            <class name="com.odysii.functional.DevTest"/>
             <!--<class name="com.odysii.functional.RetailerTest"/>-->
-            <!--<class name="com.odysii.functional.AdminTest"/>-->
+            <!--&lt;!&ndash;<class name="com.odysii.functional.AdminTest"/>&ndash;&gt;-->
             <!--<class name="com.odysii.content.AdminContentTest"/>-->
             <!--<class name="com.odysii.content.DevContentTest"/>-->
             <!--<class name="com.odysii.content.RetailerContentTest"/>-->
-            <class name="com.odysii.negative.AppVersionsTest"/>
-            <class name="com.odysii.negative.MarketingTest"/>
-            <class name="com.odysii.negative.MyAppsTest"/>
+            <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
+            <!--<class name="com.odysii.negative.MarketingTest"/>-->
+            <!--<class name="com.odysii.negative.MyAppsTest"/>-->
             <!--<class name = "com.odysii.functional.Retailer.CertificateManagement"/>-->
         </classes>
     </test>
-    <test name="EdgeTest">
-    <parameter name="browser" value="edge"/>
+    <test name="FireFoxTest">
+    <parameter name="browser" value="firefox"/>
     <classes>
         <!--<class name="com.odysii.functional.DevTest"/>-->
+        <!--<class name="com.odysii.functional.RetailerTest"/>-->
+        <!--<class name="com.odysii.functional.AdminTest"/>-->
         <!--<class name="com.odysii.content.AdminContentTest"/>-->
         <!--<class name="com.odysii.content.DevContentTest"/>-->
         <!--<class name="com.odysii.content.RetailerContentTest"/>-->
-        <!--<class name="com.odysii.functional.RetailerTest"/>-->
         <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
         <!--<class name="com.odysii.negative.MarketingTest"/>-->
         <!--<class name="com.odysii.negative.MyAppsTest"/>-->
@@ -38,26 +39,30 @@
         <parameter name="browser" value="ie"/>
         <classes>
             <!--<class name="com.odysii.functional.DevTest"/>-->
+            <!--<class name="com.odysii.functional.RetailerTest"/>-->
+            <!--<class name="com.odysii.functional.AdminTest"/>-->
             <!--<class name="com.odysii.content.AdminContentTest"/>-->
             <!--<class name="com.odysii.content.DevContentTest"/>-->
             <!--<class name="com.odysii.content.RetailerContentTest"/>-->
-            <!--<class name="com.odysii.functional.RetailerTest"/>-->
             <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
             <!--<class name="com.odysii.negative.MarketingTest"/>-->
             <!--<class name="com.odysii.negative.MyAppsTest"/>-->
+            <!--<class name = "com.odysii.functional.Retailer.CertificateManagement"/>-->
         </classes>
     </test>
-    <test name="FireFoxTest">
-    <parameter name="browser" value="firefox"/>
-    <classes>
-        <!--<class name="com.odysii.functional.DevTest"/>-->
-        <!--<class name="com.odysii.content.AdminContentTest"/>-->
-        <!--<class name="com.odysii.content.DevContentTest"/>-->
-        <!--<class name="com.odysii.content.RetailerContentTest"/>-->
-        <!--<class name="com.odysii.functional.RetailerTest"/>-->
-        <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
-        <!--<class name="com.odysii.negative.MarketingTest"/>-->
-        <!--<class name="com.odysii.negative.MyAppsTest"/>-->
-    </classes>
+    <test name="EdgeTest">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <!--<class name="com.odysii.functional.DevTest"/>-->
+            <!--<class name="com.odysii.functional.RetailerTest"/>-->
+            <!--<class name="com.odysii.functional.AdminTest"/>-->
+            <!--<class name="com.odysii.content.AdminContentTest"/>-->
+            <!--<class name="com.odysii.content.DevContentTest"/>-->
+            <!--<class name="com.odysii.content.RetailerContentTest"/>-->
+            <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
+            <!--<class name="com.odysii.negative.MarketingTest"/>-->
+            <!--<class name="com.odysii.negative.MyAppsTest"/>-->
+            <!--<class name = "com.odysii.functional.Retailer.CertificateManagement"/>-->
+        </classes>
     </test>
 </suite>

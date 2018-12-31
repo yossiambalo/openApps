@@ -239,7 +239,7 @@ public class RetailerTest extends TestBase {
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    @Test//(priority = 29)
+    //@Test//(priority = 29)
     public void _030_valid_application_packing() {
         String url = "http://openappsqa.tveez.local:8080/openAppStore/webapi/application/4346/version/4349/pack";
         RequestHelper requestHelper = new RequestHelper();
