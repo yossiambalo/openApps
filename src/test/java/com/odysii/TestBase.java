@@ -13,6 +13,7 @@ import com.odysii.selenium.page.openApps.dev.summary.Summary;
 import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
 import com.odysii.selenium.page.util.DriverManager;
 import com.odysii.selenium.page.util.DriverType;
+import com.odysii.selenium.page.util.PropertyLoader;
 import com.odysii.selenium.page.util.RequestHelper;
 import org.openqa.selenium.*;
 import org.testng.Assert;
@@ -32,7 +33,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class TestBase {
-    public ArrayList<String> applicationIDToDelete = new ArrayList<>();
+    public static ArrayList<String> applicationIDToDelete = new ArrayList<>();
     public String category;
     public static String DEV_USER_NAME = "auto.dev.odysii@gmail.com";
     public final static String DEV_USER_PASS = "Aa123456";
@@ -44,8 +45,8 @@ public class TestBase {
     public WebDriver driver;
     public RetailerHomePage retailerHomePage;
     public int appListBeforeAdding;
+    public AdminPage adminPage;
     public DevHomePage devUser;
-    AdminPage adminPage;
     public MyApps myApps;
     public java.util.List<WebElement> actualAppList;
     public int actualValue;
@@ -58,7 +59,8 @@ public class TestBase {
     public static ExtentTest logger;
     public final static String APP_CLASS_NAME = "card";
     public final String zipFile = "TH.zip";
-
+    public static boolean isPrepared = false;
+    static String token = null;
     public static String getHostName() {
         String hostName = "";
         try {
@@ -104,23 +106,24 @@ public class TestBase {
     @AfterSuite
     public void tearDown()
     {
-        extent.flush();
-    }
-    @AfterClass
-    public void clean(){
-        String token = null;
-        Set<Cookie> allcookies = driver.manage().getCookies();
-        for (Cookie cookie : allcookies){
-            if (cookie.getName().equals("gvr-token")){
-                token = cookie.toString();
-                break;
-            }
-        }
         RequestHelper requestHelper = null;
         if (applicationIDToDelete != null){
             requestHelper = new RequestHelper();
             for (String appID: applicationIDToDelete){
                 requestHelper.deleteRequest("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/application/"+appID,token);
+            }
+        }
+        extent.flush();
+    }
+    @AfterClass
+    public void clean(){
+        if (token == null){
+            Set<Cookie> allcookies = driver.manage().getCookies();
+            for (Cookie cookie : allcookies){
+                if (cookie.getName().equals("gvr-token")){
+                    token = cookie.toString();
+                    break;
+                }
             }
         }
         driver.quit();
