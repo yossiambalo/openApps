@@ -4,6 +4,7 @@ import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.dev.*;
+import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,18 +14,23 @@ import org.testng.annotations.Test;
 
 public class AppVersionsTest extends TestBase {
     DevHomePage devHomePage;
-    final String APP_CLASS_NAME = "Negative App Version";
     @BeforeClass
-    public void login() {
-        user = new User(driver);
-        devHomePage = (DevHomePage) user.login("user", "123456", UserType.DEVELOPER);
+    public void prepare(){
+        if (!isPrepared){
+            prepareTest("app_details_DevContent_PreSubmitted.properties", ApplicationStatus.PRESUBMITTED);
+            isPrepared = true;
+        }else {
+            user = new User(driver);
+            devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+        }
         category = "App Versions";
+
     }
 
     @Test
     public void _001_version_field_without_value_negative() {
-        MyApps myApps = devHomePage.getMyAppsPage(driver);
-        ShowUp showUp = myApps.showUp(1);
+        MyApps myApps = devUser.getMyAppsPage(driver);
+        ShowUp showUp = myApps.showUp(0);
         showUp.getAppVersion();
         WebElement continueButton = driver.findElement(By.id("nextButton"));
         scrollDown(continueButton);

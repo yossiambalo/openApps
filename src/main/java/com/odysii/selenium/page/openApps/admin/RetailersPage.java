@@ -1,6 +1,7 @@
 package com.odysii.selenium.page.openApps.admin;
 
 import com.odysii.selenium.page.openApps.admin.helper.EnviromentType;
+import com.odysii.selenium.page.openApps.admin.helper.RetailerName;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,11 +17,11 @@ public class RetailersPage extends PageObject {
     public RetailersPage(WebDriver driver) {
         super(driver);
     }
-    public KeyMnagerPage editRetailer(String retailer){
+    public KeyMnagerPage editRetailer(RetailerName retailer){
         boolean flag = false;
         isElementPresent(retailerDivs.get(0));
-        for (int i = 0; i < retailerDivs.size()-1; i++){
-            if(retailerDivs.get(i).findElement(By.className("child_center")).getText().toLowerCase().equals(retailer.replaceAll("[\\s|\\u00A0]+", "").toLowerCase())){
+        for (int i = 0; i <= retailerDivs.size()-1; i++){
+            if(retailerDivs.get(i).findElement(By.className("child_center")).getText().toLowerCase().equals(retailer.getRetailerName().replaceAll("[\\s|\\u00A0]+", "").toLowerCase())){
                 retailerDivs.get(i).findElement(By.className("block-item-menu-icon")).click();
                 flag = true;
                 webDriver.findElement(By.id("editRetailer"+(i+1))).click();

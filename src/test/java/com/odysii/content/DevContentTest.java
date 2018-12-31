@@ -6,16 +6,14 @@ import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
-import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,12 +46,18 @@ public class DevContentTest extends TestBase {
 
 
     @BeforeClass
-    public void login(){
-        prepareTest("app_details_DevContent_PreSubmitted.properties",ApplicationStatus.PRESUBMITTED);
-        prepareTest("app_details_DevContent_Submitted.properties",ApplicationStatus.SUBMITTED);
-        prepareTest("app_details_DevContent_Certified.properties",ApplicationStatus.CERTIFIED);
-        prepareTest("app_details_DevContent_Rejected.properties",ApplicationStatus.REJECT);
-        prepareTest("app_details_DevContent_Live.properties",ApplicationStatus.LIVE);
+    public void prepare(){
+        if (!isPrepared){
+            prepareTest("app_details_DevContent_PreSubmitted.properties",ApplicationStatus.PRESUBMITTED);
+            prepareTest("app_details_DevContent_Submitted.properties",ApplicationStatus.SUBMITTED);
+            prepareTest("app_details_DevContent_Certified.properties",ApplicationStatus.CERTIFIED);
+            prepareTest("app_details_DevContent_Rejected.properties",ApplicationStatus.REJECT);
+            prepareTest("app_details_DevContent_Live.properties",ApplicationStatus.LIVE);
+            isPrepared = true;
+        }else {
+            user = new User(driver);
+            devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+        }
         category = "Dev Content";
 
     }
@@ -288,18 +292,16 @@ public class DevContentTest extends TestBase {
             RtlDrpDwn.findElement(By.className("dropdown-btn")).click();
         }
 
-        String expectedRtlOpt1 = "ExxonMobil";
+
+        String expectedRtlOpt1 = "Shell";
         String actualRtlOpt1 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(0).getText().trim();
         Assert.assertEquals(actualRtlOpt1,expectedRtlOpt1);
-        String expectedRtlOpt2 = "Shell";
+        String expectedRtlOpt2 = "Sprint Mart / Morris Petro";
         String actualRtlOpt2 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(1).getText().trim();
         Assert.assertEquals(actualRtlOpt2,expectedRtlOpt2);
-        String expectedRtlOpt3 = "Sprint Mart / Morris Petro";
+        String expectedRtlOpt3 = "Odysii";
         String actualRtlOpt3 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(2).getText().trim();
         Assert.assertEquals(actualRtlOpt3,expectedRtlOpt3);
-        String expectedRtlOpt4 = "Odysii";
-        String actualRtlOpt4 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(3).getText().trim();
-        Assert.assertEquals(actualRtlOpt4,expectedRtlOpt4);
         if (! browserName.equals("microsoftedge")) {
             RtlDrpDwn.findElement(By.className("dropdown-btn")).click();
         }
@@ -387,7 +389,9 @@ public class DevContentTest extends TestBase {
         String expectedAppPrvScr = "800 x 400px";
         String actualAppPrvScr = driver.findElement(By.id("newAppUploadScreenshot")).getText().trim();
         Assert.assertEquals(actualAppPrvScr,expectedAppPrvScr);
-        driver.findElement(By.id("cancelButton")).click();
+        WebElement cancelBtn = driver.findElement(By.id("cancelButton"));
+        scrollDown(cancelBtn);
+        cancelBtn.click();
 
     }
     @Test
