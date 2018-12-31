@@ -23,7 +23,7 @@ public class PageObject {
      }
      public boolean isElementExist(By by){
          int counter = 0;
-         while (webDriver.findElements(by).size() < 1 && counter < 5){
+         while (webDriver.findElements(by).size() < 1 && counter < 2){
              wait(4000);
              counter ++;
          }
