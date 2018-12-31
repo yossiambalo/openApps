@@ -10,3 +10,4 @@ test-output/
 *iml
 .m2/
 
+.idea/workspace.xml

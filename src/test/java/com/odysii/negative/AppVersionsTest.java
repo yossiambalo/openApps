@@ -17,7 +17,7 @@ public class AppVersionsTest extends TestBase {
     @BeforeClass
     public void login() {
         user = new User(driver);
-        devHomePage = (DevHomePage) user.login("user", "123456", UserType.DEVELOPER);
+        devHomePage = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         category = "App Versions";
     }
 
