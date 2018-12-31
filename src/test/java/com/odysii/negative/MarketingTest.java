@@ -17,11 +17,12 @@ import org.testng.annotations.Test;
 public class MarketingTest extends TestBase {
     private ShowUp showUp;
     private final String zipFile = "TH.zip";
+    public static String DEV_USER_NAME = "auto.open.apps@gmail.com";
     DevHomePage devUser;
     @BeforeClass
     public void login(){
         user = new User(driver);
-        devUser = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
+        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         category = "Marketing";
 
     }

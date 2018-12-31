@@ -13,11 +13,11 @@ import org.testng.annotations.Test;
 
 public class AppVersionsTest extends TestBase {
     DevHomePage devHomePage;
-    final String APP_CLASS_NAME = "Negative App Version";
+    public static String DEV_USER_NAME = "auto.open.apps@gmail.com";
     @BeforeClass
     public void login() {
         user = new User(driver);
-        devHomePage = (DevHomePage) user.login("user", "123456", UserType.DEVELOPER);
+        devHomePage = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
         category = "App Versions";
     }
 

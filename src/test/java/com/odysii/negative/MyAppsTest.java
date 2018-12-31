@@ -20,11 +20,12 @@ public class MyAppsTest extends TestBase {
     private AppDetails appDetails;
     DevHomePage devUser;
     private Marketing marketing;
+    public static String DEV_USER_NAME = "auto.open.apps@gmail.com";
 
     @BeforeClass
     public void login(){
         user = new User(driver);
-        devUser = (DevHomePage) user.login("user","123456", UserType.DEVELOPER);
+        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         category = "My Apps";
     }
     @Test
