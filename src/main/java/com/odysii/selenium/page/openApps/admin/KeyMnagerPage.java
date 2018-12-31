@@ -4,6 +4,7 @@ import com.odysii.selenium.page.openApps.admin.helper.EnviromentType;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -26,24 +27,14 @@ public class KeyMnagerPage extends PageObject {
         super(driver);
     }
     public boolean generate(EnviromentType enviromentType) {
-        int counter = 0;
-//        while (!isElementExist(By.id("generateProdKeys")) && counter < 5){
-//            wait(WAIT);
-//            counter ++;
-//        }
-        boolean res = false;
-        if (enviromentType.equals(EnviromentType.PROD)) {
-            while (isElementExist(By.id("revokeProdKeys")) && counter < 2) {
-                counter ++;
-                wait(WAIT);
-            }
+        if (isElementExist(By.id("revokeProdKeys")) ) {
             revokeProdKeys.click();
-            if (isElementExist(By.id("generateProdKeys")))
-                generateProdKeys.click();
+        }
+        if (isElementExist(By.id("generateProdKeys"))){
+            generateProdKeys.click();
         }
         wait(WAIT);
-        res = revokeProdKeys.getText().contains("Revoke");
-        return res;
+        return revokeProdKeys.getText().contains("Revoke");
     }
     public void downloadKey(EnviromentType enviromentType){
         int counter = 0;
@@ -65,7 +56,11 @@ public class KeyMnagerPage extends PageObject {
             counter ++;
         }
         if (enviromentType.equals(EnviromentType.PROD)){
-            uploadProdEnvOmniaKeyInput.sendKeys(filePath);
+            try {
+                uploadProdEnvOmniaKeyInput.sendKeys(filePath);
+            }catch (WebDriverException e){
+                System.out.println(e.getMessage());
+            }
             res = footerMessage.getText().contains(SUCCESS_MESSAGE);
         }else {
 

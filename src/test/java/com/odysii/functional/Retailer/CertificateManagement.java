@@ -10,8 +10,10 @@ import com.odysii.selenium.page.openApps.admin.helper.EnviromentType;
 //import com.odysii.selenium.page.openApps.admin.helper.RetailerName;
 import com.odysii.selenium.page.openApps.admin.helper.RetailerName;
 import com.odysii.selenium.page.openApps.helper.appDetails.RetailerType;
+import com.odysii.selenium.page.util.FileHandler;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -19,7 +21,7 @@ public class CertificateManagement extends TestBase {
     KeyMnagerPage keyMnagerPage = null;
     AdminPage adminPage;
     RetailersPage retailersPage;
-
+    final String GENERATED_KEY_FILE_PATH = System.getProperty("user.home")+"\\Downloads\\cert_pub_retailer_id_2.txt";
     @BeforeClass
     public void prepare(){
         user = new User(driver);
@@ -32,9 +34,15 @@ public class CertificateManagement extends TestBase {
         KeyMnagerPage keyMnagerPage = new KeyMnagerPage(driver);
         keyMnagerPage.generate(EnviromentType.PROD);
         keyMnagerPage.downloadKey(EnviromentType.PROD);
-        keyMnagerPage.uploadGSOM(EnviromentType.PROD,"C:\\Git_repository\\openApps\\src\\main\\resources\\content\\UploadKeyGSOM.txt");
+        wait(WAIT);
+        keyMnagerPage.uploadGSOM(EnviromentType.PROD,GENERATED_KEY_FILE_PATH);
         wait(WAIT);
         user.logout();
 //        System.out.println("sss");
+    }
+    @AfterClass
+    public void clean(){
+        FileHandler fileHandler = new FileHandler();
+        fileHandler.deleteFile(GENERATED_KEY_FILE_PATH);
     }
 }

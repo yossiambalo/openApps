@@ -47,7 +47,6 @@ public class TestBase {
     public int appListBeforeAdding;
     public AdminPage adminPage;
     public DevHomePage devUser;
-    AdminPage adminPage;
     public MyApps myApps;
     public java.util.List<WebElement> actualAppList;
     public int actualValue;
