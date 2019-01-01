@@ -57,7 +57,7 @@ public class RetailerTest extends TestBase {
         AppLibrary appLibrary = retailerHomePage.getAppLibrary();
         wait(WAIT);
         int actualApps = driver.findElements(By.className(APP_CLASS_NAME)).size();
-        Assert.assertEquals(actualApps,expectedApp,"Failed to adding application to library!");
+        Assert.assertEquals(actualApps,expectedApp,"Failed to adding code to library!");
         appLibrary.removeAppFromLibrary(driver.findElements(By.className(APP_CLASS_NAME)).size() - 1);
         wait(WAIT);
         driver.navigate().refresh();
@@ -241,9 +241,9 @@ public class RetailerTest extends TestBase {
 
     //@Test//(priority = 29)
     public void _030_valid_application_packing() {
-        String url = "http://openappsqa.tveez.local:8080/openAppStore/webapi/application/4346/version/4349/pack";
+        String url = "http://openappsqa.tveez.local:8080/openAppStore/webapi/code/4346/version/4349/pack";
         RequestHelper requestHelper = new RequestHelper();
-        Assert.assertTrue(requestHelper.getRequest(url),"Failed to pack an application!");
+        Assert.assertTrue(requestHelper.getRequest(url),"Failed to pack an code!");
     }
 
     @Test
