@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="31cb58d5-a252-4a0e-bde0-bb2723a29342" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/negative/MyAppsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/negative/MyAppsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path=".idea/" />
@@ -249,7 +247,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546357500615" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546357659522" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/test-output" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
   </component>
@@ -356,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546352789980</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Nir - Fixed tests in negative MyAppsTest to work with app creation methods">
+      <created>1546357564318</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1546357564318</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -402,7 +407,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49919224" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" sideWeight="0.50080776" side_tool="true" weight="0.25266525" />
@@ -482,7 +486,8 @@
     <MESSAGE value="Nir - configured my_apps.xml to run only Chrome tests for Jenkins first run" />
     <MESSAGE value="Nir - Changed extent.config to work with HTTP instead of HTTPS protocol" />
     <MESSAGE value="Nir - change on my_apps.xml for jenkins test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nir - change on my_apps.xml for jenkins test" />
+    <MESSAGE value="Nir - Fixed tests in negative MyAppsTest to work with app creation methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nir - Fixed tests in negative MyAppsTest to work with app creation methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
