@@ -171,12 +171,12 @@ public class MyAppsTest extends TestBase {
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_DISPENSER_PER_MONTH,"4",Availabilty.PUBLIC);
         wait(WAIT);
         WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
-        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\barcodeApp_1541669891338.zip");
+        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\code\\barcodeApp_1541669891338.zip");
         wait(WAIT);
         WebElement continurButton = driver.findElement(By.id("nextButton"));
         continurButton.click();
         Boolean actualValue = isElementExist(By.id("app-promotion"));
-        Assert.assertTrue(actualValue,"Moved to marketing page successfully");
+        Assert.assertTrue(actualValue,"Not Moved to marketing page successfully");
     }
 
     @Test
@@ -186,7 +186,7 @@ public class MyAppsTest extends TestBase {
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PUBLIC);
         wait(WAIT);
         WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
-        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\barcodeApp_1541669891338.zip");
+        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\code\\barcodeApp_1541669891338.zip");
         wait(WAIT);
         WebElement continurButton = driver.findElement(By.id("nextButton"));
         continurButton.click();
@@ -215,7 +215,7 @@ public class MyAppsTest extends TestBase {
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"33",Availabilty.PUBLIC);
         wait(WAIT);
         WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
-        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\barcodeApp_1541669891338.zip");
+        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\code\\barcodeApp_1541669891338.zip");
         wait(WAIT);
         WebElement continueButton = driver.findElement(By.id("nextButton"));
         continueButton.click();
@@ -227,7 +227,7 @@ public class MyAppsTest extends TestBase {
         WebElement appIcon = driver.findElement(By.id("iconFile"));
         ((JavascriptExecutor)driver).executeScript("document.getElementById('iconFile').removeAttribute('class')");
         wait(WAIT);
-        appIcon.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\dog2.jpg");
+        appIcon.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\code\\dog2.jpg");
         WebElement appPreviewAndScreenShot = driver.findElement(By.id("screenshotsFile"));
         ((JavascriptExecutor)driver).executeScript("document.getElementById('screenshotsFile').removeAttribute('class')");
         wait(WAIT);
@@ -246,7 +246,7 @@ public class MyAppsTest extends TestBase {
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"444",Availabilty.PUBLIC);
         wait(WAIT);
         WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
-        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\barcodeApp_1541669891338.zip");
+        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\code\\barcodeApp_1541669891338.zip");
         WebElement continurButton = driver.findElement(By.id("nextButton"));
         continurButton.click();
         wait(WAIT);
@@ -275,7 +275,7 @@ public class MyAppsTest extends TestBase {
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_DISPENSER_PER_YEAR,"52",Availabilty.PRIVATE);
         wait(WAIT);
         WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
-        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\barcodeApp_1541669891338.zip");
+        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\code\\barcodeApp_1541669891338.zip");
         wait(WAIT);
         WebElement continurButton = driver.findElement(By.id("nextButton"));
         continurButton.click();

@@ -110,7 +110,7 @@ public class TestBase {
         if (applicationIDToDelete != null){
             requestHelper = new RequestHelper();
             for (String appID: applicationIDToDelete){
-                requestHelper.deleteRequest("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/application/"+appID,token);
+                requestHelper.deleteRequest("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/code/"+appID,token);
             }
         }
         extent.flush();
@@ -218,7 +218,7 @@ public class TestBase {
         wait(WAIT);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
         actualValue = actualAppList.size();
-        Assert.assertEquals(expectedValue,actualValue,"Failed to create a new application!");
+        Assert.assertEquals(expectedValue,actualValue,"Failed to create a new code!");
        // Assert.assertTrue(myApps.getTitle(actualValue-1).toLowerCase().contains(appDetails.getAppTitle().toLowerCase()));
 //        Assert.assertTrue(myApps.getDescription(actualValue-1).toLowerCase().contains(appDetails.getAppDescription().toLowerCase()));
         if (!applicationStatus.equals(ApplicationStatus.PRESUBMITTED)){

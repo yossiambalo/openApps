@@ -6,39 +6,44 @@ import org.openqa.selenium.support.PageFactory;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
 
 public class PageObject {
     protected final int WAIT = 4000;
     protected WebDriver webDriver;
-    public PageObject(WebDriver driver){
+
+    public PageObject(WebDriver driver) {
         this.webDriver = driver;
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
-     public void wait(int miliseconds){
-         try {
-             Thread.sleep(miliseconds);
-         } catch (InterruptedException e) {
-             e.printStackTrace();
-         }
-     }
-     public boolean isElementExist(By by){
-         int counter = 0;
-         while (webDriver.findElements(by).size() < 1 && counter < 2){
-             wait(4000);
-             counter ++;
-         }
-         if (counter == 5){
-             throw new ExplicitAssertionError("element not found");
-         }
-         wait(WAIT);
-         return true;
-     }
-    protected String getFile(String fileName){
 
-        File file = new File(getClass().getClassLoader().getResource(fileName).getFile());
-
-        return file.toString();
+    public void wait(int miliseconds) {
+        try {
+            Thread.sleep(miliseconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
+
+    public boolean isElementExist(By by) {
+        int counter = 0;
+        while (webDriver.findElements(by).size() < 1 && counter < 2) {
+            wait(4000);
+            counter++;
+        }
+        if (counter == 5) {
+            throw new ExplicitAssertionError("element not found");
+        }
+        wait(WAIT);
+        return true;
+    }
+
+    protected String getFile(String fileName) {
+        return System.getProperty("user.dir")+"\\src\\main\\resources\\"+fileName;
+    }
+
     protected void pageUpDown(boolean down){
         Robot robot = null;
         try {

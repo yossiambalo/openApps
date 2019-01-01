@@ -42,7 +42,7 @@ public class MarketingTest extends TestBase {
         wait(WAIT);
         driver.findElement(By.id("finishButton")).click();
         wait(WAIT);
-        String actualValue =driver.findElement(By.id("new-application-success-error-message")).getText().trim();
+        String actualValue =driver.findElement(By.id("new-code-success-error-message")).getText().trim();
         Assert.assertEquals(actualValue,"Some required fields are missing");
         driver.findElement(By.id("cancelButton")).click();
 
@@ -54,7 +54,7 @@ public class MarketingTest extends TestBase {
 //        continueButton.click();
 //        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
 //        wait(WAIT);
-//        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\barcodeApp_1541669891338.zip");
+//        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\code\\barcodeApp_1541669891338.zip");
 //        WebElement continueButtonInUploadPage = driver.findElement(By.id("nextButton"));
 //        continueButtonInUploadPage.click();
 //        WebElement promotionalText = driver.findElement(By.id("app-promotion"));
@@ -82,7 +82,7 @@ public class MarketingTest extends TestBase {
         wait(WAIT);
         driver.findElement(By.id("finishButton")).click();
         wait(WAIT);
-        String actualValue =driver.findElement(By.id("new-application-success-error-message")).getText().trim();
+        String actualValue =driver.findElement(By.id("new-code-success-error-message")).getText().trim();
         Assert.assertEquals(actualValue,"Some required fields are missing");
         driver.findElement(By.id("cancelButton")).click();
     }

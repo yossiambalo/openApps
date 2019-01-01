@@ -55,7 +55,7 @@ public class AppVersion extends PageObject {
                 this.newVersionText.sendKeys(newValue);
                 break;
             case SELECT_UPLOAD:
-                this.selectUpload.sendKeys(getFile("application//"+newValue ));
+                this.selectUpload.sendKeys(getFile("content/code//" +newValue ));
                 break;
 
             default:

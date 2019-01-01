@@ -38,7 +38,7 @@ public class DevContentTest extends TestBase {
         List<String> options = new ArrayList<String>();
         for (WebElement option : new Select(driver.findElement(by)).getOptions()) {
             String txt = option.getText();
-            if (option.getAttribute("value") != "") options.add(option.getText());
+            if (option.getAttribute("content/value") != "") options.add(option.getText());
         }
         return options;
 
