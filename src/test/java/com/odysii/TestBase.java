@@ -32,6 +32,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Set;
 
+
 public class TestBase {
     public static ArrayList<String> applicationIDToDelete = new ArrayList<>();
     public String category;
@@ -146,6 +147,7 @@ public class TestBase {
                 break;
             default:
         }
+
         driver.get("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore");
     }
     protected boolean isElementExist(By by){
