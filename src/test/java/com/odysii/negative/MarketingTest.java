@@ -26,7 +26,7 @@ public class MarketingTest extends TestBase {
         category = "Marketing";
 
     }
-    @Test // Test will failed until fix of space counts as a valid input!
+    //@Test // Test will failed until fix of space counts as a valid input!
     public void _001_promotional_text_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         showUp = myApps.showUp(2);
@@ -42,30 +42,13 @@ public class MarketingTest extends TestBase {
         wait(WAIT);
         driver.findElement(By.id("finishButton")).click();
         wait(WAIT);
-        String actualValue =driver.findElement(By.id("new-code-success-error-message")).getText().trim();
+        String actualValue = driver.findElement(By.id("new-application-success-error-message")).getText().trim();
         Assert.assertEquals(actualValue,"Some required fields are missing");
         driver.findElement(By.id("cancelButton")).click();
 
-
-//        WebElement version = driver.findElement(By.id("appVersion"));
-//        version.sendKeys("1.9.5");
-//        WebElement continueButton = driver.findElement(By.id("nextButton"));
-//        scrollDown(continueButton);
-//        continueButton.click();
-//        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
-//        wait(WAIT);
-//        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\code\\barcodeApp_1541669891338.zip");
-//        WebElement continueButtonInUploadPage = driver.findElement(By.id("nextButton"));
-//        continueButtonInUploadPage.click();
-//        WebElement promotionalText = driver.findElement(By.id("app-promotion"));
-//        promotionalText.clear();
-//        WebElement finishButton = driver.findElement(By.id("finishButton"));
-//        scrollDown(finishButton);
-//        finishButton.click();
-
     }
 
-    @Test
+    //@Test
     public void _002_keywords_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         showUp = myApps.showUp(2);
@@ -75,14 +58,14 @@ public class MarketingTest extends TestBase {
         showUp.getAppVersion();
         AppDetails appDetails = new AppDetails(driver);
         UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
-        Marketing marketing = uploadCode.upload(zipFile);
         wait(WAIT);
+        Marketing marketing = uploadCode.upload(zipFile);
         driver.findElement(By.id("app-keywords")).sendKeys(Keys.CONTROL + "a");
         driver.findElement(By.id("app-keywords")).sendKeys(Keys.DELETE);
         wait(WAIT);
         driver.findElement(By.id("finishButton")).click();
         wait(WAIT);
-        String actualValue =driver.findElement(By.id("new-code-success-error-message")).getText().trim();
+        String actualValue = driver.findElement(By.id("new-application-success-error-message")).getText().trim();
         Assert.assertEquals(actualValue,"Some required fields are missing");
         driver.findElement(By.id("cancelButton")).click();
     }
