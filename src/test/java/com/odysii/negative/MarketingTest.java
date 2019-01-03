@@ -42,7 +42,7 @@ public class MarketingTest extends TestBase {
         wait(WAIT);
         driver.findElement(By.id("finishButton")).click();
         wait(WAIT);
-        String actualValue =driver.findElement(By.id("new-code-success-error-message")).getText().trim();
+        String actualValue = driver.findElement(By.id("new-code-success-error-message")).getText().trim();
         Assert.assertEquals(actualValue,"Some required fields are missing");
         driver.findElement(By.id("cancelButton")).click();
 

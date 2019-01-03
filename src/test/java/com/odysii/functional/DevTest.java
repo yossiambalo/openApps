@@ -21,23 +21,25 @@ import java.util.List;
 
 public class DevTest extends TestBase {
     public static String DEV_USER_NAME = "auto.open.apps@gmail.com";
+
     @BeforeClass
-    public void login(){
+    public void login() {
         user = new User(driver);
-        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME, RETAILER_USER_PASS, UserType.RETAILER);
         category = "Dev";
     }
+
     @Test(priority = 1)
-    public void _001_valid_add_new_app(){
+    public void _001_valid_add_new_app() {
         //get number of live apps from retailer page
         retailerHomePage.getAppStore();
         appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
         user.logout();
-        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+        devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
         List<WebElement> appsList = driver.findElements(By.className(APP_CLASS_NAME));
         int appsSize = appsList.size();
-        int expectedValue = appsSize+1;
+        int expectedValue = appsSize + 1;
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetailsFromPropFile("app_details.properties");
         Marketing marketing = uploadCode.upload(zipFile);
@@ -45,111 +47,108 @@ public class DevTest extends TestBase {
         wait(WAIT);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
         actualValue = actualAppList.size();
-        Assert.assertEquals(expectedValue,actualValue,"Failed to create a new code!");
-        Assert.assertTrue(myApps.getTitle(actualValue-1).toLowerCase().contains(appDetails.getAppTitle().toLowerCase()));
-        Assert.assertTrue(myApps.getDescription(actualValue-1).toLowerCase().contains(appDetails.getAppDescription().toLowerCase()));
+        Assert.assertEquals(expectedValue, actualValue, "Failed to create a new code!");
+        Assert.assertTrue(myApps.getTitle(actualValue - 1).toLowerCase().contains(appDetails.getAppTitle().toLowerCase()));
+        Assert.assertTrue(myApps.getDescription(actualValue - 1).toLowerCase().contains(appDetails.getAppDescription().toLowerCase()));
     }
+
     @Test(priority = 2, dependsOnMethods = "_001_valid_add_new_app")
-    public void _002_valid_app_reject_no_fee(){
+    public void _002_valid_app_reject_no_fee() {
         //get the created app
-        ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
+        ShowUp showUp = myApps.showUp(actualAppList.get(actualValue - 1));
         setApplicationID();
         showUp.certify();
-        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus().trim());
+        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(), showUp.getStatus().trim());
         user.logout();
         //Admin approve
-        AdminPage adminPage = (AdminPage)user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+        AdminPage adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
         SupportTicket supportTicket = adminPage.getSupportTickets();
         supportTicket.rejectNoFee();
         user.logout();
         //Valid rejected
-        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+        devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
         int counter = 0;
         do {
             wait(2000);
             counter++;
-        }while (driver.findElements(By.className(APP_CLASS_NAME)).size() < actualAppList.size() && counter < 5);
-        showUp =  myApps.showUp(actualAppList.size()-1);
-        Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.REJECT.getStatus());
+        } while (driver.findElements(By.className(APP_CLASS_NAME)).size() < actualAppList.size() && counter < 5);
+        showUp = myApps.showUp(actualAppList.size() - 1);
+        Assert.assertEquals(showUp.getStatus().trim(), ApplicationStatus.REJECT.getStatus());
         showUp.backToMyApps();
     }
 
     @Test(priority = 3, dependsOnMethods = "_002_valid_app_reject_no_fee")
-    public void _003_valid_reject_with_fee(){
+    public void _003_valid_reject_with_fee() {
         user.logout();
-        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+        devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
         //get the created app
-        ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
+        ShowUp showUp = myApps.showUp(actualAppList.get(actualValue - 1));
         showUp.certify();
         wait(WAIT);
-        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus().trim());
+        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(), showUp.getStatus().trim());
         user.logout();
         //Admin approve
-        AdminPage adminPage = (AdminPage)user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+        AdminPage adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
         SupportTicket supportTicket = adminPage.getSupportTickets();
         supportTicket.rejectWithFee();
         user.logout();
         //Valid rejected
-        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+        devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
         int counter = 0;
         do {
             wait(2000);
             counter++;
-        }while (driver.findElements(By.className(APP_CLASS_NAME)).size() < actualAppList.size() && counter < 5);
-        showUp =  myApps.showUp(actualAppList.size()-1);
+        } while (driver.findElements(By.className(APP_CLASS_NAME)).size() < actualAppList.size() && counter < 5);
+        showUp = myApps.showUp(actualAppList.size() - 1);
         String status = null;
         counter = 0;
         do {
             status = showUp.getStatus().trim();
             wait(2000);
             counter++;
-        }while (!status.equals(ApplicationStatus.REJECT.getStatus()) && counter < 5);
-        Assert.assertEquals(status,ApplicationStatus.REJECT.getStatus());
+        } while (!status.equals(ApplicationStatus.REJECT.getStatus()) && counter < 5);
+        Assert.assertEquals(status, ApplicationStatus.REJECT.getStatus());
         showUp.backToMyApps();
     }
+
     @Test(priority = 4, dependsOnMethods = "_003_valid_reject_with_fee")
-    public void _004_edit_and_certify_and_go_live(){
-       try {
-           myApps = devUser.getMyAppsPage(driver);
-           wait(WAIT);
-           actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
-           actualValue = actualAppList.size();
-           ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
-           Summary summary = new Summary(driver);
-           showUp.editApp(summary);
-           showUp.certify();
-           wait(WAIT);
-           Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(),showUp.getStatus().trim());
-           user.logout();
-           //Admin approve
-           AdminPage adminPage = (AdminPage)user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
-           SupportTicket supportTicket = adminPage.getSupportTickets();
-           supportTicket.approve();
-           user.logout();
-           //Valid certified
-           devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
-           myApps = devUser.getMyAppsPage(driver);
-           actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
-           int counter = 0;
-           do {
-               wait(2000);
-               counter++;
-           }while (driver.findElements(By.className(APP_CLASS_NAME)).size() < actualAppList.size() && counter < 5);
-           showUp =  myApps.showUp(actualAppList.size()-1);
-           Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.CERTIFIED.getStatus());
-           showUp.addApplicationToStore();
-           Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.LIVE.getStatus());
-       }catch (Exception e){
-           e.getMessage();
-       }finally {
-           user.logout();
-       }
-    }
+    public void _004_edit_and_certify_and_go_live() {
+        myApps = devUser.getMyAppsPage(driver);
+        wait(WAIT);
+        actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        actualValue = actualAppList.size();
+        ShowUp showUp = myApps.showUp(actualAppList.get(actualValue - 1));
+        Summary summary = new Summary(driver);
+        showUp.editApp(summary);
+        showUp.certify();
+        wait(WAIT);
+        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(), showUp.getStatus().trim());
+        user.logout();
+        //Admin approve
+        AdminPage adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
+        SupportTicket supportTicket = adminPage.getSupportTickets();
+        supportTicket.approve();
+        user.logout();
+        //Valid certified
+        devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
+        myApps = devUser.getMyAppsPage(driver);
+        actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        int counter = 0;
+        do {
+            wait(2000);
+            counter++;
+        } while (driver.findElements(By.className(APP_CLASS_NAME)).size() < actualAppList.size() && counter < 5);
+        showUp = myApps.showUp(actualAppList.size() - 1);
+        Assert.assertEquals(showUp.getStatus().trim(), ApplicationStatus.CERTIFIED.getStatus());
+        showUp.addApplicationToStore();
+        Assert.assertEquals(showUp.getStatus().trim(), ApplicationStatus.LIVE.getStatus());
+        user.logout();
+}
     @Test(priority = 5, dependsOnMethods = "_004_edit_and_certify_and_go_live")
     public void _005_valid_app_add_to_app_store(){
        try {

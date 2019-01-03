@@ -55,7 +55,7 @@ public class CampaignDesigner extends PageObject {
             isElementPresent(screenSizeDdl);
             screenSizeDdl.sendKeys(screenSize);
             timeOut ++;
-        }while (!screenSizeDdl.getAttribute("content/value").equals(screenSize.replace(".","")) && timeOut < 5);
+        }while (!screenSizeDdl.getAttribute("value").equals(screenSize.replace(".","")) && timeOut < 5);
         switch (stateType){
             case DEFAULT:
                 defaultLink.click();

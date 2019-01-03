@@ -25,7 +25,7 @@ public class RetailerTest extends TestBase {
 //        prepareTest("app_details.properties", ApplicationStatus.SUBMITTED);
 //        prepareTest("app_details.properties", ApplicationStatus.LIVE);
     }
-    @Test//(priority = 1)
+    //@Test//(priority = 1)
     public void _001_valid_deploy_to_dispenser(){
         Scheduling scheduling = retailerHomePage.getScheduling();
         Assert.assertTrue(scheduling.deployToAll(AreaType.NORTH_US));
@@ -67,7 +67,7 @@ public class RetailerTest extends TestBase {
    @Test//(priority = 2)
     public void _003_search_apps(){
         retailerHomePage.getAppStore();
-        int expectedApp = 2;
+        int expectedApp = 7;
         retailerHomePage.searchApps("auto");
         wait(WAIT);
         int actualApps = driver.findElements(By.className(APP_CLASS_NAME)).size();
