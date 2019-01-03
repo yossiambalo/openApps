@@ -6,7 +6,6 @@ import com.odysii.selenium.page.openApps.retailer.helper.ScreenSize;
 import com.odysii.selenium.page.openApps.retailer.helper.StateType;
 import com.odysii.selenium.page.util.PageObject;
 import com.odysii.selenium.page.util.SeleniumUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -56,7 +55,7 @@ public class CampaignDesigner extends PageObject {
             isElementPresent(screenSizeDdl);
             screenSizeDdl.sendKeys(screenSize);
             timeOut ++;
-        }while (!screenSizeDdl.getAttribute("value").equals(screenSize.replace(".","")) && timeOut < 5);
+        }while (!screenSizeDdl.getAttribute("content/value").equals(screenSize.replace(".","")) && timeOut < 5);
         switch (stateType){
             case DEFAULT:
                 defaultLink.click();

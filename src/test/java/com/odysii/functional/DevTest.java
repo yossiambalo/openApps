@@ -45,7 +45,7 @@ public class DevTest extends TestBase {
         wait(WAIT);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
         actualValue = actualAppList.size();
-        Assert.assertEquals(expectedValue,actualValue,"Failed to create a new application!");
+        Assert.assertEquals(expectedValue,actualValue,"Failed to create a new code!");
         Assert.assertTrue(myApps.getTitle(actualValue-1).toLowerCase().contains(appDetails.getAppTitle().toLowerCase()));
         Assert.assertTrue(myApps.getDescription(actualValue-1).toLowerCase().contains(appDetails.getAppDescription().toLowerCase()));
     }

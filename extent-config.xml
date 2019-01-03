@@ -7,7 +7,7 @@
 
     <!-- protocol for script and stylesheets -->
     <!-- defaults to https -->
-    <protocol>https</protocol>
+    <protocol>http</protocol>
     
     <!-- report theme -->
     <!-- standard, dark -->

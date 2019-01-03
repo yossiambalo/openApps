@@ -1,6 +1,8 @@
 package com.odysii.negative;
 
 import com.odysii.TestBase;
+import com.odysii.selenium.page.openApps.dev.Marketing;
+import com.odysii.selenium.page.util.PageObject;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.dev.*;
@@ -151,7 +153,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertTrue(actualValue,"back button is function");
     }
 
-    //@Test
+    @Test
     public void _016_cancel_button_upload_code_page() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -167,13 +169,11 @@ public class MyAppsTest extends TestBase {
     public void _017_continue_button_upload_code_page_positive(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_DISPENSER_PER_MONTH,"4",Availabilty.PUBLIC);
+        UploadCode uploadCode = appDetails.setUpAppDetails("Test Button Upload Code Positive","8.8.18","YNWA",PriceType.PER_DISPENSER_PER_MONTH,"8",Availabilty.PUBLIC);
         wait(WAIT);
         WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
-        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\barcodeApp_1541669891338.zip");
+        marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        WebElement continurButton = driver.findElement(By.id("nextButton"));
-        continurButton.click();
         Boolean actualValue = isElementExist(By.id("app-promotion"));
         Assert.assertTrue(actualValue,"Moved to marketing page successfully");
     }
@@ -184,116 +184,63 @@ public class MyAppsTest extends TestBase {
         appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PUBLIC);
         wait(WAIT);
-        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
-        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\barcodeApp_1541669891338.zip");
+        marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        WebElement continurButton = driver.findElement(By.id("nextButton"));
-        continurButton.click();
-        WebElement appPromotion = driver.findElement(By.id("app-promotion"));
-        appPromotion.sendKeys("");
-        WebElement appKeywords = driver.findElement(By.id("app-keywords"));
-        appKeywords.sendKeys("Test");
-        WebElement appIcon = driver.findElement(By.id("iconFile"));
-        ((JavascriptExecutor)driver).executeScript("document.getElementById('iconFile').removeAttribute('class')");
+        marketing.fillMarketing("","Stevie G","app.jpg","dog2.jpg");
         wait(WAIT);
-        appIcon.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\content\\dog2.jpg");
-        WebElement appPreviewAndScreenShot = driver.findElement(By.id("screenshotsFile"));
-        ((JavascriptExecutor)driver).executeScript("document.getElementById('screenshotsFile').removeAttribute('class')");
-        wait(WAIT);
-        appPreviewAndScreenShot.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\content\\dog2.jpg");
         WebElement finishButton = driver.findElement(By.id("finishButton"));
         finishButton.click();
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
-        Assert.assertFalse(actualValue, "Promotional token field is mandatory - it's empty!");
+        Assert.assertFalse(actualValue, "Promotional text fields are mandatory - it's empty!");
     }
 
     @Test
     public void _019_keywords_empty_marketing_page_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"33",Availabilty.PUBLIC);
+        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PUBLIC);
         wait(WAIT);
-        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
-        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\barcodeApp_1541669891338.zip");
+        marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        WebElement continueButton = driver.findElement(By.id("nextButton"));
-        continueButton.click();
-        WebElement appPromotion = driver.findElement(By.id("app-promotion"));
-        appPromotion.sendKeys("TEST");
-        WebElement appKeywords = driver.findElement(By.id("app-keywords"));
-        appKeywords.clear();
-        appKeywords.sendKeys("");
-        WebElement appIcon = driver.findElement(By.id("iconFile"));
-        ((JavascriptExecutor)driver).executeScript("document.getElementById('iconFile').removeAttribute('class')");
+        marketing.fillMarketing("King Kenny","","app.jpg","dog2.jpg");
         wait(WAIT);
-        appIcon.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\dog2.jpg");
-        WebElement appPreviewAndScreenShot = driver.findElement(By.id("screenshotsFile"));
-        ((JavascriptExecutor)driver).executeScript("document.getElementById('screenshotsFile').removeAttribute('class')");
-        wait(WAIT);
-        appPreviewAndScreenShot.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\content\\dog2.jpg");
         WebElement finishButton = driver.findElement(By.id("finishButton"));
-        scrollDown(finishButton);
         finishButton.click();
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
-        Assert.assertFalse(actualValue,"No validation for field!");
+        Assert.assertFalse(actualValue, "Promotional text fields are mandatory - it's empty!");
     }
+
 
     @Test
     public void _020_screenshot_file_path_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"444",Availabilty.PUBLIC);
+        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PUBLIC);
         wait(WAIT);
-        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
-        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\barcodeApp_1541669891338.zip");
-        WebElement continurButton = driver.findElement(By.id("nextButton"));
-        continurButton.click();
+        marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        WebElement appPromotion = driver.findElement(By.id("app-promotion"));
-        appPromotion.sendKeys("QA");
-        WebElement appKeywords = driver.findElement(By.id("app-keywords"));
-        appKeywords.sendKeys("Test");
-        WebElement appIcon = driver.findElement(By.id("iconFile"));
-        ((JavascriptExecutor)driver).executeScript("document.getElementById('iconFile').removeAttribute('class')");
+        marketing.fillMarketing("King Kenny","Stevie G","","dog2.jpg");
         wait(WAIT);
-        appIcon.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\content\\dog2.jpg");
-//        WebElement appPreviewAndScreenShot = driver.findElement(By.id("screenshotsFile"));
-//        ((JavascriptExecutor)driver).executeScript("document.getElementById('screenshotsFile').removeAttribute('class')");
-//        wait(WAIT);
         WebElement finishButton = driver.findElement(By.id("finishButton"));
-        scrollDown(finishButton);
         finishButton.click();
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
-        Assert.assertFalse(actualValue,"No validation for field!");
+        Assert.assertFalse(actualValue, "Screenshot image is mandatory - it's empty!");
     }
 
     @Test
     public void _021_appicon_path_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_DISPENSER_PER_YEAR,"52",Availabilty.PRIVATE);
+        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PUBLIC);
         wait(WAIT);
-        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
-        agreeAndUpload.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\application\\barcodeApp_1541669891338.zip");
+        marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        WebElement continurButton = driver.findElement(By.id("nextButton"));
-        continurButton.click();
-        WebElement appPromotion = driver.findElement(By.id("app-promotion"));
-        appPromotion.sendKeys("QA");
-        WebElement appKeywords = driver.findElement(By.id("app-keywords"));
-        appKeywords.sendKeys("Test");
-//        WebElement appIcon = driver.findElement(By.id("iconFile"));
-//        ((JavascriptExecutor)driver).executeScript("document.getElementById('iconFile').removeAttribute('class')");
-        WebElement appPreviewAndScreenShot = driver.findElement(By.id("screenshotsFile"));
-        ((JavascriptExecutor)driver).executeScript("document.getElementById('screenshotsFile').removeAttribute('class')");
+        marketing.fillMarketing("King Kenny","Stevie G","app.jpg","");
         wait(WAIT);
-        appPreviewAndScreenShot.sendKeys("C:\\Git_repository\\openApps\\src\\main\\resources\\content\\dog2.jpg");
         WebElement finishButton = driver.findElement(By.id("finishButton"));
-        scrollDown(finishButton);
         finishButton.click();
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
-        Assert.assertFalse(actualValue,"No validation for field!");
-
+        Assert.assertFalse(actualValue, "App icon image is mandatory - it's empty!");
     }
     @AfterMethod
     public void afterMethod(){
