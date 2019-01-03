@@ -1,4 +1,4 @@
-package com.odysii.functional;
+package com.odysii.functional.Retailer;
 
 import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
