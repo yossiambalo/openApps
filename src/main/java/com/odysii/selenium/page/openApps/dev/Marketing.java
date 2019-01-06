@@ -56,12 +56,12 @@ public class Marketing extends PageObject {
         isElementPresent(this.keywords);
         this.keywords.clear();
         this.keywords.sendKeys(keywords);
-        isElementPresent(this.screenshotsFile);
-        this.screenshotsFile.sendKeys(getFile("content/" +screenshotFileName));
         isElementPresent(this.appIcon);
         if (appIconFileName != null){
-            this.appIcon.sendKeys(getFile("content/" +appIconFileName));
+            this.appIcon.sendKeys(getFile("content\\" +appIconFileName));
         }
+        isElementPresent(this.screenshotsFile);
+        this.screenshotsFile.sendKeys(getFile("content\\" +screenshotFileName));
         scrollDown(complete);
         if (toComplete){
             this.complete.click();
