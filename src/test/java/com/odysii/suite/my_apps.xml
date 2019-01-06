@@ -4,7 +4,7 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.odysii.functional.DevTest"/>
+            <!--<class name="com.odysii.functional.DevTest"/>-->
             <!--<class name="com.odysii.functional.Retailer.RetailerTest"/>-->
             <!--<class name="com.odysii.functional.AdminTest"/>-->
             <!--<class name="com.odysii.content.AdminContentTest"/>-->

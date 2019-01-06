@@ -14,6 +14,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class MarketingTest extends TestBase {
     private ShowUp showUp;
     private final String zipFile = "TH.zip";
@@ -26,7 +28,7 @@ public class MarketingTest extends TestBase {
         category = "Marketing";
 
     }
-    //@Test // Test will failed until fix of space counts as a valid input!
+    @Test // Test will failed until fix of space counts as a valid input!
     public void _001_promotional_text_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         showUp = myApps.showUp(2);
@@ -48,7 +50,7 @@ public class MarketingTest extends TestBase {
 
     }
 
-    //@Test
+    @Test
     public void _002_keywords_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         showUp = myApps.showUp(2);
@@ -68,6 +70,7 @@ public class MarketingTest extends TestBase {
         String actualValue = driver.findElement(By.id("new-application-success-error-message")).getText().trim();
         Assert.assertEquals(actualValue,"Some required fields are missing");
         driver.findElement(By.id("cancelButton")).click();
+
     }
 
     @Test
@@ -82,10 +85,10 @@ public class MarketingTest extends TestBase {
         UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
         Marketing marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        marketing.fillMarketing("Promotion Text","Key Words","bike.jpg","app.jpg");
-
-
-
+        marketing.fillMarketing("Promotion Text","Key Words","bike.jpg",null,false);
+        wait(WAIT);
+        String actualValue = driver.findElement(By.id("new-application-success-error-message")).getText().trim();
+        Assert.assertEquals(actualValue,"Screenshots saved successfully");
 
     }
 
