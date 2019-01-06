@@ -111,7 +111,7 @@ public class TestBase {
         if (applicationIDToDelete != null){
             requestHelper = new RequestHelper();
             for (String appID: applicationIDToDelete){
-                requestHelper.deleteRequest("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/code/"+appID,token);
+                requestHelper.deleteRequest("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/application/"+appID,token);
             }
         }
         extent.flush();
