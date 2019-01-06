@@ -1,8 +1,6 @@
 package com.odysii.negative;
 
 import com.odysii.TestBase;
-import com.odysii.selenium.page.openApps.dev.Marketing;
-import com.odysii.selenium.page.util.PageObject;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.dev.*;
@@ -11,7 +9,6 @@ import com.odysii.selenium.page.openApps.helper.appDetails.AvailabilityType;
 import com.odysii.selenium.page.openApps.helper.appDetails.CategoryType;
 import com.odysii.selenium.page.openApps.helper.appDetails.RetailerType;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;

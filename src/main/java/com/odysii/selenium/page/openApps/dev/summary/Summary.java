@@ -93,7 +93,7 @@ public class Summary extends PageObject {
      */
     public void editSummary() {
         isElementPresent(uploadCodeBtn);
-        this.uploadCode.sendKeys(getFile("content/code//TH.zip"));
+        this.uploadCode.sendKeys(getFile("code/TH.zip"));
         ((JavascriptExecutor)webDriver).executeScript("document.getElementById('appSubtitleSummary').value = '';");
         ((JavascriptExecutor)webDriver).executeScript("document.getElementById('appSubtitleSummary').value = 'Edit subtitle';");
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.englishLanguage);
@@ -113,8 +113,8 @@ public class Summary extends PageObject {
         scrollDown(appPrice);
         appPrice.sendKeys("2");
         appPriceType.sendKeys("Per site per year");
-        this.iconFileSummary.sendKeys(getFile("content/content//dog2.jpg"));
-        this.screenshotsFileSummary.sendKeys(getFile("content/content//dog2.jpg"));
+        this.iconFileSummary.sendKeys(getFile("content/dog2.jpg"));
+        this.screenshotsFileSummary.sendKeys(getFile("content/dog2.jpg"));
         wait(WAIT);
         scrollDown(finishBtn);
         finishBtn.click();
