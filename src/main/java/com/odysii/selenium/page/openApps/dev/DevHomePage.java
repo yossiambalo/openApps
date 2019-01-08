@@ -1,6 +1,7 @@
 package com.odysii.selenium.page.openApps.dev;
 
 
+import com.odysii.selenium.page.openApps.admin.SupportTicket;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,6 +29,8 @@ public class DevHomePage extends PageObject{
     WebElement loginBtn;
     @FindBy(className = "float-right")
     WebElement logoutBtn;
+    @FindBy(id = "navItem8")
+    WebElement supportTicketLink;
 
     public void login(String userName,String password){
         this.userName.clear();
@@ -74,5 +77,10 @@ public class DevHomePage extends PageObject{
     public PublicProfile getPublicProfilePage(WebDriver driver){
         this.publicProfile.click();
         return new PublicProfile(driver);
+    }
+    public SupportTicket getSupportTicket(){
+        isElementPresent(supportTicketLink);
+        supportTicketLink.click();
+        return new SupportTicket(webDriver);
     }
 }

@@ -107,13 +107,6 @@ public class TestBase {
     @AfterSuite
     public void tearDown()
     {
-        RequestHelper requestHelper = null;
-        if (applicationIDToDelete != null){
-            requestHelper = new RequestHelper();
-            for (String appID: applicationIDToDelete){
-                requestHelper.deleteRequest("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/application/"+appID,token);
-            }
-        }
         extent.flush();
     }
     @AfterClass
@@ -124,6 +117,19 @@ public class TestBase {
                 if (cookie.getName().equals("gvr-token")){
                     token = cookie.toString();
                     break;
+                }
+            }
+        }
+        RequestHelper requestHelper = null;
+        if (applicationIDToDelete != null){
+            requestHelper = new RequestHelper();
+            for (String appID: applicationIDToDelete){
+                if (!requestHelper.deleteRequest("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/application/"+appID,token)){
+                    try {
+                        throw new Exception("Failed to delete application number: "+appID);
+                    } catch (Exception e) {
+                        System.out.println("Failed to delete application number: "+appID);
+                    }
                 }
             }
         }

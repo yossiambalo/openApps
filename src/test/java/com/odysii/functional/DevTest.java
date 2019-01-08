@@ -59,10 +59,14 @@ public class DevTest extends TestBase {
         setApplicationID();
         showUp.certify();
         Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(), showUp.getStatus().trim());
+        showUp.backToMyApps();
+        SupportTicket devSupportTicket = devUser.getSupportTicket();
+        Assert.assertEquals(devSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.OPEN.getStatus().toLowerCase(),"Status not as expected in Support ticket of dev!");
         user.logout();
         //Admin approve
         AdminPage adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
         SupportTicket supportTicket = adminPage.getSupportTickets();
+        Assert.assertEquals(supportTicket.getAppStatus().toLowerCase(),ApplicationStatus.OPEN.getStatus().toLowerCase(),"Status not as expected in Support ticket of admin!");
         supportTicket.rejectNoFee();
         user.logout();
         //Valid rejected
