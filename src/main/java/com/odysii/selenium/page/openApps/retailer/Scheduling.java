@@ -32,7 +32,7 @@ public class Scheduling extends PageObject {
         switch (areaType){
             case NORTH_US:
                 isElementPresent(siteArea);
-                WebElement e =  siteArea.findElements(By.tagName(siteAreaCheckBoxTagName)).get(0);
+                WebElement e = siteArea.findElements(By.tagName(siteAreaCheckBoxTagName)).get(0);
                 if (!e.getAttribute("class").contains("check")){
                    e.click();
             }
@@ -48,5 +48,6 @@ public class Scheduling extends PageObject {
         return footerMessage.getText().contains("Finished deploying campaign");
     }
     public void deployToDispenser(AreaType areaType) {
+
     }
 }

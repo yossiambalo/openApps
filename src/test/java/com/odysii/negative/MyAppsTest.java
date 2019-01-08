@@ -183,7 +183,7 @@ public class MyAppsTest extends TestBase {
         wait(WAIT);
         marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        marketing.fillMarketing("","Stevie G","app.jpg","dog2.jpg");
+        marketing.fillMarketing("","Stevie G","app.jpg","dog2.jpg", true);
         wait(WAIT);
         WebElement finishButton = driver.findElement(By.id("finishButton"));
         finishButton.click();
@@ -199,7 +199,7 @@ public class MyAppsTest extends TestBase {
         wait(WAIT);
         marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        marketing.fillMarketing("King Kenny","","app.jpg","dog2.jpg");
+        marketing.fillMarketing("King Kenny","","app.jpg","dog2.jpg",true);
         wait(WAIT);
         WebElement finishButton = driver.findElement(By.id("finishButton"));
         finishButton.click();
@@ -216,7 +216,7 @@ public class MyAppsTest extends TestBase {
         wait(WAIT);
         marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        marketing.fillMarketing("King Kenny","Stevie G","","dog2.jpg");
+        marketing.fillMarketing("King Kenny","Stevie G","","dog2.jpg",true);
         wait(WAIT);
         WebElement finishButton = driver.findElement(By.id("finishButton"));
         finishButton.click();
@@ -232,7 +232,7 @@ public class MyAppsTest extends TestBase {
         wait(WAIT);
         marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        marketing.fillMarketing("King Kenny","Stevie G","app.jpg","");
+        marketing.fillMarketing("King Kenny","Stevie G","app.jpg","",true);
         wait(WAIT);
         WebElement finishButton = driver.findElement(By.id("finishButton"));
         finishButton.click();

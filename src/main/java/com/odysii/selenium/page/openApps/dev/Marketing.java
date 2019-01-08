@@ -49,17 +49,23 @@ public class Marketing extends PageObject {
         isElementPresent(complete);
         this.complete.click();
     }
-    public void fillMarketing(String promotionalText,String keywords,String screenshotFileName,String appIconFileName){
+    public void fillMarketing(String promotionalText,String keywords,String screenshotFileName,String appIconFileName,boolean toComplete){
         isElementPresent(this.promotionalText);
         this.promotionalText.clear();
         this.promotionalText.sendKeys(promotionalText);
         isElementPresent(this.keywords);
+        this.keywords.clear();
         this.keywords.sendKeys(keywords);
-        isElementPresent(this.screenshotsFile);
-        this.screenshotsFile.sendKeys(getFile("content/" +screenshotFileName));
         isElementPresent(this.appIcon);
-        this.appIcon.sendKeys(getFile("content/" +appIconFileName));
+        if (appIconFileName != null){
+            this.appIcon.sendKeys(getFile("content\\" +appIconFileName));
+        }
+        isElementPresent(this.screenshotsFile);
+        this.screenshotsFile.sendKeys(getFile("content\\" +screenshotFileName));
         scrollDown(complete);
-        this.complete.click();
+        if (toComplete){
+            this.complete.click();
+        }
+
     }
 }
