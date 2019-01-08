@@ -38,12 +38,12 @@ public class Marketing extends PageObject {
         //isElementPresent(appIcon);
         ((JavascriptExecutor)  webDriver).executeScript("document.getElementById('iconFile').removeAttribute('class')");
         wait(WAIT);
-        this.appIcon.sendKeys(getFile(properties.getProperty("app_icon")));
+        webDriver.findElement(By.id("iconFile")).sendKeys(getFile(properties.getProperty("app_icon")));
         //isElementPresent(screenshotsFile);
         ((JavascriptExecutor)  webDriver).executeScript("document.getElementById('screenshotsFile').removeAttribute('class')");
         wait(WAIT);
-        this.screenshotsFile.sendKeys(getFile(properties.getProperty("app_preview_screenshots")));
-        //wait(WAIT);
+        webDriver.findElement(By.id("screenshotsFile")).sendKeys(getFile(properties.getProperty("app_preview_screenshots")));
+        //wait(WAIT);l
         scrollDown(deleteBtn);
         scrollDown(complete);
         isElementPresent(complete);

@@ -24,6 +24,6 @@ public class AppLibrary extends PageObject {
         apps.get(appIndex).click();
         wait(WAIT);
         removeFromLibrary.click();
-        backNavigationButton.click();
+        //backNavigationButton.click();
     }
 }

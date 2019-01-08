@@ -26,7 +26,7 @@ public class AdminContentTest extends TestBase {
         adminPage.getSupportTickets();
         String actualTxt = driver.findElement(By.className("h2")).getText();
         Assert.assertEquals(actualTxt,expected);
-        String expectedSdbr = "ADMIN - TICKETS";
+        String expectedSdbr = "SUPPORT TICKETS";
         String actualSdbr = driver.findElement(By.id("navItem0")).getText().toUpperCase().trim();
         Assert.assertEquals(actualSdbr,expectedSdbr);
 
@@ -85,7 +85,7 @@ public class AdminContentTest extends TestBase {
     public void _009_valid_button_text_back_to_support_tickets(){
         adminPage.getSupportTickets();
         adminPage.getTicket(2);
-        String expected = "Back to Admin - Tickets";
+        String expected = "Back to Support Tickets";
         String actualTxt = driver.findElement(By.id("BackNavigationButton")).getText();
         Assert.assertEquals(actualTxt,expected);
 
