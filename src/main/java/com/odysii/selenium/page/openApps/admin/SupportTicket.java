@@ -24,6 +24,8 @@ public class SupportTicket extends PageObject {
     private WebElement rejectTicketNoFee;
     @FindBy(id = "adminTicketRejectFee")
     private WebElement rejectTicketWithFee;
+    @FindBy(id = "BackNavigationButton")
+    WebElement backNavigationButton;
 
     public SupportTicket(WebDriver driver) {
         super(driver);
@@ -59,5 +61,9 @@ public class SupportTicket extends PageObject {
     public String getAppStatus(){
         isElementPresent(ticket);
         return ticket.findElement(By.className("px-4")).getText();
+    }
+    public void backToSupportTicket(){
+        isElementPresent(backNavigationButton);
+        backNavigationButton.click();
     }
 }
