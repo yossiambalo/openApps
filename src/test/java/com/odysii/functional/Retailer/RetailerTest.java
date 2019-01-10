@@ -1,5 +1,6 @@
 package com.odysii.functional.Retailer;
 
+import com.odysii.Retry;
 import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
@@ -10,9 +11,12 @@ import com.odysii.selenium.page.openApps.retailer.helper.ScreenSize;
 import com.odysii.selenium.page.openApps.retailer.helper.StateType;
 import com.odysii.selenium.page.util.RequestHelper;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class RetailerTest extends TestBase {
     private final static String APP_CLASS_NAME = "card";
@@ -66,16 +70,24 @@ public class RetailerTest extends TestBase {
     }
    @Test//(priority = 2)
     public void _003_search_apps(){
+        int expectedApp = 0;
         retailerHomePage.getAppStore();
-        int expectedApp = 7;
+        wait(WAIT);
+        List<WebElement> apps = driver.findElements(By.xpath("//h5[contains(@class, 'cx-card-title')]"));
+        for (WebElement e : apps){
+            if(e.getText().toLowerCase().contains("Automation App:".toLowerCase())){
+                expectedApp++;
+            }
+        }
         retailerHomePage.searchApps("auto");
         wait(WAIT);
         int actualApps = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(actualApps,expectedApp,"App store search functionality failed!");
 
     }
-    @Test//(priority = 3)
+    @Test//(priority = 3,retryAnalyzer = Retry.class)
     public void _004_create_and_delete_campaign(){
+        int counter = 0;
         Campaign campaign = retailerHomePage.getCampaign();
         wait(WAIT);
         int expectedCampaigns = campaign.getNumOfCampaigns() + 1;
@@ -83,9 +95,12 @@ public class RetailerTest extends TestBase {
         wait(WAIT);
         int actualCampaigns = campaign.getNumOfCampaigns();
         Assert.assertEquals(actualCampaigns,expectedCampaigns,"Adding a new campaign failed!");
-        campaign.deleteCampaign();
+        if (expectedCampaigns > 1){
+            campaign.deleteCampaign();
+            counter++;
+        }
         wait(WAIT);
-        Assert.assertEquals(actualCampaigns - 1,campaign.getNumOfCampaigns());
+        Assert.assertEquals(actualCampaigns - counter,campaign.getNumOfCampaigns());
 
     }
     @Test//(priority = 4)
