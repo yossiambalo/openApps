@@ -5,7 +5,6 @@ import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.admin.AdminPage;
 import com.odysii.selenium.page.openApps.admin.SupportTicket;
-import com.odysii.selenium.page.openApps.admin.UsersPage;
 import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
@@ -64,7 +63,7 @@ public class DevTest extends TestBase {
         user.logout();
         //Admin approve
         AdminPage adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
-        SupportTicket adminSupportTicket = adminPage.getSupportTickets();
+        SupportTicket adminSupportTicket = adminPage.getSupportTicketsLink();
         Assert.assertEquals(adminSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.OPEN.getStatus().toLowerCase(),"Status should be Open but found "+adminSupportTicket.getAppStatus()+" in admin page!");
         adminSupportTicket.rejectNoFee();
         adminSupportTicket.backToSupportTicket();
@@ -100,7 +99,7 @@ public class DevTest extends TestBase {
         user.logout();
         //Admin approve
         AdminPage adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
-        SupportTicket adminSupportTicket = adminPage.getSupportTickets();
+        SupportTicket adminSupportTicket = adminPage.getSupportTicketsLink();
         adminSupportTicket.rejectWithFee();
         adminSupportTicket.backToSupportTicket();
         Assert.assertEquals(adminSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.REJECT.getStatus().toLowerCase(),"Status should be Rejected no fee but found "+adminSupportTicket.getAppStatus()+" in admin page!");
@@ -143,7 +142,7 @@ public class DevTest extends TestBase {
         user.logout();
         //Admin approve
         AdminPage adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
-        SupportTicket adminSupportTicket = adminPage.getSupportTickets();
+        SupportTicket adminSupportTicket = adminPage.getSupportTicketsLink();
         adminSupportTicket.approve();
         adminSupportTicket.backToSupportTicket();
         Assert.assertEquals(adminSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.APPROVED.getStatus().toLowerCase(),"Status should be Approved but found "+adminSupportTicket.getAppStatus()+" in admin page!");
