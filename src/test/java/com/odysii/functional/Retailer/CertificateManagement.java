@@ -105,8 +105,6 @@ public class CertificateManagement extends TestBase {
 
     }
 
-
-
     @AfterClass
     public void clean(){
         FileHandler fileHandler = new FileHandler();

@@ -1,6 +1,5 @@
 package com.odysii.functional.Retailer;
 
-import com.odysii.Retry;
 import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;

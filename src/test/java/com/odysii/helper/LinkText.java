@@ -9,8 +9,15 @@ public class LinkText {
     public static final String PUBLIC_PROFILE = "Public Profile";
     public static final String ENCORE = "Encore";
     public static final String APP_STORE = "App Store";
+    public static final String PASSPORT = "Passport";
     ///Admin
     public static final String STATISTICS = "Statistics";
     public static final String USERS = "Users";
     public static final String RETAILERS = "Retailers";
+    //Retailer
+    public static final String LIBRARY = "library";
+    public static final String CAMPAIGNS = "Campaigns";
+    public static final String SCHEDULING = "Scheduling";
+    public static final String KEY_MANAGEMENT = "Key management";
+    public static final String APP_CONTENT = "App Content";
 }
