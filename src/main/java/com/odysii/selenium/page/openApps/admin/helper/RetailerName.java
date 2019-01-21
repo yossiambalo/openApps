@@ -3,7 +3,7 @@ package com.odysii.selenium.page.openApps.admin.helper;
 public enum RetailerName {
     EXXONMOBIL("ExxonMobil"),
     SHELL("Shell"),
-    SPRINT_MART("Sprint Mart / Morris Petro"),
+    SPRINT_MART(" Sprint Mart / Morris Petro "),
     ODYSII("Odysii");
 
     //Getter method

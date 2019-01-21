@@ -29,15 +29,16 @@ public class PageObject {
 
     public boolean isElementExist(By by) {
         int counter = 0;
-        while (webDriver.findElements(by).size() < 1 && counter < 2) {
+        boolean res = true;
+        while (webDriver.findElements(by).size() < 1 && counter < 1) {
             wait(4000);
             counter++;
         }
-        if (counter == 5) {
-            throw new ExplicitAssertionError("element not found");
+        if (counter == 1) {
+            res = false;
         }
         wait(WAIT);
-        return true;
+        return res;
     }
 
     protected String getFile(String fileName) {

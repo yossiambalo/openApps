@@ -26,16 +26,16 @@ public class CertificateManagement extends TestBase {
     AdminPage adminPage;
     RetailersPage retailersPage;
     private String siteAreaCheckBoxTagName = "i";
-    final String GENERATED_KEY_FILE_PATH = System.getProperty("user.home")+"\\Downloads\\cert_pub_retailer_id_2.txt";
+    final String GENERATED_KEY_FILE_PATH = System.getProperty("user.home")+"\\Downloads\\cert_pub_retailer_id_1.key";
     @BeforeClass
     public void prepare(){
         user = new User(driver);
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS,UserType.ADMIN);
     }
-    //@Test
+    @Test
     public void _001_generate_download_upload_deploy_GSOM_PROD_E2E(){
         retailersPage = adminPage.getRetailersPage();
-        keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
+        keyMnagerPage = retailersPage.editRetailer(RetailerName.EXXONMOBIL);
         KeyMnagerPage keyMnagerPage = new KeyMnagerPage(driver);
         keyMnagerPage.generate(EnviromentType.PROD);
         keyMnagerPage.downloadKey(EnviromentType.PROD);
@@ -48,7 +48,8 @@ public class CertificateManagement extends TestBase {
         keyManagement.downloadProdGsomSignedKeyButton();
         keyManagement.deploySignedKeysButtonPro();
         driver.findElement(By.id("siteSelectionAccordion")).findElements(By.className("nav-item")).get(1);
-        // Waiting for IDs to checkbox of deploy
+        // Todo Waiting for IDs to checkbox of deploy + stations to sites
+        Assert.assertTrue(false);
 
     }
 
@@ -66,7 +67,9 @@ public class CertificateManagement extends TestBase {
         KeyManagement keyManagement = retailerHomePage.getKeysMGMT();
         keyManagement.downloadTestGsomSignedKeyButton();
         keyManagement.deploySignedKeysButtonTest();
-        // Waiting for IDs to checkbox of deploy
+        // Todo Waiting for IDs to checkbox of deploy + stations to sites
+        Assert.assertTrue(false);
+
     }
 
     @Test
@@ -83,10 +86,12 @@ public class CertificateManagement extends TestBase {
         KeyManagement keyManagement = retailerHomePage.getKeysMGMT();
         keyManagement.downloadProdOmniaSignedKeyButton();
         keyManagement.deploySignedKeysButtonPro();
-        // Waiting for IDs to checkbox of deploy
+        // Todo Waiting for IDs to checkbox of deploy + stations to sites
+        Assert.assertTrue(false);
+
     }
 
-    @Test
+   @Test
     public void _004_generate_download_upload_deploy_OMNIA_TEST_E2E(){
         retailersPage = adminPage.getRetailersPage();
         keyMnagerPage = retailersPage.editRetailer(RetailerName.EXXONMOBIL);
@@ -101,11 +106,11 @@ public class CertificateManagement extends TestBase {
         keyManagement.downloadTestOmniaSignedKeyButton();
         keyManagement.deploySignedKeysButtonPro();
         keyManagement.deploySignedKeysButtonTest();
-        // Waiting for IDs to checkbox of deploy
+        // Todo Waiting for IDs to checkbox of deploy + stations to sites
+        Assert.assertTrue(false);
+
 
     }
-
-
 
     @AfterClass
     public void clean(){
