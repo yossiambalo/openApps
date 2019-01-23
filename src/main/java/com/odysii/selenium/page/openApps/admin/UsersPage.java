@@ -12,37 +12,30 @@ import java.util.List;
 
 public class UsersPage extends PageObject {
 
-    @FindBy(className = "admin-users-row")
+    @FindBy(className = "card-body")
     private List<WebElement> userList;
     @FindBy(id = "makeSearch")
     private WebElement makeSearchBtn;
-    @FindBy(xpath = "//select[@class='mb-2']")
-    private WebElement userRoleDDL;
-    @FindBy(className = "dropdown-btn")//multiselect-dropdown
-    private WebElement delegationDDL;
+    @FindBy(id = "editUser")
+    WebElement editUserBtn;
     public UsersPage(WebDriver driver) {
         super(driver);
     }
-    public void editUser(String developerName, RoleType roleType, List<String> retailers){
+    public EditUser getUser(String developerEmail){
         boolean flag = false;
+        int counter = 0;
         isElementPresent(makeSearchBtn);
         for (WebElement e : userList){
-            if(e.findElement(By.className("child_center")).getText().equals(developerName)){
-                e.findElement(By.className("btn-reg")).click();
+            if(e.findElement(By.className("text-truncate")).getText().equals(developerEmail)){
+                webDriver.findElement(By.id("editUser"+String.valueOf(counter))).click();
                 flag = true;
                 break;
             }
+            counter ++;
         }
         if (!flag){
-            throw new WebDriverException("Developer with name: "+developerName+" not found, please make sure developer name exist!");
+            throw new WebDriverException("Developer with name: "+developerEmail+" not found, please make sure developer name exist!");
         }
-        isElementPresent(userRoleDDL);
-        Select dropdown = new Select(userRoleDDL);
-        dropdown.selectByIndex(roleType.getIndex());
-        isElementPresent(delegationDDL);
-        delegationDDL.click();
-        for (String retailer : retailers){
-            webDriver.findElement(By.xpath("//div[contains(text(), '"+retailer+"')]")).click();
-        }
+         return new EditUser(webDriver);
     }
 }
