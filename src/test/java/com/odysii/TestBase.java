@@ -9,11 +9,9 @@ import com.odysii.selenium.page.openApps.admin.SupportTicket;
 import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
-import com.odysii.selenium.page.openApps.dev.summary.Summary;
 import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
 import com.odysii.selenium.page.util.DriverManager;
 import com.odysii.selenium.page.util.DriverType;
-import com.odysii.selenium.page.util.PropertyLoader;
 import com.odysii.selenium.page.util.RequestHelper;
 import org.openqa.selenium.*;
 import org.testng.Assert;
@@ -262,7 +260,7 @@ public class TestBase {
             user.logout();
             //Admin approve
             adminPage = (AdminPage)user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
-            SupportTicket supportTicket = adminPage.getSupportTickets();
+            SupportTicket supportTicket = adminPage.getSupportTicketsLink();
             switch (applicationStatus){
                 case CERTIFIED:
                     supportTicket.approve();

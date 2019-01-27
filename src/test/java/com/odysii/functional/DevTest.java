@@ -5,7 +5,6 @@ import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.admin.AdminPage;
 import com.odysii.selenium.page.openApps.admin.SupportTicket;
-import com.odysii.selenium.page.openApps.admin.UsersPage;
 import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
@@ -28,7 +27,6 @@ public class DevTest extends TestBase {
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME, RETAILER_USER_PASS, UserType.RETAILER);
         category = "Dev";
     }
-
     @Test(priority = 1)
     public void _001_valid_add_new_app() {
         //get number of live apps from retailer page
@@ -61,13 +59,15 @@ public class DevTest extends TestBase {
         Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(), showUp.getStatus().trim());
         showUp.backToMyApps();
         SupportTicket devSupportTicket = devUser.getSupportTicket();
-        Assert.assertEquals(devSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.OPEN.getStatus().toLowerCase(),"Status not as expected in Support ticket of dev!");
+        Assert.assertEquals(devSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.OPEN.getStatus().toLowerCase(),"Status should be Open but found "+devSupportTicket.getAppStatus()+" in dev page!");
         user.logout();
         //Admin approve
         AdminPage adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
-        SupportTicket supportTicket = adminPage.getSupportTickets();
-        Assert.assertEquals(supportTicket.getAppStatus().toLowerCase(),ApplicationStatus.OPEN.getStatus().toLowerCase(),"Status not as expected in Support ticket of admin!");
-        supportTicket.rejectNoFee();
+        SupportTicket adminSupportTicket = adminPage.getSupportTicketsLink();
+        Assert.assertEquals(adminSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.OPEN.getStatus().toLowerCase(),"Status should be Open but found "+adminSupportTicket.getAppStatus()+" in admin page!");
+        adminSupportTicket.rejectNoFee();
+        adminSupportTicket.backToSupportTicket();
+        Assert.assertEquals(adminSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.REJECTED_NO_FEE.getStatus().toLowerCase(),"Status should be Rejected no fee but found "+adminSupportTicket.getAppStatus()+" in admin page!");
         user.logout();
         //Valid rejected
         devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
@@ -80,6 +80,9 @@ public class DevTest extends TestBase {
         showUp = myApps.showUp(actualAppList.size() - 1);
         Assert.assertEquals(showUp.getStatus().trim(), ApplicationStatus.REJECT.getStatus());
         showUp.backToMyApps();
+        devSupportTicket = devUser.getSupportTicket();
+        Assert.assertEquals(devSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.REJECTED_NO_FEE.getStatus().toLowerCase(),"Status should be Rejected no fee but found "+devSupportTicket.getAppStatus()+" in dev page!");
+        //showUp.backToMyApps();
     }
 
     @Test(priority = 3, dependsOnMethods = "_002_valid_app_reject_no_fee")
@@ -96,8 +99,10 @@ public class DevTest extends TestBase {
         user.logout();
         //Admin approve
         AdminPage adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
-        SupportTicket supportTicket = adminPage.getSupportTickets();
-        supportTicket.rejectWithFee();
+        SupportTicket adminSupportTicket = adminPage.getSupportTicketsLink();
+        adminSupportTicket.rejectWithFee();
+        adminSupportTicket.backToSupportTicket();
+        Assert.assertEquals(adminSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.REJECT.getStatus().toLowerCase(),"Status should be Rejected no fee but found "+adminSupportTicket.getAppStatus()+" in admin page!");
         user.logout();
         //Valid rejected
         devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
@@ -118,6 +123,8 @@ public class DevTest extends TestBase {
         } while (!status.equals(ApplicationStatus.REJECT.getStatus()) && counter < 5);
         Assert.assertEquals(status, ApplicationStatus.REJECT.getStatus());
         showUp.backToMyApps();
+        SupportTicket devSupportTicket = devUser.getSupportTicket();
+        Assert.assertEquals(devSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.REJECT.getStatus().toLowerCase(),"Status should be Rejected but found "+devSupportTicket.getAppStatus()+" in dev page!");
     }
 
     @Test(priority = 4, dependsOnMethods = "_003_valid_reject_with_fee")
@@ -135,8 +142,10 @@ public class DevTest extends TestBase {
         user.logout();
         //Admin approve
         AdminPage adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
-        SupportTicket supportTicket = adminPage.getSupportTickets();
-        supportTicket.approve();
+        SupportTicket adminSupportTicket = adminPage.getSupportTicketsLink();
+        adminSupportTicket.approve();
+        adminSupportTicket.backToSupportTicket();
+        Assert.assertEquals(adminSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.APPROVED.getStatus().toLowerCase(),"Status should be Approved but found "+adminSupportTicket.getAppStatus()+" in admin page!");
         user.logout();
         //Valid certified
         devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
@@ -151,6 +160,9 @@ public class DevTest extends TestBase {
         Assert.assertEquals(showUp.getStatus().trim(), ApplicationStatus.CERTIFIED.getStatus());
         showUp.addApplicationToStore();
         Assert.assertEquals(showUp.getStatus().trim(), ApplicationStatus.LIVE.getStatus());
+        showUp.backToMyApps();
+        SupportTicket devSupportTicket = devUser.getSupportTicket();
+        Assert.assertEquals(devSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.APPROVED.getStatus().toLowerCase(),"Status should be Approved but found "+devSupportTicket.getAppStatus()+" in dev page!");
         user.logout();
 }
     @Test(priority = 5, dependsOnMethods = "_004_edit_and_certify_and_go_live")

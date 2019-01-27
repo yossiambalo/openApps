@@ -79,7 +79,7 @@ public class RetailerTest extends TestBase {
                 expectedApp++;
             }
         }
-        retailerHomePage.searchApps("auto");
+        retailerHomePage.searchApps("automation");
         wait(WAIT);
         int actualApps = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(actualApps,expectedApp,"App store search functionality failed!");
@@ -254,9 +254,9 @@ public class RetailerTest extends TestBase {
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 29)
+    @Test//(priority = 29)
     public void _030_valid_application_packing() {
-        String url = "http://openappsqa.tveez.local:8080/openAppStore/webapi/code/4346/version/4349/pack";
+        String url = "http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/code/4346/version/4349/pack";
         RequestHelper requestHelper = new RequestHelper();
         Assert.assertTrue(requestHelper.getRequest(url),"Failed to pack an code!");
     }
