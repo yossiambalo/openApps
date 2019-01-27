@@ -1,8 +1,12 @@
-package com.odysii.functional;
+package com.odysii.functional.Retailer;
 
 import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
+import com.odysii.selenium.page.openApps.admin.AdminPage;
+import com.odysii.selenium.page.openApps.admin.EditUser;
+import com.odysii.selenium.page.openApps.admin.UsersPage;
+import com.odysii.selenium.page.openApps.admin.helper.RoleType;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.retailer.*;
 import com.odysii.selenium.page.openApps.retailer.helper.LayoutType;
@@ -10,22 +14,35 @@ import com.odysii.selenium.page.openApps.retailer.helper.ScreenSize;
 import com.odysii.selenium.page.openApps.retailer.helper.StateType;
 import com.odysii.selenium.page.util.RequestHelper;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class RetailerTest extends TestBase {
     private final static String APP_CLASS_NAME = "card";
     CampaignDesigner campaignDesigner;
     @BeforeClass
     public void prepare(){
+        Assert.assertTrue(updateUser(7));
         DEV_USER_NAME = "auto.open.apps@gmail.com";
         user = new User(driver);
+        if (!isRoleConfig){
+            adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
+            UsersPage usersPage = adminPage.getUsersPage();
+            EditUser editUser = usersPage.getUser(RETAILER_USER_NAME);
+            editUser.edit(RoleType.ROLE_7,null);
+            editUser = usersPage.getUser(DEV_USER_NAME);
+            editUser.edit(RoleType.ROLE_1,null);
+            isRoleConfig = true;
+        }
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
 //        prepareTest("app_details.properties", ApplicationStatus.SUBMITTED);
 //        prepareTest("app_details.properties", ApplicationStatus.LIVE);
     }
-    @Test//(priority = 1)
+    //@Test//(priority = 1)
     public void _001_valid_deploy_to_dispenser(){
         Scheduling scheduling = retailerHomePage.getScheduling();
         Assert.assertTrue(scheduling.deployToAll(AreaType.NORTH_US));
@@ -57,7 +74,7 @@ public class RetailerTest extends TestBase {
         AppLibrary appLibrary = retailerHomePage.getAppLibrary();
         wait(WAIT);
         int actualApps = driver.findElements(By.className(APP_CLASS_NAME)).size();
-        Assert.assertEquals(actualApps,expectedApp,"Failed to adding application to library!");
+        Assert.assertEquals(actualApps,expectedApp,"Failed to adding code to library!");
         appLibrary.removeAppFromLibrary(driver.findElements(By.className(APP_CLASS_NAME)).size() - 1);
         wait(WAIT);
         driver.navigate().refresh();
@@ -66,16 +83,24 @@ public class RetailerTest extends TestBase {
     }
    @Test//(priority = 2)
     public void _003_search_apps(){
+        int expectedApp = 0;
         retailerHomePage.getAppStore();
-        int expectedApp = 2;
-        retailerHomePage.searchApps("auto");
+        wait(WAIT);
+        List<WebElement> apps = driver.findElements(By.xpath("//h5[contains(@class, 'cx-card-title')]"));
+        for (WebElement e : apps){
+            if(e.getText().toLowerCase().contains("Automation App:".toLowerCase())){
+                expectedApp++;
+            }
+        }
+        retailerHomePage.searchApps("automation");
         wait(WAIT);
         int actualApps = driver.findElements(By.className(APP_CLASS_NAME)).size();
         Assert.assertEquals(actualApps,expectedApp,"App store search functionality failed!");
 
     }
-    @Test//(priority = 3)
+    @Test//(priority = 3,retryAnalyzer = Retry.class)
     public void _004_create_and_delete_campaign(){
+        int counter = 0;
         Campaign campaign = retailerHomePage.getCampaign();
         wait(WAIT);
         int expectedCampaigns = campaign.getNumOfCampaigns() + 1;
@@ -83,9 +108,12 @@ public class RetailerTest extends TestBase {
         wait(WAIT);
         int actualCampaigns = campaign.getNumOfCampaigns();
         Assert.assertEquals(actualCampaigns,expectedCampaigns,"Adding a new campaign failed!");
-        campaign.deleteCampaign();
+        if (expectedCampaigns > 1){
+            campaign.deleteCampaign();
+            counter++;
+        }
         wait(WAIT);
-        Assert.assertEquals(actualCampaigns - 1,campaign.getNumOfCampaigns());
+        Assert.assertEquals(actualCampaigns - counter,campaign.getNumOfCampaigns());
 
     }
     @Test//(priority = 4)
@@ -239,11 +267,11 @@ public class RetailerTest extends TestBase {
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 29)
+    @Test//(priority = 29)
     public void _030_valid_application_packing() {
-        String url = "http://openappsqa.tveez.local:8080/openAppStore/webapi/application/4346/version/4349/pack";
+        String url = "http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/code/4346/version/4349/pack";
         RequestHelper requestHelper = new RequestHelper();
-        Assert.assertTrue(requestHelper.getRequest(url),"Failed to pack an application!");
+        Assert.assertTrue(requestHelper.getRequest(url),"Failed to pack an code!");
     }
 
     @Test

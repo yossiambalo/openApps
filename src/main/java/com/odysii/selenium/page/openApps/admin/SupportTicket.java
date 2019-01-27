@@ -2,6 +2,7 @@ package com.odysii.selenium.page.openApps.admin;
 
 import com.odysii.selenium.page.openApps.admin.helper.SortBy;
 import com.odysii.selenium.page.util.PageObject;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,6 +24,8 @@ public class SupportTicket extends PageObject {
     private WebElement rejectTicketNoFee;
     @FindBy(id = "adminTicketRejectFee")
     private WebElement rejectTicketWithFee;
+    @FindBy(id = "BackNavigationButton")
+    WebElement backNavigationButton;
 
     public SupportTicket(WebDriver driver) {
         super(driver);
@@ -54,5 +57,13 @@ public class SupportTicket extends PageObject {
                 break;
                 default:
         }
+    }
+    public String getAppStatus(){
+        isElementPresent(ticket);
+        return ticket.findElement(By.className("px-4")).getText();
+    }
+    public void backToSupportTicket(){
+        isElementPresent(backNavigationButton);
+        backNavigationButton.click();
     }
 }

@@ -5,15 +5,16 @@ import java.io.File;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.admin.AdminPage;
+import com.odysii.selenium.page.openApps.admin.EditUser;
 import com.odysii.selenium.page.openApps.admin.SupportTicket;
+import com.odysii.selenium.page.openApps.admin.UsersPage;
+import com.odysii.selenium.page.openApps.admin.helper.RoleType;
 import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
-import com.odysii.selenium.page.openApps.dev.summary.Summary;
 import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
 import com.odysii.selenium.page.util.DriverManager;
 import com.odysii.selenium.page.util.DriverType;
-import com.odysii.selenium.page.util.PropertyLoader;
 import com.odysii.selenium.page.util.RequestHelper;
 import org.openqa.selenium.*;
 import org.testng.Assert;
@@ -32,6 +33,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Set;
 
+
 public class TestBase {
     public static ArrayList<String> applicationIDToDelete = new ArrayList<>();
     public String category;
@@ -39,7 +41,7 @@ public class TestBase {
     public final static String DEV_USER_PASS = "Aa123456";
     public final static String ADMIN_USER_NAME = "yossi.ambalo.odysii@gmail.com";
     public final static String ADMIN_USER_PASS = "Aa123456";
-    public final static String RETAILER_USER_NAME = "auto.retail.odysii@gmail.com";
+    public final static String  RETAILER_USER_NAME = "auto.retail.odysii@gmail.com";
     public final static String RETAILER_USER_PASS = "Aa123456";
     public User user;
     public WebDriver driver;
@@ -61,6 +63,7 @@ public class TestBase {
     public final String zipFile = "TH.zip";
     public static boolean isPrepared = false;
     static String token = null;
+    protected static boolean isRoleConfig = false;
     public static String getHostName() {
         String hostName = "";
         try {
@@ -106,13 +109,6 @@ public class TestBase {
     @AfterSuite
     public void tearDown()
     {
-        RequestHelper requestHelper = null;
-        if (applicationIDToDelete != null){
-            requestHelper = new RequestHelper();
-            for (String appID: applicationIDToDelete){
-                requestHelper.deleteRequest("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/application/"+appID,token);
-            }
-        }
         extent.flush();
     }
     @AfterClass
@@ -123,6 +119,19 @@ public class TestBase {
                 if (cookie.getName().equals("gvr-token")){
                     token = cookie.toString();
                     break;
+                }
+            }
+        }
+        RequestHelper requestHelper = null;
+        if (applicationIDToDelete != null){
+            requestHelper = new RequestHelper();
+            for (String appID: applicationIDToDelete){
+                if (!requestHelper.deleteRequest("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/application/"+appID,token)){
+                    try {
+                        throw new Exception("Failed to delete application number: "+appID);
+                    } catch (Exception e) {
+                        System.out.println("Failed to delete application number: "+appID);
+                    }
                 }
             }
         }
@@ -146,6 +155,7 @@ public class TestBase {
                 break;
             default:
         }
+
         driver.get("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore");
     }
     protected boolean isElementExist(By by){
@@ -218,7 +228,7 @@ public class TestBase {
         wait(WAIT);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
         actualValue = actualAppList.size();
-        Assert.assertEquals(expectedValue,actualValue,"Failed to create a new application!");
+        Assert.assertEquals(expectedValue,actualValue,"Failed to create a new code!");
        // Assert.assertTrue(myApps.getTitle(actualValue-1).toLowerCase().contains(appDetails.getAppTitle().toLowerCase()));
 //        Assert.assertTrue(myApps.getDescription(actualValue-1).toLowerCase().contains(appDetails.getAppDescription().toLowerCase()));
         if (!applicationStatus.equals(ApplicationStatus.PRESUBMITTED)){
@@ -254,7 +264,7 @@ public class TestBase {
             user.logout();
             //Admin approve
             adminPage = (AdminPage)user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
-            SupportTicket supportTicket = adminPage.getSupportTickets();
+            SupportTicket supportTicket = adminPage.getSupportTicketsLink();
             switch (applicationStatus){
                 case CERTIFIED:
                     supportTicket.approve();
@@ -301,5 +311,8 @@ public class TestBase {
     }
     public void setApplicationID() {
         applicationIDToDelete.add( driver.getCurrentUrl().split("my-apps/")[1].split("/")[0]);
+    }
+    public boolean updateUser(int roleID){
+        return SqlManager.executeQuery("UPDATE openApps_qa.USERS SET openApps_qa.USERS.ROLE_ID = "+roleID+" WHERE openApps_qa.USERS.USER_ID = 8949;");
     }
 }

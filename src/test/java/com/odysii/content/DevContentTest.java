@@ -38,7 +38,7 @@ public class DevContentTest extends TestBase {
         List<String> options = new ArrayList<String>();
         for (WebElement option : new Select(driver.findElement(by)).getOptions()) {
             String txt = option.getText();
-            if (option.getAttribute("value") != "") options.add(option.getText());
+            if (option.getAttribute("content/value") != "") options.add(option.getText());
         }
         return options;
 
@@ -49,10 +49,10 @@ public class DevContentTest extends TestBase {
     public void prepare(){
         if (!isPrepared){
             prepareTest("app_details_DevContent_PreSubmitted.properties",ApplicationStatus.PRESUBMITTED);
-            prepareTest("app_details_DevContent_Submitted.properties",ApplicationStatus.SUBMITTED);
-            prepareTest("app_details_DevContent_Certified.properties",ApplicationStatus.CERTIFIED);
-            prepareTest("app_details_DevContent_Rejected.properties",ApplicationStatus.REJECT);
-            prepareTest("app_details_DevContent_Live.properties",ApplicationStatus.LIVE);
+//            prepareTest("app_details_DevContent_Submitted.properties",ApplicationStatus.SUBMITTED);
+//            prepareTest("app_details_DevContent_Certified.properties",ApplicationStatus.CERTIFIED);
+//            prepareTest("app_details_DevContent_Rejected.properties",ApplicationStatus.REJECT);
+//            prepareTest("app_details_DevContent_Live.properties",ApplicationStatus.LIVE);
             isPrepared = true;
         }else {
             user = new User(driver);
@@ -88,7 +88,7 @@ public class DevContentTest extends TestBase {
 
     }
 
-    @Test
+    //@Test
     public void _003_check_app_status_submitted(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         String expectedAppName = "DEVCONTENT_APP_SUBMITTED";
@@ -99,7 +99,7 @@ public class DevContentTest extends TestBase {
         Assert.assertEquals(actualAppStatus, expectedAppStatus);
     }
 
-    @Test
+    //@Test
     public void _004_check_app_status_certified(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         String expectedAppName = "DEVCONTENT_APP_CERTIFIED";
@@ -111,7 +111,7 @@ public class DevContentTest extends TestBase {
     }
 
 
-    @Test
+    //@Test
     public void _005_check_app_status_rejected(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         String expectedAppName = "DEVCONTENT_APP_REJECTED";
@@ -122,7 +122,7 @@ public class DevContentTest extends TestBase {
         Assert.assertEquals(actualAppStatus, expectedAppStatus);
     }
 
-    @Test
+    //@Test
     public void _006_check_app_status_live(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         String expectedAppName = "DEVCONTENT_APP_LIVE";

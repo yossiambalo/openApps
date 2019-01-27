@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.awt.*;
+
 public class KeyMnagerPage extends PageObject {
     private final String SUCCESS_MESSAGE = "Uploaded key successfully";
     @FindBy(id = "GenerateProdEnvKeys")
@@ -22,11 +24,14 @@ public class KeyMnagerPage extends PageObject {
     private WebElement uploadProdEnvGsomKeyInput;
     @FindBy(className = "footer-message")
     private WebElement footerMessage;
+    @FindBy (id = "siteSelectionAccordion")
+    private WebElement siteSelectionAccordion;
 
     public KeyMnagerPage(WebDriver driver) {
         super(driver);
     }
     public boolean generate(EnviromentType enviromentType) {
+
         if (isElementExist(By.id("revokeProdKeys")) ) {
             revokeProdKeys.click();
         }
@@ -38,10 +43,10 @@ public class KeyMnagerPage extends PageObject {
     }
     public void downloadKey(EnviromentType enviromentType){
         int counter = 0;
-        while (!isElementExist(By.id("downloadProdKeys")) && counter < 5){
-            wait(WAIT);
-            counter ++;
-        }
+////        while (!isElementExist(By.id("downloadProdKeys")) && counter < 5){
+////            wait(WAIT);
+////            counter ++;
+//        }
         if (enviromentType.equals(EnviromentType.PROD)){
             downloadProdKeys.click();
         }else {
@@ -51,10 +56,10 @@ public class KeyMnagerPage extends PageObject {
     public boolean uploadOmnia(EnviromentType enviromentType,String filePath){
         boolean res = false;
         int counter = 0;
-        while (!isElementExist(By.id("uploadProdEnvOmniaKeyInput")) && counter < 5){
-            wait(WAIT);
-            counter ++;
-        }
+//        while (!isElementExist(By.id("uploadProdEnvOmniaKeyInput")) && counter < 5){
+//            wait(WAIT);
+//            counter ++;
+//        }
         if (enviromentType.equals(EnviromentType.PROD)){
             try {
                 uploadProdEnvOmniaKeyInput.sendKeys(filePath);
@@ -70,10 +75,10 @@ public class KeyMnagerPage extends PageObject {
     public boolean uploadGSOM(EnviromentType enviromentType,String filePath){
         boolean res = false;
         int counter = 0;
-        while (!isElementExist(By.id("uploadProdEnvGsomKeyInput")) && counter < 5){
-            wait(WAIT);
-            counter ++;
-        }
+//        while (!isElementExist(By.id("uploadProdEnvGsomKeyInput")) && counter < 5){
+//            wait(WAIT);
+//            counter ++;
+//        }
         if (enviromentType.equals(EnviromentType.PROD)){
             uploadProdEnvGsomKeyInput.sendKeys(filePath);
             res = footerMessage.getText().contains(SUCCESS_MESSAGE);
@@ -82,4 +87,10 @@ public class KeyMnagerPage extends PageObject {
         }
         return res;
     }
+    public void deployToAllKeyManage(){
+        isElementPresent(siteSelectionAccordion.findElements(By.xpath("nav-item")).get(0));
+
+
+    }
+
 }

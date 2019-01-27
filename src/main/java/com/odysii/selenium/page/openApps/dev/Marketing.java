@@ -38,28 +38,34 @@ public class Marketing extends PageObject {
         //isElementPresent(appIcon);
         ((JavascriptExecutor)  webDriver).executeScript("document.getElementById('iconFile').removeAttribute('class')");
         wait(WAIT);
-        this.appIcon.sendKeys(getFile(properties.getProperty("app_icon")));
+        webDriver.findElement(By.id("iconFile")).sendKeys(getFile(properties.getProperty("app_icon")));
         //isElementPresent(screenshotsFile);
         ((JavascriptExecutor)  webDriver).executeScript("document.getElementById('screenshotsFile').removeAttribute('class')");
         wait(WAIT);
-        this.screenshotsFile.sendKeys(getFile(properties.getProperty("app_preview_screenshots")));
-        //wait(WAIT);
+        webDriver.findElement(By.id("screenshotsFile")).sendKeys(getFile(properties.getProperty("app_preview_screenshots")));
+        //wait(WAIT);l
         scrollDown(deleteBtn);
         scrollDown(complete);
         isElementPresent(complete);
         this.complete.click();
     }
-    public void fillMarketing(String promotionalText,String keywords,String screenshotFileName,String appIconFileName){
+    public void fillMarketing(String promotionalText,String keywords,String screenshotFileName,String appIconFileName,boolean toComplete){
         isElementPresent(this.promotionalText);
         this.promotionalText.clear();
         this.promotionalText.sendKeys(promotionalText);
         isElementPresent(this.keywords);
+        this.keywords.clear();
         this.keywords.sendKeys(keywords);
-        isElementPresent(this.screenshotsFile);
-        this.screenshotsFile.sendKeys(getFile("content//" +screenshotFileName));
         isElementPresent(this.appIcon);
-        this.appIcon.sendKeys(getFile("content//" +appIconFileName));
+        if (appIconFileName != null){
+            this.appIcon.sendKeys(getFile("content\\" +appIconFileName));
+        }
+        isElementPresent(this.screenshotsFile);
+        this.screenshotsFile.sendKeys(getFile("content\\" +screenshotFileName));
         scrollDown(complete);
-        this.complete.click();
+        if (toComplete){
+            this.complete.click();
+        }
+
     }
 }

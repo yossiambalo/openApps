@@ -58,6 +58,7 @@ public class RetailerHomePage extends PageObject {
     }
 
     public KeyManagement getKeysMGMT() {
+        isElementExist(By.id("manageKeys"));
         manageKeys.click();
         return new KeyManagement(webDriver);
     }

@@ -3,10 +3,7 @@ package com.odysii.functional;
 import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
-import com.odysii.selenium.page.openApps.admin.AdminPage;
-import com.odysii.selenium.page.openApps.admin.KeyMnagerPage;
-import com.odysii.selenium.page.openApps.admin.RetailersPage;
-import com.odysii.selenium.page.openApps.admin.UsersPage;
+import com.odysii.selenium.page.openApps.admin.*;
 import com.odysii.selenium.page.openApps.admin.helper.EnviromentType;
 import com.odysii.selenium.page.openApps.admin.helper.RetailerName;
 import com.odysii.selenium.page.openApps.admin.helper.RoleType;
@@ -31,7 +28,7 @@ public class AdminTest extends TestBase {
     public void init(){
         category = "Admin Console";
     }
-    //@Test(priority = 1)
+    @Test(priority = 1)
     public void _001_valid_edit_users_in_admin_console(){
         user = new User(driver);
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
@@ -39,7 +36,8 @@ public class AdminTest extends TestBase {
         List<String> retailers = new ArrayList<>();
         retailers.add(RetailerType.SHELL);
         retailers.add(RetailerType.EXXON_MOBIL);
-        usersPage.editUser("DEVELOPER A", RoleType.THIRD_PARTY,retailers);
+        EditUser editUser = usersPage.getUser(DEV_USER_NAME);
+        editUser.edit(RoleType.ROLE_1,retailers);
         //TODO: add assertion when indicator will be ready by developers
         Assert.assertTrue(true);
     }

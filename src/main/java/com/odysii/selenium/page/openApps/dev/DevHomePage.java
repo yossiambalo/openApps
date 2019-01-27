@@ -1,25 +1,36 @@
 package com.odysii.selenium.page.openApps.dev;
 
 
+import com.odysii.selenium.page.openApps.admin.SupportTicket;
 import com.odysii.selenium.page.util.PageObject;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class DevHomePage extends PageObject{
 
-    @FindBy(xpath = "//*[contains(text(), 'My Apps')]")
+    @FindBy(id = "navItem5")
     private WebElement myAppsLink;
-    @FindBy(xpath = "//*[contains(text(), 'Dashboard')]")
+    //@FindBy(xpath = "//*[contains(text(), 'Dashboard')]")
+    @FindBy(id = "navItem4")
     private WebElement dashboardLink;
-    @FindBy(xpath = "//*[contains(text(), 'Transaction History')]")
-    private WebElement trasactionHistory;
-    @FindBy(xpath = "//*[contains(text(), 'Revenue Report')]")
-    private WebElement revenueReport;
-    @FindBy(xpath = "//*[contains(text(), 'Support Tickets')]")
+    @FindBy(id = "navItem11")
+    private WebElement passportLink;
+    @FindBy(id = "navItem13")
+    private WebElement libraryLink;
+    @FindBy(id = "navItem6")
+    private WebElement trasactionHistoryLink;
+    @FindBy(id = "navItem7")
+    private WebElement revenueReportLink;
+    @FindBy(id = "navItem8")
     private WebElement supportTickets;
-    @FindBy(xpath = "//*[contains(text(), 'Public Profile')]")
-    private WebElement publicProfile;
+    @FindBy(id = "navItem9")
+    private WebElement publicProfileLink;
+    @FindBy(id = "navItem10")
+    private WebElement encoreLink;
+    @FindBy(id = "navItem12")
+    private WebElement appStoreLink;
     @FindBy(name = "username")
     WebElement userName;
     @FindBy(name = "password")
@@ -28,6 +39,16 @@ public class DevHomePage extends PageObject{
     WebElement loginBtn;
     @FindBy(className = "float-right")
     WebElement logoutBtn;
+    @FindBy(id = "navItem8")
+    WebElement supportTicketLink;
+    @FindBy(id = "navItem14")
+    WebElement campaignLink;
+    @FindBy(id = "navItem15")
+    WebElement schdulingLink;
+    @FindBy(id = "navItem16")
+    WebElement keyManagementLink;
+    @FindBy(id = "navItem17")
+    WebElement appContentLink;
 
     public void login(String userName,String password){
         this.userName.clear();
@@ -57,12 +78,12 @@ public class DevHomePage extends PageObject{
     }
     //get TransactionHistory object
     public TransactionHistory getTrasactionHistoryPage(WebDriver driver){
-        this.trasactionHistory.click();
+        this.trasactionHistoryLink.click();
         return new TransactionHistory(driver);
     }
     //get RevenueReport object
     public RevenueReport getRevenueReportPage(WebDriver driver){
-        this.revenueReport.click();
+        this.revenueReportLink.click();
         return new RevenueReport(driver);
     }
     //get SupportTickets object
@@ -72,7 +93,55 @@ public class DevHomePage extends PageObject{
     }
     //get PublicProfile object
     public PublicProfile getPublicProfilePage(WebDriver driver){
-        this.publicProfile.click();
+        this.publicProfileLink.click();
         return new PublicProfile(driver);
+    }
+    public SupportTicket getSupportTicket(){
+        isElementPresent(supportTicketLink);
+        supportTicketLink.click();
+        return new SupportTicket(webDriver);
+    }
+    public String getDashboardText(){
+        isElementPresent(dashboardLink);
+        return dashboardLink.findElement(By.tagName("span")).getText();
+    }
+    public String getMyAppsText(){
+        return myAppsLink.findElement(By.tagName("span")).getText();
+    }
+    public String getTransactionHistoryText(){
+        return trasactionHistoryLink.findElement(By.tagName("span")).getText();
+    }
+    public String getRevenueReportText(){
+        return revenueReportLink.findElement(By.tagName("span")).getText();
+    }
+    public String getSupportTicketText(){
+        return supportTicketLink.findElement(By.tagName("span")).getText();
+    }
+    public String getPublicProfileText(){
+        return publicProfileLink.findElement(By.tagName("span")).getText();
+    }
+    public String getEncoreText(){
+        return encoreLink.findElement(By.tagName("span")).getText();
+    }
+    public String getAppStoreText(){
+        return appStoreLink.findElement(By.tagName("span")).getText();
+    }
+    public String getPassportText(){
+        return passportLink.findElement(By.tagName("span")).getText();
+    }
+    public String getLibraryText(){
+        return libraryLink.findElement(By.tagName("span")).getText();
+    }
+    public String getCampaignText(){
+        return campaignLink.findElement(By.tagName("span")).getText();
+    }
+    public String getSchdulingText(){
+        return schdulingLink.findElement(By.tagName("span")).getText();
+    }
+    public String getKeyManagementText(){
+        return keyManagementLink.findElement(By.tagName("span")).getText();
+    }
+    public String getAppContentText(){
+        return appContentLink.findElement(By.tagName("span")).getText();
     }
 }
