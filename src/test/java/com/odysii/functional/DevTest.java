@@ -4,7 +4,10 @@ import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.admin.AdminPage;
+import com.odysii.selenium.page.openApps.admin.EditUser;
 import com.odysii.selenium.page.openApps.admin.SupportTicket;
+import com.odysii.selenium.page.openApps.admin.UsersPage;
+import com.odysii.selenium.page.openApps.admin.helper.RoleType;
 import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
@@ -24,6 +27,13 @@ public class DevTest extends TestBase {
     @BeforeClass
     public void login() {
         user = new User(driver);
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
+        UsersPage usersPage = adminPage.getUsersPage();
+        EditUser editUser = usersPage.getUser(RETAILER_USER_NAME);
+        editUser.edit(RoleType.ROLE_7,null);
+        editUser = usersPage.getUser(DEV_USER_NAME);
+        editUser.edit(RoleType.ROLE_1,null);
+        isRoleConfig = true;
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME, RETAILER_USER_PASS, UserType.RETAILER);
         category = "Dev";
     }
@@ -164,20 +174,20 @@ public class DevTest extends TestBase {
         SupportTicket devSupportTicket = devUser.getSupportTicket();
         Assert.assertEquals(devSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.APPROVED.getStatus().toLowerCase(),"Status should be Approved but found "+devSupportTicket.getAppStatus()+" in dev page!");
         user.logout();
-}
+    }
     @Test(priority = 5, dependsOnMethods = "_004_edit_and_certify_and_go_live")
     public void _005_valid_app_add_to_app_store(){
-       try {
-           //Valid app added to retailer store
-           retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
-           retailerHomePage.getAppStore();
-           int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
-           Assert.assertEquals(appListAfterAdding,appListBeforeAdding + 1);
-       }catch (Exception e){
-           e.getMessage();
-       }finally {
-           user.logout();
-       }
+        try {
+            //Valid app added to retailer store
+            retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+            retailerHomePage.getAppStore();
+            int appListAfterAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
+            Assert.assertEquals(appListAfterAdding,appListBeforeAdding + 1);
+        }catch (Exception e){
+            e.getMessage();
+        }finally {
+            user.logout();
+        }
     }
     @Test(priority = 6)
     public void _006_valid_add_new_version_to_application(){

@@ -5,7 +5,10 @@ import java.io.File;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.admin.AdminPage;
+import com.odysii.selenium.page.openApps.admin.EditUser;
 import com.odysii.selenium.page.openApps.admin.SupportTicket;
+import com.odysii.selenium.page.openApps.admin.UsersPage;
+import com.odysii.selenium.page.openApps.admin.helper.RoleType;
 import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
@@ -38,7 +41,7 @@ public class TestBase {
     public final static String DEV_USER_PASS = "Aa123456";
     public final static String ADMIN_USER_NAME = "yossi.ambalo.odysii@gmail.com";
     public final static String ADMIN_USER_PASS = "Aa123456";
-    public final static String RETAILER_USER_NAME = "auto.retail.odysii@gmail.com";
+    public final static String  RETAILER_USER_NAME = "auto.retail.odysii@gmail.com";
     public final static String RETAILER_USER_PASS = "Aa123456";
     public User user;
     public WebDriver driver;
@@ -60,6 +63,7 @@ public class TestBase {
     public final String zipFile = "TH.zip";
     public static boolean isPrepared = false;
     static String token = null;
+    protected static boolean isRoleConfig = false;
     public static String getHostName() {
         String hostName = "";
         try {
@@ -307,5 +311,8 @@ public class TestBase {
     }
     public void setApplicationID() {
         applicationIDToDelete.add( driver.getCurrentUrl().split("my-apps/")[1].split("/")[0]);
+    }
+    public boolean updateUser(int roleID){
+        return SqlManager.executeQuery("UPDATE openApps_qa.USERS SET openApps_qa.USERS.ROLE_ID = "+roleID+" WHERE openApps_qa.USERS.USER_ID = 8949;");
     }
 }
