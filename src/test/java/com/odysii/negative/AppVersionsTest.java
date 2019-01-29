@@ -3,6 +3,10 @@ package com.odysii.negative;
 import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
+import com.odysii.selenium.page.openApps.admin.AdminPage;
+import com.odysii.selenium.page.openApps.admin.EditUser;
+import com.odysii.selenium.page.openApps.admin.UsersPage;
+import com.odysii.selenium.page.openApps.admin.helper.RoleType;
 import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
@@ -16,15 +20,19 @@ public class AppVersionsTest extends TestBase {
     DevHomePage devHomePage;
     @BeforeClass
     public void prepare(){
+        user = new User(driver);
+        DEV_USER_NAME = "auto.open.apps@gmail.com";
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
+        UsersPage usersPage = adminPage.getUsersPage();
+        EditUser editUser = usersPage.getUser(DEV_USER_NAME);
+        editUser.edit(RoleType.ROLE_1,null);
         if (!isPrepared){
             prepareTest("app_details_DevContent_PreSubmitted.properties", ApplicationStatus.PRESUBMITTED);
             isPrepared = true;
         }else {
-            user = new User(driver);
             devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         }
         category = "App Versions";
-
     }
 
     @Test

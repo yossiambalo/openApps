@@ -211,7 +211,6 @@ public class TestBase {
         logger = extent.startTest(method.getName()).assignCategory(this.category+" Tests");
     }
     public void prepareTest(String propFile , ApplicationStatus applicationStatus){
-        user = new User(driver);
 //        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
 //        //get number of live apps from retailer page
 //        appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
@@ -240,6 +239,7 @@ public class TestBase {
             actualValue = actualAppList.size();
             ShowUp showUp = myApps.showUp(actualAppList.get(actualValue-1));
             setApplicationID();
+            showUp.backToMyApps();
         }
 //       if (applicationStatus.equals(ApplicationStatus.LIVE)){
 //           addAppToAppStore();

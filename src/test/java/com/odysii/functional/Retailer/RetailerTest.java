@@ -27,6 +27,7 @@ public class RetailerTest extends TestBase {
     @BeforeClass
     public void prepare(){
         Assert.assertTrue(updateUser(7));
+        category = "Retailer";
         DEV_USER_NAME = "auto.open.apps@gmail.com";
         user = new User(driver);
         if (!isRoleConfig){
@@ -274,7 +275,7 @@ public class RetailerTest extends TestBase {
         Assert.assertTrue(requestHelper.getRequest(url),"Failed to pack an code!");
     }
 
-    @Test
+    //@Test ToDo: Unmark test when functionality will be ready by dev's
     public void _031_edit_name_and_description_campaign(){
         Campaign campaign = retailerHomePage.getCampaign();
         campaign.editCampaign("name test","description test");
