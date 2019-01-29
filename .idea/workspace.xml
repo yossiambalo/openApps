@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8ae4ec26-ae56-456b-a642-a12531f313fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/functional/Retailer/RetailerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/functional/Retailer/RetailerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,14 +44,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="2618" />
-          <entry key="txt" value="122" />
+          <entry key="txt" value="123" />
           <entry key="xml" value="64" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="2618" />
-          <entry key="PLAIN_TEXT" value="122" />
+          <entry key="PLAIN_TEXT" value="123" />
           <entry key="XML" value="64" />
         </counts>
       </usages-collector>
@@ -60,11 +59,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+            <state relative-caret-position="153">
+              <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+              <folding>
+                <marker date="1548767613282" expanded="true" signature="2328:2737" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,10 +98,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/functional/Retailer/RetailerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
+            <state relative-caret-position="443">
               <caret line="270" column="6" selection-start-line="270" selection-start-column="6" selection-end-line="270" selection-end-column="6" />
             </state>
           </provider>
@@ -183,8 +185,8 @@
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/functional/AccountTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/negative/AppVersionsTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/functional/Retailer/RetailerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" />
       </list>
     </option>
   </component>
@@ -348,7 +350,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548753633233" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548767322467" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/test-output" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
   </component>
@@ -471,19 +473,17 @@
       <option name="project" value="LOCAL" />
       <updated>1548753490807</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Release Version 1.0.0.3">
+      <created>1548754828639</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1548754828639</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.01.28 at 13h 40m 05s.xml">
-      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.01.28 at 14h 05m 30s.xml">
-      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.01.28 at 14h 09m 49s.xml">
-      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.01.28 at 14h 33m 58s.xml">
       <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
     </history-entry>
@@ -505,11 +505,20 @@
     <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.01.29 at 11h 17m 25s.xml">
       <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.01.29 at 11h 58m 40s.xml">
+      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.01.29 at 14h 04m 53s.xml">
+      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.01.29 at 14h 09m 00s.xml">
+      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17643923" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1988273" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -518,7 +527,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32925472" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.41379312" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.41379312" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.46496108" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -548,7 +557,8 @@
     <MESSAGE value="Release Version" />
     <MESSAGE value="Release Version 1.0.02" />
     <MESSAGE value="Release Version 1.0.0.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Release Version 1.0.0.2" />
+    <MESSAGE value="Release Version 1.0.0.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Release Version 1.0.0.3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -828,17 +838,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/functional/Retailer/RetailerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+        <state relative-caret-position="443">
+          <caret line="270" column="6" selection-start-line="270" selection-start-column="6" selection-end-line="270" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/functional/Retailer/RetailerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="270" column="6" selection-start-line="270" selection-start-column="6" selection-end-line="270" selection-end-column="6" />
+        <state relative-caret-position="153">
+          <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+          <folding>
+            <marker date="1548767613282" expanded="true" signature="2328:2737" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
