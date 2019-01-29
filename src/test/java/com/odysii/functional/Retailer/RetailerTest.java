@@ -268,14 +268,14 @@ public class RetailerTest extends TestBase {
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    @Test//(priority = 29)
+    //@Test//(priority = 29)ToDo: Unmark test when functionality will be ready by dev's
     public void _030_valid_application_packing() {
         String url = "http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/code/4346/version/4349/pack";
         RequestHelper requestHelper = new RequestHelper();
         Assert.assertTrue(requestHelper.getRequest(url),"Failed to pack an code!");
     }
 
-    //@Test ToDo: Unmark test when functionality will be ready by dev's
+    @Test
     public void _031_edit_name_and_description_campaign(){
         Campaign campaign = retailerHomePage.getCampaign();
         campaign.editCampaign("name test","description test");

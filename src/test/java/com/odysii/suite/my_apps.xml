@@ -4,12 +4,12 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.odysii.functional.DevTest"/>
-            <class name="com.odysii.functional.Retailer.RetailerTest"/>
-            <class name="com.odysii.functional.AccountTest"/>
-            <class name="com.odysii.content.AdminContentTest"/>
-            <class name="com.odysii.content.RetailerContentTest"/>
-            <class name="com.odysii.negative.AppVersionsTest"/>
+            <!--<class name="com.odysii.functional.DevTest"/>-->
+            <!--<class name="com.odysii.functional.Retailer.RetailerTest"/>-->
+            <!--<class name="com.odysii.functional.AccountTest"/>-->
+            <!--<class name="com.odysii.content.AdminContentTest"/>-->
+            <!--<class name="com.odysii.content.RetailerContentTest"/>-->
+            <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
 
             <!--======Start tests should be maintain======-->
             <!--<class name="com.odysii.functional.AdminTest"/>-->
@@ -23,12 +23,12 @@
     <test name="FireFoxTest">
     <parameter name="browser" value="firefox"/>
     <classes>
-        <!--<class name="com.odysii.functional.DevTest"/>-->
-        <!--<class name="com.odysii.functional.Retailer.RetailerTest"/>-->
-        <!--<class name="com.odysii.functional.AccountTest"/>-->
-        <!--<class name="com.odysii.content.AdminContentTest"/>-->
-        <!--<class name="com.odysii.content.RetailerContentTest"/>-->
-        <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
+        <class name="com.odysii.functional.DevTest"/>
+        <class name="com.odysii.functional.Retailer.RetailerTest"/>
+        <class name="com.odysii.functional.AccountTest"/>
+        <class name="com.odysii.content.AdminContentTest"/>
+        <class name="com.odysii.content.RetailerContentTest"/>
+        <class name="com.odysii.negative.AppVersionsTest"/>
 
         <!--======Start tests should be maintain======-->
         <!--<class name="com.odysii.functional.AdminTest"/>-->
