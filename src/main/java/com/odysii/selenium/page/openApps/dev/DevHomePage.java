@@ -15,6 +15,10 @@ public class DevHomePage extends PageObject{
     //@FindBy(xpath = "//*[contains(text(), 'Dashboard')]")
     @FindBy(id = "navItem4")
     private WebElement dashboardLink;
+    @FindBy(id = "navItem11")
+    private WebElement passportLink;
+    @FindBy(id = "navItem13")
+    private WebElement libraryLink;
     @FindBy(id = "navItem6")
     private WebElement trasactionHistoryLink;
     @FindBy(id = "navItem7")
@@ -37,6 +41,14 @@ public class DevHomePage extends PageObject{
     WebElement logoutBtn;
     @FindBy(id = "navItem8")
     WebElement supportTicketLink;
+    @FindBy(id = "navItem14")
+    WebElement campaignLink;
+    @FindBy(id = "navItem15")
+    WebElement schdulingLink;
+    @FindBy(id = "navItem16")
+    WebElement keyManagementLink;
+    @FindBy(id = "navItem17")
+    WebElement appContentLink;
 
     public void login(String userName,String password){
         this.userName.clear();
@@ -113,5 +125,23 @@ public class DevHomePage extends PageObject{
     }
     public String getAppStoreText(){
         return appStoreLink.findElement(By.tagName("span")).getText();
+    }
+    public String getPassportText(){
+        return passportLink.findElement(By.tagName("span")).getText();
+    }
+    public String getLibraryText(){
+        return libraryLink.findElement(By.tagName("span")).getText();
+    }
+    public String getCampaignText(){
+        return campaignLink.findElement(By.tagName("span")).getText();
+    }
+    public String getSchdulingText(){
+        return schdulingLink.findElement(By.tagName("span")).getText();
+    }
+    public String getKeyManagementText(){
+        return keyManagementLink.findElement(By.tagName("span")).getText();
+    }
+    public String getAppContentText(){
+        return appContentLink.findElement(By.tagName("span")).getText();
     }
 }

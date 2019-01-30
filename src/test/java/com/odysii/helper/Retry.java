@@ -1,4 +1,4 @@
-package com.odysii;
+package com.odysii.helper;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;

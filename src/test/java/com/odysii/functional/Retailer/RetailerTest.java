@@ -1,9 +1,12 @@
 package com.odysii.functional.Retailer;
 
-import com.odysii.Retry;
 import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
+import com.odysii.selenium.page.openApps.admin.AdminPage;
+import com.odysii.selenium.page.openApps.admin.EditUser;
+import com.odysii.selenium.page.openApps.admin.UsersPage;
+import com.odysii.selenium.page.openApps.admin.helper.RoleType;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.retailer.*;
 import com.odysii.selenium.page.openApps.retailer.helper.LayoutType;
@@ -23,8 +26,18 @@ public class RetailerTest extends TestBase {
     CampaignDesigner campaignDesigner;
     @BeforeClass
     public void prepare(){
+        Assert.assertTrue(updateUser(7));
         DEV_USER_NAME = "auto.open.apps@gmail.com";
         user = new User(driver);
+        if (!isRoleConfig){
+            adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
+            UsersPage usersPage = adminPage.getUsersPage();
+            EditUser editUser = usersPage.getUser(RETAILER_USER_NAME);
+            editUser.edit(RoleType.ROLE_7,null);
+            editUser = usersPage.getUser(DEV_USER_NAME);
+            editUser.edit(RoleType.ROLE_1,null);
+            isRoleConfig = true;
+        }
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
 //        prepareTest("app_details.properties", ApplicationStatus.SUBMITTED);
 //        prepareTest("app_details.properties", ApplicationStatus.LIVE);
