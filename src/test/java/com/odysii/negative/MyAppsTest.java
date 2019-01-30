@@ -34,7 +34,6 @@ public class MyAppsTest extends TestBase {
         UsersPage usersPage = adminPage.getUsersPage();
         List<String> retailers = new ArrayList<>();
         retailers.add(RetailerType.SHELL);
-        retailers.add(RetailerType.EXXON_MOBIL);
         EditUser editUser = usersPage.getUser(DEV_USER_NAME);
         editUser.edit(RoleType.ROLE_3,retailers);
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
