@@ -26,8 +26,7 @@ public class EditUser extends PageObject {
         Select dropdown = new Select(userRoleDDL);
         dropdown.selectByIndex(roleType.getIndex());
         if (retailers != null){
-            isElementPresent(delegationDDL);
-            delegationDDL.click();
+            webDriver.findElement(By.className("dropdown-btn")).findElement(By.className("dropdown-down")).click();
             for (String retailer : retailers){
                 webDriver.findElement(By.xpath("//div[contains(text(), '"+retailer+"')]")).click();
             }
