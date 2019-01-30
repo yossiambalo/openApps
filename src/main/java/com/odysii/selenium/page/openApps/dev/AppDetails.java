@@ -106,7 +106,7 @@ public class AppDetails extends PageObject{
         wait(WAIT);
         this.availability.sendKeys(availability);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",this.availability);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",shellRetailer);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();", shellRetailer);
         appPriceType.sendKeys(priceType);
         appPrice.sendKeys(price);
         scrollDown(next);

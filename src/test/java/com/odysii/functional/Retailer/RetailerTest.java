@@ -27,6 +27,7 @@ public class RetailerTest extends TestBase {
     @BeforeClass
     public void prepare(){
         Assert.assertTrue(updateUser(7));
+        category = "Retailer";
         DEV_USER_NAME = "auto.open.apps@gmail.com";
         user = new User(driver);
         if (!isRoleConfig){
@@ -267,7 +268,7 @@ public class RetailerTest extends TestBase {
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    @Test//(priority = 29)
+    //@Test//(priority = 29)ToDo: Unmark test when functionality will be ready by dev's
     public void _030_valid_application_packing() {
         String url = "http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/code/4346/version/4349/pack";
         RequestHelper requestHelper = new RequestHelper();
