@@ -13,7 +13,7 @@
             <!--<class name="com.odysii.content.RetailerContentTest"/>-->
             <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
             <class name="com.odysii.negative.MarketingTest"/>
-            <class name="com.odysii.negative.MyAppsTest"/>
+            <!--<class name="com.odysii.negative.MyAppsTest"/>-->
             <!--<class name = "com.odysii.functional.Retailer.CertificateManagement"/>-->
         </classes>
     </test>
