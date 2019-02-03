@@ -37,7 +37,7 @@ public class DevTest extends TestBase {
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME, RETAILER_USER_PASS, UserType.RETAILER);
         category = "Dev";
     }
-    @Test(priority = 1)
+    //@Test(priority = 1)
     public void _001_valid_add_new_app() {
         //get number of live apps from retailer page
         retailerHomePage.getAppStore();
@@ -60,7 +60,7 @@ public class DevTest extends TestBase {
         Assert.assertTrue(myApps.getDescription(actualValue - 1).toLowerCase().contains(appDetails.getAppDescription().toLowerCase()));
     }
 
-    @Test(priority = 2, dependsOnMethods = "_001_valid_add_new_app")
+    //@Test(priority = 2, dependsOnMethods = "_001_valid_add_new_app")
     public void _002_valid_app_reject_no_fee() {
         //get the created app
         ShowUp showUp = myApps.showUp(actualAppList.get(actualValue - 1));
@@ -95,7 +95,7 @@ public class DevTest extends TestBase {
         //showUp.backToMyApps();
     }
 
-    @Test(priority = 3, dependsOnMethods = "_002_valid_app_reject_no_fee")
+    //@Test(priority = 3, dependsOnMethods = "_002_valid_app_reject_no_fee")
     public void _003_valid_reject_with_fee() {
         user.logout();
         devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
@@ -137,7 +137,7 @@ public class DevTest extends TestBase {
         Assert.assertEquals(devSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.REJECT.getStatus().toLowerCase(),"Status should be Rejected but found "+devSupportTicket.getAppStatus()+" in dev page!");
     }
 
-    @Test(priority = 4, dependsOnMethods = "_003_valid_reject_with_fee")
+    //@Test(priority = 4, dependsOnMethods = "_003_valid_reject_with_fee")
     public void _004_edit_and_certify_and_go_live() {
         myApps = devUser.getMyAppsPage(driver);
         wait(WAIT);
@@ -175,7 +175,7 @@ public class DevTest extends TestBase {
         Assert.assertEquals(devSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.APPROVED.getStatus().toLowerCase(),"Status should be Approved but found "+devSupportTicket.getAppStatus()+" in dev page!");
         user.logout();
     }
-    @Test(priority = 5, dependsOnMethods = "_004_edit_and_certify_and_go_live")
+    //@Test(priority = 5, dependsOnMethods = "_004_edit_and_certify_and_go_live")
     public void _005_valid_app_add_to_app_store(){
         try {
             //Valid app added to retailer store
