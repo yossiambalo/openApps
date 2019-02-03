@@ -28,10 +28,22 @@ public class AppDetails extends PageObject{
     WebElement englishLanguage;
     @FindBy(xpath = "//div[contains(text(), 'French')]")
     WebElement frenchLanguage;
-    @FindBy(xpath = "//div[contains(text(), 'Sports')]")
-    WebElement sportsCategory;
-    @FindBy(xpath = "//div[contains(text(), 'Weather')]")
-    WebElement weatherCategory;
+    @FindBy(xpath = "//div[contains(text(), 'Merchandising')]")
+    WebElement merchandising;
+    @FindBy(xpath = "//div[contains(text(), 'Interactive')]")
+    WebElement interactive;
+    @FindBy(xpath = "//div[contains(text(), 'Media')]")
+    WebElement media;
+    @FindBy(xpath = "//div[contains(text(), 'Foodservice')]")
+    WebElement foodservice;
+    @FindBy(xpath = "//div[contains(text(), 'Loyalty')]")
+    WebElement loyalty;
+    @FindBy(xpath = "//div[contains(text(), 'Services')]")
+    WebElement services;
+    @FindBy(xpath = "//div[contains(text(), 'Charity')]")
+    WebElement charity;
+    @FindBy(xpath = "//div[contains(text(), 'Other')]")
+    WebElement other;
     @FindBy(xpath = "//div[contains(text(), 'Shell')]")
     WebElement shellRetailer;
     @FindBy(xpath = "//div[contains(text(), 'ExxonMobil')]")
@@ -82,7 +94,7 @@ public class AppDetails extends PageObject{
         this.subtitle.sendKeys(appDescription);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.englishLanguage);
         wait(WAIT);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",sportsCategory);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",charity);
         wait(WAIT);
         this.availability.sendKeys(properties.getProperty("availability"));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",availability);
@@ -102,7 +114,7 @@ public class AppDetails extends PageObject{
         this.subtitle.sendKeys(subtitle);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.englishLanguage);
         wait(WAIT);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",sportsCategory);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",charity);
         wait(WAIT);
         this.availability.sendKeys(availability);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",this.availability);
@@ -130,8 +142,8 @@ public class AppDetails extends PageObject{
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.englishLanguage);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.frenchLanguage);
         wait(WAIT);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",sportsCategory);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",weatherCategory);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",charity);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",other);
         scrollDown(availability);
         this.availability.sendKeys(properties.getProperty("availability"));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",availability);

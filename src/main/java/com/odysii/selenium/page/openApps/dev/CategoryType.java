@@ -1,4 +1,4 @@
-package com.odysii.selenium.page.openApps.admin.helper;
+package com.odysii.selenium.page.openApps.dev;
 
 public enum CategoryType {
 
