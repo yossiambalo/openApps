@@ -32,12 +32,15 @@ public class KeyMnagerPage extends PageObject {
     }
     public boolean generate(EnviromentType enviromentType) {
 
-        if (isElementExist(By.id("revokeProdKeys")) ) {
+        if (isElementExist(By.id("RevokeProdEnvKeys")))
+        {
             revokeProdKeys.click();
         }
-        if (isElementExist(By.id("generateProdKeys"))){
+
+        if (isElementExist(By.id("GenerateProdEnvKeys"))) {
             generateProdKeys.click();
         }
+
         wait(WAIT);
         return revokeProdKeys.getText().contains("Revoke");
     }

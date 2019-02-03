@@ -26,10 +26,15 @@ public class EditUser extends PageObject {
         Select dropdown = new Select(userRoleDDL);
         dropdown.selectByIndex(roleType.getIndex());
         if (retailers != null){
-            isElementPresent(delegationDDL);
-            delegationDDL.click();
+            List<WebElement> selectedDelegations = webDriver.findElement(By.className("multiselect-dropdown")).findElements(By.tagName("a"));
+            for (WebElement e : selectedDelegations){
+                e.click();
+            }
+            wait(WAIT);
+            webDriver.findElement(By.className("dropdown-btn")).findElement(By.className("dropdown-down")).click();
             for (String retailer : retailers){
                 webDriver.findElement(By.xpath("//div[contains(text(), '"+retailer+"')]")).click();
+
             }
         }
         editUserButtonSave.click();

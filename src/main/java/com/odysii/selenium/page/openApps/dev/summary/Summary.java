@@ -107,9 +107,9 @@ public class Summary extends PageObject {
         appKeywordsSummary.sendKeys("One ke, Two key");
 
         this.availability.sendKeys("Public");
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",availability);
-        //Retailer field
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.exxonMobil);
+//        ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",availability);
+//        //Retailer field
+//        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.exxonMobil);
         scrollDown(appPrice);
         appPrice.sendKeys("2");
         appPriceType.sendKeys("Per site per year");

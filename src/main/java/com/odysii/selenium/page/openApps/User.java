@@ -56,7 +56,7 @@ public class User extends PageObject {
             isElementPresent(logoutBtn);
             logoutBtn.click();
             isElementPresent(logOutPopUp);
-            logOutPopUp.findElements(By.className("btn-xs")).get(1).click();
+            logOutPopUp.findElement(By.className("btn-xs")).click();
         }catch (WebDriverException exception){
             exception.getMessage();
         }

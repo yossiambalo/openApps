@@ -11,3 +11,5 @@ test-output/
 .m2/
 
 .idea/workspace.xml
+extent-config.xml
+src/test/java/com/odysii/suite/my_apps.xml

@@ -47,6 +47,7 @@ public class MarketingTest extends TestBase {
         String actualValue = driver.findElement(By.id("new-application-success-error-message")).getText().trim();
         Assert.assertEquals(actualValue,"Some required fields are missing");
         driver.findElement(By.id("cancelButton")).click();
+        showUp.backToMyApps();
 
     }
 
@@ -70,6 +71,7 @@ public class MarketingTest extends TestBase {
         String actualValue = driver.findElement(By.id("new-application-success-error-message")).getText().trim();
         Assert.assertEquals(actualValue,"Some required fields are missing");
         driver.findElement(By.id("cancelButton")).click();
+        showUp.backToMyApps();
 
     }
 

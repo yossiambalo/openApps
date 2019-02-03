@@ -3,6 +3,10 @@ package com.odysii.negative;
 import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
+import com.odysii.selenium.page.openApps.admin.AdminPage;
+import com.odysii.selenium.page.openApps.admin.EditUser;
+import com.odysii.selenium.page.openApps.admin.UsersPage;
+import com.odysii.selenium.page.openApps.admin.helper.RoleType;
 import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.Availabilty;
 import com.odysii.selenium.page.openApps.helper.appDetails.AvailabilityType;
@@ -15,6 +19,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyAppsTest extends TestBase {
     private AppDetails appDetails;
     DevHomePage devUser;
@@ -23,9 +30,17 @@ public class MyAppsTest extends TestBase {
     @BeforeClass
     public void login(){
         user = new User(driver);
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
+        UsersPage usersPage = adminPage.getUsersPage();
+        List<String> retailers = new ArrayList<>();
+        retailers.add(RetailerType.SHELL);
+        EditUser editUser = usersPage.getUser(DEV_USER_NAME);
+        editUser.edit(RoleType.ROLE_3,retailers);
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         category = "My Apps";
+
     }
+
     @Test
     public void _001_name_field_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);

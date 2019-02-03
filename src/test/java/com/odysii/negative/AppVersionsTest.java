@@ -26,13 +26,8 @@ public class AppVersionsTest extends TestBase {
         UsersPage usersPage = adminPage.getUsersPage();
         EditUser editUser = usersPage.getUser(DEV_USER_NAME);
         editUser.edit(RoleType.ROLE_1,null);
-        if (!isPrepared){
-            prepareTest("app_details_DevContent_PreSubmitted.properties", ApplicationStatus.PRESUBMITTED);
-            isPrepared = true;
-        }else {
-            devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
-        }
-        category = "App Versions";
+        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+
     }
 
     @Test

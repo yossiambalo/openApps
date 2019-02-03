@@ -48,9 +48,6 @@ public class CampaignDesigner extends PageObject {
 
     public void setUpCampaign(StateType stateType, LayoutType layoutType, String screenSize){
         int timeOut = 0;
-        if (!Boolean.valueOf(designerLink.getAttribute("aria-expanded"))){
-            designerLink.click();
-        }
         do {
             isElementPresent(screenSizeDdl);
             screenSizeDdl.sendKeys(screenSize);
