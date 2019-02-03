@@ -215,6 +215,9 @@ public class TestBase {
 //        //get number of live apps from retailer page
 //        appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
 //        user.logout();
+        if (user == null){
+           user = new User(driver);
+        }
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
         java.util.List<WebElement> appsList = driver.findElements(By.className(APP_CLASS_NAME));
