@@ -1,62 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8ae4ec26-ae56-456b-a642-a12531f313fc" name="Default Changelist" comment="setUpAppDetails method maintenance">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="9334cb55-8bc5-4c16-a8df-762fc32d90c6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
-    <list id="7084323e-ee29-4eee-9a86-1a37ff54900e" name="Revert: roi" comment="" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <ignored path=".idea/" />
-    <ignored path="test-output/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-365473452">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.22" value="1" />
-          <entry key="project.open.time.31" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="java" value="44" />
-          <entry key="stackdump" value="2" />
-          <entry key="xml" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="44" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="XML" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="2647" />
-          <entry key="txt" value="123" />
-          <entry key="xml" value="64" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="2647" />
-          <entry key="PLAIN_TEXT" value="123" />
-          <entry key="XML" value="64" />
-        </counts>
-      </usages-collector>
-    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -87,20 +39,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MarketingTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MarketingTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/negative/MarketingTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="43" column="19" lean-forward="true" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+            <state relative-caret-position="221">
+              <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppDetails.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AppDetails.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/AppDetails.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="161" column="5" lean-forward="true" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
+            <state relative-caret-position="585">
+              <caret line="157" column="103" lean-forward="true" selection-start-line="157" selection-start-column="103" selection-end-line="157" selection-end-column="103" />
             </state>
           </provider>
         </entry>
@@ -115,62 +67,6 @@
         </entry>
       </file>
     </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/SupportTicket.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/AdminPage.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/helper/LinkText.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/functional/Retailer/CertificateManagement.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/odysii/SqlManager.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/functional/AdminTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/UsersPage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/helper/RoleType.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/functional/DevTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/functional/AccountTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/functional/Retailer/RetailerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/DevHomePage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/negative/MarketingTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/negative/MyAppsTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/EditUser.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/User.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/negative/AppVersionsTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/AppDetails.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/helper/CategoryType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/CategoryType.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" />
-      </list>
-    </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="openApps" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
-    <option name="y" value="-8" />
-    <option name="width" value="960" />
-    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -190,6 +86,57 @@
               <item name="openApps" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="openApps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openApps" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="openApps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openApps" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="openApps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openApps" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="odysii" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="openApps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openApps" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="odysii" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="openApps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openApps" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="openApps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openApps" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="openApps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openApps" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="odysii" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -198,11 +145,6 @@
       <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548864338745" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/test-output" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -216,49 +158,38 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml">
-    <configuration name="AccountTest._004_verify_retailer_user_with_role_4_has_only_its_permissions" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="openApps" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.odysii.functional.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.odysii.functional" />
-      <option name="MAIN_CLASS_NAME" value="com.odysii.functional.AccountTest" />
-      <option name="METHOD_NAME" value="_004_verify_retailer_user_with_role_4_has_only_its_permissions" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="VM_PARAMETERS" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <properties />
-      <listeners />
+      <patterns />
     </configuration>
-    <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="openApps" />
+    <configuration default="true" type="TestNG" factoryName="TestNG">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" />
+      <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" />
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <option name="VM_PARAMETERS" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <option name="OUTPUT_DIRECTORY" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -269,16 +200,6 @@
       <properties />
       <listeners />
     </configuration>
-    <list>
-      <item itemvalue="TestNG.C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" />
-      <item itemvalue="TestNG.AccountTest._004_verify_retailer_user_with_role_4_has_only_its_permissions" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="TestNG.C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" />
-        <item itemvalue="TestNG.AccountTest._004_verify_retailer_user_with_role_4_has_only_its_permissions" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -375,44 +296,17 @@
       <option name="project" value="LOCAL" />
       <updated>1549193588140</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="roi no change">
+      <created>1549268627359</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1549268627359</updated>
+    </task>
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.02.03 at 09h 07m 18s.xml">
-      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.02.03 at 10h 28m 02s.xml">
-      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.02.03 at 10h 33m 14s.xml">
-      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.02.03 at 11h 36m 28s.xml">
-      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.02.03 at 11h 41m 34s.xml">
-      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.02.03 at 11h 46m 32s.xml">
-      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.02.03 at 11h 55m 33s.xml">
-      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.02.03 at 13h 23m 04s.xml">
-      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.02.03 at 16h 21m 13s.xml">
-      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.02.04 at 10h 20m 14s.xml">
-      <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
-    </history-entry>
-  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -427,12 +321,12 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32905984" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1988273" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1988273" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.46496108" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.44444445" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info id="Designer" order="3" />
@@ -462,32 +356,6 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1988273" />
     </layout>
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -502,80 +370,8 @@
     <MESSAGE value="Release Version 1.0.0.3" />
     <MESSAGE value="Roi 3.2.19" />
     <MESSAGE value="setUpAppDetails method maintenance" />
-    <option name="LAST_COMMIT_MESSAGE" value="setUpAppDetails method maintenance" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/odysii/content/DevContentTest.java</url>
-          <line>49</line>
-          <properties />
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/odysii/negative/MarketingTest.java</url>
-          <line>38</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="3" />
-    </breakpoint-manager>
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="watch">
-      <expression>
-        <expression-string>dropdown.selectByIndex(8)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>dropdown.selectByIndex(2)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>dropdown.selectByIndex(1)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>dropdown.selectByIndex(0)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>dropdown.selectByIndex(7)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>webDriver.findElements(By.className(&quot;card-body&quot;)).get(0).findElement(By.className(&quot;text-truncate&quot;)).getText()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>webDriver.findElements(By.className(&quot;card-body&quot;)).get(0).findElement(By.className(&quot;child_center&quot;)).getText()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>e.findElement(By.className(&quot;child_center&quot;)).getText()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>webDriver.findElements(By.className(&quot;card-body&quot;))</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>stmt.executeUpdate(query)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
+    <MESSAGE value="roi no change" />
+    <option name="LAST_COMMIT_MESSAGE" value="roi no change" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/functional/AccountTest.java">
@@ -902,13 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/AppDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="161" column="5" lean-forward="true" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/UploadCode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
@@ -918,8 +707,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/negative/MarketingTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="43" column="19" lean-forward="true" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+        <state relative-caret-position="221">
+          <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/AppDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="157" column="103" lean-forward="true" selection-start-line="157" selection-start-column="103" selection-end-line="157" selection-end-column="103" />
         </state>
       </provider>
     </entry>
