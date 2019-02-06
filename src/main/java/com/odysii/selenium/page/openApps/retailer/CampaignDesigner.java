@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CampaignDesigner extends PageObject {
 
-    @FindBy(xpath = "//a[contains(text(), 'Default')]")
+    @FindBy(xpath = "//a[contains(text(), 'All States')]")
     private WebElement defaultLink;
     @FindBy(xpath = "//a[contains(text(), 'Idle')]")
     private WebElement idleLink;

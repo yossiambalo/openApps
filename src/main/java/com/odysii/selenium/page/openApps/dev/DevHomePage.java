@@ -4,6 +4,7 @@ package com.odysii.selenium.page.openApps.dev;
 import com.odysii.selenium.page.openApps.admin.SupportTicket;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,7 +18,7 @@ public class DevHomePage extends PageObject{
     private WebElement dashboardLink;
     @FindBy(id = "navItem11")
     private WebElement passportLink;
-    @FindBy(id = "navItem13")
+    @FindBy(id = "navItem12")
     private WebElement libraryLink;
     @FindBy(id = "navItem6")
     private WebElement trasactionHistoryLink;
@@ -29,7 +30,7 @@ public class DevHomePage extends PageObject{
     private WebElement publicProfileLink;
     @FindBy(id = "navItem10")
     private WebElement encoreLink;
-    @FindBy(id = "navItem12")
+    @FindBy(id = "navItem11")
     private WebElement appStoreLink;
     @FindBy(name = "username")
     WebElement userName;
@@ -101,47 +102,51 @@ public class DevHomePage extends PageObject{
         supportTicketLink.click();
         return new SupportTicket(webDriver);
     }
-    public String getDashboardText(){
-        isElementPresent(dashboardLink);
-        return dashboardLink.findElement(By.tagName("span")).getText();
+    public boolean isDashboardEnabled(){
+        return isLinkEnabled(dashboardLink);
     }
-    public String getMyAppsText(){
-        return myAppsLink.findElement(By.tagName("span")).getText();
+    public boolean isMyAppsEnabled(){
+        return isLinkEnabled(myAppsLink);
     }
-    public String getTransactionHistoryText(){
-        return trasactionHistoryLink.findElement(By.tagName("span")).getText();
+    public boolean isTransactionHistoryEnabled(){
+        return isLinkEnabled(trasactionHistoryLink);
     }
-    public String getRevenueReportText(){
-        return revenueReportLink.findElement(By.tagName("span")).getText();
+    public boolean isRevenueReportEnabled(){
+        return isLinkEnabled(revenueReportLink);
     }
-    public String getSupportTicketText(){
-        return supportTicketLink.findElement(By.tagName("span")).getText();
+    public boolean isSupportTicketEnabled(){
+        return isLinkEnabled(supportTicketLink);
     }
-    public String getPublicProfileText(){
-        return publicProfileLink.findElement(By.tagName("span")).getText();
+    public boolean isPublicProfileEnabled(){
+        return isLinkEnabled(publicProfileLink);
     }
-    public String getEncoreText(){
-        return encoreLink.findElement(By.tagName("span")).getText();
+    public boolean isEncoreEnabled(){
+        return isLinkEnabled(encoreLink);
     }
-    public String getAppStoreText(){
-        return appStoreLink.findElement(By.tagName("span")).getText();
+    public boolean isAppStoreEnabled(){
+        return isLinkEnabled(appStoreLink);
     }
-    public String getPassportText(){
-        return passportLink.findElement(By.tagName("span")).getText();
+    public boolean isPassportEnabled(){
+        return isLinkEnabled(passportLink);
     }
-    public String getLibraryText(){
-        return libraryLink.findElement(By.tagName("span")).getText();
+    public boolean isLibraryEnabled(){
+        return isLinkEnabled(libraryLink);
     }
-    public String getCampaignText(){
-        return campaignLink.findElement(By.tagName("span")).getText();
+    public boolean isCampaignEnabled(){
+        return isLinkEnabled(campaignLink);
     }
-    public String getSchdulingText(){
-        return schdulingLink.findElement(By.tagName("span")).getText();
+    public boolean isSchedulingEnabled(){
+        return isLinkEnabled(schdulingLink);
     }
-    public String getKeyManagementText(){
-        return keyManagementLink.findElement(By.tagName("span")).getText();
+    public boolean isKeyManagementEnabled(){
+        return isLinkEnabled(keyManagementLink);
     }
     public String getAppContentText(){
         return appContentLink.findElement(By.tagName("span")).getText();
+    }
+    private boolean isLinkEnabled(WebElement element){
+        isElementPresent(element);
+        WebElement parentElm = (WebElement) ((JavascriptExecutor) webDriver).executeScript("return arguments[0].parentNode;", element);
+        return (!parentElm.getAttribute("class").contains("disabled"));
     }
 }

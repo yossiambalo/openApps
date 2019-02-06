@@ -100,7 +100,8 @@ public class AppDetails extends PageObject{
         wait(WAIT);
         this.availability.sendKeys(properties.getProperty("availability"));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",availability);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",retailerFirstOption.findElements(By.className("multiselect-item-checkbox")).get(0).findElements(By.tagName("div")).get(0));
+        //((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",retailerFirstOption.findElements(By.className("multiselect-item-checkbox")).get(0).findElements(By.tagName("div")).get(0));
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",webDriver.findElement(By.xpath("//div[contains(text(), 'All Retailers')]")));
         appPriceType.sendKeys(properties.getProperty("app_price_type"));
         appPrice.sendKeys(properties.getProperty("app_price"));
         scrollDown(next);
@@ -152,8 +153,9 @@ public class AppDetails extends PageObject{
 //        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",shellRetailer);
 //        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",exxonMobilRetailer);
         if (isElementPresent(By.className("invalid-feedback-multiple"))) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click();", retailerFirstOption.findElements(By.className("multiselect-item-checkbox")).get(0).findElements(By.tagName("div")).get(0));
             //((JavascriptExecutor) webDriver).executeScript("arguments[0].click();", retailerFirstOption.findElements(By.className("multiselect-item-checkbox")).get(0).findElements(By.tagName("div")).get(0));
+            //((JavascriptExecutor) webDriver).executeScript("arguments[0].click();", retailerFirstOption.findElements(By.className("multiselect-item-checkbox")).get(0).findElements(By.tagName("div")).get(0));
+            ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",webDriver.findElement(By.xpath("//div[contains(text(), 'All Retailers')]")));
         }
         //appPriceType.sendKeys(properties.getProperty("app_price_type"));
         //ToDo: find elements should be removed once id will unique
