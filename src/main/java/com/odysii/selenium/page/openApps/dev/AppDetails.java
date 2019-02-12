@@ -101,7 +101,7 @@ public class AppDetails extends PageObject{
         this.availability.sendKeys(properties.getProperty("availability"));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",availability);
         //((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",retailerFirstOption.findElements(By.className("multiselect-item-checkbox")).get(0).findElements(By.tagName("div")).get(0));
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",webDriver.findElement(By.xpath("//div[contains(text(), 'All Retailers')]")));
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",webDriver.findElement(By.xpath("//div[contains(text(), '"+properties.getProperty("retailer")+"')]")));
         appPriceType.sendKeys(properties.getProperty("app_price_type"));
         appPrice.sendKeys(properties.getProperty("app_price"));
         scrollDown(next);

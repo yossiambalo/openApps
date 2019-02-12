@@ -71,8 +71,8 @@ public class PageObject {
     public boolean isElementPresent(WebElement element) {
         int counter = 0;
         try {
-            while (!element.isDisplayed() && counter < 5){
-                wait(4000);
+            while (!element.isDisplayed() && counter < 2){
+                wait(3000);
                 counter ++;
             }
         }catch (NoSuchElementException e){

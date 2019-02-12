@@ -113,15 +113,8 @@ public class TestBase {
     }
     @AfterClass
     public void clean(){
-        if (token == null){
-            Set<Cookie> allcookies = driver.manage().getCookies();
-            for (Cookie cookie : allcookies){
-                if (cookie.getName().equals("gvr-token")){
-                    token = cookie.toString();
-                    break;
-                }
-            }
-        }
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
+        getAdminCookie();
         RequestHelper requestHelper = null;
         if (applicationIDToDelete != null){
             requestHelper = new RequestHelper();
@@ -317,5 +310,16 @@ public class TestBase {
     }
     public boolean updateUser(int roleID){
         return SqlManager.executeQuery("UPDATE openApps_qa.USERS SET openApps_qa.USERS.ROLE_ID = "+roleID+" WHERE openApps_qa.USERS.USER_ID = 8949;");
+    }
+    protected void getAdminCookie(){
+        if (token == null){
+            Set<Cookie> allcookies = driver.manage().getCookies();
+            for (Cookie cookie : allcookies){
+                if (cookie.getName().equals("gvr-token")){
+                    token = cookie.toString();
+                    break;
+                }
+            }
+        }
     }
 }
