@@ -40,7 +40,7 @@ public class AccountTest extends TestBase {
         Assert.assertTrue(devUser.isAppStoreEnabled(), "App Store link not clickable!");
     }
 
-    //@Test
+    @Test
     public void _002_verify_dev_user_with_role_2_has_only_its_permissions() {
         //Assert.assertTrue(updateUser(2),"Failed to update user role!");
         if (user == null) {
@@ -55,7 +55,7 @@ public class AccountTest extends TestBase {
         //Assert.assertTrue(devUser.isPassportEnabled(), "Passport link not clickable!");
     }
 
-    //@Test
+    @Test
     public void _003_verify_dev_user_with_role_3_has_only_its_permissions() {
         //Assert.assertTrue(updateUser(3),"Failed to update user role!");
         if (user == null) {
@@ -76,7 +76,7 @@ public class AccountTest extends TestBase {
         Assert.assertTrue(devUser.isAppStoreEnabled(), "App Store link not clickable!");
     }
 
-    //@Test
+    @Test
     public void _004_verify_retailer_user_with_role_4_has_only_its_permissions() {
         //Assert.assertTrue(updateUser(4),"Failed to update user role!");
         if (user == null) {
@@ -98,7 +98,7 @@ public class AccountTest extends TestBase {
         Assert.assertTrue(devUser.isAppStoreEnabled(), "App Store link not clickable!");
     }
 
-    //@Test
+    @Test
     public void _005_verify_retailer_user_with_role_5_has_only_its_permissions() {
         //Assert.assertTrue(updateUser(5),"Failed to update user role!");
         if (user == null) {
@@ -113,7 +113,7 @@ public class AccountTest extends TestBase {
         //Assert.assertTrue(devUser.isPassportEnabled(), "Passport link not clickable!");
     }
 
-    //@Test
+    @Test
     public void _006_verify_retailer_user_with_role_6_has_only_its_permissions() {
         //Assert.assertTrue(updateUser(6),"Failed to update user role!");
         if (user == null) {
@@ -136,7 +136,7 @@ public class AccountTest extends TestBase {
         Assert.assertTrue(devUser.isAppStoreEnabled(), "App Store link not clickable!");
     }
 
-    //@Test
+    @Test
     public void _007_verify_retailer_user_with_role_7_has_only_its_permissions() {
         //Assert.assertTrue(updateUser(7),"Failed to update user role!");
         if (user == null) {
@@ -155,7 +155,7 @@ public class AccountTest extends TestBase {
         //Assert.assertTrue(devUser.isAppStoreEnabled(), "App Store link not clickable!");
     }
 
-    //@Test
+    @Test
     public void _008_verify_admin_user_with_role_8_has_only_its_permissions() {
         if (user == null) {
             user = new User(driver);
