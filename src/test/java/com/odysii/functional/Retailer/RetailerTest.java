@@ -28,7 +28,6 @@ public class RetailerTest extends TestBase {
     public void prepare(){
         Assert.assertTrue(updateUser(7));
         category = "Retailer";
-        DEV_USER_NAME = "auto.open.apps@gmail.com";
         user = new User(driver);
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
         UsersPage usersPage = adminPage.getUsersPage();
@@ -277,7 +276,7 @@ public class RetailerTest extends TestBase {
     public void _031_edit_name_and_description_campaign(){
         Campaign campaign = retailerHomePage.getCampaign();
         campaign.editCampaign("name test","description test");
-        String expected = "Succeeded saving campaign";
+        String expected = "Saved campaign successfully";
         String actualTxt = driver.findElement(By.id("editCampaignSuccessErrorMessage")).getText();
         Assert.assertEquals(actualTxt,expected);
 

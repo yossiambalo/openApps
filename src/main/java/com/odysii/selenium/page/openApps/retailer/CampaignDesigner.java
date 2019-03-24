@@ -36,7 +36,7 @@ public class CampaignDesigner extends PageObject {
     private WebElement layoutTyp1;
     @FindBy(xpath = "//h5[contains(text(), 'Automation App:')]")
     private WebElement applicationForLayout;
-    @FindBy(css = ".col-8 .box-shadow .frame")
+    @FindBy(css = ".col-6 .frame")
     private List<WebElement> appContainer;//editCampaignSuccessErrorMessage
     @FindBy(id = "editCampaignSuccessErrorMessage")
     private WebElement isLayoutSavedIndicator;
@@ -172,7 +172,7 @@ public class CampaignDesigner extends PageObject {
         saveBtn.click();
     }
     public boolean isSaveSucceeded(){
-        return isLayoutSavedIndicator.getText().contains("Succeeded");
+        return isLayoutSavedIndicator.getText().toLowerCase().contains("Successfully".toLowerCase());
     }
     public boolean getNumOfDraggedApps(int expectedApps){
         boolean res = true;

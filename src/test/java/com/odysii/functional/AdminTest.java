@@ -92,4 +92,10 @@ public class AdminTest extends TestBase {
             fileHandler.deleteFile(GENERATED_KEY_FILE_PATH);
         }
     }
+    public static void main(String[]args){
+
+    }
+    static boolean foo(int[]arr,int sum){
+      return false;
+    }
 }

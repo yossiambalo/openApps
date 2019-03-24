@@ -158,9 +158,9 @@ public class AppDetails extends PageObject{
         }
         //appPriceType.sendKeys(properties.getProperty("app_price_type"));
         //ToDo: find elements should be removed once id will unique
-        webDriver.findElements(By.id("appPriceType")).get(1).sendKeys(properties.getProperty("app_price_type"));
+        webDriver.findElement(By.id("appPriceType")).sendKeys(properties.getProperty("app_price_type"));
         //ToDo: find elements should be removed once id will unique
-        webDriver.findElements(By.id("appPrice")).get(1).sendKeys(properties.getProperty("app_price"));
+        webDriver.findElement(By.id("appPrice")).sendKeys(properties.getProperty("app_price"));
         scrollDown(next);
         this.next.click();
         return new UploadCode(webDriver);

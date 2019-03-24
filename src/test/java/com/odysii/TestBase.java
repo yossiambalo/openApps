@@ -40,7 +40,7 @@ public class TestBase {
     public static String DEV_USER_NAME = "auto.dev.odysii@gmail.com";
     public final static String DEV_USER_PASS = "Aa123456";
     public final static String ADMIN_USER_NAME = "yossi.ambalo.odysii@gmail.com";
-    public final static String ADMIN_USER_PASS = "Aa123456";
+    public final static String ADMIN_USER_PASS = "aA123456";
     public final static String  RETAILER_USER_NAME = "auto.retail.odysii@gmail.com";
     public final static String RETAILER_USER_PASS = "Aa123456";
     public User user;
@@ -64,6 +64,7 @@ public class TestBase {
     public static boolean isPrepared = false;
     static String token = null;
     protected static boolean isRoleConfig = false;
+    private static final String openAppsUrl = "https://i360-qa.gilbarco.com/openappstore";
     public static String getHostName() {
         String hostName = "";
         try {
@@ -95,8 +96,8 @@ public class TestBase {
             logger.log(LogStatus.SKIP, "Test Case Skipped is " + result.getName());
         } else if (result.getStatus() == ITestResult.SUCCESS) {
             logger.log(LogStatus.PASS, "Test Case Passed " + result.getName());
-            extent.endTest(logger);
         }
+        extent.endTest(logger);
     }
     protected void wait(int milliseconds){
         try {
@@ -119,7 +120,7 @@ public class TestBase {
         if (applicationIDToDelete != null){
             requestHelper = new RequestHelper();
             for (String appID: applicationIDToDelete){
-                if (!requestHelper.deleteRequest("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/application/"+appID,token)){
+                if (!requestHelper.deleteRequest(openAppsUrl+"/webapi/application/"+appID,token)){
                     try {
                         throw new Exception("Failed to delete application number: "+appID);
                     } catch (Exception e) {
@@ -149,7 +150,8 @@ public class TestBase {
             default:
         }
 
-        driver.get("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore");
+        //driver.get("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore");
+        driver.get(openAppsUrl+"/front/my-apps");
     }
     protected boolean isElementExist(By by){
         boolean res = true;
@@ -306,7 +308,7 @@ public class TestBase {
         }
     }
     public void setApplicationID() {
-        applicationIDToDelete.add( driver.getCurrentUrl().split("my-apps/")[1].split("/")[0]);
+        applicationIDToDelete.add(driver.getCurrentUrl().split("my-apps/")[1].split("/")[0]);
     }
     public boolean updateUser(int roleID){
         return SqlManager.executeQuery("UPDATE openApps_qa.USERS SET openApps_qa.USERS.ROLE_ID = "+roleID+" WHERE openApps_qa.USERS.USER_ID = 8949;");

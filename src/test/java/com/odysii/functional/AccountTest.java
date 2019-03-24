@@ -15,8 +15,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AccountTest extends TestBase {
-    public static String DEV_USER_NAME = "auto.open.apps@gmail.com";
-    public static String DEV_USER_NAME2 = "auto.dev.odysii@gmail.com";
+    public static String DEV_USER_NAME2 = "auto.mazia2@gmail.com";
     @Test
     public void _001_verify_dev_user_with_role_1_has_only_its_permissions() {
         //Assert.assertTrue(updateUser(1),"Failed to update user role!");

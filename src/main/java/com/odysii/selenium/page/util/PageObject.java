@@ -5,10 +5,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Files;
 
 public class PageObject {
     protected final int WAIT = 4000;
