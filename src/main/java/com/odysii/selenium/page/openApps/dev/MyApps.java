@@ -48,4 +48,7 @@ public class MyApps extends PageObject {
     public String getApplicationStatus(int appIndex){
         return apps.get(appIndex).findElement(By.className(APP_STATUS)).getText();
     }
+    public int getAppsSize(){
+        return apps.size();
+    }
 }
