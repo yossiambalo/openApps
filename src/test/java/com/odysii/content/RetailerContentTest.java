@@ -17,7 +17,7 @@ public class RetailerContentTest extends TestBase {
     @BeforeClass
     public void login(){
         user = new User(driver);
-        retailerHomePage = (RetailerHomePage) user.login("auto.retail.odysii@gmail.com","Aa123456",UserType.RETAILER);
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
         category = "Retailer Content";
     }
     @Test
