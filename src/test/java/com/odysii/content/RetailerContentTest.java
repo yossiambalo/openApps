@@ -17,7 +17,7 @@ public class RetailerContentTest extends TestBase {
     @BeforeClass
     public void login(){
         user = new User(driver);
-        retailerHomePage = (RetailerHomePage) user.login("auto.retail.odysii@gmail.com","Aa123456",UserType.RETAILER);
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
         category = "Retailer Content";
     }
     @Test
@@ -43,7 +43,7 @@ public class RetailerContentTest extends TestBase {
         String expectedHeader = "App Library";
         String expectedSearch = "Search";
         retailerHomePage.getAppLibrary();
-        String actualTxt = driver.findElement(By.id("navItem13")).getText();
+        String actualTxt = driver.findElement(By.id("navItem12")).getText();
         String actualHeader = driver.findElement(By.className("h2")).getText();
         String actualSearch = driver.findElement(By.id("libraryApplicationSearchInput")).getAttribute("placeholder");
         Assert.assertEquals(actualTxt, expected);
@@ -57,7 +57,7 @@ public class RetailerContentTest extends TestBase {
         String expectedHeader = "Campaigns";
         String expectedSearch = "Search";
         retailerHomePage.getCampaign();
-        String actualTxt = driver.findElement(By.id("navItem14")).getText();
+        String actualTxt = driver.findElement(By.id("navItem13")).getText();
         String actualHeader = driver.findElement(By.className("h2")).getText();
         String actualSearch = driver.findElement(By.id("campaignSearchInput")).getAttribute("placeholder");
         Assert.assertEquals(expected, actualTxt);
@@ -70,7 +70,7 @@ public class RetailerContentTest extends TestBase {
         String expectedHeader = "Scheduling";
         String expectedSearch = "Search";
         retailerHomePage.getScheduling();
-        String actualTxt = driver.findElement(By.id("navItem15")).getText();
+        String actualTxt = driver.findElement(By.id("navItem14")).getText();
         String actualHeader = driver.findElement(By.className("h2")).getText();
         String actualSearch = driver.findElement(By.id("schedulingCampaignSearchInput")).getAttribute("placeholder");
         Assert.assertEquals(expected,actualTxt);
@@ -83,7 +83,7 @@ public class RetailerContentTest extends TestBase {
         String expected = "KEY MANAGEMENT";
         String expectedHeader = "MANAGE KEYS";
         retailerHomePage.getKeysMGMT();
-        String actualTxt = driver.findElement(By.id("navItem16")).getText();
+        String actualTxt = driver.findElement(By.id("navItem15")).getText();
         String actualHeader = driver.findElement(By.className("h2")).getText();
         Assert.assertEquals(expected,actualTxt);
         Assert.assertEquals(actualHeader,expectedHeader);

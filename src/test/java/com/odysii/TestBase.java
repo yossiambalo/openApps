@@ -208,7 +208,7 @@ public class TestBase {
 //        appListBeforeAdding = driver.findElements(By.className(APP_CLASS_NAME)).size();
 //        user.logout();
         if (user == null){
-            user = new User(driver);
+           user = new User(driver);
         }
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         myApps = devUser.getMyAppsPage(driver);
