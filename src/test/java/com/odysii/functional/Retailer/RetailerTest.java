@@ -28,17 +28,14 @@ public class RetailerTest extends TestBase {
     public void prepare(){
         Assert.assertTrue(updateUser(7));
         category = "Retailer";
-        DEV_USER_NAME = "auto.open.apps@gmail.com";
         user = new User(driver);
-        if (!isRoleConfig){
-            adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
-            UsersPage usersPage = adminPage.getUsersPage();
-            EditUser editUser = usersPage.getUser(RETAILER_USER_NAME);
-            editUser.edit(RoleType.ROLE_7,null);
-            editUser = usersPage.getUser(DEV_USER_NAME);
-            editUser.edit(RoleType.ROLE_1,null);
-            isRoleConfig = true;
-        }
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
+        UsersPage usersPage = adminPage.getUsersPage();
+        EditUser editUser = usersPage.getUser(RETAILER_USER_NAME);
+        editUser.edit(RoleType.ROLE_7,null);
+        editUser = usersPage.getUser(DEV_USER_NAME);
+        editUser.edit(RoleType.ROLE_1,null);
+        isRoleConfig = true;
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
 //        prepareTest("app_details.properties", ApplicationStatus.SUBMITTED);
 //        prepareTest("app_details.properties", ApplicationStatus.LIVE);
@@ -82,7 +79,7 @@ public class RetailerTest extends TestBase {
         wait(WAIT);
         Assert.assertEquals(driver.findElements(By.className(APP_CLASS_NAME)).size(), actualApps - 1);
     }
-   @Test//(priority = 2)
+    @Test//(priority = 2)
     public void _003_search_apps(){
         int expectedApp = 0;
         retailerHomePage.getAppStore();
@@ -279,7 +276,7 @@ public class RetailerTest extends TestBase {
     public void _031_edit_name_and_description_campaign(){
         Campaign campaign = retailerHomePage.getCampaign();
         campaign.editCampaign("name test","description test");
-        String expected = "Succeeded saving campaign";
+        String expected = "Saved campaign successfully";
         String actualTxt = driver.findElement(By.id("editCampaignSuccessErrorMessage")).getText();
         Assert.assertEquals(actualTxt,expected);
 

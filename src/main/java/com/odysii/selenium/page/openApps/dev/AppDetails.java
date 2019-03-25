@@ -100,14 +100,14 @@ public class AppDetails extends PageObject{
         wait(WAIT);
         this.availability.sendKeys(properties.getProperty("availability"));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",availability);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",retailerFirstOption.findElements(By.className("multiselect-item-checkbox")).get(0).findElements(By.tagName("div")).get(0));
+        //((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",retailerFirstOption.findElements(By.className("multiselect-item-checkbox")).get(0).findElements(By.tagName("div")).get(0));
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",webDriver.findElement(By.xpath("//div[contains(text(), '"+properties.getProperty("retailer")+"')]")));
         appPriceType.sendKeys(properties.getProperty("app_price_type"));
         appPrice.sendKeys(properties.getProperty("app_price"));
         scrollDown(next);
         isElementPresent(next);
         this.next.click();
         return new UploadCode(webDriver);
-
     }
     public UploadCode setUpAppDetails(String name,String version,String subtitle,String priceType,String price,String availability){
         isElementPresent(this.name);
@@ -152,14 +152,15 @@ public class AppDetails extends PageObject{
 //        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",shellRetailer);
 //        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",exxonMobilRetailer);
         if (isElementPresent(By.className("invalid-feedback-multiple"))) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click();", retailerFirstOption.findElements(By.className("multiselect-item-checkbox")).get(0).findElements(By.tagName("div")).get(0));
             //((JavascriptExecutor) webDriver).executeScript("arguments[0].click();", retailerFirstOption.findElements(By.className("multiselect-item-checkbox")).get(0).findElements(By.tagName("div")).get(0));
+            //((JavascriptExecutor) webDriver).executeScript("arguments[0].click();", retailerFirstOption.findElements(By.className("multiselect-item-checkbox")).get(0).findElements(By.tagName("div")).get(0));
+            ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",webDriver.findElement(By.xpath("//div[contains(text(), '"+properties.getProperty("retailer")+"')]")));
         }
         //appPriceType.sendKeys(properties.getProperty("app_price_type"));
         //ToDo: find elements should be removed once id will unique
-        webDriver.findElements(By.id("appPriceType")).get(1).sendKeys(properties.getProperty("app_price_type"));
+        webDriver.findElement(By.id("appPriceType")).sendKeys(properties.getProperty("app_price_type"));
         //ToDo: find elements should be removed once id will unique
-        webDriver.findElements(By.id("appPrice")).get(1).sendKeys(properties.getProperty("app_price"));
+        webDriver.findElement(By.id("appPrice")).sendKeys(properties.getProperty("app_price"));
         scrollDown(next);
         this.next.click();
         return new UploadCode(webDriver);

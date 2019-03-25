@@ -16,7 +16,7 @@ public class AdminContentTest extends TestBase {
     @BeforeClass
     public void login(){
         user = new User(driver);
-        adminPage =(AdminPage) user.login("yossi.ambalo.odysii@gmail.com", "Aa123456",UserType.ADMIN);
+        adminPage =(AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS,UserType.ADMIN);
         category = "Admin Content";
 
     }
@@ -161,9 +161,9 @@ public class AdminContentTest extends TestBase {
 
     }
     @Test
-    public void _020_valid_header_inside_ticket_subtitle(){
-        String expected = "Subtitle";
-        String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'Subtitle')]")).getText();
+    public void _020_valid_header_inside_ticket_information(){
+        String expected = "Information";
+        String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'Information')]")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
@@ -189,9 +189,9 @@ public class AdminContentTest extends TestBase {
 
     }
     @Test
-    public void _024_valid_header_inside_ticket_retailers(){
-        String expected = "Retailers";
-        String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'Retailers')]")).getText();
+    public void _024_valid_header_inside_ticket_keywords(){
+        String expected = "Keywords";
+        String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'Keywords')]")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
