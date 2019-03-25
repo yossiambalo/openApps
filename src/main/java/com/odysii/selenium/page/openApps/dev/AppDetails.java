@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -98,8 +99,10 @@ public class AppDetails extends PageObject{
         wait(WAIT);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",charity);
         wait(WAIT);
-        this.availability.sendKeys(properties.getProperty("availability"));
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",availability);
+//        this.availability.sendKeys(properties.getProperty("availability"));
+//        ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",availability);
+        Select realSelect = new Select(availability);
+        realSelect.selectByIndex(1);
         //((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",retailerFirstOption.findElements(By.className("multiselect-item-checkbox")).get(0).findElements(By.tagName("div")).get(0));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",webDriver.findElement(By.xpath("//div[contains(text(), '"+properties.getProperty("retailer")+"')]")));
         appPriceType.sendKeys(properties.getProperty("app_price_type"));
