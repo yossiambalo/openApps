@@ -2,6 +2,7 @@ package com.odysii.selenium.page.openApps.admin;
 
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -59,16 +60,21 @@ public class AdminPage extends PageObject {
         this.retailersPageLink.click();
         return new RetailersPage(webDriver);
     }
-    public String getSupportTicketsText(){
-        return supportTicketsLink.findElement(By.tagName("span")).getText();
+    public boolean isSupportTicketsEnabled(){
+        return isLinkEnabled(supportTicketsLink);
     }
-    public String getStatisticsText(){
-        return statisticsLink.findElement(By.tagName("span")).getText();
+    public boolean isStatisticsEnabled(){
+        return isLinkEnabled(statisticsLink);
     }
-    public String getUsersText(){
-        return userPageLink.findElement(By.tagName("span")).getText();
+    public boolean isUsersEnabled(){
+        return isLinkEnabled(userPageLink);
     }
-    public String getRetailersText(){
-        return retailersPageLink.findElement(By.tagName("span")).getText();
+    public boolean isRetailersEnabled(){
+        return isLinkEnabled(retailersPageLink);
+    }
+    private boolean isLinkEnabled(WebElement element){
+        isElementPresent(element);
+        WebElement parentElm = (WebElement) ((JavascriptExecutor) webDriver).executeScript("return arguments[0].parentNode;", element);
+        return (!parentElm.getAttribute("class").contains("disabled"));
     }
 }

@@ -5,10 +5,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Files;
 
 public class PageObject {
     protected final int WAIT = 4000;
@@ -71,8 +67,8 @@ public class PageObject {
     public boolean isElementPresent(WebElement element) {
         int counter = 0;
         try {
-            while (!element.isDisplayed() && counter < 5){
-                wait(4000);
+            while (!element.isDisplayed() && counter < 2){
+                wait(3000);
                 counter ++;
             }
         }catch (NoSuchElementException e){

@@ -22,8 +22,6 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class DevTest extends TestBase {
-    public static String DEV_USER_NAME = "auto.open.apps@gmail.com";
-
     @BeforeClass
     public void login() {
         user = new User(driver);

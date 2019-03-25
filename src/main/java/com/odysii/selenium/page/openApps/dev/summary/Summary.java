@@ -18,10 +18,10 @@ public class Summary extends PageObject {
     WebElement englishLanguage;
     @FindBy(xpath = "//div[contains(text(), 'French')]")
     WebElement frenchLanguage;
-    @FindBy(xpath = "//div[contains(text(), 'Sports')]")
-    WebElement sportsCategory;
-    @FindBy(xpath = "//div[contains(text(), 'Weather')]")
-    WebElement newsAndWeather;
+    @FindBy(xpath = "//div[contains(text(), 'Media')]")
+    WebElement mediaCategory;
+    @FindBy(xpath = "//div[contains(text(), 'Services')]")
+    WebElement services;
     @FindBy(xpath = "//div[contains(text(), 'ExxonMobil')]")
     WebElement exxonMobil;
     @FindBy(id = "categorySummary")
@@ -99,8 +99,8 @@ public class Summary extends PageObject {
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.englishLanguage);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.frenchLanguage);
         //Category field
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.sportsCategory);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.newsAndWeather);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.mediaCategory);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.services);
         promotionalTxt.clear();
         promotionalTxt.sendKeys("Promotional text!");
         appKeywordsSummary.clear();
