@@ -50,7 +50,7 @@ public class AdminTest extends TestBase {
         Assert.assertTrue(keyMnagerPage.generate(EnviromentType.PROD));
     }
     @Test(priority = 3)
-    public void _003_valid_generate_key(){
+    public void _003_valid_download_key(){
         if(!driver.getCurrentUrl().contains(CURRENT_PAGE_INDICATOR)){
             user = new User(driver);
             adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
@@ -93,9 +93,20 @@ public class AdminTest extends TestBase {
         }
     }
     public static void main(String[]args){
-
+        //0,1,1,2,3,5,8,13
+        int index = 7;
+        System.out.println(foo(index));
     }
-    static boolean foo(int[]arr,int sum){
-      return false;
+    static int foo(int index){
+        int a = 0;
+        int b = 1;
+        int sum = 0;
+        for (int i = 2; i <= index; i++){
+            sum = a+b;
+            int tmp = b;
+            b = a+ b;
+            a = tmp;
+        }
+      return sum;
     }
 }

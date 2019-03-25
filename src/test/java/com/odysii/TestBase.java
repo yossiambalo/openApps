@@ -5,10 +5,7 @@ import java.io.File;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.admin.AdminPage;
-import com.odysii.selenium.page.openApps.admin.EditUser;
 import com.odysii.selenium.page.openApps.admin.SupportTicket;
-import com.odysii.selenium.page.openApps.admin.UsersPage;
-import com.odysii.selenium.page.openApps.admin.helper.RoleType;
 import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
@@ -115,7 +112,7 @@ public class TestBase {
     @AfterClass
     public void clean(){
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
-        getAdminCookie();
+        setAdminCookie();
         RequestHelper requestHelper = null;
         if (applicationIDToDelete != null){
             requestHelper = new RequestHelper();
@@ -308,12 +305,12 @@ public class TestBase {
         }
     }
     public void setApplicationID() {
-        applicationIDToDelete.add(driver.getCurrentUrl().split("my-apps/")[1].split("/")[0]);
+        applicationIDToDelete.add(getAppID());
     }
     public boolean updateUser(int roleID){
         return SqlManager.executeQuery("UPDATE openApps_qa.USERS SET openApps_qa.USERS.ROLE_ID = "+roleID+" WHERE openApps_qa.USERS.USER_ID = 8949;");
     }
-    protected void getAdminCookie(){
+    protected void setAdminCookie(){
         if (token == null){
             Set<Cookie> allcookies = driver.manage().getCookies();
             for (Cookie cookie : allcookies){
@@ -323,5 +320,23 @@ public class TestBase {
                 }
             }
         }
+    }
+    protected void deleteAllApps(){
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+        setAdminCookie();
+        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS,UserType.DEVELOPER);
+        MyApps myApps = devUser.getMyAppsPage(driver);
+        int appSize = myApps.getAppsSize();
+        ShowUp showUp;
+        RequestHelper requestHelper = new RequestHelper();
+        while (appSize > 0) {
+            showUp = myApps.showUp(0);
+            requestHelper.deleteRequest(openAppsUrl + "/webapi/application/" + getAppID(), token);
+            showUp.backToMyApps();
+            appSize--;
+        }
+    }
+    private String getAppID(){
+        return driver.getCurrentUrl().split("my-apps/")[1].split("/")[0];
     }
 }

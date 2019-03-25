@@ -6,7 +6,7 @@
         <classes>
             <!--<class name="com.odysii.functional.DevTest"/>-->
             <class name="com.odysii.functional.Retailer.RetailerTest"/>
-            <class name="com.odysii.functional.AccountTest"/>
+            <!--<class name="com.odysii.functional.AccountTest"/>-->
         </classes>
     </test>
     <test name="FireFoxTest">
