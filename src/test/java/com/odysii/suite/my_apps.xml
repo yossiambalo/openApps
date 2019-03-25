@@ -5,8 +5,16 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <!--<class name="com.odysii.functional.DevTest"/>-->
-            <class name="com.odysii.functional.Retailer.RetailerTest"/>
+            <!--<class name="com.odysii.functional.Retailer.RetailerTest"/>-->
             <!--<class name="com.odysii.functional.AccountTest"/>-->
+            <!--&lt;!&ndash;<class name="com.odysii.functional.AdminTest"/>&ndash;&gt;-->
+            <!--<class name="com.odysii.content.AdminContentTest"/>-->
+            <!--&lt;!&ndash;<class name="com.odysii.content.DevContentTest"/>&ndash;&gt;-->
+            <!--<class name="com.odysii.content.RetailerContentTest"/>-->
+            <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
+            <!--<class name="com.odysii.negative.MarketingTest"/>-->
+            <!--<class name="com.odysii.negative.MyAppsTest"/>-->
+            <!--<class name = "com.odysii.functional.Retailer.CertificateManagement"/>-->
         </classes>
     </test>
     <test name="FireFoxTest">

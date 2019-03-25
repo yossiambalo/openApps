@@ -162,8 +162,8 @@ public class AdminContentTest extends TestBase {
     }
     @Test
     public void _020_valid_header_inside_ticket_information(){
-        String expected = "Information";
-        String actualTxt = driver.findElement(By.xpath("//label[contains(text(), 'Information')]")).getText();
+        String expected = "Promotional Text";
+        String actualTxt =  driver.findElement(By.xpath("//label[contains(text(), 'Promotional Text')]")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }

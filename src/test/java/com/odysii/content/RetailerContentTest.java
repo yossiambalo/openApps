@@ -12,8 +12,6 @@ import org.testng.annotations.Test;
 public class RetailerContentTest extends TestBase {
     RetailerHomePage retailerHomePage;
 
-
-
     @BeforeClass
     public void login(){
         user = new User(driver);
@@ -80,12 +78,12 @@ public class RetailerContentTest extends TestBase {
 
     @Test
     public void _005_header_valid_text_keymanagement(){
-        String expected = "KEY MANAGEMENT";
+        String expectedKeyManagement = "KEY MANAGEMENT";
         String expectedHeader = "MANAGE KEYS";
         retailerHomePage.getKeysMGMT();
-        String actualTxt = driver.findElement(By.id("navItem15")).getText();
+        String actualKeyManagementTxt = driver.findElement(By.id("navItem15")).getText();
         String actualHeader = driver.findElement(By.className("h2")).getText();
-        Assert.assertEquals(expected,actualTxt);
+        Assert.assertEquals(expectedKeyManagement,actualKeyManagementTxt);
         Assert.assertEquals(actualHeader,expectedHeader);
     }
 
