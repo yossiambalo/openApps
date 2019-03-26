@@ -47,7 +47,7 @@ public class DevContentTest extends TestBase {
 
     @BeforeClass
     public void prepare(){
-        if (!isPrepared){
+        if (isPrepared){
             prepareTest("app_details_DevContent_PreSubmitted.properties",ApplicationStatus.PRESUBMITTED);
 //            prepareTest("app_details_DevContent_Submitted.properties",ApplicationStatus.SUBMITTED);
 //            prepareTest("app_details_DevContent_Certified.properties",ApplicationStatus.CERTIFIED);
@@ -157,7 +157,7 @@ public class DevContentTest extends TestBase {
         String expectedNameLbl = "Name";
         String actualNameLbl = newAppForm.findElement(By.tagName("label")).getText();
         Assert.assertEquals(actualNameLbl, expectedNameLbl);
-        String expectedNamePlhdr = "My First App";
+        String expectedNamePlhdr = "Enter App Name";
         String actualNamePlhdr = newAppForm.findElement(By.id("appName")).getAttribute("placeholder");
         Assert.assertEquals(actualNamePlhdr, expectedNamePlhdr);
 
@@ -170,7 +170,7 @@ public class DevContentTest extends TestBase {
         String expectedVerLbl = "Version";
         String actualVerLbl = newAppForm.findElement(By.xpath("//*[contains(text(), 'Version')]")).getText();
         Assert.assertEquals(actualVerLbl, expectedVerLbl);
-        String expectedVerPlhdr = "1.0.2";
+        String expectedVerPlhdr = "Enter App Version";
         String actualVerPlhdr = driver.findElement(By.id("appVersion")).getAttribute("placeholder");
         Assert.assertEquals(actualVerPlhdr, expectedVerPlhdr);
 
@@ -180,8 +180,8 @@ public class DevContentTest extends TestBase {
     @Test
     public void _010_my_apps_add_new_app_valid_text_SubTitle() {
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
-        String expectedSubLbl = "Subtitle";
-        String actualSubLbl = newAppForm.findElement(By.xpath("//*[contains(text(), 'Subtitle')]")).getText();
+        String expectedSubLbl = "Information";
+        String actualSubLbl = newAppForm.findElement(By.xpath("//*[contains(text(), 'Information')]")).getText();
         Assert.assertEquals(actualSubLbl, expectedSubLbl);
         String expectedSubPlhdr = "Enter the app subtitle, if applicable";
         String actualSubPlhdr = driver.findElement(By.id("appSubtitle")).getAttribute("placeholder");
@@ -194,36 +194,33 @@ public class DevContentTest extends TestBase {
         String expectedLangLbl = "Language";
         String actualLangLbl = newAppForm.findElement(By.xpath("//*[contains(text(), 'Language')]")).getText();
         Assert.assertEquals(actualLangLbl, expectedLangLbl);
-        WebElement LangDrpDwn = driver.findElement(By.id("appLanguages"));
-        String expectedDrpdwnLangTxt = "Select languages";
+        WebElement LangDrpDwn = driver.findElements(By.className("multiselect-dropdown")).get(0);
+        String expectedDrpdwnLangTxt = "Select Any Language this Application Supports";
         String actualDrpdwnLangTxt = LangDrpDwn.getText().trim();
         Assert.assertEquals(actualDrpdwnLangTxt, expectedDrpdwnLangTxt,"Failed to compare Drop Down Language Text");
         cap = ((RemoteWebDriver) driver).getCapabilities();
         String browserName = cap.getBrowserName().toLowerCase();
         if (! browserName.equals("microsoftedge")) {
-            LangDrpDwn.findElement(By.className("dropdown-btn")).click();
+            LangDrpDwn.click();
         }
         String expectedLangOpt1 = "English";
-        String actualLangOpt1 = LangDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(0).getText().trim();
+        String actualLangOpt1 = LangDrpDwn.findElements(By.tagName("li")).get(2).getText().trim();
         Assert.assertEquals(actualLangOpt1,expectedLangOpt1);
         String expectedLangOpt2 = "French";
-        String actualLangOpt2 = LangDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(1).getText().trim();
+        String actualLangOpt2 = LangDrpDwn.findElements(By.tagName("li")).get(3).getText().trim();
         Assert.assertEquals(actualLangOpt2,expectedLangOpt2);
         String expectedLangOpt3 = "Spanish";
-        String actualLangOpt3 = LangDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(2).getText().trim();
+        String actualLangOpt3 = LangDrpDwn.findElements(By.tagName("li")).get(4).getText().trim();
         Assert.assertEquals(actualLangOpt3,expectedLangOpt3);
-        String expectedLangOpt4 = "Danish";
-        String actualLangOpt4 = LangDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(3).getText().trim();
-        Assert.assertEquals(actualLangOpt4,expectedLangOpt4);
-        String expectedLangOpt5 = "Italian";
-        String actualLangOpt5 = LangDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(4).getText().trim();
-        Assert.assertEquals(actualLangOpt5,expectedLangOpt5);
+//        String expectedLangOpt4 = "Danish";
+//        String actualLangOpt4 = LangDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(3).getText().trim();
+//        Assert.assertEquals(actualLangOpt4,expectedLangOpt4);
+//        String expectedLangOpt5 = "Italian";
+//        String actualLangOpt5 = LangDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(4).getText().trim();
+//        Assert.assertEquals(actualLangOpt5,expectedLangOpt5);
         if (! browserName.equals("microsoftedge")) {
-            LangDrpDwn.findElement(By.className("dropdown-btn")).click();
+            LangDrpDwn.click();
         }
-
-
-
 
     }
 
@@ -234,24 +231,24 @@ public class DevContentTest extends TestBase {
         String actualCatLbl = newAppForm.findElement(By.xpath("//*[contains(text(), 'Category')]")).getText();
         Assert.assertEquals(actualCatLbl, expectedCatgLbl);
         String expectedDrpdwnCatTxt = "Select categories";
-        WebElement CatDrpDwn = driver.findElement(By.id("AppCategories"));
+        WebElement CatDrpDwn = driver.findElements(By.className("multiselect-dropdown")).get(1);
         String actualDrpdwncatTxt = CatDrpDwn.getText().trim();
         Assert.assertEquals(actualDrpdwncatTxt, expectedDrpdwnCatTxt);
         cap = ((RemoteWebDriver) driver).getCapabilities();
         String browserName = cap.getBrowserName().toLowerCase();
         if (! browserName.equals("microsoftedge")) {
-            CatDrpDwn.findElement(By.className("dropdown-btn")).click();
+            CatDrpDwn.click();
 
         }
         wait(3000);
-        String expectedCatOpt1 = "News & Weather";
-        String actualCatOpt1 = CatDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(0).getText().trim();
+        String expectedCatOpt1 = "Merchandising";
+        String actualCatOpt1 = CatDrpDwn.findElements(By.tagName("li")).get(2).getText().trim();
         Assert.assertEquals(actualCatOpt1,expectedCatOpt1);
-        String expectedCatOpt2 = "Sports";
-        String actualCatOpt2 = CatDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(1).getText().trim();
+        String expectedCatOpt2 = "Interactive";
+        String actualCatOpt2 = CatDrpDwn.findElements(By.tagName("li")).get(3).getText().trim();
         Assert.assertEquals(actualCatOpt2,expectedCatOpt2);
-        if (! browserName.equals("microsoftedge")) {
-            CatDrpDwn.findElement(By.className("dropdown-btn")).click();
+        if (!browserName.equals("microsoftedge")) {
+            CatDrpDwn.click();
 
         }
 
@@ -263,47 +260,45 @@ public class DevContentTest extends TestBase {
         String actualAvlLbl = newAppForm.findElement(By.xpath("//*[contains(text(), 'Availability')]")).getText().trim();
         Assert.assertEquals(actualAvlLbl, expectedAvlLbl);
         WebElement avalDrp = driver.findElement(By.id("appAvailability"));
-        String expectedDrpdwnAvlTxt = "Please choose availability";
+        String expectedDrpdwnAvlTxt = "Choose Availability";
         String actualDrpdwnAvlTxt = avalDrp.findElements(By.tagName("option")).get(0).getText().trim();
         Assert.assertEquals(actualDrpdwnAvlTxt, expectedDrpdwnAvlTxt);
         avalDrp.click();
         String expectedOpt1 = "Private";
         String actualDrpdwnopt1 = avalDrp.findElements(By.tagName("option")).get(1).getText();
+        avalDrp.findElements(By.tagName("option")).get(1).click();
         Assert.assertEquals(actualDrpdwnopt1,expectedOpt1);
         String expectedOpt2 = "Public";
         String actualDrpdwnopt2 = avalDrp.findElements(By.tagName("option")).get(2).getText();
         Assert.assertEquals(actualDrpdwnopt2,expectedOpt2);
-        avalDrp.click();
     }
 
     @Test
-    public void _014_my_apps_add_new_app_valid_text_retailers() {
+    public void _014_my_apps_add_new_app_valid_text_availability() {
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
-        String expectedRtlLbl = "Retailers";
-        String actualRtlLbl = newAppForm.findElement(By.xpath("//*[contains(text(), 'Retailers')]")).getText();
+        String expectedRtlLbl = "Retailer Access";
+        String actualRtlLbl = newAppForm.findElement(By.xpath("//*[contains(text(), 'Retailer Access')]")).getText();
         Assert.assertEquals(actualRtlLbl, expectedRtlLbl);
-        WebElement RtlDrpDwn = driver.findElement(By.id("appRetailers"));
-        String expectedDrpdwnRtlTxt = "Select retailers";
+        WebElement RtlDrpDwn =  driver.findElements(By.className("multiselect-dropdown")).get(2);
+        String expectedDrpdwnRtlTxt = "Select Retailers";
         String actualDrpdwnRtlTxt = RtlDrpDwn.getText().trim();
         Assert.assertEquals(actualDrpdwnRtlTxt, expectedDrpdwnRtlTxt);
         cap = ((RemoteWebDriver) driver).getCapabilities();
         String browserName = cap.getBrowserName().toLowerCase();
         if (! browserName.equals("microsoftedge")) {
-            RtlDrpDwn.findElement(By.className("dropdown-btn")).click();
+            RtlDrpDwn.click();
         }
-
-
-        String expectedRtlOpt1 = "Shell";
-        String actualRtlOpt1 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(0).getText().trim();
+        String expectedRtlOpt1 = "All Retailers";
+        String actualRtlOpt1 = RtlDrpDwn.findElements(By.tagName("li")).get(0).getText().trim();
         Assert.assertEquals(actualRtlOpt1,expectedRtlOpt1);
-        String expectedRtlOpt2 = "Sprint Mart / Morris Petro";
-        String actualRtlOpt2 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(1).getText().trim();
+        String expectedRtlOpt2 = "ExxonMobil";
+        String actualRtlOpt2 = RtlDrpDwn.findElements(By.tagName("li")).get(2).getText().trim();
         Assert.assertEquals(actualRtlOpt2,expectedRtlOpt2);
-        String expectedRtlOpt3 = "Odysii";
-        String actualRtlOpt3 = RtlDrpDwn.findElements(By.className("multiselect-item-checkbox")).get(2).getText().trim();
+        String expectedRtlOpt3 = "Shell";
+        String actualRtlOpt3 = RtlDrpDwn.findElements(By.tagName("li")).get(3).getText().trim();
         Assert.assertEquals(actualRtlOpt3,expectedRtlOpt3);
         if (! browserName.equals("microsoftedge")) {
-            RtlDrpDwn.findElement(By.className("dropdown-btn")).click();
+            RtlDrpDwn.click();
         }
 
     }
@@ -356,7 +351,7 @@ public class DevContentTest extends TestBase {
         WebElement newAppForm = driver.findElement(By.cssSelector(".col.mx-0.mx-sm-2.mx-lg-3.mt-1.pr-0"));
         String actualHdr = newAppForm.findElement(By.tagName("h2")).getText();
         Assert.assertEquals(actualHdr,expectedHdr);
-        String expectedUpldBtn = "AGREE AND UPLOAD";
+        String expectedUpldBtn = "UPLOAD";
         String actualUpldBtn = driver.findElement(By.id("newAppUploadCode")).getText().trim();
         Assert.assertEquals(actualUpldBtn,expectedUpldBtn);
         marketing = uploadCode.upload(zipFile);
@@ -376,14 +371,14 @@ public class DevContentTest extends TestBase {
         String expectedKwdTxt = "Enter keywords separated by a comma";
         String actualKwdTxt = driver.findElement(By.id("app-keywords")).getAttribute("placeholder");
         Assert.assertEquals(actualKwdTxt,expectedKwdTxt);
-        String expectedIcnLbl = "App Icon";
+        String expectedIcnLbl = "App Icon*";
         WebElement MarketingStep = driver.findElement(By.cssSelector(".ng-untouched.ng-pristine.ng-valid"));
         String actualIcnLbl = MarketingStep.findElement(By.xpath("//*[contains(text(), 'Icon')]")).getText().trim();
         Assert.assertEquals(actualIcnLbl,expectedIcnLbl);
         String expectedIcnSiz = "72 x 72";
         String  actualIcnSiz = driver.findElement(By.id("newAppUploadIcon")).getText().trim();
         Assert.assertEquals(actualIcnSiz,expectedIcnSiz);
-        String expectedAppPrv = "App Preview + Screenshots";
+        String expectedAppPrv = "App Preview + Screenshots*";
         String actualAppPrv = driver.findElement(By.xpath("//*[contains(text(), 'App Preview + Screenshots')]")).getText().trim();
         Assert.assertEquals(expectedAppPrv,actualAppPrv);
         String expectedAppPrvScr = "800 x 400px";

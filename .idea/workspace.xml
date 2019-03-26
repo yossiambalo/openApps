@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ae4ec26-ae56-456b-a642-a12531f313fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/content/app1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/content/app_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/content/icon.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/retailer/RetailerHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/retailer/RetailerHomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/value/app_details_DevContent_PreSubmitted.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/value/app_details_DevContent_PreSubmitted.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/content/AdminContentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/content/AdminContentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/content/RetailerContentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/content/RetailerContentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/odysii/content/DevContentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/odysii/content/DevContentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/OpenApps_Automation_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/OpenApps_Automation_Report.html" afterDir="false" />
     </list>
     <list id="7084323e-ee29-4eee-9a86-1a37ff54900e" name="Revert: roi" comment="" />
@@ -54,9 +47,9 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="Image" value="2" />
-          <entry key="JAVA" value="124" />
+          <entry key="JAVA" value="128" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Properties" value="6" />
+          <entry key="Properties" value="7" />
           <entry key="XML" value="8" />
         </counts>
       </usages-collector>
@@ -69,9 +62,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7226" />
-          <entry key="PLAIN_TEXT" value="227" />
-          <entry key="Properties" value="13" />
+          <entry key="JAVA" value="7502" />
+          <entry key="PLAIN_TEXT" value="258" />
+          <entry key="Properties" value="20" />
           <entry key="XML" value="68" />
         </counts>
       </usages-collector>
@@ -79,11 +72,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+            <state relative-caret-position="187">
+              <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/functional/DevTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="50" column="44" lean-forward="true" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/UploadCode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -91,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="220" column="24" lean-forward="true" selection-start-line="220" selection-start-column="24" selection-end-line="220" selection-end-column="24" />
+            <state relative-caret-position="170">
+              <caret line="38" column="60" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="79" />
               <folding>
                 <element signature="e#4404#4405#0" expanded="true" />
                 <element signature="e#4434#4435#0" expanded="true" />
@@ -106,75 +117,63 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/Marketing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="40" column="92" selection-start-line="40" selection-start-column="92" selection-end-line="40" selection-end-column="92" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/value/marketing.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/AppDetails.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="85" column="22" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
+            <state relative-caret-position="268">
+              <caret line="86" column="22" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
               <folding>
                 <element signature="e#2499#2500#0" expanded="true" />
                 <element signature="e#2530#2531#0" expanded="true" />
                 <element signature="e#2571#2572#0" expanded="true" />
                 <element signature="e#2608#2609#0" expanded="true" />
+                <element signature="e#2723#2724#0" expanded="true" />
+                <element signature="e#2752#2753#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/content/AdminContentTest.java">
+        <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/Properties.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="164" column="43" selection-start-line="164" selection-start-column="43" selection-end-line="164" selection-end-column="43" />
+            <state relative-caret-position="166">
+              <caret line="1102" column="18" selection-start-line="1102" selection-start-column="18" selection-end-line="1102" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/value/app_details.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/content/DevContentTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+            <state relative-caret-position="212">
+              <caret line="380" column="59" selection-start-line="380" selection-start-column="59" selection-end-line="380" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.11/testng-6.11-sources.jar!/org/testng/internal/Invoker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="670" selection-start-line="670" selection-end-line="670" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/value/app_details_DevContent_PreSubmitted.properties">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/content/RetailerContentTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="562">
-              <caret line="82" column="39" lean-forward="true" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/retailer/RetailerHomePage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+            <state relative-caret-position="102">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -227,7 +226,6 @@
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/testPack/FileUtils.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/testPack/TestApp.java" />
         <option value="$PROJECT_DIR$/src/main/resources/value/marketing.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/AppDetails.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/functional/DevTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/util/PageObject.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/functional/AccountTest.java" />
@@ -235,12 +233,14 @@
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/functional/AdminTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/MyApps.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/functional/Retailer/RetailerTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/content/AdminContentTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/content/RetailerContentTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/retailer/RetailerHomePage.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/value/app_details_DevContent_PreSubmitted.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/AppDetails.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/value/app_details_DevContent_PreSubmitted.properties" />
+        <option value="$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/odysii/content/DevContentTest.java" />
       </list>
     </option>
   </component>
@@ -469,7 +469,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553520589314" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553615110360" />
     <property name="last_opened_file_path" value="C:/zula/bluesky" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -697,45 +697,67 @@
       <option name="project" value="LOCAL" />
       <updated>1553430748994</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="maintenace!">
+      <created>1553520611346</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1553520611346</updated>
+    </task>
+    <task id="LOCAL-00019" summary="maintenace!">
+      <created>1553520706639</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1553520706639</updated>
+    </task>
+    <task id="LOCAL-00020" summary="DevContentTest!">
+      <created>1553524101312</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1553524101312</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.20 at 14h 33m 39s.xml">
+    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.26 at 14h 34m 52s.xml">
       <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.20 at 14h 46m 32s.xml">
+    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.26 at 14h 40m 34s.xml">
       <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.25 at 14h 18m 15s.xml">
+    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.26 at 14h 48m 08s.xml">
       <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.25 at 14h 24m 50s.xml">
+    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.26 at 14h 50m 17s.xml">
       <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.25 at 14h 56m 34s.xml">
+    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.26 at 15h 00m 17s.xml">
       <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.25 at 15h 02m 09s.xml">
+    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.26 at 15h 57m 56s.xml">
       <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.25 at 15h 03m 41s.xml">
+    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.26 at 16h 09m 25s.xml">
       <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.25 at 15h 07m 20s.xml">
+    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.26 at 16h 18m 40s.xml">
       <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.25 at 15h 14m 37s.xml">
+    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.26 at 16h 23m 44s.xml">
       <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.25 at 15h 16m 48s.xml">
+    <history-entry file="C__git_repo_openApps_src_test_java_com_odysii_suite_my_apps_xml - 2019.03.26 at 16h 27m 57s.xml">
       <configuration name="C:/git_repo/openApps/src/test/java/com/odysii/suite/my_apps.xml" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23187633" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19936034" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -744,8 +766,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32925472" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.50278085" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4727475" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.39154616" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.40711904" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -808,7 +830,9 @@
     <MESSAGE value="AccountTest extension!" />
     <MESSAGE value="Clean!" />
     <MESSAGE value="Optimization!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimization!" />
+    <MESSAGE value="maintenace!" />
+    <MESSAGE value="DevContentTest!" />
+    <option name="LAST_COMMIT_MESSAGE" value="DevContentTest!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -835,68 +859,66 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="TestNG">
-        <watch expression="retailerHomePage.getKeysMGMT()" />
-        <watch expression="driver.findElement(By.id(&quot;navItem15&quot;)).getText()" />
+        <watch expression="driver.findElement(By.id(&quot;newAppUploadIcon&quot;)).getText()" />
+        <watch expression="driver.findElement(By.xpath(&quot;//*[contains(text(), 'App Preview + Screenshots')]&quot;)).getText()" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>driver.findElement(By.xpath(&quot;//label[contains(text(), 'Promotional Text')]&quot;)).getText()</expression-string>
+        <expression-string>RtlDrpDwn.findElements(By.tagName(&quot;li&quot;)).get(3).getText()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>webDriver.findElements(By.cssSelector(&quot;.col-6 .frame&quot;))</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>org.openqa.selenium.By</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>webDriver.findElements(By.cssSelector(&quot;.col-6 .box-shadow .frame&quot;))</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>org.openqa.selenium.By</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>webDriver.findElements(By.cssSelector(&quot;.box-shadow .frame&quot;))</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>org.openqa.selenium.By</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>webDriver.findElements(By.cssSelector(&quot;.frame .frame1&quot;))</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>org.openqa.selenium.By</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>webDriver.findElements(By.cssSelector(&quot;frame .frame1&quot;))</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>org.openqa.selenium.By</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>webDriver.findElements(By.className(&quot;frame&quot;))</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>org.openqa.selenium.By</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>isLayoutSavedIndicator.getText().toLowerCase().contains(&quot;Successfully&quot;.toLowerCase())</expression-string>
+        <expression-string>RtlDrpDwn.findElements(By.tagName(&quot;li&quot;)).get(2).getText()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>isLayoutSavedIndicator.getText().toLowerCase().contains(&quot;Successfully&quot;)</expression-string>
+        <expression-string>driver.findElements(By.className(&quot;multiselect-dropdown&quot;)).get(2).click()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>driver.findElements(By.className(&quot;multiselect-dropdown&quot;))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>RtlDrpDwn.findElements(By.tagName(&quot;li&quot;))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>driver.findElements(By.className(&quot;dropdown-btn&quot;)).get(2).getText()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>driver.findElements(By.className(&quot;dropdown-btn&quot;))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>newAppForm.findElement(By.xpath(&quot;//*[contains(text(), 'Retailer Access')]&quot;)).getText()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>avalDrp.findElements(By.tagName(&quot;option&quot;)).get(1).click()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>driver.findElements(By.className(&quot;multiselect-dropdown&quot;)).get(0).findElements(By.tagName(&quot;li&quot;)).get(2).getText()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/Test.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/admin/helper/RetailerName.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -929,13 +951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/value/app_details.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -1090,13 +1105,6 @@
     <entry file="file://$PROJECT_DIR$/extent-config.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/UploadCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/util/PageObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
@@ -1131,13 +1139,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/functional/DevTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="198" column="18" lean-forward="true" selection-start-line="198" selection-start-column="18" selection-end-line="198" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/MyApps.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1157,13 +1158,6 @@
             <element signature="e#1131#1132#0" expanded="true" />
             <element signature="e#1173#1174#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.11/testng-6.11-sources.jar!/org/testng/internal/Invoker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="534" selection-start-line="534" selection-end-line="534" />
         </state>
       </provider>
     </entry>
@@ -1202,37 +1196,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/AppDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="85" column="22" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
-          <folding>
-            <element signature="e#2499#2500#0" expanded="true" />
-            <element signature="e#2530#2531#0" expanded="true" />
-            <element signature="e#2571#2572#0" expanded="true" />
-            <element signature="e#2608#2609#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/value/app_details_DevContent_PreSubmitted.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="220" column="24" lean-forward="true" selection-start-line="220" selection-start-column="24" selection-end-line="220" selection-end-column="24" />
-          <folding>
-            <element signature="e#4404#4405#0" expanded="true" />
-            <element signature="e#4434#4435#0" expanded="true" />
-            <element signature="e#12447#12448#0" expanded="true" />
-            <element signature="e#12500#12501#0" expanded="true" />
-            <element signature="e#13672#13673#0" expanded="true" />
-            <element signature="e#13752#13753#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/Marketing.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
@@ -1247,17 +1210,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/content/DevContentTest.java">
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/Properties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+        <state relative-caret-position="166">
+          <caret line="1102" column="18" selection-start-line="1102" selection-start-column="18" selection-end-line="1102" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/value/app_details.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/AppDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="86" column="22" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
+          <folding>
+            <element signature="e#2499#2500#0" expanded="true" />
+            <element signature="e#2530#2531#0" expanded="true" />
+            <element signature="e#2571#2572#0" expanded="true" />
+            <element signature="e#2608#2609#0" expanded="true" />
+            <element signature="e#2723#2724#0" expanded="true" />
+            <element signature="e#2752#2753#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/suite/my_apps.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+        <state relative-caret-position="187">
+          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/value/app_details_DevContent_PreSubmitted.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/odysii/selenium/page/openApps/dev/UploadCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/functional/DevTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="50" column="44" lean-forward="true" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/TestBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="38" column="60" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="79" />
+          <folding>
+            <element signature="e#4404#4405#0" expanded="true" />
+            <element signature="e#4434#4435#0" expanded="true" />
+            <element signature="e#12447#12448#0" expanded="true" />
+            <element signature="e#12500#12501#0" expanded="true" />
+            <element signature="e#13672#13673#0" expanded="true" />
+            <element signature="e#13752#13753#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.11/testng-6.11-sources.jar!/org/testng/internal/Invoker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="670" selection-start-line="670" selection-end-line="670" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/odysii/content/DevContentTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="380" column="59" selection-start-line="380" selection-start-column="59" selection-end-line="380" selection-end-column="59" />
         </state>
       </provider>
     </entry>

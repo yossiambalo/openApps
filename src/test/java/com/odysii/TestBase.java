@@ -49,7 +49,7 @@ public class TestBase {
     public MyApps myApps;
     public java.util.List<WebElement> actualAppList;
     public int actualValue;
-    protected final int WAIT = 7000;
+    protected final int WAIT = 10000;
     protected final String cancelID = "cancel-button";
     protected final String backTxt = "BACK";
     protected final String continueTxt = "CONTINUE";
