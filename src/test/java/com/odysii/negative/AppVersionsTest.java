@@ -20,15 +20,15 @@ public class AppVersionsTest extends TestBase {
     DevHomePage devHomePage;
     @BeforeClass
     public void prepare(){
-        if (!isPrepared){
-            prepareTest("app_details_DevContent_PreSubmitted.properties",ApplicationStatus.PRESUBMITTED);
-
-            isPrepared = true;
-        }else {
+//        if (!isPrepared){
+//            prepareTest("app_details_DevContent_PreSubmitted.properties haaa shufletzettt",ApplicationStatus.PRESUBMITTED);
+//
+//            isPrepared = true;
+//        }else {
             user = new User(driver);
             devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
-        }
-        category = "AppVersionsTest";
+//        }
+//        category = "AppVersionsTest";
     }
 
     @Test
@@ -42,6 +42,8 @@ public class AppVersionsTest extends TestBase {
         continueButton.click();
         Boolean actualValue = isElementExist(By.className("invalid-feedback"));
         Assert.assertTrue(actualValue, "Version is required or is in wrong format.");
+        WebElement cancel = driver.findElement(By.id("cancelButton"));
+        cancel.click();
 
     }
 }

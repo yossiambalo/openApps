@@ -21,30 +21,21 @@ public class MarketingTest extends TestBase {
     private ShowUp showUp;
     private final String zipFile = "TH.zip";
     DevHomePage devUser;
+
     @BeforeClass
 
-    public void login(){
-        user = new User(driver);
-        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
-    }
-//    public void prepare(){
-//        if (!isPrepared){
-//            prepareTest("app_details_DevContent_PreSubmitted.properties",ApplicationStatus.PRESUBMITTED);
-//
-//            isPrepared = true;
-//        }else {
-//            user = new User(driver);
-//            devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
-//        }
-//        category = "AppVersionsTest";
-//    }
+    public void prepare(){
+        if (!isPrepared){
+            prepareTest("app_details_DevContent_PreSubmitted.properties",ApplicationStatus.PRESUBMITTED);
 
-//    public void login(){
-//        user = new User(driver);
-//        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
-//        category = "Marketing";
-//
-//    }
+            isPrepared = true;
+        }else {
+            user = new User(driver);
+            devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+        }
+        category = "AppVersionsTest";
+    }
+
 
     @Test // Test will failed until fix of space counts as a valid input!
     public void _001_promotional_text_is_empty_negative(){
@@ -62,8 +53,9 @@ public class MarketingTest extends TestBase {
         wait(WAIT);
         driver.findElement(By.id("finishButton")).click();
         wait(WAIT);
-        String actualValue = driver.findElement(By.id("new-application-success-error-message")).getText().trim();
-        Assert.assertEquals(actualValue,"Some required fields are missing");
+        String actualdValue = driver.findElements(By.id("new-application-success-error-message")).get(1).getText().trim();
+        String expecteValue= "Some required fields are missing or incorrect";
+        Assert.assertEquals(actualdValue, expecteValue);
         driver.findElement(By.id("cancelButton")).click();
         showUp.backToMyApps();
 
@@ -86,8 +78,9 @@ public class MarketingTest extends TestBase {
         wait(WAIT);
         driver.findElement(By.id("finishButton")).click();
         wait(WAIT);
-        String actualValue = driver.findElement(By.id("new-application-success-error-message")).getText().trim();
-        Assert.assertEquals(actualValue,"Some required fields are missing");
+        String actualdValue = driver.findElements(By.id("new-application-success-error-message")).get(1).getText().trim();
+        String expecteValue= "Some required fields are missing or incorrect";
+        Assert.assertEquals(actualdValue, expecteValue);
         driver.findElement(By.id("cancelButton")).click();
         showUp.backToMyApps();
 
@@ -105,10 +98,11 @@ public class MarketingTest extends TestBase {
         UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
         Marketing marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        marketing.fillMarketing("Promotion Text","Key Words","bike.jpg",null,false);
+        marketing.fillMarketing("Promotion Text","Key Words","800x400.png",null,false);
         wait(WAIT);
-        String actualValue = driver.findElement(By.id("new-application-success-error-message")).getText().trim();
-        Assert.assertEquals(actualValue,"Screenshots saved successfully");
+        String actualValue = driver.findElements(By.id("new-application-success-error-message")).get(1).getText().trim();
+        Assert.assertEquals(actualValue,"Saved screenshots successfully");
+        driver.findElement(By.id("cancelButton")).click();
 
     }
 

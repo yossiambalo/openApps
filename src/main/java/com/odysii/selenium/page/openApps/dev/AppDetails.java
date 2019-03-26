@@ -145,7 +145,7 @@ public class AppDetails extends PageObject{
         subtitle.clear();
         this.subtitle.sendKeys(properties.getProperty("subtitle"));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.englishLanguage);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.frenchLanguage);
+//        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.frenchLanguage);
         wait(WAIT);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",charity);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",other);
@@ -168,9 +168,12 @@ public class AppDetails extends PageObject{
         this.next.click();
         return new UploadCode(webDriver);
     }
+
     public void cancel(){
         scrollDown(cancel);
         if (cancel.isDisplayed())
             cancel.click();
     }
 }
+
+
