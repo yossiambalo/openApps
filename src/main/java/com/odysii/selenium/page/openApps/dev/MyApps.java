@@ -17,6 +17,7 @@ public class MyApps extends PageObject {
     WebElement addNewApp;
     @FindBy(className = "card")
     List<WebElement> apps;
+
     public MyApps(WebDriver driver) {
         super(driver);
     }

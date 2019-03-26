@@ -41,11 +41,11 @@ public class MyAppsTest extends TestBase {
 
     }
 
-    @Test
+    //@Test
     public void _001_name_field_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("","1.2.5","Subtitle",PriceType.PER_SITE_PER_YEAR,"3",Availabilty.PUBLIC);
+        appDetails.setUpAppDetails("","1.2.5","Subtitle",PriceType.PER_SITE_PER_YEAR,"3",Availabilty.PRIVATE);
         //String expectedValue ="custom-file-input";
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory name field");
@@ -60,7 +60,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory subtitle field ");
     }
 
-    @Test (enabled = false)
+    //@Test (enabled = false)
     public void _003_language_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -69,7 +69,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory language field");
     }
 
-    @Test (enabled = false)
+    //@Test (enabled = false)
     public void _004_category_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -78,7 +78,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory category field");
     }
 
-    @Test
+    //@Test
     public void _005_availability_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -124,7 +124,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Test failed - no validation of special characters in name field");
     }
 
-    @Test
+    //@Test
     public void _012_cancel_button_app_details_is_function_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -135,7 +135,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertTrue(actualValue, "Cancel button function and back to My apps page");
     }
 
-    @Test(enabled = false)//No limitetion for chars
+    //@Test(enabled = false)//No limitetion for chars
     public void _013_language_input_name_field_chinese_128_chars_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -144,7 +144,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Japanese is supported");
     }
 
-    @Test(enabled = false)//No limitation for chars
+    //@Test(enabled = false)//No limitation for chars
     public void _014_language_input_subtitle_field_hebrew_128_chars_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -153,7 +153,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Hebrew is supported");
     }
 
-    @Test
+    //@Test
     public void _015_back_button_upload_code(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -165,7 +165,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertTrue(actualValue,"back button is function");
     }
 
-    @Test
+    //@Test
     public void _016_cancel_button_upload_code_page() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -177,7 +177,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertTrue(actualValue, "Previous button is function");
     }
 
-    @Test
+    //@Test
     public void _017_continue_button_upload_code_page_positive(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -190,7 +190,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertTrue(actualValue,"Moved to marketing page successfully");
     }
 
-    @Test
+    //@Test
     public void _018_promotional_text_empty_marketing_page_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -206,7 +206,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Promotional text fields are mandatory - it's empty!");
     }
 
-    @Test
+    //@Test
     public void _019_keywords_empty_marketing_page_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -223,7 +223,7 @@ public class MyAppsTest extends TestBase {
     }
 
 
-    @Test
+    //@Test
     public void _020_screenshot_file_path_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -239,7 +239,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Screenshot image is mandatory - it's empty!");
     }
 
-    @Test
+    //@Test
     public void _021_appicon_path_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
