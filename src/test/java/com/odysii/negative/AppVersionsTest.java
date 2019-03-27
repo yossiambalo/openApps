@@ -20,14 +20,7 @@ public class AppVersionsTest extends TestBase {
     DevHomePage devHomePage;
     @BeforeClass
     public void prepare(){
-        if (!isPrepared){
-            prepareTest("app_details_DevContent_PreSubmitted.properties",ApplicationStatus.PRESUBMITTED);
-
-            isPrepared = true;
-        }else {
-            user = new User(driver);
-            devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
-        }
+        prepareTest("app_details_DevContent_PreSubmitted.properties",ApplicationStatus.PRESUBMITTED);
         category = "AppVersionsTest";
     }
 
