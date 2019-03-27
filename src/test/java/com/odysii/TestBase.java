@@ -148,7 +148,9 @@ public class TestBase {
         }
 
         //driver.get("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore");
+        user = new User(driver);
         driver.get(openAppsUrl+"/front/my-apps");
+        deleteAllApps();
     }
     protected boolean isElementExist(By by){
         boolean res = true;
@@ -322,18 +324,24 @@ public class TestBase {
         }
     }
     protected void deleteAllApps(){
-        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
-        setAdminCookie();
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS,UserType.DEVELOPER);
         MyApps myApps = devUser.getMyAppsPage(driver);
-        int appSize = myApps.getAppsSize();
+        int appSize = myApps.getAppsSize() -1;
         ShowUp showUp;
         RequestHelper requestHelper = new RequestHelper();
-        while (appSize > 0) {
-            showUp = myApps.showUp(0);
-            requestHelper.deleteRequest(openAppsUrl + "/webapi/application/" + getAppID(), token);
+        ArrayList<String> appIds = new ArrayList<>();
+        while (appSize >= 0) {
+            showUp = myApps.showUp(appSize);
+            isElementExist(By.id("editAppNewVersion"));
+            appIds.add(getAppID());
+            //requestHelper.deleteRequest(openAppsUrl + "/webapi/application/" + getAppID(), token);
             showUp.backToMyApps();
             appSize--;
+        }
+        for (String appID : appIds){
+            adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+            setAdminCookie();
+            requestHelper.deleteRequest(openAppsUrl + "/webapi/application/" + appID, token);
         }
     }
     private String getAppID(){
