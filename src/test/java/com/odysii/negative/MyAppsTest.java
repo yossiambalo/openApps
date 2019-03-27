@@ -41,7 +41,7 @@ public class MyAppsTest extends TestBase {
 
     }
 
-    //@Test
+    @Test
     public void _001_name_field_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -51,7 +51,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory name field");
     }
 
-    @Test (enabled = false)
+    //@Test (enabled = false)
     public void _002_subtitle_field_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -78,7 +78,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory category field");
     }
 
-    //@Test
+    @Test
     public void _005_availability_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -87,7 +87,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory availability field");
     }
 
-    @Test (enabled = false)
+    //@Test (enabled = false)
     public void _008_retailer_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -97,7 +97,7 @@ public class MyAppsTest extends TestBase {
     }
     // Testing max chars, special chars, languages.
 
-    @Test(enabled = false)//No limition for chars
+    //@Test(enabled = false)//No limition for chars
     public void _009_name_field_length_257_chars_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -106,7 +106,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Test failed - no validation of max characters in name field");
     }
 
-    @Test (enabled = false)//No limition for chars
+    //@Test (enabled = false)//No limition for chars
     public void _010_subtitle_field_length_255_chars_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -115,7 +115,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertTrue(actualValue, "Subtitle can contain 255 chars");
     }
 
-    @Test (enabled = false) //TODo: ask devs should be validation for those chars?
+    //@Test (enabled = false) //TODo: ask devs should be validation for those chars?
     public void _011_valid_name_field_special_chars_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -124,7 +124,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Test failed - no validation of special characters in name field");
     }
 
-    //@Test
+    @Test
     public void _012_cancel_button_app_details_is_function_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -153,7 +153,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Hebrew is supported");
     }
 
-    //@Test
+    @Test
     public void _015_back_button_upload_code(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -165,7 +165,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertTrue(actualValue,"back button is function");
     }
 
-    //@Test
+    @Test
     public void _016_cancel_button_upload_code_page() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -177,7 +177,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertTrue(actualValue, "Previous button is function");
     }
 
-    //@Test
+    @Test
     public void _017_continue_button_upload_code_page_positive(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -190,7 +190,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertTrue(actualValue,"Moved to marketing page successfully");
     }
 
-    //@Test
+    @Test
     public void _018_promotional_text_empty_marketing_page_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -198,7 +198,7 @@ public class MyAppsTest extends TestBase {
         wait(WAIT);
         marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        marketing.fillMarketing("","Stevie G","app.jpg","dog2.jpg", true);
+        marketing.fillMarketing("","Stevie G","800x400.png","72-72.jpg", true);
         wait(WAIT);
         WebElement finishButton = driver.findElement(By.id("finishButton"));
         finishButton.click();
@@ -206,7 +206,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Promotional text fields are mandatory - it's empty!");
     }
 
-    //@Test
+    @Test
     public void _019_keywords_empty_marketing_page_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -214,7 +214,7 @@ public class MyAppsTest extends TestBase {
         wait(WAIT);
         marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        marketing.fillMarketing("King Kenny","","app.jpg","dog2.jpg",true);
+        marketing.fillMarketing("King Kenny","","800x400.png","72-72.jpg",true);
         wait(WAIT);
         WebElement finishButton = driver.findElement(By.id("finishButton"));
         finishButton.click();
@@ -223,7 +223,7 @@ public class MyAppsTest extends TestBase {
     }
 
 
-    //@Test
+    @Test
     public void _020_screenshot_file_path_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -231,7 +231,7 @@ public class MyAppsTest extends TestBase {
         wait(WAIT);
         marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        marketing.fillMarketing("King Kenny","Stevie G","","dog2.jpg",true);
+        marketing.fillMarketing("King Kenny","Stevie G","","72-72.jpg",true);
         wait(WAIT);
         WebElement finishButton = driver.findElement(By.id("finishButton"));
         finishButton.click();
@@ -239,7 +239,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Screenshot image is mandatory - it's empty!");
     }
 
-    //@Test
+    @Test
     public void _021_appicon_path_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -247,7 +247,7 @@ public class MyAppsTest extends TestBase {
         wait(WAIT);
         marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        marketing.fillMarketing("King Kenny","Stevie G","app.jpg","",true);
+        marketing.fillMarketing("King Kenny","Stevie G","800x400.png","",true);
         wait(WAIT);
         WebElement finishButton = driver.findElement(By.id("finishButton"));
         finishButton.click();

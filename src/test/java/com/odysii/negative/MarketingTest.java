@@ -39,7 +39,7 @@ public class MarketingTest extends TestBase {
 
     @Test // Test will failed until fix of space counts as a valid input!
     public void _001_promotional_text_is_empty_negative(){
-        MyApps myApps = devUser.getMyAppsPage(driver);
+//        MyApps myApps = devUser.getMyAppsPage(driver);
         showUp = myApps.showUp(0);
         String curVer = driver.findElement(By.className("text-medium-title")).getText().split(" ")[1].split("\\.")[0];
         int newVerNum = Integer.parseInt(curVer)+1;
@@ -47,15 +47,16 @@ public class MarketingTest extends TestBase {
         showUp.getAppVersion();
         AppDetails appDetails = new AppDetails(driver);
         UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
+        wait(3000);
         Marketing marketing = uploadCode.upload(zipFile);
         driver.findElement(By.id("app-promotion")).sendKeys(Keys.CONTROL + "a");
         driver.findElement(By.id("app-promotion")).sendKeys(Keys.DELETE);
         wait(WAIT);
         driver.findElement(By.id("finishButton")).click();
         wait(WAIT);
-        String actualdValue = driver.findElements(By.id("new-application-success-error-message")).get(1).getText().trim();
-        String expecteValue= "Some required fields are missing or incorrect";
-        Assert.assertEquals(actualdValue, expecteValue);
+        String actualValue = driver.findElements(By.id("new-application-success-error-message")).get(1).getText().trim();
+        String expectedValue= "Some required fields are missing or incorrect";
+        Assert.assertEquals(actualValue, expectedValue);
         driver.findElement(By.id("cancelButton")).click();
         showUp.backToMyApps();
 
@@ -63,13 +64,14 @@ public class MarketingTest extends TestBase {
 
     @Test
     public void _002_keywords_is_empty_negative(){
-        MyApps myApps = devUser.getMyAppsPage(driver);
+//        MyApps myApps = devUser.getMyAppsPage(driver);
         showUp = myApps.showUp(0);
         String curVer = driver.findElement(By.className("text-medium-title")).getText().split(" ")[1].split("\\.")[0];
         int newVerNum = Integer.parseInt(curVer)+1;
         String newVer = String.valueOf(newVerNum);
         showUp.getAppVersion();
         AppDetails appDetails = new AppDetails(driver);
+        wait(3000);
         UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
         wait(WAIT);
         Marketing marketing = uploadCode.upload(zipFile);
@@ -88,7 +90,7 @@ public class MarketingTest extends TestBase {
 
     @Test
     public void _003_add_new_screenshot_positive(){
-        MyApps myApps = devUser.getMyAppsPage(driver);
+//        MyApps myApps = devUser.getMyAppsPage(driver);
         showUp = myApps.showUp(0);
         String curVer = driver.findElement(By.className("text-medium-title")).getText().split(" ")[1].split("\\.")[0];
         int newVerNum = Integer.parseInt(curVer)+1;
@@ -96,6 +98,7 @@ public class MarketingTest extends TestBase {
         showUp.getAppVersion();
         AppDetails appDetails = new AppDetails(driver);
         UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
+        wait(3000);
         Marketing marketing = uploadCode.upload(zipFile);
         wait(WAIT);
         marketing.fillMarketing("Promotion Text","Key Words","800x400.png",null,false);
