@@ -123,7 +123,7 @@ public class AppDetails extends PageObject{
         wait(WAIT);
         this.availability.sendKeys(availability);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",this.availability);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();", shellRetailer);
+//        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();", shellRetailer);
         appPriceType.sendKeys(priceType);
         appPrice.sendKeys(price);
         scrollDown(next);
@@ -145,7 +145,7 @@ public class AppDetails extends PageObject{
         subtitle.clear();
         this.subtitle.sendKeys(properties.getProperty("subtitle"));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.englishLanguage);
-//        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.frenchLanguage);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.frenchLanguage);
         wait(WAIT);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",charity);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",other);
