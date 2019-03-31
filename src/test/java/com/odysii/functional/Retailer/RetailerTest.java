@@ -39,7 +39,6 @@ public class RetailerTest extends TestBase {
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
 //        prepareTest("app_details.properties", ApplicationStatus.SUBMITTED);
 //        prepareTest("app_details.properties", ApplicationStatus.LIVE);
-        deleteAllApps();
     }
     //@Test//(priority = 1)
     public void _001_valid_deploy_to_dispenser(){
