@@ -14,14 +14,14 @@
             <!--<class name="com.odysii.negative.AppVersionsTest"/>-->
             <!--<class name="com.odysii.negative.MarketingTest"/>-->
             <!--<class name="com.odysii.negative.MyAppsTest"/>-->
-            <class name = "com.odysii.functional.Retailer.CertificateManagementTest"/>
+<!--            <class name = "com.odysii.functional.Retailer.CertificateManagementTest"/>-->
         </classes>
     </test>
     <test name="FireFoxTest">
     <parameter name="browser" value="firefox"/>
     <classes>
         <!--<class name="com.odysii.functional.DevTest"/>-->
-        <!--<class name="com.odysii.functional.Retailer.RetailerTest"/>-->
+<!--        <class name="com.odysii.functional.Retailer.RetailerTest"/>-->
         <!--<class name="com.odysii.functional.AccountTest"/>-->
         <!--&lt;!&ndash;<class name="com.odysii.functional.AdminCertificateTestificateTest"/>&ndash;&gt;-->
         <!--<class name="com.odysii.content.AdminContentTest"/>-->
@@ -52,7 +52,7 @@
     <test name="EdgeTest">
         <parameter name="browser" value="edge"/>
         <classes>
-            <!--<class name="com.odysii.functional.DevTest"/>-->
+<!--            <class name="com.odysii.functional.DevTest"/>-->
             <!--<class name="com.odysii.functional.Retailer.RetailerTest"/>-->
             <!--&lt;!&ndash;<class name="com.odysii.functional.AdminCertificateTestificateTest"/>&ndash;&gt;-->
             <!--<class name="com.odysii.content.AdminContentTest"/>-->

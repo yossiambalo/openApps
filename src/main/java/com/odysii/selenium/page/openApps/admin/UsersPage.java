@@ -24,8 +24,8 @@ public class UsersPage extends PageObject {
         int counter = 0;
         isElementPresent(makeSearchBtn);
         for (WebElement e : userList){
-            if(e.findElement(By.className("text-truncate")).getText().equals(developerEmail)){
-                webDriver.findElement(By.id("editUser"+String.valueOf(counter))).click();
+            if(e.findElement(By.className("text-truncate")).getText().trim().equals(developerEmail)){
+                webDriver.findElement(By.id("editUser"+ counter)).click();
                 flag = true;
                 break;
             }

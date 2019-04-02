@@ -109,7 +109,7 @@ public class CertificateManagementTest extends TestBase {
     @AfterClass
     public void clean(){
         FileHandler fileHandler = new FileHandler();
-        fileHandler.deleteFolder(new File(KEY_FILE_LOCATION));
+        fileHandler.deleteFolderContent(new File(KEY_FILE_LOCATION));
 
     }
 }

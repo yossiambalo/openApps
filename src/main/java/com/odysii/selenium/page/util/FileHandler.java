@@ -18,12 +18,12 @@ public class FileHandler {
         return f.delete();
     }
 
-    public void deleteFolder(File folder) {
+    public void deleteFolderContent(File folder) {
         File[] files = folder.listFiles();
         if(files!=null) { //some JVMs return null for empty dirs
             for(File f: files) {
                 if(f.isDirectory()) {
-                    deleteFolder(f);
+                    deleteFolderContent(f);
                 } else {
                     f.delete();
                 }
