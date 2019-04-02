@@ -22,7 +22,6 @@ public class RetailersPage extends PageObject {
         isElementPresent(retailerDivs.get(0));
         for (int i = 0; i <= retailerDivs.size()-1; i++){
             if(retailerDivs.get(i).findElement(By.className("child_center")).getText().toLowerCase().equals(retailer.getRetailerName().replaceAll("[\\s|\\u00A0]+", "").toLowerCase())){
-                retailerDivs.get(i).findElement(By.className("block-item-menu-icon")).click();
                 flag = true;
                 webDriver.findElement(By.id("editRetailer"+(i+1))).click();
                 break;

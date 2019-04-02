@@ -35,6 +35,7 @@ public class KeyMnagerPage extends PageObject {
         if (isElementExist(By.id("RevokeProdEnvKeys")))
         {
             revokeProdKeys.click();
+            wait(3000);
         }
 
         if (isElementExist(By.id("GenerateProdEnvKeys"))) {
@@ -77,16 +78,10 @@ public class KeyMnagerPage extends PageObject {
     }
     public boolean uploadGSOM(EnviromentType enviromentType,String filePath){
         boolean res = false;
-        int counter = 0;
-//        while (!isElementExist(By.id("uploadProdEnvGsomKeyInput")) && counter < 5){
-//            wait(WAIT);
-//            counter ++;
-//        }
         if (enviromentType.equals(EnviromentType.PROD)){
             uploadProdEnvGsomKeyInput.sendKeys(filePath);
             res = footerMessage.getText().contains(SUCCESS_MESSAGE);
         }else {
-
         }
         return res;
     }

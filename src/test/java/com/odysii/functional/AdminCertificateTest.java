@@ -17,18 +17,18 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminTest extends TestBase {
+public class AdminCertificateTest extends TestBase {
     AdminPage adminPage;
     RetailersPage retailersPage;
     FileHandler fileHandler = null;
     KeyMnagerPage keyMnagerPage = null;
-    final String GENERATED_KEY_FILE_PATH = System.getProperty("user.home")+"\\Downloads\\cert_pub_retailer_id_1.txt";
+    final String GENERATED_KEY_FILE_PATH = System.getProperty("user.home")+"\\Downloads\\oak_pub_rid_4.deb";
     private final String CURRENT_PAGE_INDICATOR = "manage-keys";
     @BeforeClass
     public void init(){
         category = "Admin Console";
     }
-    @Test(priority = 1)
+    //@Test(priority = 1)
     public void _001_valid_edit_users_in_admin_console(){
         user = new User(driver);
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
@@ -91,22 +91,5 @@ public class AdminTest extends TestBase {
         if (fileHandler != null){
             fileHandler.deleteFile(GENERATED_KEY_FILE_PATH);
         }
-    }
-    public static void main(String[]args){
-        //0,1,1,2,3,5,8,13
-        int index = 7;
-        System.out.println(foo(index));
-    }
-    static int foo(int index){
-        int a = 0;
-        int b = 1;
-        int sum = 0;
-        for (int i = 2; i <= index; i++){
-            sum = a+b;
-            int tmp = b;
-            b = a+ b;
-            a = tmp;
-        }
-      return sum;
     }
 }
