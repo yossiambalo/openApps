@@ -150,7 +150,7 @@ public class TestBase {
         //driver.get("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore");
         user = new User(driver);
         driver.get(openAppsUrl+"/front/my-apps");
-        deleteAllApps();
+        //deleteAllApps();
     }
     protected boolean isElementExist(By by){
         boolean res = true;

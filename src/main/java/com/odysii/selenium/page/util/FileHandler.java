@@ -30,4 +30,16 @@ public class FileHandler {
             }
         }
     }
+    public File getRandomFileFroDir(File folder) {
+        File[] files = folder.listFiles();
+        File res = null;
+        if (files != null) { //some JVMs return null for empty dirs
+            for (File f : files) {
+                if (!f.isDirectory()) {
+                    res = f;
+                }
+            }
+        }
+        return res;
+    }
 }

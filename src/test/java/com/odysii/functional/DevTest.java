@@ -198,6 +198,6 @@ public class DevTest extends TestBase {
         Marketing marketing = uploadCode.upload(zipFile);
         marketing.fillMarketing();
         wait(3000);
-        Assert.assertEquals(showUp.getStatus().trim(),ApplicationStatus.PRESUBMITTED.getStatus());
+        Assert.assertEquals(showUp.getStatus(1).trim(),ApplicationStatus.PRESUBMITTED.getStatus());
     }
 }
