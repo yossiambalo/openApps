@@ -14,32 +14,53 @@ public class KeyMnagerPage extends PageObject {
     private final String SUCCESS_MESSAGE = "Uploaded key successfully";
     @FindBy(id = "GenerateProdEnvKeys")
     private WebElement generateProdKeys;
+    @FindBy(id = "GenerateTestKeys")
+    private WebElement generateTestKeys;
     @FindBy(id = "RevokeProdEnvKeys")
     private WebElement revokeProdKeys;
+    @FindBy(id = "RevokeTestKeys")
+    private WebElement revokeTestKeys;
     @FindBy(id = "DownloadProdEnvKey")
     private WebElement downloadProdKeys;
+    @FindBy(id = "DownloadTestKey")
+    private WebElement downloadTestKey;
     @FindBy(id = "uploadProdEnvOmniaKeyInput")
     private WebElement uploadProdEnvOmniaKeyInput;
+    @FindBy(id = "uploadTestEnvOmniaProdKeyInput")
+    private WebElement uploadTestEnvOmniaProdKeyInput;
     @FindBy(id = "uploadProdEnvGsomKeyInput")
     private WebElement uploadProdEnvGsomKeyInput;
+    @FindBy(id = "uploadTestEnvGsomKeyInput")
+    private WebElement uploadTestEnvGsomKeyInput;
     @FindBy(className = "footer-message")
     private WebElement footerMessage;
     @FindBy (id = "siteSelectionAccordion")
     private WebElement siteSelectionAccordion;
+
 
     public KeyMnagerPage(WebDriver driver) {
         super(driver);
     }
     public boolean generate(EnviromentType enviromentType) {
 
-        if (isElementExist(By.id("RevokeProdEnvKeys")))
-        {
-            revokeProdKeys.click();
-            wait(3000);
-        }
+        if (enviromentType.equals(EnviromentType.PROD)) {
+            if (isElementPresent(revokeProdKeys)) {
+                revokeProdKeys.click();
+                wait(3000);
+            }
 
-        if (isElementExist(By.id("GenerateProdEnvKeys"))) {
-            generateProdKeys.click();
+            if (isElementPresent(generateProdKeys)) {
+                generateProdKeys.click();
+            }
+        }else {
+            if (isElementPresent(revokeTestKeys)) {
+                revokeTestKeys.click();
+                wait(3000);
+            }
+
+            if (isElementPresent(generateTestKeys)) {
+                generateTestKeys.click();
+            }
         }
 
         wait(WAIT);
@@ -54,7 +75,7 @@ public class KeyMnagerPage extends PageObject {
         if (enviromentType.equals(EnviromentType.PROD)){
             downloadProdKeys.click();
         }else {
-
+            downloadTestKey.click();
         }
     }
     public boolean uploadOmnia(EnviromentType enviromentType,String filePath){
@@ -65,24 +86,23 @@ public class KeyMnagerPage extends PageObject {
 //            counter ++;
 //        }
         if (enviromentType.equals(EnviromentType.PROD)){
-            try {
-                uploadProdEnvOmniaKeyInput.sendKeys(filePath);
-            }catch (WebDriverException e){
-                System.out.println(e.getMessage());
-            }
-            res = footerMessage.getText().contains(SUCCESS_MESSAGE);
+            uploadProdEnvOmniaKeyInput.sendKeys(filePath);
         }else {
-
+            uploadTestEnvOmniaProdKeyInput.sendKeys(filePath);
         }
+        wait(3000);
+        res = footerMessage.getText().contains(SUCCESS_MESSAGE);
         return res;
     }
     public boolean uploadGSOM(EnviromentType enviromentType,String filePath){
         boolean res = false;
         if (enviromentType.equals(EnviromentType.PROD)){
             uploadProdEnvGsomKeyInput.sendKeys(filePath);
-            res = footerMessage.getText().contains(SUCCESS_MESSAGE);
         }else {
+            uploadTestEnvGsomKeyInput.sendKeys(filePath);
         }
+        wait(3000);
+        res = footerMessage.getText().contains(SUCCESS_MESSAGE);
         return res;
     }
     public void deployToAllKeyManage(){

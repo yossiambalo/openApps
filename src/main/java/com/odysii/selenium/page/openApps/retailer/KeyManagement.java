@@ -1,5 +1,6 @@
 package com.odysii.selenium.page.openApps.retailer;
 
+import com.odysii.selenium.page.openApps.admin.helper.EnviromentType;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +19,8 @@ public class KeyManagement extends PageObject {
     private WebElement deploySignedKeysButtonProd;
     @FindBy(id = "deploySignedKeysButtonTest")
     private WebElement deploySignedKeysButtonTest;
+    @FindBy(id = "keysDeployButtonSave")
+    private WebElement keysDeployButtonSave;
 
 
     public KeyManagement(WebDriver driver) {
@@ -36,16 +39,21 @@ public class KeyManagement extends PageObject {
         downloadTestOmniaProdSignedKeyButton.click();
     }
 
-    public void downloadTestGsomSignedKeyButton(){
+    public void downloadTestGsomSignedKeyButton(EnviromentType enviromentType){
+        if (enviromentType.equals(EnviromentType.PROD)){
+            downloadProdGsomSignedKeyButton.click();
+        }else
         downloadTestGsomSignedKeyButton.click();
     }
 
-    public void deploySignedKeysButtonPro(){
-        deploySignedKeysButtonProd.click();
-    }
-
-    public void deploySignedKeysButtonTest(){
-        deploySignedKeysButtonTest.click();
+    public void deploySignedKeys(EnviromentType enviromentType){
+        if (EnviromentType.PROD.equals(enviromentType)){
+            deploySignedKeysButtonProd.click();
+        }else {
+            deploySignedKeysButtonTest.click();
+        }
+        wait(WAIT);
+        keysDeployButtonSave.click();
     }
 
 }
