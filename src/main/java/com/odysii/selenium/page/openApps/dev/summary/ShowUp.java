@@ -90,7 +90,11 @@ public class ShowUp extends PageObject {
     }
     public String getStatus(){
         isElementPresent(versionDivs.get(0));
-       return this.versionDivs.get(0).findElements(By.cssSelector(appStatusDivs)).get(0).getText();
+       return this.versionDivs.get(0).findElements(By.cssSelector(appStatusDivs)).get(0).getText().trim();
+    }
+    public String getStatus(int listIndex){
+        isElementPresent(versionDivs.get(listIndex));
+        return this.versionDivs.get(listIndex).findElements(By.cssSelector(appStatusDivs)).get(0).getText().trim();
     }
     public void backToMyApps(){
         isElementPresent(backNavigationButton);

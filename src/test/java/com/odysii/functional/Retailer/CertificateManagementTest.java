@@ -15,6 +15,7 @@ import com.odysii.selenium.page.util.FileHandler;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -25,10 +26,11 @@ public class CertificateManagementTest extends TestBase {
     AdminPage adminPage;
     RetailersPage retailersPage;
     private String siteAreaCheckBoxTagName = "i";
-    final String KEY_FILE_LOCATION = System.getProperty("user.home")+"\\Documents\\Downloads";
-    final String GENERATED_KEY_FILE_PATH = KEY_FILE_LOCATION +"\\oak_pub_rid_2.deb";
+    final String KEY_FILE_LOCATION = System.getProperty("user.home")+"\\Downloads";
+    FileHandler fileHandler;
     @BeforeClass
     public void prepare(){
+        fileHandler = new FileHandler();
         user = new User(driver);
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS,UserType.ADMIN);
     }
@@ -40,7 +42,7 @@ public class CertificateManagementTest extends TestBase {
         keyMnagerPage.generate(EnviromentType.PROD);
         keyMnagerPage.downloadKey(EnviromentType.PROD);
         wait(WAIT);
-        keyMnagerPage.uploadGSOM(EnviromentType.PROD,GENERATED_KEY_FILE_PATH);
+        keyMnagerPage.uploadGSOM(EnviromentType.PROD,fileHandler.getRandomFileFroDir(new File(KEY_FILE_LOCATION)).toString());
         wait(WAIT);
         user.logout();
         RetailerHomePage retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
@@ -60,7 +62,7 @@ public class CertificateManagementTest extends TestBase {
         keyMnagerPage.generate(EnviromentType.TEST);
         keyMnagerPage.downloadKey(EnviromentType.TEST);
         wait(WAIT);
-        keyMnagerPage.uploadGSOM(EnviromentType.TEST,GENERATED_KEY_FILE_PATH);
+        keyMnagerPage.uploadGSOM(EnviromentType.TEST,fileHandler.getRandomFileFroDir(new File(KEY_FILE_LOCATION)).toString());
         user.logout();
         RetailerHomePage retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
         KeyManagement keyManagement = retailerHomePage.getKeysMGMT();
@@ -78,7 +80,7 @@ public class CertificateManagementTest extends TestBase {
         keyMnagerPage.generate(EnviromentType.PROD);
         keyMnagerPage.downloadKey(EnviromentType.PROD);
         wait(WAIT);
-        keyMnagerPage.uploadOmnia(EnviromentType.PROD,GENERATED_KEY_FILE_PATH);
+        keyMnagerPage.uploadOmnia(EnviromentType.PROD,fileHandler.getRandomFileFroDir(new File(KEY_FILE_LOCATION)).toString());
         user.logout();
         RetailerHomePage retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
         KeyManagement keyManagement = retailerHomePage.getKeysMGMT();
@@ -96,7 +98,7 @@ public class CertificateManagementTest extends TestBase {
         keyMnagerPage.generate(EnviromentType.TEST);
         keyMnagerPage.downloadKey(EnviromentType.TEST);
         wait(WAIT);
-        keyMnagerPage.uploadOmnia(EnviromentType.TEST,GENERATED_KEY_FILE_PATH);
+        keyMnagerPage.uploadOmnia(EnviromentType.TEST,fileHandler.getRandomFileFroDir(new File(KEY_FILE_LOCATION)).toString());
         user.logout();
         RetailerHomePage retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
         KeyManagement keyManagement = retailerHomePage.getKeysMGMT();
@@ -106,10 +108,9 @@ public class CertificateManagementTest extends TestBase {
 
     }
 
-    @AfterClass
-    public void clean(){
-        FileHandler fileHandler = new FileHandler();
-        fileHandler.deleteFolder(new File(KEY_FILE_LOCATION));
+    @AfterMethod
+    public void deleteKeyFile(){
+        fileHandler.deleteFolderContent(new File(KEY_FILE_LOCATION));
 
     }
 }

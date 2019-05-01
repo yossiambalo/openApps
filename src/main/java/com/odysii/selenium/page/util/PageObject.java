@@ -1,6 +1,7 @@
 package com.odysii.selenium.page.util;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import java.awt.*;
@@ -26,6 +27,11 @@ public class PageObject {
     public boolean isElementExist(By by) {
         int counter = 0;
         boolean res = true;
+        Capabilities cap = ((RemoteWebDriver) webDriver).getCapabilities();
+        String browserName = cap.getBrowserName().toLowerCase();
+        if ("microsoftedge".equals(browserName)){
+            wait(WAIT);
+        }
         while (webDriver.findElements(by).size() < 1 && counter < 1) {
             wait(4000);
             counter++;
@@ -66,16 +72,21 @@ public class PageObject {
 
     public boolean isElementPresent(WebElement element) {
         int counter = 0;
+        Capabilities cap = ((RemoteWebDriver) webDriver).getCapabilities();
+        String browserName = cap.getBrowserName().toLowerCase();
+        if ("microsoftedge".equals(browserName)){
+            wait(WAIT);
+        }
         try {
             while (!element.isDisplayed() && counter < 2){
-                wait(3000);
+                wait(5000);
                 counter ++;
             }
         }catch (NoSuchElementException e){
             e.getMessage();
             return false;
         }
-       if (counter == 5){
+       if (counter == 2){
            return false;
        }
        wait(WAIT);
