@@ -30,7 +30,7 @@ public class FileHandler {
             }
         }
     }
-    public File getRandomFileFroDir(File folder) {
+    public File getRandomFileFromDir(File folder) {
         File[] files = folder.listFiles();
         File res = null;
         if (files != null) { //some JVMs return null for empty dirs

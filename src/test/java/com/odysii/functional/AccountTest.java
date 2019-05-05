@@ -1,6 +1,7 @@
 package com.odysii.functional;
 
 import com.odysii.TestBase;
+import com.odysii.helper.Retry;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.admin.AdminPage;
@@ -28,7 +29,7 @@ public class AccountTest extends TestBase {
         EditUser editUser = usersPage.getUser(DEV_USER_NAME);
         editUser.edit(RoleType.ROLE_1, null);
         DevHomePage devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
-        //ToDo: Unmark assertion when links will avaiable
+        //ToDo: Unmark assertion when links will available
         //Assert.assertTrue(devUser.isDashboardEnabled(), "Dashboard link not clickable!");
         Assert.assertTrue(devUser.isMyAppsEnabled(), "MyApps link not clickable!");
         //Assert.assertTrue(devUser.isTransactionHistoryEnabled(), "Transaction History link not clickable!");
@@ -39,7 +40,7 @@ public class AccountTest extends TestBase {
         Assert.assertTrue(devUser.isAppStoreEnabled(), "App Store link not clickable!");
     }
 
-    @Test
+    @Test(retryAnalyzer = Retry.class)
     public void _002_verify_dev_user_with_role_2_has_only_its_permissions() {
         //Assert.assertTrue(updateUser(2),"Failed to update user role!");
         if (user == null) {
