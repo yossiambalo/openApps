@@ -13,6 +13,7 @@ import com.odysii.selenium.page.openApps.retailer.KeyManagement;
 import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
 import com.odysii.selenium.page.util.FileHandler;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -27,7 +28,10 @@ public class CertificateManagementTest extends TestBase {
     private String siteAreaCheckBoxTagName = "i";
     final String KEY_FILE_LOCATION = System.getProperty("user.home")+"\\Downloads";
     FileHandler fileHandler;
+
+
     @BeforeClass
+
     public void prepare(){
         fileHandler = new FileHandler();
         user = new User(driver);
@@ -107,8 +111,80 @@ public class CertificateManagementTest extends TestBase {
 
     }
 
+    @Test
+    public void _005_deploy_is_disable_for_retailer_after_revoke(){
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+        retailersPage = adminPage.getRetailersPage();
+        keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
+        KeyMnagerPage keyMnagerPage = new KeyMnagerPage(driver);
+        keyMnagerPage.generate(EnviromentType.TEST);
+        keyMnagerPage.revoke(EnviromentType.TEST);
+        user.logout();
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+        retailerHomePage.getKeysMGMT();
+        boolean expectedValue = driver.findElement(By.id("deploySignedKeysButtonTest")).isEnabled();
+        Assert.assertFalse(expectedValue);
+
+    }
+
+    @Test
+    public void _006_no_key_to_retailer_without_upload(){
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+        retailersPage = adminPage.getRetailersPage();
+        keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
+        KeyMnagerPage keyMnagerPage = new KeyMnagerPage(driver);
+        keyMnagerPage.generate(EnviromentType.TEST);
+        user.logout();
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+        retailerHomePage.getKeysMGMT();
+        boolean expectedValue = driver.findElement(By.id("deploySignedKeysButtonTest")).isEnabled();
+        Assert.assertFalse(expectedValue);
+
+    }
+    // Verify that if admin was generated key and download only (without upload signed key) retailer didn't get a key
+    //STP: Certificate_Management-1-6
+    @Test
+    public void _007_no_key_to_retailer_after_download_without_upload(){
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+        retailersPage = adminPage.getRetailersPage();
+        keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
+        KeyMnagerPage keyMnagerPage = new KeyMnagerPage(driver);
+        keyMnagerPage.generate(EnviromentType.TEST);
+        keyMnagerPage.downloadKey(EnviromentType.TEST);
+        user.logout();
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+        retailerHomePage.getKeysMGMT();
+        boolean expectedValue = driver.findElement(By.id("deploySignedKeysButtonTest")).isEnabled();
+        Assert.assertFalse(expectedValue);
+
+    }
+    //Verify that after click on "Revoke" - retailer should not be able to download signed key and deploy (grade out)
+    //Certificate_Management-1-8
+    @Test
+    public void _008_after_revoke_all_retailer_options_disable(){
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+        retailersPage = adminPage.getRetailersPage();
+        keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
+        KeyMnagerPage keyMnagerPage = new KeyMnagerPage(driver);
+        keyMnagerPage.generate(EnviromentType.TEST);
+        keyMnagerPage.downloadKey(EnviromentType.TEST);
+        user.logout();
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+        retailerHomePage.getKeysMGMT();
+        boolean expectedValue = driver.findElement(By.id("downloadTestOmniaProdSignedKeyButton")).isEnabled();
+        Assert.assertFalse(expectedValue);
+        boolean expectedValue2 = driver.findElement(By.id("deploySignedKeysButtonTest")).isEnabled();
+        Assert.assertFalse(expectedValue2);
+
+
+
+    }
+
+
     @AfterMethod
     public void deleteKeyFile(){
         fileHandler.deleteFolderContent(new File(KEY_FILE_LOCATION));
+
     }
+
 }

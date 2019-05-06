@@ -75,6 +75,8 @@ public class AdminPage extends PageObject {
     private boolean isLinkEnabled(WebElement element){
         isElementPresent(element);
         WebElement parentElm = (WebElement) ((JavascriptExecutor) webDriver).executeScript("return arguments[0].parentNode;", element);
+
         return (!parentElm.getAttribute("class").contains("disabled"));
     }
+
 }

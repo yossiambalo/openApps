@@ -62,6 +62,7 @@ public class PageObject {
         wait(3000);
         robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
     }
+
     public int scrollDown()
     {
         JavascriptExecutor js = ((JavascriptExecutor) webDriver);
@@ -92,6 +93,7 @@ public class PageObject {
        wait(WAIT);
        return true;
     }
+
     public boolean isElementPresent(By by) {
         try {
             webDriver.findElement(by);
@@ -102,6 +104,7 @@ public class PageObject {
         wait(WAIT);
         return true;
     }
+
     protected void scrollDown(WebElement element){
         JavascriptExecutor js = (JavascriptExecutor) webDriver;
         js.executeScript("arguments[0].scrollIntoView();", element);
