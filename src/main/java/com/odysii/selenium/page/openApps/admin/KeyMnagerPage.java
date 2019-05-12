@@ -108,7 +108,6 @@ public class KeyMnagerPage extends PageObject {
     public void deployToAllKeyManage(){
         isElementPresent(siteSelectionAccordion.findElements(By.xpath("nav-item")).get(0));
 
-
     }
 
 }
