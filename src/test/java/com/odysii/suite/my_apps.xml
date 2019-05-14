@@ -3,6 +3,7 @@
 <suite name="OpenApps" parallel="tests">
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
+        <parameter name="url" value="https://i360-qa.gilbarco.com/openappstore"/>
         <classes>
 <!--            <class name="com.odysii.functional.DevTest"/>-->
             <class name="com.odysii.functional.Retailer.RetailerTest"/>

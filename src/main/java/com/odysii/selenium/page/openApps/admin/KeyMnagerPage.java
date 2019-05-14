@@ -43,6 +43,7 @@ public class KeyMnagerPage extends PageObject {
     }
     public boolean generate(EnviromentType enviromentType) {
 
+        boolean revokeText = false;
         if (enviromentType.equals(EnviromentType.PROD)) {
             if (isElementPresent(revokeProdKeys)) {
                 revokeProdKeys.click();
@@ -51,8 +52,12 @@ public class KeyMnagerPage extends PageObject {
 
             if (isElementPresent(generateProdKeys)) {
                 generateProdKeys.click();
+                wait(WAIT);
+                revokeText = revokeProdKeys.getText().contains("Revoke");
             }
-        }else {
+
+        }
+        else {
             if (isElementPresent(revokeTestKeys)) {
                 revokeTestKeys.click();
                 wait(3000);
@@ -60,24 +65,35 @@ public class KeyMnagerPage extends PageObject {
 
             if (isElementPresent(generateTestKeys)) {
                 generateTestKeys.click();
+                wait(WAIT);
+                revokeText = revokeTestKeys.getText().contains("Revoke");
             }
         }
 
-        wait(WAIT);
-        return revokeProdKeys.getText().contains("Revoke");
+
+        return revokeText;
     }
+
+    public void revoke(EnviromentType enviromentType){
+        revokeTestKeys.click();
+    }
+
     public void downloadKey(EnviromentType enviromentType){
         int counter = 0;
+
 ////        while (!isElementExist(By.id("downloadProdKeys")) && counter < 5){
 ////            wait(WAIT);
 ////            counter ++;
 //        }
+
         if (enviromentType.equals(EnviromentType.PROD)){
             downloadProdKeys.click();
-        }else {
+        }
+        else {
             downloadTestKey.click();
         }
     }
+
     public boolean uploadOmnia(EnviromentType enviromentType,String filePath){
         boolean res = false;
         int counter = 0;
@@ -94,6 +110,7 @@ public class KeyMnagerPage extends PageObject {
         res = footerMessage.getText().contains(SUCCESS_MESSAGE);
         return res;
     }
+
     public boolean uploadGSOM(EnviromentType enviromentType,String filePath){
         boolean res = false;
         if (enviromentType.equals(EnviromentType.PROD)){

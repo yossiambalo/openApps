@@ -267,6 +267,7 @@ public class RetailerTest extends TestBase {
     @Test
     public void _030_valid_add_backround_app_screen_size_15_6_layout1_default_state(){
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6,true);
+        Assert.assertEquals(campaignDesigner.getNumOfDeleteButtons(),1);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 

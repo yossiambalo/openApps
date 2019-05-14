@@ -6,6 +6,7 @@ import com.odysii.selenium.page.openApps.retailer.helper.ScreenSize;
 import com.odysii.selenium.page.openApps.retailer.helper.StateType;
 import com.odysii.selenium.page.util.PageObject;
 import com.odysii.selenium.page.util.SeleniumUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,6 +37,8 @@ public class CampaignDesigner extends PageObject {
     private WebElement layoutTyp1;
     @FindBy(xpath = "//h5[contains(text(), 'Automation App:')]")
     private WebElement applicationForLayout;
+    @FindBy(xpath = "//h5[contains(text(), '997')]")
+    private WebElement applicationForBackRound;
     @FindBy(css = ".col-6 .frame")
     private List<WebElement> appContainer;//editCampaignSuccessErrorMessage
     @FindBy(id = "editCampaignSuccessErrorMessage")
@@ -64,7 +67,9 @@ public class CampaignDesigner extends PageObject {
      }
         switch (stateType){
             case DEFAULT:
-                defaultLink.click();
+                if (!isBackRound) {
+                    defaultLink.click();
+                }
                 isElementPresent(layoutBtn);
                 layoutBtn.click();
                 switch (layoutType){
@@ -211,11 +216,16 @@ public class CampaignDesigner extends PageObject {
         }
     }
     private void deletAppsFromFrame(){
+        wait(WAIT);
         for (WebElement element : deleteAppsFromFrames){
-            element.click();
+            //element.click();
+            deleteAppsFromFrames.get(0).click();
         }
     }
     private void setUpBackRoundApps(int numOfApps,String screenSize){
-        SeleniumUtils.dragAndDrop(webDriver,applicationForLayout, backRoundAppsContainer);
+        SeleniumUtils.dragAndDrop(webDriver,applicationForBackRound, backRoundAppsContainer);
+    }
+    public int getNumOfDeleteButtons(){
+       return webDriver.findElements(By.xpath("//button[contains(text(), 'Delete')]")).size();
     }
 }
