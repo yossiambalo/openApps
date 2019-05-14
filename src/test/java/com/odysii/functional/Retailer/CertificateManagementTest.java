@@ -53,7 +53,6 @@ public class CertificateManagementTest extends TestBase {
         keyManagement.downloadProdGsomSignedKeyButton();
         keyManagement.deploySignedKeys(EnviromentType.PROD);
         Assert.assertTrue(isElementExist(By.id("siteSelectionAccordion")));
-
     }
 
     @Test
@@ -108,7 +107,6 @@ public class CertificateManagementTest extends TestBase {
         keyManagement.downloadTestOmniaSignedKeyButton();
         keyManagement.deploySignedKeys(EnviromentType.TEST);
         // Waiting for IDs to checkbox of deploy
-
     }
 
     @Test

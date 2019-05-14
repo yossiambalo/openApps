@@ -128,9 +128,9 @@ public class TestBase {
         }
         driver.quit();
     }
-    @Parameters("browser")
+    @Parameters({"browser","url"})
     @BeforeClass
-    public void init(String browser){
+    public void init(String browser,String url){
         switch (browser){
             case "chrome":
                 driver = DriverManager.getWebDriver(DriverType.CHROME);
@@ -149,7 +149,7 @@ public class TestBase {
 
         //driver.get("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore");
         user = new User(driver);
-        driver.get(openAppsUrl+"/front/my-apps");
+        driver.get(url+"/front/my-apps");
         //deleteAllApps();
     }
     protected boolean isElementExist(By by){

@@ -6,6 +6,7 @@ import com.odysii.selenium.page.openApps.retailer.helper.ScreenSize;
 import com.odysii.selenium.page.openApps.retailer.helper.StateType;
 import com.odysii.selenium.page.util.PageObject;
 import com.odysii.selenium.page.util.SeleniumUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,31 +37,52 @@ public class CampaignDesigner extends PageObject {
     private WebElement layoutTyp1;
     @FindBy(xpath = "//h5[contains(text(), 'Automation App:')]")
     private WebElement applicationForLayout;
+    @FindBy(xpath = "//h5[contains(text(), '997')]")
+    private WebElement applicationForBackRound;
     @FindBy(css = ".col-6 .frame")
     private List<WebElement> appContainer;//editCampaignSuccessErrorMessage
     @FindBy(id = "editCampaignSuccessErrorMessage")
     private WebElement isLayoutSavedIndicator;
     @FindBy(id = "navItem1")
     private WebElement designerLink;
+    @FindBy(xpath = "//button[contains(text(), 'Delete')]")
+    private List<WebElement> deleteAppsFromFrames;
+    @FindBy(className = "applications-container")
+    private WebElement backRoundAppsContainer;
+    @FindBy(className = "close")
+    private WebElement closeLayoutFrame;
+
     public CampaignDesigner(WebDriver driver) {
         super(driver);
     }
 
-    public void setUpCampaign(StateType stateType, LayoutType layoutType, String screenSize){
+    public void setUpCampaign(StateType stateType, LayoutType layoutType, String screenSize,boolean isBackRound){
         int timeOut = 0;
-        do {
-            isElementPresent(screenSizeDdl);
-            screenSizeDdl.sendKeys(screenSize);
-            timeOut ++;
-        }while (!screenSizeDdl.getAttribute("value").equals(screenSize.replace(".","")) && timeOut < 5);
+     if (!isBackRound){
+         do {
+             isElementPresent(screenSizeDdl);
+             screenSizeDdl.sendKeys(screenSize);
+             timeOut ++;
+         }while (!screenSizeDdl.getAttribute("value").equals(screenSize.replace(".","")) && timeOut < 5);
+     }
         switch (stateType){
             case DEFAULT:
-                defaultLink.click();
+                if (!isBackRound) {
+                    defaultLink.click();
+                }
                 isElementPresent(layoutBtn);
                 layoutBtn.click();
                 switch (layoutType){
                     case LAYOUT_1:
-                        setUpContainer(1,screenSize);
+                        if (!isBackRound){
+                            setUpContainer(1, screenSize);
+                        }else {
+                            if (isElementPresent(closeLayoutFrame)) {
+                                closeLayoutFrame.click();
+                            }
+                            deletAppsFromFrame();
+                            setUpBackRoundApps(1,screenSize);
+                        }
                         break;
                     case LAYOUT_2:
                         setUpContainer(2,screenSize);
@@ -71,9 +93,9 @@ public class CampaignDesigner extends PageObject {
                     case LAYOUT_4:
                         setUpContainer(4,screenSize);
                         break;
-                        default:
-                            ////
-                            break;
+                    default:
+                        ////
+                        break;
                 }
                 break;
             case IDLE:
@@ -164,9 +186,9 @@ public class CampaignDesigner extends PageObject {
                         break;
                 }
                 break;
-                default:
-                    ////
-                    break;
+            default:
+                ////
+                break;
         }
         isElementPresent(saveBtn);
         saveBtn.click();
@@ -192,5 +214,18 @@ public class CampaignDesigner extends PageObject {
         for (int i = 0; i < numOfApps; i++){
             SeleniumUtils.dragAndDrop(webDriver,applicationForLayout, appContainer.get(i));
         }
+    }
+    private void deletAppsFromFrame(){
+        wait(WAIT);
+        for (WebElement element : deleteAppsFromFrames){
+            //element.click();
+            deleteAppsFromFrames.get(0).click();
+        }
+    }
+    private void setUpBackRoundApps(int numOfApps,String screenSize){
+        SeleniumUtils.dragAndDrop(webDriver,applicationForBackRound, backRoundAppsContainer);
+    }
+    public int getNumOfDeleteButtons(){
+       return webDriver.findElements(By.xpath("//button[contains(text(), 'Delete')]")).size();
     }
 }
