@@ -40,8 +40,16 @@ public class Scheduling extends PageObject {
             case SOUTH_US:
                 ///add logic here....
                 break;
-                default:;
+                default:
                 ///do nothing
+            case ISRAEL:
+                isElementPresent(siteArea);
+                WebElement e2 = siteArea.findElements(By.tagName(siteAreaCheckBoxTagName)).get(0);
+                if (!e2.getAttribute("class").contains("check")){
+                    e2.click();
+                }
+                break;
+
         }
         isElementPresent(schedulingDeployButton);
         schedulingDeployButton.click();
