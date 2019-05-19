@@ -104,7 +104,15 @@ public class CampaignDesigner extends PageObject {
                 layoutBtn.click();
                 switch (layoutType){
                     case LAYOUT_1:
-                        setUpContainer(1,screenSize);
+                        if (!isBackRound){
+                            setUpContainer(1, screenSize);
+                        }else {
+                            if (isElementPresent(closeLayoutFrame)) {
+                                closeLayoutFrame.click();
+                            }
+                            deletAppsFromFrame();
+                            setUpBackRoundApps(1,screenSize);
+                        }
                         break;
                     case LAYOUT_2:
                         setUpContainer(2,screenSize);
@@ -126,7 +134,15 @@ public class CampaignDesigner extends PageObject {
                 layoutBtn.click();
                 switch (layoutType){
                     case LAYOUT_1:
-                        setUpContainer(1,screenSize);
+                        if (!isBackRound){
+                            setUpContainer(1, screenSize);
+                        }else {
+                            if (isElementPresent(closeLayoutFrame)) {
+                                closeLayoutFrame.click();
+                            }
+                            deletAppsFromFrame();
+                            setUpBackRoundApps(1,screenSize);
+                        }
                         break;
                     case LAYOUT_2:
                         setUpContainer(2,screenSize);
@@ -148,7 +164,15 @@ public class CampaignDesigner extends PageObject {
                 layoutBtn.click();
                 switch (layoutType){
                     case LAYOUT_1:
-                        setUpContainer(1,screenSize);
+                        if (!isBackRound){
+                            setUpContainer(1, screenSize);
+                        }else {
+                            if (isElementPresent(closeLayoutFrame)) {
+                                closeLayoutFrame.click();
+                            }
+                            deletAppsFromFrame();
+                            setUpBackRoundApps(1,screenSize);
+                        }
                         break;
                     case LAYOUT_2:
                         setUpContainer(2,screenSize);
@@ -170,7 +194,15 @@ public class CampaignDesigner extends PageObject {
                 layoutBtn.click();
                 switch (layoutType){
                     case LAYOUT_1:
-                        setUpContainer(1,screenSize);
+                        if (!isBackRound){
+                            setUpContainer(1, screenSize);
+                        }else {
+                            if (isElementPresent(closeLayoutFrame)) {
+                                closeLayoutFrame.click();
+                            }
+                            deletAppsFromFrame();
+                            setUpBackRoundApps(1,screenSize);
+                        }
                         break;
                     case LAYOUT_2:
                         setUpContainer(2,screenSize);

@@ -80,15 +80,15 @@ public class PageObject {
             wait(WAIT);
         }
         try {
-            while (!element.isDisplayed() && counter < 2){
-                wait(5000);
+            while (!element.isDisplayed() && counter < 10){
+                wait(1000);
                 counter ++;
             }
         }catch (NoSuchElementException e){
             e.getMessage();
             return false;
         }
-       if (counter == 2){
+       if (counter == 10){
            return false;
        }
        wait(WAIT);
