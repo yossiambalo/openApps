@@ -63,8 +63,4 @@ public class Scheduling extends PageObject {
             }
         }
     }
-
-    public void deployToDispenser(AreaType areaType) {
-
-    }
 }
