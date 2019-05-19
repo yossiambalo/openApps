@@ -43,8 +43,9 @@ public class RetailerTest extends TestBase {
     @Test//(priority = 1)
     public void _001_valid_deploy_to_dispenser(){
         Scheduling scheduling = retailerHomePage.getScheduling();
-        Assert.assertTrue(scheduling.deployToAll(0));
+        Assert.assertTrue(scheduling.deployToAll(AreaType.ISRAEL));
     }
+
     //@Test//(priority = 1)
     public void _002_add_and_remove_app_library(){
         boolean flag = false;
@@ -79,6 +80,7 @@ public class RetailerTest extends TestBase {
         wait(WAIT);
         Assert.assertEquals(driver.findElements(By.className(APP_CLASS_NAME)).size(), actualApps - 1);
     }
+
     //@Test//(priority = 2)
     public void _003_search_apps(){
         int expectedApp = 0;
