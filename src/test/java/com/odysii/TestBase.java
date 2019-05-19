@@ -73,6 +73,7 @@ public class TestBase {
     }
     @BeforeSuite
     public void setUp()
+
     {
         extent = new ExtentReports (System.getProperty("user.dir") +"/test-output/OpenApps_Automation_Report.html", true);
         String Os = System.getProperty("os.name");

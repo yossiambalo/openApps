@@ -20,42 +20,56 @@ public class Scheduling extends PageObject {
     private WebElement schedulingDeployButton;
     @FindBy(className = "footer-message")
     private WebElement footerMessage;
+    @FindBy (id = "schedulingDeployButton")
+    private WebElement clickOnDeploy;
 
     public Scheduling(WebDriver driver) {
         super(driver);
     }
-    public boolean deployToAll(AreaType areaType){
+
+    public boolean deployToAll(AreaType areaType) {
         isElementPresent(campaignListMenuBtn.get(0));
         campaignListMenuBtn.get(0).click();
         isElementPresent(editCampaignSchedule.get(0));
         editCampaignSchedule.get(0).click();
-        switch (areaType){
+        switch (areaType) {
             case NORTH_US:
                 isElementPresent(siteArea);
                 WebElement e = siteArea.findElements(By.tagName(siteAreaCheckBoxTagName)).get(0);
-                if (!e.getAttribute("class").contains("check")){
-                   e.click();
-            }
+                if (!e.getAttribute("class").contains("check")) {
+                    e.click();
+
+
+                }
                 break;
             case SOUTH_US:
                 ///add logic here....
                 break;
-                default:
+            default:
                 ///do nothing
             case ISRAEL:
                 isElementPresent(siteArea);
                 WebElement e2 = siteArea.findElements(By.tagName(siteAreaCheckBoxTagName)).get(0);
-                if (!e2.getAttribute("class").contains("check")){
+                if (!e2.getAttribute("class").contains("check")) {
                     e2.click();
+
+                    schedulingDeployButton.click();
+                    isElementPresent(campaignListMenuBtn.get(0));
+                    campaignListMenuBtn.get(0).click();
+                    String deployMessage = webDriver.findElements(By.cssSelector(".collapse .show")).get(0).getText();
+//                    String deployMessage = webDriver.findElement(By.xpath("//span[contains(text(), 'Last result: Done.')]")).getText();
+                    while (!(deployMessage.contains("Last result: Done"))) {
+
+                    break;
                 }
-                break;
+
+            }
 
         }
-        isElementPresent(schedulingDeployButton);
-        schedulingDeployButton.click();
-        return footerMessage.getText().contains("Finished deploying campaign");
-    }
-    public void deployToDispenser(AreaType areaType) {
+
+        return footerMessage.getText().contains("Deploy request sent successfully");
 
     }
+
 }
+

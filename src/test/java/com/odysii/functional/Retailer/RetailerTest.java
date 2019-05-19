@@ -118,6 +118,7 @@ public class RetailerTest extends TestBase {
         Assert.assertEquals(actualCampaigns - counter,campaign.getNumOfCampaigns());
 
     }
+
    //@Test//(priority = 4)
     public void _005_set_up_campaign_screen_size_15_6_layout1_default_state(){
         Campaign campaign = retailerHomePage.getCampaign();
@@ -127,6 +128,7 @@ public class RetailerTest extends TestBase {
 
         //StateType.DEFAULT, LayoutType.LAYOUT_1, ScreenSize.SIZE_15_6
     }
+
     //@Test//(priority = 5)
     public void _006_set_up_campaign_screen_size_15_6_layout2_default_state(){
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_2, ScreenSize.SIZE_15_6,false);
@@ -288,12 +290,12 @@ public class RetailerTest extends TestBase {
 
     }
 
-    @Test
-    public void _32_scheduling_deploy_to_dispenser(){
-        RetailerHomePage retailerHomePage = new RetailerHomePage(driver);
-        retailerHomePage.getScheduling();
-        Scheduling scheduling = new Scheduling(driver);
-        scheduling.deployToAll(AreaType.ISRAEL);
-    }
+//    @Test
+//    public void _32_scheduling_deploy_to_dispenser(){
+//        RetailerHomePage retailerHomePage = new RetailerHomePage(driver);
+//        retailerHomePage.getScheduling();
+//        Scheduling scheduling = new Scheduling(driver);
+//        scheduling.deployToAll(AreaType.ISRAEL);
+//    }
 
 }
