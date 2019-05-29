@@ -56,167 +56,45 @@ public class CampaignDesigner extends PageObject {
         super(driver);
     }
 
-    public void setUpCampaign(StateType stateType, LayoutType layoutType, String screenSize,boolean isBackRound){
+    public void setUpCampaign(StateType stateType, LayoutType layoutType,int numOfApps, String screenSize,boolean isBackRound){
         int timeOut = 0;
-     if (!isBackRound){
-         do {
-             isElementPresent(screenSizeDdl);
-             screenSizeDdl.sendKeys(screenSize);
-             timeOut ++;
-         }while (!screenSizeDdl.getAttribute("value").equals(screenSize.replace(".","")) && timeOut < 5);
-     }
+        if (!isBackRound){
+            do {
+                isElementPresent(screenSizeDdl);
+                screenSizeDdl.sendKeys(screenSize);
+                timeOut ++;
+            }while (!screenSizeDdl.getAttribute("value").equals(screenSize.replace(".","")) && timeOut < 5);
+        }
         switch (stateType){
             case DEFAULT:
                 if (!isBackRound) {
                     defaultLink.click();
                 }
-                isElementPresent(layoutBtn);
-                layoutBtn.click();
-                switch (layoutType){
-                    case LAYOUT_1:
-                        if (!isBackRound){
-                            setUpContainer(1, screenSize);
-                        }else {
-                            if (isElementPresent(closeLayoutFrame)) {
-                                closeLayoutFrame.click();
-                            }
-                            deletAppsFromFrame();
-                            setUpBackRoundApps(1,screenSize);
-                        }
-                        break;
-                    case LAYOUT_2:
-                        setUpContainer(2,screenSize);
-                        break;
-                    case LAYOUT_3:
-                        setUpContainer(3,screenSize);
-                        break;
-                    case LAYOUT_4:
-                        setUpContainer(4,screenSize);
-                        break;
-                    default:
-                        ////
-                        break;
-                }
+                dragAndDrop(isBackRound,numOfApps,screenSize);
                 break;
             case IDLE:
-                idleLink.click();
-                isElementPresent(layoutBtn);
-                layoutBtn.click();
-                switch (layoutType){
-                    case LAYOUT_1:
-                        if (!isBackRound){
-                            setUpContainer(1, screenSize);
-                        }else {
-                            if (isElementPresent(closeLayoutFrame)) {
-                                closeLayoutFrame.click();
-                            }
-                            deletAppsFromFrame();
-                            setUpBackRoundApps(1,screenSize);
-                        }
-                        break;
-                    case LAYOUT_2:
-                        setUpContainer(2,screenSize);
-                        break;
-                    case LAYOUT_3:
-                        setUpContainer(3,screenSize);
-                        break;
-                    case LAYOUT_4:
-                        setUpContainer(4,screenSize);
-                        break;
-                    default:
-                        ////
-                        break;
+                if (!isBackRound) {
+                    idleLink.click();
                 }
+                dragAndDrop(isBackRound,numOfApps,screenSize);
                 break;
             case FUELING:
-                fuelingLink.click();
-                isElementPresent(layoutBtn);
-                layoutBtn.click();
-                switch (layoutType){
-                    case LAYOUT_1:
-                        if (!isBackRound){
-                            setUpContainer(1, screenSize);
-                        }else {
-                            if (isElementPresent(closeLayoutFrame)) {
-                                closeLayoutFrame.click();
-                            }
-                            deletAppsFromFrame();
-                            setUpBackRoundApps(1,screenSize);
-                        }
-                        break;
-                    case LAYOUT_2:
-                        setUpContainer(2,screenSize);
-                        break;
-                    case LAYOUT_3:
-                        setUpContainer(3,screenSize);
-                        break;
-                    case LAYOUT_4:
-                        setUpContainer(4,screenSize);
-                        break;
-                    default:
-                        ////
-                        break;
+                if (!isBackRound) {
+                    fuelingLink.click();
                 }
+                dragAndDrop(isBackRound,numOfApps,screenSize);
                 break;
             case PAYMENT:
-                paymentLink.click();
-                isElementPresent(layoutBtn);
-                layoutBtn.click();
-                switch (layoutType){
-                    case LAYOUT_1:
-                        if (!isBackRound){
-                            setUpContainer(1, screenSize);
-                        }else {
-                            if (isElementPresent(closeLayoutFrame)) {
-                                closeLayoutFrame.click();
-                            }
-                            deletAppsFromFrame();
-                            setUpBackRoundApps(1,screenSize);
-                        }
-                        break;
-                    case LAYOUT_2:
-                        setUpContainer(2,screenSize);
-                        break;
-                    case LAYOUT_3:
-                        setUpContainer(3,screenSize);
-                        break;
-                    case LAYOUT_4:
-                        setUpContainer(4,screenSize);
-                        break;
-                    default:
-                        ////
-                        break;
+                if (!isBackRound) {
+                    paymentLink.click();
                 }
+                dragAndDrop(isBackRound,numOfApps,screenSize);
                 break;
             case POST_FUELING:
-                postFuelingtLink.click();
-                isElementPresent(layoutBtn);
-                layoutBtn.click();
-                switch (layoutType){
-                    case LAYOUT_1:
-                        if (!isBackRound){
-                            setUpContainer(1, screenSize);
-                        }else {
-                            if (isElementPresent(closeLayoutFrame)) {
-                                closeLayoutFrame.click();
-                            }
-                            deletAppsFromFrame();
-                            setUpBackRoundApps(1,screenSize);
-                        }
-                        break;
-                    case LAYOUT_2:
-                        setUpContainer(2,screenSize);
-                        break;
-                    case LAYOUT_3:
-                        setUpContainer(3,screenSize);
-                        break;
-                    case LAYOUT_4:
-                        setUpContainer(4,screenSize);
-                        break;
-                    default:
-                        ////
-                        break;
+                if (!isBackRound) {
+                    postFuelingtLink.click();
                 }
+                dragAndDrop(isBackRound,numOfApps,screenSize);
                 break;
             default:
                 ////
@@ -225,6 +103,21 @@ public class CampaignDesigner extends PageObject {
         isElementPresent(saveBtn);
         saveBtn.click();
     }
+
+    private void dragAndDrop(boolean isBackRound,int numOfApps, String screenSize) {
+        isElementPresent(layoutBtn);
+        layoutBtn.click();
+        if (!isBackRound){
+            setUpContainer(numOfApps, screenSize);
+        }else {
+            if (isElementPresent(closeLayoutFrame)) {
+                closeLayoutFrame.click();
+            }
+            deletAppsFromFrame();
+            setUpBackRoundApps(1,screenSize);
+        }
+    }
+
     public boolean isSaveSucceeded(){
         return isLayoutSavedIndicator.getText().toLowerCase().contains("Successfully".toLowerCase());
     }
@@ -258,6 +151,6 @@ public class CampaignDesigner extends PageObject {
         SeleniumUtils.dragAndDrop(webDriver,applicationForBackRound, backRoundAppsContainer);
     }
     public int getNumOfDeleteButtons(){
-       return webDriver.findElements(By.xpath("//button[contains(text(), 'Delete')]")).size();
+        return webDriver.findElements(By.xpath("//button[contains(text(), 'Delete')]")).size();
     }
 }
