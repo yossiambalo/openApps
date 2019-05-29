@@ -43,7 +43,7 @@ public class RetailerTest extends TestBase {
     @Test//(priority = 1)
     public void _001_valid_deploy_to_dispenser(){
         Scheduling scheduling = retailerHomePage.getScheduling();
-        Assert.assertTrue(scheduling.deployToAll(AreaType.ISRAEL));
+        Assert.assertTrue(scheduling.deployToAll(0,true));
     }
 
     //@Test//(priority = 1)

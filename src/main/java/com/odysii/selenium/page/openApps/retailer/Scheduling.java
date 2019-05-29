@@ -27,7 +27,9 @@ public class Scheduling extends PageObject {
     public Scheduling(WebDriver driver) {
         super(driver);
     }
-    public boolean deployToAll(int areaIndex){
+
+    public boolean deployToAll(int areaIndex, boolean validDeploy){
+        boolean response = false;
         isElementPresent(campaignRows.get(0));
         campaignRows.get(0).click();
         isElementPresent(siteArea);
@@ -36,7 +38,7 @@ public class Scheduling extends PageObject {
         if (!areaChildElements.get((areaChildElements.size() - 1)).isDisplayed()){
             //expand all
             expandAll(areaElement,areaChildElements);
-            //list chckboxs
+            //list checkboxs
             List<WebElement> checkBoxs = webDriver.findElements(By.xpath("//i[contains(@id,'listNestedCheckAll"+areaIndex+"')]"));
             //check checkbox
             WebElement checkBox = checkBoxs.get(checkBoxs.size() - 1);
@@ -45,8 +47,17 @@ public class Scheduling extends PageObject {
                 checkBox.click();
             }
         }
+
         isElementPresent(schedulingDeployButton);
-        schedulingDeployButton.click();
+        if(!(validDeploy)){
+            schedulingDeployButton.click();
+        }
+
+        else{
+            //while()
+
+        }
+
         return footerMessage.getText().contains("Finished deploying campaign");
     }
 
