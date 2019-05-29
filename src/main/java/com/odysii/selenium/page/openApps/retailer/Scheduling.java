@@ -45,6 +45,7 @@ public class Scheduling extends PageObject {
                 checkBox.click();
             }
         }
+
         isElementPresent(schedulingDeployButton);
         schedulingDeployButton.click();
         return footerMessage.getText().contains("Finished deploying campaign");
