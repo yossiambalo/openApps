@@ -70,6 +70,7 @@ public class Scheduling extends PageObject {
                 isElementPresent(areaChildElements.get(i));
                 if (!Boolean.valueOf(areaChildElements.get(i).getAttribute("aria-expanded"))){
                     areaChildElements.get(i).click();
+
                 }
             }
         }
