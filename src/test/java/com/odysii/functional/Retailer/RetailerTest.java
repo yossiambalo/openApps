@@ -49,7 +49,7 @@ public class RetailerTest extends TestBase {
         Scheduling scheduling = retailerHomePage.getScheduling();
         Assert.assertTrue(scheduling.deployToAll(0));
     }
-    //@Test//(priority = 1)
+    @Test//(priority = 1)
     public void _002_add_and_remove_app_library(){
         boolean flag = false;
         AppStore appStore = null;
@@ -83,7 +83,7 @@ public class RetailerTest extends TestBase {
         wait(WAIT);
         Assert.assertEquals(driver.findElements(By.className(APP_CLASS_NAME)).size(), actualApps - 1);
     }
-    //@Test//(priority = 2)
+    @Test//(priority = 2)
     public void _003_search_apps(){
         int expectedApp = 0;
         retailerHomePage.getAppStore();
@@ -100,7 +100,7 @@ public class RetailerTest extends TestBase {
         Assert.assertEquals(actualApps,expectedApp,"App store search functionality failed!");
 
     }
-    //@Test//(priority = 3,retryAnalyzer = Retry.class)
+    @Test//(priority = 3,retryAnalyzer = Retry.class)
     public void _004_create_and_delete_campaign(){
         int counter = 0;
         Campaign campaign = retailerHomePage.getCampaign();
@@ -125,145 +125,145 @@ public class RetailerTest extends TestBase {
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
-    //@Test//(priority = 5)
+    @Test//(priority = 5)
     public void _006_valid_set_up_campaign_screen_size_15_6_layout2_default_state(){
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_2,NUM_OF_APP_2, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 6)
+    @Test//(priority = 6)
     public void _007_valid_set_up_campaign_screen_size_15_6_layout3_default_state(){
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_3,NUM_OF_APP_3, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 7)
+    @Test//(priority = 7)
     public void _008_valid_set_up_campaign_screen_size_15_6_layout4_default_state(){
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_4,NUM_OF_APP_4, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 8)
+    @Test//(priority = 8)
     public void _009_valid_set_up_campaign_screen_size_15_6_layout1_idle_state(){
         campaignDesigner.setUpCampaign(StateType.IDLE, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 9)
+    @Test//(priority = 9)
     public void _010_valid_set_up_campaign_screen_size_15_6_layout2_idle_state(){
         campaignDesigner.setUpCampaign(StateType.IDLE, LayoutType.LAYOUT_2,NUM_OF_APP_2, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 10)
+    @Test//(priority = 10)
     public void _011_valid_set_up_campaign_screen_size_15_6_layout3_idle_state(){
         campaignDesigner.setUpCampaign(StateType.IDLE, LayoutType.LAYOUT_3,NUM_OF_APP_3, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 11)
+    @Test//(priority = 11)
     public void _012_valid_set_up_campaign_screen_size_15_6_layout4_idle_state(){
         campaignDesigner.setUpCampaign(StateType.IDLE, LayoutType.LAYOUT_4,NUM_OF_APP_4, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 12)
+    @Test//(priority = 12)
     public void _013_valid_set_up_campaign_screen_size_15_6_layout1_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.FUELING, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 13)
+    @Test//(priority = 13)
     public void _014_valid_set_up_campaign_screen_size_15_6_layout2_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.FUELING, LayoutType.LAYOUT_2,NUM_OF_APP_2, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 14)
+    @Test//(priority = 14)
     public void _015_valid_set_up_campaign_screen_size_15_6_layout3_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.FUELING, LayoutType.LAYOUT_3,NUM_OF_APP_3, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 15)
+    @Test//(priority = 15)
     public void _016_valid_set_up_campaign_screen_size_15_6_layout4_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.FUELING, LayoutType.LAYOUT_4,NUM_OF_APP_4, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 16)
+    @Test//(priority = 16)
     public void _017_valid_set_up_campaign_screen_size_15_6_layout1_payment_state(){
         campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 17)
+    @Test//(priority = 17)
     public void _018_valid_set_up_campaign_screen_size_15_6_layout2_payment_state(){
         campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_2,NUM_OF_APP_2, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 18)
+    @Test//(priority = 18)
     public void _019_valid_set_up_campaign_screen_size_15_6_layout3_payment_state(){
         campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_3,NUM_OF_APP_3, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 19)
+    @Test//(priority = 19)
     public void _020_valid_set_up_campaign_screen_size_15_6_layout4_payment_state(){
         campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_4,NUM_OF_APP_4, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 20)
+    @Test//(priority = 20)
     public void _021_valid_set_up_campaign_screen_size_15_6_layout1_post_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.POST_FUELING, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 21)
+    @Test//(priority = 21)
     public void _022_valid_set_up_campaign_screen_size_15_6_layout2_post_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.POST_FUELING, LayoutType.LAYOUT_2,NUM_OF_APP_2, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 22)
+    @Test//(priority = 22)
     public void _023_valid_set_up_campaign_screen_size_15_6_layout3_post_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.POST_FUELING, LayoutType.LAYOUT_3,NUM_OF_APP_3, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 23)
+    @Test//(priority = 23)
     public void _024_valid_set_up_campaign_screen_size_15_6_layout4_post_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.POST_FUELING, LayoutType.LAYOUT_4,NUM_OF_APP_4, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 24)
+    @Test//(priority = 24)
     public void _025_valid_set_up_campaign_screen_size_10_4_layout1_default_state() {
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_10_4,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 25)
+    @Test//(priority = 25)
     public void _026_valid_set_up_campaign_screen_size_10_4_layout1_payment_state() {
         campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_10_4,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 26)
+    @Test//(priority = 26)
     public void _027_valid_set_up_campaign_screen_size_10_4_layout1_fueling_state() {
         campaignDesigner.setUpCampaign(StateType.FUELING, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_10_4,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 27)
+    @Test//(priority = 27)
     public void _028_valid_set_up_campaign_screen_size_10_4_layout1_idle_state() {
         campaignDesigner.setUpCampaign(StateType.IDLE, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_10_4,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    //@Test//(priority = 28)
+    @Test//(priority = 28)
     public void _029_valid_set_up_campaign_screen_size_10_4_layout1_post_fueling_state() {
         campaignDesigner.setUpCampaign(StateType.POST_FUELING, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_10_4,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
@@ -282,7 +282,7 @@ public class RetailerTest extends TestBase {
         Assert.assertTrue(requestHelper.getRequest(url),"Failed to signing application!");
     }
 
-    //@Test
+    @Test
     public void _031_edit_name_and_description_campaign(){
         Campaign campaign = retailerHomePage.getCampaign();
         campaign.editCampaign("name test","description test");

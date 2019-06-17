@@ -14,6 +14,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,11 +23,11 @@ public class AdminCertificateTest extends TestBase {
     RetailersPage retailersPage;
     FileHandler fileHandler = null;
     KeyMnagerPage keyMnagerPage = null;
-    final String GENERATED_KEY_FILE_PATH = System.getProperty("user.home")+"\\Downloads\\oak_pub_rid_4.deb";
+    final String GENERATED_KEY_FILE_DIR = System.getProperty("user.home")+"\\Downloads\\";
     private final String CURRENT_PAGE_INDICATOR = "manage-keys";
     @BeforeClass
     public void init(){
-        category = "Admin Console";
+        category = "Admin Certificate";
     }
     //@Test(priority = 1)
     public void _001_valid_edit_users_in_admin_console(){
@@ -60,11 +61,11 @@ public class AdminCertificateTest extends TestBase {
         keyMnagerPage.downloadKey(EnviromentType.PROD);
         int counter = 0;
         fileHandler = new FileHandler();
-        while (!fileHandler.isFileExist(GENERATED_KEY_FILE_PATH) && counter < 5){
+        while (!fileHandler.isFileExist(new File(GENERATED_KEY_FILE_DIR).listFiles()[0].toString()) && counter < 5){
             wait(WAIT);
             counter ++;
         }
-        Assert.assertTrue(fileHandler.isFileExist(GENERATED_KEY_FILE_PATH));
+        Assert.assertTrue(fileHandler.isFileExist(new File(GENERATED_KEY_FILE_DIR).listFiles()[0].toString()));
     }
     @Test(priority = 4)
     public void _004_valid_upload_key_omnia(){
@@ -74,7 +75,7 @@ public class AdminCertificateTest extends TestBase {
             retailersPage = adminPage.getRetailersPage();
             retailersPage.editRetailer(RetailerName.SPRINT_MART);
         }
-        Assert.assertTrue(keyMnagerPage.uploadOmnia(EnviromentType.PROD,GENERATED_KEY_FILE_PATH));
+        Assert.assertTrue(keyMnagerPage.uploadOmnia(EnviromentType.PROD, new File(GENERATED_KEY_FILE_DIR).listFiles()[0].toString()));
     }
     @Test(priority = 5)
     public void _005_valid_upload_key_gesom(){
@@ -84,12 +85,12 @@ public class AdminCertificateTest extends TestBase {
             retailersPage = adminPage.getRetailersPage();
             retailersPage.editRetailer(RetailerName.SPRINT_MART);
         }
-        Assert.assertTrue(keyMnagerPage.uploadGSOM(EnviromentType.PROD,GENERATED_KEY_FILE_PATH));
+        Assert.assertTrue(keyMnagerPage.uploadGSOM(EnviromentType.PROD, new File(GENERATED_KEY_FILE_DIR).listFiles()[0].toString()));
     }
     @AfterClass
     public void clean(){
         if (fileHandler != null){
-            fileHandler.deleteFile(GENERATED_KEY_FILE_PATH);
+            fileHandler.deleteFile(new File(GENERATED_KEY_FILE_DIR).listFiles()[0].toString());
         }
     }
 }
