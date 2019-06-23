@@ -35,7 +35,7 @@ public class RetailerDeploySandbox extends TestBase {
         RetailerHomePage retailerHomePage = new RetailerHomePage(driver);
         retailerHomePage.getScheduling();
         Scheduling scheduling = new Scheduling(driver);
-        scheduling.deployToAll(0, true);
+        scheduling.deployToAll(0);
         String expectedValue = "Last result: Done.";
         WebElement actualValue = driver.findElement(By.xpath("//span[contains(text(), 'Last result: Done.')]"));
         Assert.assertEquals(actualValue,expectedValue);

@@ -47,7 +47,7 @@ public class RetailerTest extends TestBase {
     @Test(enabled = false)
     public void _001_valid_deploy_to_dispenser(){
         Scheduling scheduling = retailerHomePage.getScheduling();
-        Assert.assertTrue(scheduling.deployToAll(0,true));
+        Assert.assertTrue(scheduling.deployToAll(0));
     }
 
     //@Test//(priority = 1)

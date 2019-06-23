@@ -28,8 +28,7 @@ public class Scheduling extends PageObject {
         super(driver);
     }
 
-    public boolean deployToAll(int areaIndex, boolean validDeploy){
-        boolean response = false;
+    public boolean deployToAll(int areaIndex){
         isElementPresent(campaignRows.get(0));
         campaignRows.get(0).click();
         isElementPresent(siteArea);
@@ -38,26 +37,20 @@ public class Scheduling extends PageObject {
         if (!areaChildElements.get((areaChildElements.size() - 1)).isDisplayed()){
             //expand all
             expandAll(areaElement,areaChildElements);
-            //list checkboxs
+            //list chckboxs
             List<WebElement> checkBoxs = webDriver.findElements(By.xpath("//i[contains(@id,'listNestedCheckAll"+areaIndex+"')]"));
             //check checkbox
             WebElement checkBox = checkBoxs.get(checkBoxs.size() - 1);
             isElementPresent(checkBox);
             if (!checkBox.getAttribute("class").contains("check")){
                 checkBox.click();
+
             }
+
         }
 
         isElementPresent(schedulingDeployButton);
-        if(!(validDeploy)){
-            schedulingDeployButton.click();
-        }
-
-        else{
-            //while()
-
-        }
-
+        schedulingDeployButton.click();
         return footerMessage.getText().contains("Finished deploying campaign");
     }
 
@@ -70,7 +63,6 @@ public class Scheduling extends PageObject {
                 isElementPresent(areaChildElements.get(i));
                 if (!Boolean.valueOf(areaChildElements.get(i).getAttribute("aria-expanded"))){
                     areaChildElements.get(i).click();
-
                 }
             }
         }
