@@ -25,6 +25,8 @@ public class AdminPage extends PageObject {
     WebElement loginBtn;
     @FindBy(className = "float-right")
     WebElement logoutBtn;
+    @FindBy(xpath = "//span[contains(text(), 'Resources')]")
+    private WebElement resourceLink;
     private final static String TICKET_ID_FREFIX = "ticket";
 
     public void login(String userName,String password){
@@ -59,6 +61,11 @@ public class AdminPage extends PageObject {
         isElementPresent(this.retailersPageLink);
         this.retailersPageLink.click();
         return new RetailersPage(webDriver);
+    }
+    public Resource getResourcePage(){
+        isElementPresent(this.resourceLink);
+        this.resourceLink.click();
+        return new Resource(webDriver);
     }
     public boolean isSupportTicketsEnabled(){
         return isLinkEnabled(supportTicketsLink);

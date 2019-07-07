@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="OpenApps" parallel="tests">
     <suite-files>
-        <suite-file path="sub_suite/packageA.xml"/>
-<!--        <suite-file path="sub_suite/packageB.xml"/>-->
+        <suite-file path="../open_apps.xml"/>
+        <suite-file path="packageB.xml"/>
     </suite-files>
 </suite>

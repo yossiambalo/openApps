@@ -66,11 +66,15 @@ public class ShowUp extends PageObject {
         this.appVersionMenu.click();
         isElementPresent(this.certifyBtn);
         this.certifyBtn.click();
-        isElementPresent(nextBtn);
-        scrollDown(nextBtn);
-        this.nextBtn.click();
-        isElementPresent(finishBtn);
-        this.finishBtn.click();
+        if (isElementPresent(nextBtn)) {
+            scrollDown(nextBtn);
+        }
+        if (isElementPresent(this.nextBtn)){
+            this.nextBtn.click();
+        }
+        if (isElementPresent(finishBtn)) {
+            this.finishBtn.click();
+        }
     }
     public void edit(){
         int counter = 0;
