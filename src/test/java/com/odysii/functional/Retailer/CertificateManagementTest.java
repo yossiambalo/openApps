@@ -28,24 +28,25 @@ public class CertificateManagementTest extends TestBase {
     private String siteAreaCheckBoxTagName = "i";
     final String KEY_FILE_LOCATION = System.getProperty("user.home")+"\\Downloads";
     FileHandler fileHandler;
+    private static final String UPLOAD_FAILED_ERROR = "Failed to upload deb file!";
 
 
     @BeforeClass
-
     public void prepare(){
+        category = "Certificate Management";
         fileHandler = new FileHandler();
         user = new User(driver);
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS,UserType.ADMIN);
     }
     @Test
-    public void _001_generate_download_upload_deploy_GSOM_PROD_E2E(){
+    public void _001_valid_generate_download_upload_deploy_GSOM_PROD_E2E(){
         retailersPage = adminPage.getRetailersPage();
         keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
         KeyMnagerPage keyMnagerPage = new KeyMnagerPage(driver);
         keyMnagerPage.generate(EnviromentType.PROD);
         keyMnagerPage.downloadKey(EnviromentType.PROD);
         wait(WAIT);
-        keyMnagerPage.uploadGSOM(EnviromentType.PROD,fileHandler.getRandomFileFromDir(new File(KEY_FILE_LOCATION)).toString());
+        Assert.assertTrue(keyMnagerPage.uploadGSOM(EnviromentType.PROD,fileHandler.getRandomFileFromDir(new File(KEY_FILE_LOCATION)).toString()),UPLOAD_FAILED_ERROR);
         wait(WAIT);
         user.logout();
         RetailerHomePage retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
@@ -56,7 +57,7 @@ public class CertificateManagementTest extends TestBase {
     }
 
     @Test
-    public void _002_generate_download_upload_deploy_GSOM_TEST_E2E(){
+    public void _002_valid_generate_download_upload_deploy_GSOM_TEST_E2E(){
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS,UserType.ADMIN);
         retailersPage = adminPage.getRetailersPage();
         keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
@@ -64,7 +65,7 @@ public class CertificateManagementTest extends TestBase {
         keyMnagerPage.generate(EnviromentType.TEST);
         keyMnagerPage.downloadKey(EnviromentType.TEST);
         wait(WAIT);
-        keyMnagerPage.uploadGSOM(EnviromentType.TEST,fileHandler.getRandomFileFromDir(new File(KEY_FILE_LOCATION)).toString());
+        Assert.assertTrue(keyMnagerPage.uploadGSOM(EnviromentType.TEST,fileHandler.getRandomFileFromDir(new File(KEY_FILE_LOCATION)).toString()),UPLOAD_FAILED_ERROR);
         user.logout();
         RetailerHomePage retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
         KeyManagement keyManagement = retailerHomePage.getKeysMGMT();
@@ -74,7 +75,7 @@ public class CertificateManagementTest extends TestBase {
     }
 
     @Test
-    public void _003_generate_download_upload_deploy_OMNIA_PROD_E2E(){
+    public void _003_valid_generate_download_upload_deploy_OMNIA_PROD_E2E(){
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS,UserType.ADMIN);
         retailersPage = adminPage.getRetailersPage();
         keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
@@ -82,7 +83,7 @@ public class CertificateManagementTest extends TestBase {
         keyMnagerPage.generate(EnviromentType.PROD);
         keyMnagerPage.downloadKey(EnviromentType.PROD);
         wait(WAIT);
-        keyMnagerPage.uploadOmnia(EnviromentType.PROD,fileHandler.getRandomFileFromDir(new File(KEY_FILE_LOCATION)).toString());
+        Assert.assertTrue(keyMnagerPage.uploadOmnia(EnviromentType.PROD,fileHandler.getRandomFileFromDir(new File(KEY_FILE_LOCATION)).toString()),UPLOAD_FAILED_ERROR);
         user.logout();
         RetailerHomePage retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
         KeyManagement keyManagement = retailerHomePage.getKeysMGMT();
@@ -92,7 +93,7 @@ public class CertificateManagementTest extends TestBase {
     }
 
     @Test
-    public void _004_generate_download_upload_deploy_OMNIA_TEST_E2E(){
+    public void _004_valid_generate_download_upload_deploy_OMNIA_TEST_E2E(){
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS,UserType.ADMIN);
         retailersPage = adminPage.getRetailersPage();
         keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
@@ -100,7 +101,7 @@ public class CertificateManagementTest extends TestBase {
         keyMnagerPage.generate(EnviromentType.TEST);
         keyMnagerPage.downloadKey(EnviromentType.TEST);
         wait(WAIT);
-        keyMnagerPage.uploadOmnia(EnviromentType.TEST,fileHandler.getRandomFileFromDir(new File(KEY_FILE_LOCATION)).toString());
+        Assert.assertTrue(keyMnagerPage.uploadOmnia(EnviromentType.TEST,fileHandler.getRandomFileFromDir(new File(KEY_FILE_LOCATION)).toString()),UPLOAD_FAILED_ERROR);
         user.logout();
         RetailerHomePage retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
         KeyManagement keyManagement = retailerHomePage.getKeysMGMT();
@@ -110,7 +111,7 @@ public class CertificateManagementTest extends TestBase {
     }
 
     @Test
-    public void _005_deploy_is_disable_for_retailer_after_revoke(){
+    public void _005_valid_deploy_is_disable_for_retailer_after_revoke(){
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
         retailersPage = adminPage.getRetailersPage();
         keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
@@ -126,7 +127,7 @@ public class CertificateManagementTest extends TestBase {
     }
 
     @Test
-    public void _006_no_key_to_retailer_without_upload(){
+    public void _006_valid_no_key_to_retailer_without_upload(){
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
         retailersPage = adminPage.getRetailersPage();
         keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
@@ -142,7 +143,7 @@ public class CertificateManagementTest extends TestBase {
     // Verify that if admin was generated key and download only (without upload signed key) retailer didn't get a key
     //STP: Certificate_Management-1-6
     @Test
-    public void _007_no_key_to_retailer_after_download_without_upload(){
+    public void _007_valid_no_key_to_retailer_after_download_without_upload(){
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
         retailersPage = adminPage.getRetailersPage();
         keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
@@ -159,7 +160,7 @@ public class CertificateManagementTest extends TestBase {
     //Verify that after click on "Revoke" - retailer should not be able to download signed key and deploy (grade out)
     //Certificate_Management-1-8
     @Test
-    public void _008_after_revoke_all_retailer_options_disable(){
+    public void _008_valid_after_revoke_all_retailer_options_disable(){
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
         retailersPage = adminPage.getRetailersPage();
         keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);

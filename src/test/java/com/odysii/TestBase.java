@@ -265,14 +265,13 @@ public class TestBase {
             SupportTicket supportTicket = adminPage.getSupportTicketsLink();
             switch (applicationStatus){
                 case CERTIFIED:
+                case LIVE:
                     supportTicket.approve();
                     break;
                 case REJECT:
                     supportTicket.rejectNoFee();
                     break;
-                case LIVE:
-                    supportTicket.approve();
-                    default:
+                default:
                         //do nothing
             }
             user.logout();

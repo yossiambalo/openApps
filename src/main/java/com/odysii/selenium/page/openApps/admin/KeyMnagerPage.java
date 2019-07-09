@@ -11,8 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import java.awt.*;
 
 public class KeyMnagerPage extends PageObject {
-
-    private final String SUCCESS_MESSAGE = "Uploaded key successfully";
+    private final String SUCCESS_MESSAGE = "successfully";
     @FindBy(id = "GenerateProdEnvKeys")
     private WebElement generateProdKeys;
     @FindBy(id = "GenerateTestKeys")
