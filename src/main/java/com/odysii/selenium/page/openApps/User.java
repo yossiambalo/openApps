@@ -19,9 +19,11 @@ public class User extends PageObject {
     @FindBy(id = "kc-login")
     WebElement loginBtn;
     @FindBy(id = "user-popover")//btn-xs
-    WebElement logoutBtn;
+            WebElement logoutBtn;
     @FindBy(id = "user-popover-content")
     WebElement logOutPopUp;
+    @FindBy(css = "#user-popover-content .col")
+    private WebElement userNameElement;
     public User(WebDriver driver) {
         super(driver);
     }
@@ -38,16 +40,16 @@ public class User extends PageObject {
         this.loginBtn.click();
         switch (userType){
             case DEVELOPER:
-               object = new DevHomePage(webDriver);
-               break;
+                object = new DevHomePage(webDriver);
+                break;
             case RETAILER:
                 object = new RetailerHomePage(webDriver);
                 break;
             case ADMIN:
                 object = new AdminPage(webDriver);
                 break;
-                default:
-                    //
+            default:
+                //
         }
         return object;
     }
@@ -60,5 +62,14 @@ public class User extends PageObject {
         }catch (WebDriverException exception){
             exception.getMessage();
         }
+    }
+    public boolean isUserLoggedIn(String user){
+        boolean res = false;
+        if (!isElementPresent(this.userName)) {
+            isElementPresent(logoutBtn);
+            logoutBtn.click();
+            res = userNameElement.getText().equals(user);
+        }
+        return res;
     }
 }

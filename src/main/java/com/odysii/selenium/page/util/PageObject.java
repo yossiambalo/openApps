@@ -85,7 +85,7 @@ public class PageObject {
                 counter ++;
             }
         }catch (NoSuchElementException e){
-            e.getMessage();
+            System.out.println(e.getMessage());
             return false;
         }
        if (counter == 10){

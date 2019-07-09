@@ -191,49 +191,49 @@ public class RetailerTest extends TestBase {
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    @Test//(priority = 16)
+    @Test(enabled = false)//Not supported meanwhile
     public void _017_valid_set_up_campaign_screen_size_15_6_layout1_payment_state(){
         campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    @Test//(priority = 17)
+    @Test(enabled = false)//Not supported meanwhile
     public void _018_valid_set_up_campaign_screen_size_15_6_layout2_payment_state(){
         campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_2,NUM_OF_APP_2, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    @Test//(priority = 18)
+    @Test(enabled = false)//Not supported meanwhile
     public void _019_valid_set_up_campaign_screen_size_15_6_layout3_payment_state(){
         campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_3,NUM_OF_APP_3, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    @Test//(priority = 19)
+    @Test(enabled = false)//Not supported meanwhile
     public void _020_valid_set_up_campaign_screen_size_15_6_layout4_payment_state(){
         campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_4,NUM_OF_APP_4, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    @Test//(priority = 20)
+    @Test(enabled = false)//Not supported meanwhile
     public void _021_valid_set_up_campaign_screen_size_15_6_layout1_post_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.POST_FUELING, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    @Test//(priority = 21)
+    @Test(enabled = false)//Not supported meanwhile
     public void _022_valid_set_up_campaign_screen_size_15_6_layout2_post_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.POST_FUELING, LayoutType.LAYOUT_2,NUM_OF_APP_2, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    @Test//(priority = 22)
+    @Test(enabled = false)//Not supported meanwhile
     public void _023_valid_set_up_campaign_screen_size_15_6_layout3_post_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.POST_FUELING, LayoutType.LAYOUT_3,NUM_OF_APP_3, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    @Test//(priority = 23)
+    @Test(enabled = false)//Not supported meanwhile
     public void _024_valid_set_up_campaign_screen_size_15_6_layout4_post_fueling_state(){
         campaignDesigner.setUpCampaign(StateType.POST_FUELING, LayoutType.LAYOUT_4,NUM_OF_APP_4, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
@@ -245,7 +245,7 @@ public class RetailerTest extends TestBase {
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
-    @Test//(priority = 25)
+    @Test(enabled = false)//Not supported meanwhile
     public void _026_valid_set_up_campaign_screen_size_10_4_layout1_payment_state() {
         campaignDesigner.setUpCampaign(StateType.PAYMENT, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_10_4,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());

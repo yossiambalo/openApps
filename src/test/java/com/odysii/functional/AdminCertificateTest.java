@@ -60,12 +60,14 @@ public class AdminCertificateTest extends TestBase {
         }
         keyMnagerPage.downloadKey(EnviromentType.PROD);
         int counter = 0;
+        File[] fileSize = new File(GENERATED_KEY_FILE_DIR).listFiles();
         fileHandler = new FileHandler();
-        while (!fileHandler.isFileExist(new File(GENERATED_KEY_FILE_DIR).listFiles()[0].toString()) && counter < 5){
+        while ((fileSize.length == 0) && counter < 5){
             wait(WAIT);
+            fileSize = new File(GENERATED_KEY_FILE_DIR).listFiles();
             counter ++;
         }
-        Assert.assertTrue(fileHandler.isFileExist(new File(GENERATED_KEY_FILE_DIR).listFiles()[0].toString()));
+        Assert.assertTrue(fileHandler.isFileExist(fileSize[0].toString()));
     }
     @Test(priority = 4)
     public void _004_valid_upload_key_omnia(){

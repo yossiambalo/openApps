@@ -13,14 +13,19 @@ import com.odysii.selenium.page.openApps.dev.DevHomePage;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class AccountTest extends TestBase {
     public static String DEV_USER_NAME2 = "auto.mazia2@gmail.com";
+
+    @BeforeClass
+    public void prepare(){
+        category = "Accounts";
+    }
     @Test
     public void _001_verify_dev_user_with_role_1_has_only_its_permissions() {
         //Assert.assertTrue(updateUser(1),"Failed to update user role!");
-        category = "Accounts";
         if (user == null) {
             user = new User(driver);
         }
