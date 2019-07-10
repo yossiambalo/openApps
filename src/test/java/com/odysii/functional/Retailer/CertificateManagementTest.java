@@ -38,6 +38,7 @@ public class CertificateManagementTest extends TestBase {
         user = new User(driver);
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS,UserType.ADMIN);
     }
+
     @Test
     public void _001_valid_generate_download_upload_deploy_GSOM_PROD_E2E(){
         retailersPage = adminPage.getRetailersPage();

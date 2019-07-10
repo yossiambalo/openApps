@@ -36,6 +36,7 @@ public class PageObject {
             wait(4000);
             counter++;
         }
+
         if (counter == 1) {
             res = false;
         }

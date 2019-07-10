@@ -8,15 +8,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RetailerHomePage extends PageObject {
-    @FindBy(id = "navItem11")
+    @FindBy(id = "navItem10")
     WebElement appStore;
-    @FindBy(id = "navItem12")
+    @FindBy(id = "navItem11")
     WebElement appLibrary;
-    @FindBy(id = "navItem13")
+    @FindBy(id = "navItem12")
     WebElement campaigns;
-    @FindBy(id = "navItem14")
+    @FindBy(id = "navItem13")
     WebElement scheduling;
-    @FindBy(id = "navItem15")
+    @FindBy(id = "navItem14")
     WebElement manageKeys;
     @FindBy(id = "applicationSearchInput")
     WebElement applicationSearchInput;
@@ -24,6 +24,7 @@ public class RetailerHomePage extends PageObject {
     WebElement makeApplicationSearch;
     @FindBy(id = "BackNavigationButton")
     WebElement backNavigationButton;
+
     private final static String STOREAPP_PREFIX = "storeApp";
 
     public RetailerHomePage(WebDriver driver) {

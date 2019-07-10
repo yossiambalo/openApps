@@ -52,6 +52,7 @@ public class EditUser extends PageObject {
         }
         editUserButtonSave.click();
     }
+
     public void edit(RoleType roleType, List<String> retailers, OrganizationType organizationType){
         if (!isElementPresent(organizationOverrideSelect)){
             organizationOverrideCheckBox.click();
