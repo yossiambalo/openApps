@@ -1,7 +1,5 @@
 package com.odysii;
-
 import java.io.File;
-
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.admin.AdminPage;
@@ -17,11 +15,9 @@ import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import org.testng.ITestResult;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.lang.reflect.Method;
@@ -150,7 +146,7 @@ public class TestBase {
 
         //driver.get("http://odysiiopenappsqa.gilbarco.com:8080/openAppStore");
         user = new User(driver);
-        driver.get(url+"/front/my-apps");
+        driver.get(url);
         //deleteAllApps();
     }
     protected boolean isElementExist(By by){

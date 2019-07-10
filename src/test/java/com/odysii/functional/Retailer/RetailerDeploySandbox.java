@@ -1,5 +1,4 @@
 package com.odysii.functional.Retailer;
-
 import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
@@ -36,10 +35,11 @@ public class RetailerDeploySandbox extends TestBase {
         retailerHomePage.getScheduling();
         Scheduling scheduling = new Scheduling(driver);
         scheduling.deployToAll(0);
-        String expectedValue = "Last result: Done.";
-        WebElement actualValue = driver.findElement(By.xpath("//span[contains(text(), 'Last result: Done.')]"));
+        String expectedValue = "Campaign Deploy request was dispatched.";
+        wait(WAIT);
+        String actualValue = driver.findElement(By.className("pb-3")).getText();
         Assert.assertEquals(actualValue,expectedValue);
 
-    }
+        }
 
 }
