@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import java.util.Set;
 
 public class EditUser extends PageObject {
 
@@ -25,6 +26,8 @@ public class EditUser extends PageObject {
     WebElement organizationOverrideSelect;
     @FindBy(id = "confirmationModalUserEditAgreeButton")
     WebElement confirmationModalUserEditAgreeButton;
+    @FindBy(xpath = "//toggle-button[contains(@id,'editUserResource')]")
+    private List<WebElement> radioBtnResources;
 
     public EditUser(WebDriver driver){
         super(driver);
@@ -73,6 +76,13 @@ public class EditUser extends PageObject {
         editUserButtonSave.click();
         if (isElementPresent(confirmationModalUserEditAgreeButton)) {
             confirmationModalUserEditAgreeButton.click();
+        }
+    }
+    public void addResourcesForUser(Set<String> resources){
+        for (WebElement element : radioBtnResources){
+            if (resources.contains(element.findElements(By.tagName("label")).get(1).getText())){
+                element.findElements(By.tagName("label")).get(0).click();
+            }
         }
     }
 }

@@ -13,9 +13,11 @@ import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
 import com.odysii.selenium.page.openApps.dev.summary.Summary;
 import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
+import com.odysii.selenium.page.util.RequestHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -199,5 +201,26 @@ public class DevTest extends TestBase {
         marketing.fillMarketing();
         wait(3000);
         Assert.assertEquals(showUp.getStatus(1).trim(),ApplicationStatus.PRESUBMITTED.getStatus());
+    }
+    @AfterClass
+    public void clean(){
+        if (!user.isUserLoggedIn(ADMIN_USER_NAME)) {
+            adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
+        }
+        setAdminCookie();
+        RequestHelper requestHelper = null;
+        if (applicationIDToDelete != null){
+            requestHelper = new RequestHelper();
+            for (String appID: applicationIDToDelete){
+                if (!requestHelper.deleteRequest(openAppsUrl+"/webapi/application/"+appID,token)){
+                    try {
+                        throw new Exception("Failed to delete application number: "+appID);
+                    } catch (Exception e) {
+                        System.out.println("Failed to delete application number: "+appID);
+                    }
+                }
+            }
+        }
+        driver.quit();
     }
 }

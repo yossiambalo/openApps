@@ -59,9 +59,9 @@ public class TestBase {
     public final static String APP_CLASS_NAME = "card";
     public final String zipFile = "TH.zip";
     public static boolean isPrepared = false;
-    static String token = null;
+    public static String token = null;
     protected static boolean isRoleConfig = false;
-    private static final String openAppsUrl = "https://i360-qa.gilbarco.com/openappstore";
+    public static final String openAppsUrl = "https://i360-qa.gilbarco.com/openappstore";
     public static String getHostName() {
         String hostName = "";
         try {
@@ -111,21 +111,6 @@ public class TestBase {
     }
     @AfterClass
     public void clean(){
-        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
-        setAdminCookie();
-        RequestHelper requestHelper = null;
-        if (applicationIDToDelete != null){
-            requestHelper = new RequestHelper();
-            for (String appID: applicationIDToDelete){
-                if (!requestHelper.deleteRequest(openAppsUrl+"/webapi/application/"+appID,token)){
-                    try {
-                        throw new Exception("Failed to delete application number: "+appID);
-                    } catch (Exception e) {
-                        System.out.println("Failed to delete application number: "+appID);
-                    }
-                }
-            }
-        }
         driver.quit();
     }
     @Parameters({"browser","url"})

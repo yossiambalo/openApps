@@ -1,5 +1,6 @@
 package com.odysii.selenium.page.openApps.admin;
 
+import com.odysii.selenium.page.openApps.Resource;
 import com.odysii.selenium.page.openApps.admin.helper.PermissionCategoryType;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.By;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class Resource extends PageObject {
+public class AdminResource extends PageObject implements Resource {
     @FindBy(id = "newResourceButton")
     private WebElement newResourceButton;
     @FindBy(id = "displayName")
@@ -27,7 +28,7 @@ public class Resource extends PageObject {
     private List<WebElement> resourceContainerList;
     @FindBy(xpath = "//button[contains(@id,'deleteResource')]")
     private List<WebElement> buttonDeleteResource;
-    public Resource(WebDriver driver) {
+    public AdminResource(WebDriver driver) {
         super(driver);
     }
     public void addNewResource(String resourceName, String description, PermissionCategoryType permissionCategoryType){

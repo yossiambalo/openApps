@@ -1,6 +1,11 @@
 package com.odysii.selenium.page.openApps.admin;
 
+import com.odysii.selenium.page.openApps.Resource;
+import com.odysii.selenium.page.openApps.ResourceType;
+import com.odysii.selenium.page.openApps.dev.DevResource;
+import com.odysii.selenium.page.openApps.retailer.RetailerResource;
 import com.odysii.selenium.page.util.PageObject;
+import com.odysii.selenium.page.util.RequestHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -62,10 +67,22 @@ public class AdminPage extends PageObject {
         this.retailersPageLink.click();
         return new RetailersPage(webDriver);
     }
-    public Resource getResourcePage(){
+    public Resource getResourcePage(ResourceType resourceType){
+        Resource resource = null;
         isElementPresent(this.resourceLink);
         this.resourceLink.click();
-        return new Resource(webDriver);
+        switch (resourceType){
+            case DEV_RESOURCE:
+                resource = new DevResource(webDriver);
+                break;
+            case ADMIN_RESOURCE:
+                resource = new AdminResource(webDriver);
+                break;
+            case RETAILER_RESOURCE:
+                resource = new RetailerResource(webDriver);
+                break;
+        }
+        return resource;
     }
     public boolean isSupportTicketsEnabled(){
         return isLinkEnabled(supportTicketsLink);
