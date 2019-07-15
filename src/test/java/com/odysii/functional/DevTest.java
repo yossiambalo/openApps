@@ -37,6 +37,7 @@ public class DevTest extends TestBase {
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME, RETAILER_USER_PASS, UserType.RETAILER);
         category = "Dev";
     }
+
     @Test(priority = 1)
     public void _001_valid_add_new_app() {
         //get number of live apps from retailer page

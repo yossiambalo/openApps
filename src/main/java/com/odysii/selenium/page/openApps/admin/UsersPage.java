@@ -17,6 +17,9 @@ public class UsersPage extends PageObject {
     private WebElement makeSearchBtn;
     @FindBy(id = "editUser")
     WebElement editUserBtn;
+    @FindBy(id = "newUserButton")
+    WebElement addNewUser;
+
     public UsersPage(WebDriver driver) {
         super(driver);
     }
@@ -37,4 +40,10 @@ public class UsersPage extends PageObject {
         }
          return new EditUser(webDriver);
     }
+
+    public AddUser addNewUser(){
+
+        return new AddUser(webDriver);
+    }
+
 }
