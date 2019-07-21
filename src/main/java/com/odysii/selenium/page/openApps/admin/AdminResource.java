@@ -28,6 +28,8 @@ public class AdminResource extends PageObject implements Resource {
     private List<WebElement> resourceContainerList;
     @FindBy(xpath = "//button[contains(@id,'deleteResource')]")
     private List<WebElement> buttonDeleteResource;
+    @FindBy(xpath = "//button[contains(@id,'editResource')]")
+    private List<WebElement> buttonEditResource;
     @FindBy(xpath = "//a[contains(@id,'resourceDownload')]")
     private List<WebElement> resourceDownload;
     public AdminResource(WebDriver driver) {
