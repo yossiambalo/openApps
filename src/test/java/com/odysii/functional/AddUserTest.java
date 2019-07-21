@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 public class AddUserTest extends TestBase {
@@ -23,7 +24,7 @@ public class AddUserTest extends TestBase {
         UsersPage usersPage = adminPage.getUsersPage();
 //      adminPage.getUsersPage();
         AddUser addUser = usersPage.getAddNewUserPage();
-        addUser.addNewUser("roi", "545@2321241sws5so2", UseRole.PARTY_DEVELOPER_MARKETING_ALL,UserDelegations.OPENAPPS_ADMIN);
+        addUser.addNewUser("roi", "qa4@test", UseRole.PARTY_DEVELOPER_MARKETING_ALL,UserDelegations.OPENAPPS_ADMIN);
         wait(WAIT);
         boolean actualValue = isElementExist(By.id("newUserButton"));
         Assert.assertTrue(actualValue);
@@ -32,11 +33,18 @@ public class AddUserTest extends TestBase {
 
     @Test
     public void _002_cant_add_duplicate_email_address(){
+
         addNewUserBtn.click();
         addUser.addNewUser("QA for test 2", "aa@qa",UseRole.RETAILER_DEVELOPER_PASSPORT,UserDelegations.ODYSII);
         String actualValue = driver.findElement(By.id("editUserSuccessErrorMessage")).getText();
         String expectedValue = "An error occurred while trying to add new user. reason: email is already taken.";
         Assert.assertNotEquals(actualValue,expectedValue);
+
+    }
+
+    @AfterClass
+    public void deleteUser(){
+        deleteUser("qa32@test");
 
     }
 

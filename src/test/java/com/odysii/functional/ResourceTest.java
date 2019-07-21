@@ -47,6 +47,7 @@ public class ResourceTest extends TestBase {
         Assert.assertTrue(devResource.isResourceExist(resourceName));
 
     }
+
     @Test
     public void _001_valid_admin_edit_resource(){
         if (!user.isUserLoggedIn(ADMIN_USER_NAME)){
@@ -58,6 +59,7 @@ public class ResourceTest extends TestBase {
         wait(5000);
         Assert.assertTrue(adminResource.isResourceExist(resourceName));
     }
+
     @Test
     public void _002_valid_admin_download(){
         if (!user.isUserLoggedIn(ADMIN_USER_NAME)){
@@ -70,6 +72,7 @@ public class ResourceTest extends TestBase {
         Assert.assertTrue(fileHandler.isFileExist(KEY_FILE_LOCATION+ File.separator+"TH.zip"));
         fileHandler.deleteFile(KEY_FILE_LOCATION+ File.separator+"TH.zip");
     }
+
     @AfterClass
     public void cleanResource(){
         if (!user.isUserLoggedIn(ADMIN_USER_NAME)){
