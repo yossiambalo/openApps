@@ -28,6 +28,8 @@ public class AdminResource extends PageObject implements Resource {
     private List<WebElement> resourceContainerList;
     @FindBy(xpath = "//button[contains(@id,'deleteResource')]")
     private List<WebElement> buttonDeleteResource;
+    @FindBy(xpath = "//a[contains(@id,'resourceDownload')]")
+    private List<WebElement> resourceDownload;
     public AdminResource(WebDriver driver) {
         super(driver);
     }
@@ -49,6 +51,14 @@ public class AdminResource extends PageObject implements Resource {
         }
         buttonSave.click();
     }
+    public void editResource(String resourceName){
+        WebElement element = resourceContainerList.stream().filter(webElement -> {
+            return webElement.findElement(By.className("col-lg-2")).getText().equals(resourceName);
+        }).findAny().orElse(null);
+        WebElement menuBtnEl = element.findElement(By.className("dropdown"));
+        scrollDown(menuBtnEl);
+        menuBtnEl.click();
+    }
     public boolean deleteLastResource(){
         int lastResourceIndex = resourceContainerList.size() - 1;
         scrollDown();
@@ -61,5 +71,13 @@ public class AdminResource extends PageObject implements Resource {
         int newResourceContainerListSize = webDriver.findElements(By.className("card-body")).size();
 
         return newResourceContainerListSize == lastResourceIndex;
+    }
+
+    @Override
+    public void download() {
+        resourceDownload.get((resourceDownload.size() - 1)).click();
+    }
+    public boolean isResourceExist(String resourceName) {
+        return isResourceExist(resourceContainerList,resourceName);
     }
 }

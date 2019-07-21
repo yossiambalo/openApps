@@ -4,6 +4,7 @@ import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.admin.AdminPage;
 import com.odysii.selenium.page.openApps.admin.SupportTicket;
+import com.odysii.selenium.page.openApps.admin.UsersPage;
 import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
@@ -327,5 +328,18 @@ public class TestBase {
     }
     private String getAppID(){
         return driver.getCurrentUrl().split("my-apps/")[1].split("/")[0];
+    }
+    private String getUserID(){
+        return driver.getCurrentUrl().split("users/")[1].split("/")[0];
+    }
+    public boolean deleteUser(String userName){
+        RequestHelper requestHelper = new RequestHelper();
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+        setAdminCookie();
+        UsersPage usersPage = adminPage.getUsersPage();
+        usersPage.getUser(userName);
+        usersPage.isElementExist(By.id("organizationOverrideSelect"));
+        return requestHelper.deleteRequest(openAppsUrl + "/webapi/user/" + getUserID(), token);
+        //https://i360-qa.gilbarco.com/openappstore/webapi/user/idOfApplication
     }
 }

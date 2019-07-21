@@ -69,6 +69,7 @@ public class User extends PageObject {
             isElementPresent(logoutBtn);
             logoutBtn.click();
             res = userNameElement.getText().equals(user);
+            logoutBtn.click();
         }
         return res;
     }

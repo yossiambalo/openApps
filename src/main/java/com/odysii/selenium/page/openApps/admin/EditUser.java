@@ -85,5 +85,6 @@ public class EditUser extends PageObject {
                 element.findElements(By.tagName("label")).get(0).click();
             }
         }
+        editUserButtonSave.click();
     }
 }

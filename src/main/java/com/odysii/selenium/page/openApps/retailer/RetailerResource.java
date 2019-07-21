@@ -11,12 +11,7 @@ public class RetailerResource extends PageObject implements Resource {
     }
 
     @Override
-    public void addNewResource(String resourceName, String description, PermissionCategoryType permissionCategoryType) {
+    public void download() {
 
-    }
-
-    @Override
-    public boolean deleteLastResource() {
-        return false;
     }
 }

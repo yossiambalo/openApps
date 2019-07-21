@@ -1,6 +1,5 @@
 package com.odysii.selenium.page.openApps.retailer;
 
-import com.odysii.selenium.page.util.ExplicitAssertionError;
 import com.odysii.selenium.page.util.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,13 +7,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RetailerHomePage extends PageObject {
-    @FindBy(id = "navItem10")
-    WebElement appStore;
     @FindBy(id = "navItem11")
-    WebElement appLibrary;
+    WebElement appStore;
     @FindBy(id = "navItem12")
-    WebElement campaigns;
+    WebElement appLibrary;
     @FindBy(id = "navItem13")
+    WebElement campaigns;
+    @FindBy(id = "navItem14")
     WebElement scheduling;
     @FindBy(id = "navItem14")
     WebElement manageKeys;
