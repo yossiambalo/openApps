@@ -49,7 +49,7 @@ public class ResourceTest extends TestBase {
     }
 
     @Test
-    public void _001_valid_admin_edit_resource(){
+    public void _002_valid_admin_edit_resource(){
         if (!user.isUserLoggedIn(ADMIN_USER_NAME)){
             adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
         }

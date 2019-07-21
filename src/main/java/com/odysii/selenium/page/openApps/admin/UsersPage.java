@@ -32,7 +32,9 @@ public class UsersPage extends PageObject {
         isElementPresent(makeSearchBtn);
         for (WebElement e : userList){
             if(e.findElement(By.className("text-truncate")).getText().trim().equals(developerEmail)){
-                webDriver.findElement(By.id("editUser"+ counter)).click();
+                WebElement element = webDriver.findElement(By.id("editUser"+ counter));
+                scrollDown(element);
+                element.click();
                 flag = true;
                 break;
             }
