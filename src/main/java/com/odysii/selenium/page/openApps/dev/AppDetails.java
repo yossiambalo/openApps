@@ -131,6 +131,7 @@ public class AppDetails extends PageObject{
         this.next.click();
         return new UploadCode(webDriver);
     }
+
     /**
      * Method porpose: for adding a new version
      * @param version

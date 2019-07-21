@@ -8,36 +8,35 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 public class AddUser extends PageObject {
-    WebDriver driver;
 
-    @FindBy(id ="newUserButton")
-    WebElement newUserButtonClick;
     @FindBy(id = "userName")
     WebElement userNameField;
     @FindBy(id = "userEmail")
     WebElement emailAddress;
     @FindBy(id = "userEditRole")
     WebElement roleDropDown;
-    @FindBy(id = "editUserDelegations")
-    WebElement delegationDropDown;
+//    @FindBy(id = "editUserDelegations")
+//    WebElement delegationDropDown;
     @FindBy(id = "editUserButtonSave")
     WebElement saveButton;
-
-
-    public void addNewUser(String fillUserName, String fillEmailAddress,String userRole, int delegations) {
-
-        newUserButtonClick.click();
-        userNameField.sendKeys(fillUserName);
-        emailAddress.sendKeys(fillEmailAddress);
-        roleDropDown.sendKeys(userRole);
-        Select delegationDropDown = new Select(driver.findElement(By.className("dropdown-btn")));
-        delegationDropDown.selectByIndex(2);
-        saveButton.click();
-
-    }
-
 
     public AddUser(WebDriver driver) {
         super(driver);
     }
+
+    public void addNewUser(String fillUserName, String fillEmailAddress,String userRole, String delegations) {
+
+        userNameField.sendKeys(fillUserName);
+        emailAddress.sendKeys(fillEmailAddress);
+        roleDropDown.sendKeys(userRole);
+        WebElement delegationDropDown = webDriver.findElement(By.className("dropdown-btn"));
+        delegationDropDown.click();
+        WebElement delegationsOptions = webDriver.findElement(By.xpath("//div[contains(text(), '"+delegations+"')]"));
+        delegationsOptions.click();
+        wait(WAIT);
+        delegationDropDown.sendKeys(delegations);
+        saveButton.click();
+
+    }
+
 }

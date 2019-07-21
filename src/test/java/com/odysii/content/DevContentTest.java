@@ -84,8 +84,6 @@ public class DevContentTest extends TestBase {
         String actualAppStatus = driver.findElements(By.className("cx-status")).get(0).getText().toUpperCase().trim();
         Assert.assertEquals(actualAppStatus,expectedAppStatus);
 
-
-
     }
 
     //@Test
@@ -151,6 +149,7 @@ public class DevContentTest extends TestBase {
         String actualAppDtls = wizardNewApp.findElement(By.tagName("a")).getText().trim();
         Assert.assertEquals(actualAppDtls, expectedAppDtls);
     }
+
     @Test
     public void _008_my_apps_add_new_app_valid_text_appName() {
         WebElement newAppForm = driver.findElement(By.cssSelector(".form-group"));
@@ -160,7 +159,6 @@ public class DevContentTest extends TestBase {
         String expectedNamePlhdr = "Enter App Name";
         String actualNamePlhdr = newAppForm.findElement(By.id("appName")).getAttribute("placeholder");
         Assert.assertEquals(actualNamePlhdr, expectedNamePlhdr);
-
 
     }
 
