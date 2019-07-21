@@ -50,6 +50,8 @@ public class DevHomePage extends PageObject{
     WebElement keyManagementLink;
     @FindBy(id = "navItem17")
     WebElement appContentLink;
+    @FindBy(id = "navItem16")
+    private WebElement resourceLink;
 
     public void login(String userName,String password){
         this.userName.clear();
@@ -102,6 +104,12 @@ public class DevHomePage extends PageObject{
         supportTicketLink.click();
         return new SupportTicket(webDriver);
     }
+    public DevResource getResourcePage(){
+        isElementPresent(this.resourceLink);
+        this.resourceLink.click();
+        return new DevResource(webDriver);
+    }
+
     public boolean isDashboardEnabled(){
         return isLinkEnabled(dashboardLink);
     }

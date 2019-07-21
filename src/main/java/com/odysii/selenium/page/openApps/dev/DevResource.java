@@ -1,26 +1,26 @@
 package com.odysii.selenium.page.openApps.dev;
 
 import com.odysii.selenium.page.openApps.Resource;
-import com.odysii.selenium.page.openApps.admin.helper.PermissionCategoryType;
 import com.odysii.selenium.page.util.PageObject;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class DevResource extends PageObject implements Resource {
-    @FindBy(xpath = "//span[contains(text(), 'Resources')]")
-    private WebElement resourceLink;
+    @FindBy(className = "card-body")
+    private List<WebElement> resourceList;
     public DevResource(WebDriver driver) {
         super(driver);
     }
 
-    @Override
-    public void addNewResource(String resourceName, String description, PermissionCategoryType permissionCategoryType) {
-
+    public boolean isResourceExist(String resourceName) {
+        return isResourceExist(resourceList,resourceName);
     }
-
     @Override
-    public boolean deleteLastResource() {
-        return false;
+    public void download() {
+        resourceList.get((resourceList.size() -1)).findElement(By.xpath("//button[contains(@id,'resourceDownload')]")).click();
     }
 }

@@ -67,22 +67,10 @@ public class AdminPage extends PageObject {
         this.retailersPageLink.click();
         return new RetailersPage(webDriver);
     }
-    public Resource getResourcePage(ResourceType resourceType){
-        Resource resource = null;
+    public AdminResource getResourcePage(){
         isElementPresent(this.resourceLink);
         this.resourceLink.click();
-        switch (resourceType){
-            case DEV_RESOURCE:
-                resource = new DevResource(webDriver);
-                break;
-            case ADMIN_RESOURCE:
-                resource = new AdminResource(webDriver);
-                break;
-            case RETAILER_RESOURCE:
-                resource = new RetailerResource(webDriver);
-                break;
-        }
-        return resource;
+        return new AdminResource(webDriver);
     }
     public boolean isSupportTicketsEnabled(){
         return isLinkEnabled(supportTicketsLink);
