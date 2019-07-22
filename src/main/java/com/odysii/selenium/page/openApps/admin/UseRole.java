@@ -1,5 +1,4 @@
 package com.odysii.selenium.page.openApps.admin;
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 public class UseRole {
 
