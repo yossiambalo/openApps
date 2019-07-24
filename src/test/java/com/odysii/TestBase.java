@@ -112,6 +112,7 @@ public class TestBase {
         driver.quit();
     }
     @Parameters({"browser","url"})
+
     @BeforeClass
     public void init(String browser,String url){
         switch (browser){
@@ -334,8 +335,11 @@ public class TestBase {
     }
     public boolean deleteUser(String userName){
         RequestHelper requestHelper = new RequestHelper();
-        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
-        setAdminCookie();
+        if(token == null) {
+            adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
+            setAdminCookie();
+        }
+
         UsersPage usersPage = adminPage.getUsersPage();
         usersPage.getUser(userName);
         usersPage.isElementExist(By.id("organizationOverrideSelect"));

@@ -32,9 +32,11 @@ public class AdminResource extends PageObject implements Resource {
     private List<WebElement> buttonEditResource;
     @FindBy(xpath = "//a[contains(@id,'resourceDownload')]")
     private List<WebElement> resourceDownload;
+
     public AdminResource(WebDriver driver) {
         super(driver);
     }
+
     public void addNewResource(String resourceName, String description, PermissionCategoryType permissionCategoryType){
         isElementPresent(newResourceButton);
         newResourceButton.click();

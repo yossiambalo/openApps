@@ -19,6 +19,12 @@ public class AddUser extends PageObject {
     WebElement saveButton;
     @FindBy(id = "newUserButton")
     WebElement addNewUserBtn;
+    @FindBy(id = "organizationOverrideButton")
+    WebElement buttonOFOrganization;
+    @FindBy(id = "confirmationModalUserEditAgreeButton")
+    WebElement areYouSureMessageConfirm;
+    @FindBy(id = "confirmationModalUserEditCancelButton")
+    WebElement getAreYouSureMessageCancel;
 
 
     public AddUser(WebDriver driver) {
@@ -42,23 +48,29 @@ public class AddUser extends PageObject {
 
     }
 
-    public void addNewUserWithOrgOverride(String fillUserName, String fillEmailAddress, String orgOverride, String userRole,boolean clickOnDelegation, String delegations){
+    public void addNewUserWithOrgOverride(String fillUserName, String fillEmailAddress, int orgOverride, String userRole, boolean clickOnDelegation, String delegations, boolean areYouSureMessage){
         userNameField.sendKeys(fillUserName);
         emailAddress.sendKeys(fillEmailAddress);
-        WebElement orgButton = webDriver.findElement(By.id("organizationOverrideButton"));
-        orgButton.click();
-        WebElement openOverrideDropDown = webDriver.findElement(By.id("organizationOverrideSelect"));
-        openOverrideDropDown.click();
-        WebElement orgOverrideDropD = webDriver.findElement(By.id("organizationOverrideSelect"));
-        orgOverrideDropD.click();
+        buttonOFOrganization.click();
+        Select dropDownOrgOverride = new Select(webDriver.findElement(By.id("organizationOverrideSelect")));
+        dropDownOrgOverride.selectByIndex(orgOverride);
         roleDropDown.sendKeys(userRole);
-        WebElement delegationDropDown = webDriver.findElement(By.className("dropdown-btn"));
-        delegationDropDown.click();
-        WebElement delegationsOptions = webDriver.findElement(By.xpath("//div[contains(text(), '"+delegations+"')]"));
-        delegationsOptions.click();
-        wait(WAIT);
-        delegationDropDown.sendKeys(delegations);
+        if (clickOnDelegation == true){
+            WebElement delegationDropDown = webDriver.findElement(By.className("dropdown-btn"));
+            delegationDropDown.click();
+            WebElement delegationsOptions = webDriver.findElement(By.xpath("//div[contains(text(), '"+delegations+"')]"));
+            delegationsOptions.click();
+//            wait(WAIT);
+            delegationDropDown.sendKeys(delegations);
+        }
         saveButton.click();
+        wait(WAIT);
+        if (areYouSureMessage == true){
+            areYouSureMessageConfirm.click();
+        }
+        else {
+            getAreYouSureMessageCancel.click();
+        }
     }
 
     public void backToUsersPage(){

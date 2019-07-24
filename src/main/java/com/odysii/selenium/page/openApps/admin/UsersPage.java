@@ -52,4 +52,25 @@ public class UsersPage extends PageObject {
         return new AddUser(webDriver);
     }
 
+    public void ListItems (){
+        List<WebElement> elements = webDriver.findElements(By.className("btn-primary"));
+        java.util.Iterator<WebElement> i = elements.iterator();
+        while(i.hasNext()) {
+            WebElement element = i.next();
+            if (element.isDisplayed()) {
+                element.click();
+                break;
+            }
+
+        }
+
+
+    }
+
+    public void serachFileld(String getFillEmailAddress3){
+    WebElement searchField = webDriver.findElement(By.id("searchInput"));
+        searchField.sendKeys(getFillEmailAddress3);
+
+    }
+
 }
