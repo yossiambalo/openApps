@@ -64,10 +64,9 @@ public class UsersPage extends PageObject {
 
         }
 
-
     }
 
-    public void serachFileld(String getFillEmailAddress3){
+    public void searchField(String getFillEmailAddress3){
     WebElement searchField = webDriver.findElement(By.id("searchInput"));
         searchField.sendKeys(getFillEmailAddress3);
 

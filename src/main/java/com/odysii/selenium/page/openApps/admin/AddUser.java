@@ -48,12 +48,15 @@ public class AddUser extends PageObject {
 
     }
 
-    public void addNewUserWithOrgOverride(String fillUserName, String fillEmailAddress, int orgOverride, String userRole, boolean clickOnDelegation, String delegations, boolean areYouSureMessage){
+    public void addNewUserWithOrgOverride(String fillUserName, String fillEmailAddress, boolean useOrganizationOverride,String orgOverride, String userRole, boolean clickOnDelegation, String delegations, boolean areYouSureMessage){
         userNameField.sendKeys(fillUserName);
         emailAddress.sendKeys(fillEmailAddress);
-        buttonOFOrganization.click();
+
+        if (useOrganizationOverride == true) {
+            buttonOFOrganization.click();
+        }
         Select dropDownOrgOverride = new Select(webDriver.findElement(By.id("organizationOverrideSelect")));
-        dropDownOrgOverride.selectByIndex(orgOverride);
+        dropDownOrgOverride.selectByVisibleText(orgOverride);
         roleDropDown.sendKeys(userRole);
         if (clickOnDelegation == true){
             WebElement delegationDropDown = webDriver.findElement(By.className("dropdown-btn"));
