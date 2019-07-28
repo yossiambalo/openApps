@@ -17,11 +17,11 @@ public class AddUserTest extends TestBase {
 
     AddUser addUser;
 
-    String fillEmailAddress = "11222211256@ody1siis.co.il";
-    String fillEmailAddress2 = "611111222442d1s161`312@odysii.com";
-    String fillEmailAddress3 = "221d11142611d@odyssii.org.il";
-    String fillEmailAddress4 = "c21112214@oddy1s0ii.com";
-    String fillEmailAddress5 = "e1111111e@odysdii.com";
+    String fillEmailAddress = "i12256@ody1siis.co.il";
+    String fillEmailAddress2 = "6i2121221d1s161`312@odysii.com";
+    String fillEmailAddress3 = "2ew21u11d@odyssii.org.il";
+    String fillEmailAddress4 = "c2e1uoddy1s@0ii.com";
+    String fillEmailAddress5 = "eu@eysdii.com";
 
 
     @Test
@@ -36,7 +36,7 @@ public class AddUserTest extends TestBase {
 
     }
 
-    //@Test
+    @Test
     public void _002_cant_add_duplicate_email_address(){
         UsersPage usersPage = adminPage.getUsersPage();
         usersPage.getAddNewUserPage();
@@ -49,7 +49,7 @@ public class AddUserTest extends TestBase {
 
     }
 
-    //@Test
+    @Test
     public void _003_mandatory_fields_add_new_user_page_empty_name(){
         UsersPage usersPage = adminPage.getUsersPage();
         usersPage.getAddNewUserPage();
@@ -62,7 +62,7 @@ public class AddUserTest extends TestBase {
 
     }
 
-    //@Test
+    @Test
     public void _004_mandatory_fields_add_new_user_page_empty_email_address(){
         UsersPage usersPage = adminPage.getUsersPage();
         usersPage.getAddNewUserPage();
@@ -75,7 +75,7 @@ public class AddUserTest extends TestBase {
 
     }
 
-  //@Test
+  @Test
     public void _005_mandatory_fields_add_new_user_page_empty_role(){
         UsersPage usersPage = adminPage.getUsersPage();
         usersPage.getAddNewUserPage();
@@ -88,7 +88,7 @@ public class AddUserTest extends TestBase {
 
     }
 
-    //@Test
+    @Test
     public void _006_mandatory_fields_add_new_user_page_empty_delegations(){
         UsersPage usersPage = adminPage.getUsersPage();
         usersPage.getAddNewUserPage();
@@ -101,7 +101,7 @@ public class AddUserTest extends TestBase {
 
     }
 
-   //@Test
+   @Test
     public void _007_create_new_user_with_org_override_CONFIRM_message(){
         UsersPage usersPage = adminPage.getUsersPage();
         usersPage.getAddNewUserPage();
@@ -112,7 +112,7 @@ public class AddUserTest extends TestBase {
 
     }
 
-    //@Test
+    @Test
     public void _008_create_new_user_with_org_override_CANCEL_message(){
         UsersPage usersPage = adminPage.getUsersPage();
         usersPage.getAddNewUserPage();
@@ -123,7 +123,7 @@ public class AddUserTest extends TestBase {
         addUser.backToUsersPage();
     }
 
-    //@Test
+    @Test
     public void _009_new_user_without_retailer_and_org_id(){
         UsersPage usersPage = adminPage.getUsersPage();
         addUser = usersPage.getAddNewUserPage();
@@ -139,14 +139,15 @@ public class AddUserTest extends TestBase {
 
     }
 
-    //@Test
+    @Test
     public void _010_empty_organization_on_main_page_of_users_after_creation(){
         UsersPage usersPage = adminPage.getUsersPage();
         addUser = usersPage.getAddNewUserPage();
         addUser.addNewUser("Omari",fillEmailAddress4,UseRole.RETAILER_DEVELOPER_ENCORE_EXPERIENCE,true,UserDelegations.ODYSII);
         wait(3000);
         usersPage.searchField(fillEmailAddress4);
-        String actualValue = driver.findElement(By.className("ml--2")).getText();
+
+        String actualValue = usersPage.getOrgOfUser();
         String expectedValue = "";
         Assert.assertEquals(actualValue,expectedValue);
 
@@ -160,25 +161,13 @@ public class AddUserTest extends TestBase {
         wait(3000);
         usersPage.searchField(fillEmailAddress5);
         wait(2000);
-        WebElement x = driver.findElement(By.cssSelector("body > open-apps > div.container-fluid > div > div > div > div.col.px-0 > ng-component > admin-users > div.ui-body-main.container-fluid.mt-2.mt-lg-0.pt-2.px-3.row > div > div:nth-child(2) > div:nth-child(201) > div > div > div > div > div:nth-child(3) > p))"));
-        String actualValue = x.getText();
-        String expectedValue = "ExxonMobil";
+        String actualValue = usersPage.getOrgOfUser();
+        String expectedValue = OrganizationOverrideWithoutID.EXXON_MOBIL;
         Assert.assertEquals(actualValue, expectedValue);
 
     }
 
-
-//        List<WebElement> listOFUsers = driver.findElements(By.className("admin-users-row"));
-//        String actualValue = driver.findElement(By.xpath("/html/body/open-apps/div[2]/div/div/div/div[2]/ng-component/admin-users/div[2]/div/div[2]/div[167]/div/div/div/div/div[3]/p")).getText();
-//        List <WebElement> options =
-//            String Str = "Odysii";
-//
-//            if("Str".equals(option.getText())){
-//                break;
-//            }
-
-
-    //@AfterClass
+    @AfterClass
     public void deleteUser(){
 
         boolean res = deleteUser(fillEmailAddress);
@@ -203,6 +192,7 @@ public class AddUserTest extends TestBase {
         Assert.assertFalse(res5,"Failed to delete user");
 
         }
-    }
+
+}
 
 

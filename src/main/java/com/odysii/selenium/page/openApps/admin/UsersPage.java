@@ -72,15 +72,19 @@ public class UsersPage extends PageObject {
 
     }
 
-    public void etOrgOfUser(String userEmail){
-        String emailOfUser = userEmail;
+    public String getOrgOfUser(){
+        String y = "";
 
-        List<WebElement> userRows = webDriver.findElements(By.className("admin-users-row"));
-        for(WebElement oprion : userRows){
-            if(oprion.getText().equals(userEmail)){
-
-
+        List<WebElement> userRows = webDriver.findElements(By.className("card-body"));
+        for(WebElement option : userRows){
+            WebElement childElement = option.findElement(By.className("ml--2"));
+            if (option.isDisplayed()){
+                    y = childElement.getText();
             }
         }
+
+        return y;
+
     }
+
 }
