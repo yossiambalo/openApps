@@ -17,11 +17,11 @@ public class AddUserTest extends TestBase {
 
     AddUser addUser;
 
-    String fillEmailAddress = "1132s42d11656@odysiis.co.il";
-    String fillEmailAddress2 = "625422323sf1d1s61`312@odysii.com";
-    String fillEmailAddress3 = "de2e22323s1fd4261d@odyssii.org.il";
-    String fillEmailAddress4 = "csd2632s12fs34@oddys0ii.com";
-    String fillEmailAddress5 = "dvd132fss46f2@odysdii.com";
+    String fillEmailAddress = "11222211256@ody1siis.co.il";
+    String fillEmailAddress2 = "611111222442d1s161`312@odysii.com";
+    String fillEmailAddress3 = "221d11142611d@odyssii.org.il";
+    String fillEmailAddress4 = "c21112214@oddy1s0ii.com";
+    String fillEmailAddress5 = "e1111111e@odysdii.com";
 
 
     @Test
@@ -75,7 +75,7 @@ public class AddUserTest extends TestBase {
 
     }
 
-   //@Test
+  //@Test
     public void _005_mandatory_fields_add_new_user_page_empty_role(){
         UsersPage usersPage = adminPage.getUsersPage();
         usersPage.getAddNewUserPage();
@@ -105,7 +105,7 @@ public class AddUserTest extends TestBase {
     public void _007_create_new_user_with_org_override_CONFIRM_message(){
         UsersPage usersPage = adminPage.getUsersPage();
         usersPage.getAddNewUserPage();
-        addUser.addNewUserWithOrgOverride("Sasha",fillEmailAddress2,true,"QAOrg111",UseRole.RETAILER_DEVELOPER_ALL,true,UserDelegations.IMPULSE_ADMIN,true);
+        addUser.addNewUserWithOrgOverride("Sasha",fillEmailAddress2,true,OrganizationOverride.IMPLUSE_ADMIN,UseRole.RETAILER_DEVELOPER_ALL,true,UserDelegations.IMPULSE_ADMIN,true);
         wait(WAIT);
         boolean actualValue = isElementExist(By.id("newUserButton"));
         Assert.assertTrue(actualValue);
@@ -116,7 +116,7 @@ public class AddUserTest extends TestBase {
     public void _008_create_new_user_with_org_override_CANCEL_message(){
         UsersPage usersPage = adminPage.getUsersPage();
         usersPage.getAddNewUserPage();
-        addUser.addNewUserWithOrgOverride("Sasha",fillEmailAddress2,true,"Open Apps Admin",UseRole.RETAILER_DEVELOPER_ALL,true,UserDelegations.IMPULSE_ADMIN,false);
+        addUser.addNewUserWithOrgOverride("Sasha",fillEmailAddress2,true,OrganizationOverride.QA_ORG_111,UseRole.RETAILER_DEVELOPER_ALL,true,UserDelegations.IMPULSE_ADMIN,false);
         wait(WAIT);
         boolean actualValue = isElementExist(By.id("BackNavigationButton"));
         Assert.assertTrue(actualValue);
@@ -160,20 +160,22 @@ public class AddUserTest extends TestBase {
         wait(3000);
         usersPage.searchField(fillEmailAddress5);
         wait(2000);
-        String actualValue = driver.findElement(By.xpath("/html/body/open-apps/div[2]/div/div/div/div[2]/ng-component/admin-users/div[2]/div/div[2]/div[167]/div/div/div/div/div[3]/p")).getText();
-        String expectedValue = "ImpulseAdmin";
+        WebElement x = driver.findElement(By.cssSelector("body > open-apps > div.container-fluid > div > div > div > div.col.px-0 > ng-component > admin-users > div.ui-body-main.container-fluid.mt-2.mt-lg-0.pt-2.px-3.row > div > div:nth-child(2) > div:nth-child(201) > div > div > div > div > div:nth-child(3) > p))"));
+        String actualValue = x.getText();
+        String expectedValue = "ExxonMobil";
         Assert.assertEquals(actualValue, expectedValue);
 
-        //        List <WebElement> options =
+    }
+
+
+//        List<WebElement> listOFUsers = driver.findElements(By.className("admin-users-row"));
+//        String actualValue = driver.findElement(By.xpath("/html/body/open-apps/div[2]/div/div/div/div[2]/ng-component/admin-users/div[2]/div/div[2]/div[167]/div/div/div/div/div[3]/p")).getText();
+//        List <WebElement> options =
 //            String Str = "Odysii";
 //
 //            if("Str".equals(option.getText())){
 //                break;
 //            }
-
-
-    }
-
 
 
     //@AfterClass

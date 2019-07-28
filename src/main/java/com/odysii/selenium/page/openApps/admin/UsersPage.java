@@ -72,4 +72,15 @@ public class UsersPage extends PageObject {
 
     }
 
+    public void etOrgOfUser(String userEmail){
+        String emailOfUser = userEmail;
+
+        List<WebElement> userRows = webDriver.findElements(By.className("admin-users-row"));
+        for(WebElement oprion : userRows){
+            if(oprion.getText().equals(userEmail)){
+
+
+            }
+        }
+    }
 }
