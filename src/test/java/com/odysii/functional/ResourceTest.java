@@ -12,7 +12,6 @@ import com.odysii.selenium.page.openApps.dev.DevResource;
 import com.odysii.selenium.page.util.FileHandler;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -24,6 +23,8 @@ public class ResourceTest extends TestBase {
 
     private AdminResource adminResource;
     final String KEY_FILE_LOCATION = System.getProperty("user.home")+"\\Downloads";
+    private final String RESOURCE_NAME = "Yossi";
+    private final String NEW_RESOURCE_NAME = "New_resource_name";
     @BeforeClass
     public void prepare(){
         category = "DeveloperResource";
@@ -31,20 +32,19 @@ public class ResourceTest extends TestBase {
     }
     @Test
     public void _001_valid_admin_add_new_resource_for_dev(){
-        String resourceName = "Yossi";
         adminResource = adminPage.getResourcePage();
-        adminResource.addNewResource(resourceName,"It is test description", PermissionCategoryType.DEVELOPER);
+        adminResource.addNewResource(RESOURCE_NAME,"It is test description", PermissionCategoryType.DEVELOPER);
         wait(5000);
-        Assert.assertTrue(adminResource.isResourceExist(resourceName));
+        Assert.assertTrue(adminResource.isResourceExist(RESOURCE_NAME));
 
         UsersPage usersPage = adminPage.getUsersPage();
         EditUser editUser = usersPage.getUser(DEV_USER_NAME);
         Set<String> resources = new HashSet<>();
-        resources.add(resourceName);
+        resources.add(RESOURCE_NAME);
         editUser.addResourcesForUser(resources);
         devUser = (DevHomePage)user.login(DEV_USER_NAME,DEV_USER_PASS,UserType.DEVELOPER);
         DevResource devResource = devUser.getResourcePage();
-        Assert.assertTrue(devResource.isResourceExist(resourceName));
+        Assert.assertTrue(devResource.isResourceExist(RESOURCE_NAME));
 
     }
 
@@ -53,11 +53,10 @@ public class ResourceTest extends TestBase {
         if (!user.isUserLoggedIn(ADMIN_USER_NAME)){
             adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
         }
-        String resourceName = "Yossi";
         adminResource = adminPage.getResourcePage();
-        adminResource.editResource(resourceName);
+        adminResource.editResource(RESOURCE_NAME, NEW_RESOURCE_NAME,"New description name",PermissionCategoryType.PASSPORT);
         wait(5000);
-        Assert.assertTrue(adminResource.isResourceExist(resourceName));
+        Assert.assertTrue(adminResource.isResourceExist(NEW_RESOURCE_NAME));
     }
 
     @Test
