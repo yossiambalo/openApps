@@ -53,13 +53,25 @@ public class AdminResource extends PageObject implements Resource {
         }
         buttonSave.click();
     }
-    public void editResource(String resourceName){
+    public void editResource(String resourceName,String newResourceName, String newDescription,PermissionCategoryType permissionCategoryType){
         WebElement element = resourceContainerList.stream().filter(webElement -> {
             return webElement.findElement(By.className("col-lg-2")).getText().equals(resourceName);
         }).findAny().orElse(null);
         WebElement menuBtnEl = element.findElement(By.className("dropdown"));
         scrollDown(menuBtnEl);
         menuBtnEl.click();
+        wait(2000);
+       buttonEditResource.stream().filter(WebElement::isDisplayed).findAny().orElse(null).click();
+        wait(2000);
+        isElementPresent(displayName);
+        displayName.clear();
+        displayName.sendKeys(newResourceName);
+        description.clear();
+        description.sendKeys(newDescription);
+        selectResourcePermission.sendKeys(permissionCategoryType.getPermission());
+        inputUploadResource.sendKeys(getFile("code/TH.zip"));
+        wait(2000);
+        buttonSave.click();
     }
     public boolean deleteLastResource(){
         int lastResourceIndex = resourceContainerList.size() - 1;

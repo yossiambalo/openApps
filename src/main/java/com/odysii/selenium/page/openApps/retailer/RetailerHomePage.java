@@ -15,7 +15,7 @@ public class RetailerHomePage extends PageObject {
     WebElement campaigns;
     @FindBy(id = "navItem14")
     WebElement scheduling;
-    @FindBy(id = "navItem14")
+    @FindBy(id = "navItem15")
     WebElement manageKeys;
     @FindBy(id = "applicationSearchInput")
     WebElement applicationSearchInput;

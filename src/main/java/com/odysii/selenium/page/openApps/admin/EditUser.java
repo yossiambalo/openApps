@@ -82,6 +82,7 @@ public class EditUser extends PageObject {
     public void addResourcesForUser(Set<String> resources){
         for (WebElement element : radioBtnResources){
             if (resources.contains(element.findElements(By.tagName("label")).get(1).getText())){
+                scrollDown(element);
                 element.findElements(By.tagName("label")).get(0).click();
             }
         }
