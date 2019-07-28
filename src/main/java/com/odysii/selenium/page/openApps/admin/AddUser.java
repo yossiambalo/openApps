@@ -25,6 +25,8 @@ public class AddUser extends PageObject {
     WebElement areYouSureMessageConfirm;
     @FindBy(id = "confirmationModalUserEditCancelButton")
     WebElement getAreYouSureMessageCancel;
+    @FindBy(id = "BackNavigationButton")
+    WebElement BackNavigationButton;
 
 
     public AddUser(WebDriver driver) {
@@ -77,8 +79,8 @@ public class AddUser extends PageObject {
     }
 
     public void backToUsersPage(){
-        WebElement backToUsersPage = webDriver.findElement(By.id("BackNavigationButton"));
-        backToUsersPage.click();
+       isElementPresent(BackNavigationButton);
+        BackNavigationButton.click();
     }
 
 }

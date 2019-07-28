@@ -17,11 +17,11 @@ public class AddUserTest extends TestBase {
 
     AddUser addUser;
 
-    String fillEmailAddress = "i12256@ody1siis.co.il";
-    String fillEmailAddress2 = "6i2121221d1s161`312@odysii.com";
-    String fillEmailAddress3 = "2ew21u11d@odyssii.org.il";
-    String fillEmailAddress4 = "c2e1uoddy1s@0ii.com";
-    String fillEmailAddress5 = "eu@eysdii.com";
+    String fillEmailAddress = "11222211256@ody1siis.co.il";
+    String fillEmailAddress2 = "611111222442d1s161`312@odysii.com";
+    String fillEmailAddress3 = "221d11142611d@odyssii.org.il";
+    String fillEmailAddress4 = "c21112214@oddy1s0ii.com";
+    String fillEmailAddress5 = "e1111111e@odysdii.com";
 
 
     @Test
@@ -146,8 +146,7 @@ public class AddUserTest extends TestBase {
         addUser.addNewUser("Omari",fillEmailAddress4,UseRole.RETAILER_DEVELOPER_ENCORE_EXPERIENCE,true,UserDelegations.ODYSII);
         wait(3000);
         usersPage.searchField(fillEmailAddress4);
-
-        String actualValue = usersPage.getOrgOfUser();
+        String actualValue = driver.findElement(By.className("ml--2")).getText();
         String expectedValue = "";
         Assert.assertEquals(actualValue,expectedValue);
 
@@ -161,38 +160,46 @@ public class AddUserTest extends TestBase {
         wait(3000);
         usersPage.searchField(fillEmailAddress5);
         wait(2000);
-        String actualValue = usersPage.getOrgOfUser();
-        String expectedValue = OrganizationOverrideWithoutID.EXXON_MOBIL;
+        WebElement x = driver.findElement(By.cssSelector("body > open-apps > div.container-fluid > div > div > div > div.col.px-0 > ng-component > admin-users > div.ui-body-main.container-fluid.mt-2.mt-lg-0.pt-2.px-3.row > div > div:nth-child(2) > div:nth-child(201) > div > div > div > div > div:nth-child(3) > p))"));
+        String actualValue = x.getText();
+        String expectedValue = "ExxonMobil";
         Assert.assertEquals(actualValue, expectedValue);
 
     }
+
+
+//        List<WebElement> listOFUsers = driver.findElements(By.className("admin-users-row"));
+//        String actualValue = driver.findElement(By.xpath("/html/body/open-apps/div[2]/div/div/div/div[2]/ng-component/admin-users/div[2]/div/div[2]/div[167]/div/div/div/div/div[3]/p")).getText();
+//        List <WebElement> options =
+//            String Str = "Odysii";
+//
+//            if("Str".equals(option.getText())){
+//                break;
+//            }
+
 
     @AfterClass
     public void deleteUser(){
 
         boolean res = deleteUser(fillEmailAddress);
         Assert.assertTrue(res, "Failed to delete user");
-
-        wait(WAIT);
+        addUser.backToUsersPage();
 
         boolean res2 = deleteUser(fillEmailAddress2);
-        Assert.assertFalse(res2,"Failed to delete user");
-
-        wait(WAIT);
+        Assert.assertTrue(res2,"Failed to delete user");
+        addUser.backToUsersPage();
 
         boolean res3 = deleteUser(fillEmailAddress3);
-        Assert.assertFalse(res3, "Failed to delete user");
-
-        wait(WAIT);
+        Assert.assertTrue(res3, "Failed to delete user");
+        addUser.backToUsersPage();
 
         boolean res4 = deleteUser(fillEmailAddress4);
-        Assert.assertFalse(res4,"Failed to delete user");
+        Assert.assertTrue(res4,"Failed to delete user");
+        addUser.backToUsersPage();
 
         boolean res5 = deleteUser(fillEmailAddress5);
-        Assert.assertFalse(res5,"Failed to delete user");
-
+        Assert.assertTrue(res5,"Failed to delete user");
         }
-
-}
+    }
 
 
