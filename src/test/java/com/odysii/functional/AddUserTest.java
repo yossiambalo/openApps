@@ -8,7 +8,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
-import java.util.List;
 
 public class AddUserTest extends TestBase {
     public final static String ADMIN_USER_NAME_ROI = "roi.avital.odysii@gmail.com";
@@ -22,6 +21,7 @@ public class AddUserTest extends TestBase {
     String fillEmailAddress3 = "2ew2121u11d@odyssii.org.il";
     String fillEmailAddress4 = "c2e121uoddy1s@0ii.com";
     String fillEmailAddress5 = "eu12@eysdii.com";
+    String fillEmailAddress6 = "lalalalal@lala.com";
 
 
     @Test
@@ -165,6 +165,20 @@ public class AddUserTest extends TestBase {
         Assert.assertEquals(actualValue, expectedValue);
 
     }
+
+    @Test
+    public void _012_long_inputs_name(){
+        UsersPage usersPage = adminPage.getUsersPage();
+        addUser = usersPage.getAddNewUserPage();
+        addUser.addNewUser("Im trying to brake UI by adding new user with very very very long text, how it will affect on the UI display? 107 chars was displayed fine, what about longer text? how will it behave? lets find out with more than 222 char!",fillEmailAddress6,UseRole.RETAILER_DEVELOPER_ALL,true, UserDelegations.OPENAPPS_ADMIN);
+        wait(3000);
+        usersPage.searchField(fillEmailAddress6);
+        boolean actualValue = isElementExist(By.id("newUserButton"));
+        Assert.assertTrue(actualValue);
+
+
+    }
+
 
     @AfterClass
     public void deleteUser(){
