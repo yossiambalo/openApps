@@ -2,6 +2,7 @@ package com.odysii.functional;
 import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.admin.*;
+import com.odysii.selenium.page.openApps.dev.DevHomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -12,16 +13,18 @@ import org.testng.annotations.Test;
 public class AddUserTest extends TestBase {
     public final static String ADMIN_USER_NAME_ROI = "roi.avital.odysii@gmail.com";
     public final static String ADMIN_USER_PASS_ROI = "Aa123456789";
+    public final static String DELETE_USER_RELOGIN_SUCCESS_EMAIL = "auto.mazia2@gmail.com";
+    public final static String DELETE_USER_RELOGIN_SUCCESS_PASSWORD = "Aa123456";
 
 
     AddUser addUser;
 
-    String fillEmailAddress = "i1122256@ody1siis.co.il";
-    String fillEmailAddress2 = "6i212121221d1s161`312@odysii.com";
-    String fillEmailAddress3 = "2ew2121u11d@odyssii.org.il";
-    String fillEmailAddress4 = "c2e121uoddy1s@0ii.com";
-    String fillEmailAddress5 = "eu12@eysdii.com";
-    String fillEmailAddress6 = "lalalalal@lala.com";
+    String fillEmailAddress = "44444@ody1siis.co.il";
+    String fillEmailAddress2 = "16i2143322121221d1s161`312@odysii.com";
+    String fillEmailAddress3 = "1354@odyssii.org.il";
+    String fillEmailAddress4 = "24542@0ii.com";
+    String fillEmailAddress5 = "14354@eysdii.com";
+    String fillEmailAddress6 = "135624624@lala.com";
 
 
     @Test
@@ -75,7 +78,7 @@ public class AddUserTest extends TestBase {
 
     }
 
-  @Test
+    @Test
     public void _005_mandatory_fields_add_new_user_page_empty_role(){
         UsersPage usersPage = adminPage.getUsersPage();
         usersPage.getAddNewUserPage();
@@ -101,7 +104,7 @@ public class AddUserTest extends TestBase {
 
     }
 
-   @Test
+    @Test
     public void _007_create_new_user_with_org_override_CONFIRM_message(){
         UsersPage usersPage = adminPage.getUsersPage();
         usersPage.getAddNewUserPage();
@@ -176,12 +179,23 @@ public class AddUserTest extends TestBase {
         boolean actualValue = isElementExist(By.id("newUserButton"));
         Assert.assertTrue(actualValue);
 
+    }
+
+    @Test
+    public void _013_first_login_after_delete_existing_user(){
+        boolean response = deleteUser(DELETE_USER_RELOGIN_SUCCESS_EMAIL);
+        Assert.assertTrue(response,"Failed to delete user");
+        devUser = (DevHomePage) user.login(DELETE_USER_RELOGIN_SUCCESS_EMAIL,DELETE_USER_RELOGIN_SUCCESS_PASSWORD, UserType.DEVELOPER);
+        boolean actualValue = isElementExist(By.id("newAppButton"));
+        Assert.assertTrue(actualValue, "Failed to login with new user that exists in insite360");
+
+        token = null;
 
     }
 
-
     @AfterClass
     public void deleteUser(){
+
 
         boolean res = deleteUser(fillEmailAddress);
         Assert.assertTrue(res, "Failed to delete user");

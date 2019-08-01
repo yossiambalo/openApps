@@ -327,15 +327,18 @@ public class TestBase {
             requestHelper.deleteRequest(openAppsUrl + "/webapi/application/" + appID, token);
         }
     }
+
     private String getAppID(){
         return driver.getCurrentUrl().split("my-apps/")[1].split("/")[0];
     }
+
     private String getUserID(){
         return driver.getCurrentUrl().split("users/")[1].split("/")[0];
     }
+
     public boolean deleteUser(String userName){
         RequestHelper requestHelper = new RequestHelper();
-        if(token == null) {
+        if(token == null ) {
             adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
             setAdminCookie();
         }
@@ -346,4 +349,5 @@ public class TestBase {
         return requestHelper.deleteRequest(openAppsUrl + "/webapi/user/" + getUserID(), token);
         //https://i360-qa.gilbarco.com/openappstore/webapi/user/idOfApplication
     }
+
 }

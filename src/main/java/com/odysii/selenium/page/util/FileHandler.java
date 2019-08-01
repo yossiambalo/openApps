@@ -9,10 +9,12 @@ public class FileHandler {
 
         return file.toString();
     }
+
     public boolean isFileExist(String filePath){
         File f = new File(filePath);
         return (f.exists() && !f.isDirectory());
     }
+
     public boolean deleteFile(String filePath){
         File f = new File(filePath);
         return f.delete();
@@ -30,6 +32,7 @@ public class FileHandler {
             }
         }
     }
+
     public File getRandomFileFromDir(File folder) {
         File[] files = folder.listFiles();
         File res = null;

@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DriverManager {
     public static WebDriver getWebDriver(DriverType driverType){
-        String driverPath = "src"+ File.separator+"main"+File.separator+"resources"+File.separator+"driver"+File.separator;
+        String driverPath = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "driver" + File.separator;
         WebDriver driver = null;
         switch (driverType){
             case CHROME:
