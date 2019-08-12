@@ -28,6 +28,7 @@ public class RetailerTest extends TestBase {
     private final int NUM_OF_APP_2 = 2;
     private final int NUM_OF_APP_3 = 3;
     private final int NUM_OF_APP_4 = 4;
+
     @BeforeClass
     public void prepare(){
         Assert.assertTrue(updateUser(7));
@@ -43,12 +44,15 @@ public class RetailerTest extends TestBase {
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
 //        prepareTest("app_details.properties", ApplicationStatus.SUBMITTED);
 //        prepareTest("app_details.properties", ApplicationStatus.LIVE);
+
     }
+
     @Test(enabled = false)
     public void _001_valid_deploy_to_dispenser(){
         Scheduling scheduling = retailerHomePage.getScheduling();
         Assert.assertTrue(scheduling.deployToAll(0));
     }
+
     @Test//(priority = 1)
     public void _002_add_and_remove_app_library(){
         boolean flag = false;
@@ -83,6 +87,7 @@ public class RetailerTest extends TestBase {
         wait(WAIT);
         Assert.assertEquals(driver.findElements(By.className(APP_CLASS_NAME)).size(), actualApps - 1);
     }
+
     @Test//(priority = 2)
     public void _003_search_apps(){
         int expectedApp = 0;
@@ -100,6 +105,7 @@ public class RetailerTest extends TestBase {
         Assert.assertEquals(actualApps,expectedApp,"App store search functionality failed!");
 
     }
+
     @Test//(priority = 3,retryAnalyzer = Retry.class)
     public void _004_create_and_delete_campaign(){
         int counter = 0;
@@ -118,6 +124,7 @@ public class RetailerTest extends TestBase {
         Assert.assertEquals(actualCampaigns - counter,campaign.getNumOfCampaigns());
 
     }
+
     @Test//(priority = 4)
     public void _005_valid_set_up_campaign_screen_size_15_6_layout1_default_state(){
         Campaign campaign = retailerHomePage.getCampaign();
@@ -125,6 +132,7 @@ public class RetailerTest extends TestBase {
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_15_6,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
+
     @Test//(priority = 5)
     public void _006_valid_set_up_campaign_screen_size_15_6_layout2_default_state(){
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_2,NUM_OF_APP_2, ScreenSize.SIZE_15_6,false);
@@ -268,15 +276,16 @@ public class RetailerTest extends TestBase {
         campaignDesigner.setUpCampaign(StateType.POST_FUELING, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_10_4,false);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
+
     @Test
-    public void _030_valid_add_backround_app_screen_size_15_6_layout1_default_state(){
+    public void _030_valid_add_background_app_screen_size_15_6_layout1_default_state(){
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1,NUM_OF_APP_1, ScreenSize.SIZE_15_6,true);
         Assert.assertEquals(campaignDesigner.getNumOfDeleteButtons(),1);
         Assert.assertTrue(campaignDesigner.isSaveSucceeded());
     }
 
     @Test(enabled = false)
-    public void _030_valid_application_signing() {
+    public void _031_valid_application_signing() {
         String url = "http://odysiiopenappsqa.gilbarco.com:8080/openAppStore/webapi/code/4346/version/4349/pack";
         RequestHelper requestHelper = new RequestHelper();
         Assert.assertTrue(requestHelper.getRequest(url),"Failed to signing application!");

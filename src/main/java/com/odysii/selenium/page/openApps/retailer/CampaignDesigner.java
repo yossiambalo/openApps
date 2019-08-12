@@ -37,8 +37,10 @@ public class CampaignDesigner extends PageObject {
     private WebElement layoutTyp1;
     @FindBy(xpath = "//h5[contains(text(), 'Automation App:')]")
     private WebElement applicationForLayout;
-    @FindBy(xpath = "//h5[contains(text(), '997')]")
+
+    @FindBy(xpath = "//h5[contains(text(), 'SignTest')]")
     private WebElement applicationForBackRound;
+
     @FindBy(css = ".col-6 .frame")
     private List<WebElement> appContainer;//editCampaignSuccessErrorMessage
     @FindBy(id = "editCampaignSuccessErrorMessage")
@@ -56,7 +58,7 @@ public class CampaignDesigner extends PageObject {
         super(driver);
     }
 
-    public void setUpCampaign(StateType stateType, LayoutType layoutType,int numOfApps, String screenSize,boolean isBackRound){
+    public void setUpCampaign(StateType stateType, LayoutType layoutType, int numOfApps, String screenSize, boolean isBackRound){
         int timeOut = 0;
         if (!isBackRound){
             do {
@@ -113,7 +115,7 @@ public class CampaignDesigner extends PageObject {
             if (isElementPresent(closeLayoutFrame)) {
                 closeLayoutFrame.click();
             }
-            deletAppsFromFrame();
+            deleteAppsFromFrame();
             setUpBackRoundApps(1,screenSize);
         }
     }
@@ -140,7 +142,7 @@ public class CampaignDesigner extends PageObject {
             SeleniumUtils.dragAndDrop(webDriver,applicationForLayout, appContainer.get(i));
         }
     }
-    private void deletAppsFromFrame(){
+    private void deleteAppsFromFrame(){
         wait(WAIT);
         for (WebElement element : deleteAppsFromFrames){
             //element.click();
@@ -150,6 +152,7 @@ public class CampaignDesigner extends PageObject {
     private void setUpBackRoundApps(int numOfApps,String screenSize){
         SeleniumUtils.dragAndDrop(webDriver,applicationForBackRound, backRoundAppsContainer);
     }
+
     public int getNumOfDeleteButtons(){
         return webDriver.findElements(By.xpath("//button[contains(text(), 'Delete')]")).size();
     }

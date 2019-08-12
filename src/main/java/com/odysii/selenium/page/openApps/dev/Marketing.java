@@ -28,6 +28,7 @@ public class Marketing extends PageObject {
     public Marketing(WebDriver driver) {
         super(driver);
     }
+
     public void fillMarketing(){
         PropertyLoader loader = new PropertyLoader();
         Properties properties = loader.loadPropFile("marketing.properties");
@@ -49,6 +50,7 @@ public class Marketing extends PageObject {
         isElementPresent(complete);
         this.complete.click();
     }
+
     public void fillMarketing(String promotionalText,String keywords,String screenshotFileName,String appIconFileName,boolean toComplete){
         isElementPresent(this.promotionalText);
         this.promotionalText.clear();
@@ -57,15 +59,19 @@ public class Marketing extends PageObject {
         this.keywords.clear();
         this.keywords.sendKeys(keywords);
         isElementPresent(this.appIcon);
-        if (appIconFileName != null){
+        if ((appIconFileName != null && !appIconFileName.equals(""))){
             this.appIcon.sendKeys(getFile("content\\" +appIconFileName));
         }
         isElementPresent(this.screenshotsFile);
-        this.screenshotsFile.sendKeys(getFile("content\\" +screenshotFileName));
+        if (screenshotFileName != null && !screenshotFileName.equals("")) {
+            this.screenshotsFile.sendKeys(getFile("content\\" + screenshotFileName));
+        }
         scrollDown(complete);
         if (toComplete){
             this.complete.click();
+
         }
 
     }
+
 }

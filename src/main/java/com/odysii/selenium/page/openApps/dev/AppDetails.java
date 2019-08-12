@@ -112,6 +112,7 @@ public class AppDetails extends PageObject{
         this.next.click();
         return new UploadCode(webDriver);
     }
+
     public UploadCode setUpAppDetails(String name,String version,String subtitle,String priceType,String price,String availability){
         isElementPresent(this.name);
         this.name.sendKeys(name);
@@ -121,9 +122,15 @@ public class AppDetails extends PageObject{
         wait(WAIT);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",charity);
         wait(WAIT);
-        this.availability.sendKeys(availability);
+//        if (availability != null || !availability.isEmpty()){
+//            this.availability.sendKeys(availability);
+//        }
+        if (availability != null || (availability != null && !availability.equals(""))) {
+            this.availability.sendKeys(availability);
+            ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.shellRetailer);
+        }
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",this.availability);
-//        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();", shellRetailer);
+        wait(3000);
         appPriceType.sendKeys(priceType);
         appPrice.sendKeys(price);
         scrollDown(next);

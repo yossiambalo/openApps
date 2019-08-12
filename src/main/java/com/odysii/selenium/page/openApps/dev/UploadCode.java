@@ -24,7 +24,7 @@ public class UploadCode extends PageObject{
     }
     public Marketing upload(String zipFile){
         isElementPresent(uploadCodeBtn);
-        this.agreeAndUpload.sendKeys(getFile("code\\"+zipFile));
+        this.agreeAndUpload.sendKeys(getFile("code\\" +zipFile));
         wait(5000);
         if (next.isDisplayed()) {
             this.next.click();

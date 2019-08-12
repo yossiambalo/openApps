@@ -61,6 +61,7 @@ public class DevContentTest extends TestBase {
         category = "Dev Content";
 
     }
+
     @Test
     public void _001_dev_home_page_valid_MyApps_texts(){
         String expected = "MY APPS";
@@ -130,7 +131,6 @@ public class DevContentTest extends TestBase {
         String actualAppStatus = driver.findElements(By.className("cx-status")).get(4).getText().toUpperCase().trim();
         Assert.assertEquals(actualAppStatus, expectedAppStatus);
     }
-
 
     @Test
     public void _007_my_apps_add_new_app_valid_header(){
@@ -470,7 +470,5 @@ public class DevContentTest extends TestBase {
         Assert.assertEquals(actualSdbr,expectedSdbr);
 
     }
-
-
 
 }

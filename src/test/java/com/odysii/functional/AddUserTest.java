@@ -19,12 +19,12 @@ public class AddUserTest extends TestBase {
 
     AddUser addUser;
 
-    String fillEmailAddress = "44444@ody1siis.co.il";
-    String fillEmailAddress2 = "16i2143322121221d1s161`312@odysii.com";
-    String fillEmailAddress3 = "1354@odyssii.org.il";
-    String fillEmailAddress4 = "24542@0ii.com";
-    String fillEmailAddress5 = "14354@eysdii.com";
-    String fillEmailAddress6 = "135624624@lala.com";
+    String fillEmailAddress = "441444454@ody1siis.co.il";
+    String fillEmailAddress2 = "16145i2143322121221d1s161`312@odysii.com";
+    String fillEmailAddress3 = "11514354@odyssii.org.il";
+    String fillEmailAddress4 = "25144542@0ii.com";
+    String fillEmailAddress5 = "15144354@eysdii.com";
+    String fillEmailAddress6 = "131451562tt54624@lala.com";
 
 
     @Test
@@ -175,7 +175,7 @@ public class AddUserTest extends TestBase {
         addUser = usersPage.getAddNewUserPage();
         addUser.addNewUser("Im trying to brake UI by adding new user with very very very long text, how it will affect on the UI display? 107 chars was displayed fine, what about longer text? how will it behave? lets find out with more than 222 char!",fillEmailAddress6,UseRole.RETAILER_DEVELOPER_ALL,true, UserDelegations.OPENAPPS_ADMIN);
         wait(3000);
-        usersPage.searchField(fillEmailAddress6);
+//        usersPage.searchField(fillEmailAddress6);
         boolean actualValue = isElementExist(By.id("newUserButton"));
         Assert.assertTrue(actualValue);
 
@@ -196,7 +196,6 @@ public class AddUserTest extends TestBase {
     @AfterClass
     public void deleteUser(){
 
-
         boolean res = deleteUser(fillEmailAddress);
         Assert.assertTrue(res, "Failed to delete user");
         addUser.backToUsersPage();
@@ -215,6 +214,10 @@ public class AddUserTest extends TestBase {
 
         boolean res5 = deleteUser(fillEmailAddress5);
         Assert.assertTrue(res5,"Failed to delete user");
+        addUser.backToUsersPage();
+
+        boolean res6 = deleteUser(fillEmailAddress6);
+        Assert.assertTrue(res6,"Failed to delete user");
 
         }
 

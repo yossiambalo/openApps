@@ -46,6 +46,7 @@ public class PageObject {
 
     protected String getFile(String fileName) {
         return System.getProperty("user.dir")+"\\src\\main\\resources\\"+fileName;
+
     }
 
     protected void pageUpDown(boolean down){

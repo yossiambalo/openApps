@@ -68,6 +68,7 @@ public class TestBase {
         }
         return hostName;
     }
+
     @BeforeSuite
     public void setUp()
 
@@ -94,6 +95,7 @@ public class TestBase {
         }
         extent.endTest(logger);
     }
+
     protected void wait(int milliseconds){
         try {
             Thread.sleep(milliseconds);
@@ -107,10 +109,12 @@ public class TestBase {
     {
         extent.flush();
     }
+
     @AfterClass
     public void clean(){
         driver.quit();
     }
+
     @Parameters({"browser","url"})
 
     @BeforeClass
@@ -185,9 +189,11 @@ public class TestBase {
 
     @BeforeMethod
     public void handleTestMethodName(Method method)
+
     {
         logger = extent.startTest(method.getName()).assignCategory(this.category+" Tests");
     }
+
     public void prepareTest(String propFile , ApplicationStatus applicationStatus){
 //        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
 //        //get number of live apps from retailer page
@@ -203,6 +209,7 @@ public class TestBase {
         int expectedValue = appsSize+1;
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetailsFromPropFile(propFile);
+        wait(WAIT);
         Marketing marketing = uploadCode.upload(zipFile);
         marketing.fillMarketing();
         wait(WAIT);

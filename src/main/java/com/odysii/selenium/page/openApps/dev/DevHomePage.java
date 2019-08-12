@@ -46,7 +46,7 @@ public class DevHomePage extends PageObject{
     WebElement campaignLink;
     @FindBy(id = "navItem15")
     WebElement schdulingLink;
-    @FindBy(id = "navItem16")
+    @FindBy(id = "navItem15")
     WebElement keyManagementLink;
     @FindBy(id = "navItem17")
     WebElement appContentLink;

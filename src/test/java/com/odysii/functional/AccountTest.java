@@ -45,7 +45,7 @@ public class AccountTest extends TestBase {
         Assert.assertTrue(devUser.isAppStoreEnabled(), "App Store link not clickable!");
     }
 
-    @Test(retryAnalyzer = Retry.class)
+    //@Test(retryAnalyzer = Retry.class)
     public void _002_verify_dev_user_with_role_2_has_only_its_permissions() {
         //Assert.assertTrue(updateUser(2),"Failed to update user role!");
         if (user == null) {
@@ -60,7 +60,7 @@ public class AccountTest extends TestBase {
         //Assert.assertTrue(devUser.isPassportEnabled(), "Passport link not clickable!");
     }
 
-    @Test
+    //@Test
     public void _003_verify_dev_user_with_role_3_has_only_its_permissions() {
         //Assert.assertTrue(updateUser(3),"Failed to update user role!");
         if (user == null) {
@@ -81,7 +81,7 @@ public class AccountTest extends TestBase {
         Assert.assertTrue(devUser.isAppStoreEnabled(), "App Store link not clickable!");
     }
 
-    @Test
+    //@Test
     public void _004_verify_retailer_user_with_role_4_has_only_its_permissions() {
         //Assert.assertTrue(updateUser(4),"Failed to update user role!");
         if (user == null) {
@@ -103,7 +103,7 @@ public class AccountTest extends TestBase {
         Assert.assertTrue(devUser.isAppStoreEnabled(), "App Store link not clickable!");
     }
 
-    @Test
+    //@Test
     public void _005_verify_retailer_user_with_role_5_has_only_its_permissions() {
         //Assert.assertTrue(updateUser(5),"Failed to update user role!");
         if (user == null) {
@@ -118,7 +118,7 @@ public class AccountTest extends TestBase {
         //Assert.assertTrue(devUser.isPassportEnabled(), "Passport link not clickable!");
     }
 
-    @Test
+    //@Test
     public void _006_verify_retailer_user_with_role_6_has_only_its_permissions() {
         //Assert.assertTrue(updateUser(6),"Failed to update user role!");
         if (user == null) {
@@ -158,9 +158,10 @@ public class AccountTest extends TestBase {
         Assert.assertTrue(devUser.isSchedulingEnabled(), "Scheduling link not clickable!");
         Assert.assertTrue(devUser.isKeyManagementEnabled(), "Key Management link not clickable!");
         //Assert.assertTrue(devUser.isAppStoreEnabled(), "App Store link not clickable!");
+
     }
 
-    @Test
+    //@Test
     public void _008_verify_admin_user_with_role_8_has_only_its_permissions() {
         if (user == null) {
             user = new User(driver);
@@ -175,7 +176,8 @@ public class AccountTest extends TestBase {
         //Assert.assertTrue(adminPage.isStatisticsEnabled(), "Statistics link not clickable!");
         Assert.assertTrue(adminPage.isUsersEnabled(), "Users link not clickable!");
     }
-    @Test
+
+    //@Test
     public void _009_verify_devs_in_same_organization_see_each_others_app() {
         if (user == null) {
             user = new User(driver);
