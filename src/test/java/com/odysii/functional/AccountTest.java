@@ -160,7 +160,7 @@ public class AccountTest extends TestBase {
         //Assert.assertTrue(devUser.isAppStoreEnabled(), "App Store link not clickable!");
     }
 
-    @Test
+    @Test//(retryAnalyzer = Retry.class)
     public void _008_verify_admin_user_with_role_8_has_only_its_permissions() {
         if (user == null) {
             user = new User(driver);
