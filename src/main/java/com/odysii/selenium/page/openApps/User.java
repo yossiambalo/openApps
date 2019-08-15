@@ -19,7 +19,7 @@ public class User extends PageObject {
     @FindBy(id = "kc-login")
     WebElement loginBtn;
     @FindBy(id = "user-popover")//btn-xs
-            WebElement logoutBtn;
+    WebElement logoutBtn;
     @FindBy(id = "user-popover-content")
     WebElement logOutPopUp;
     @FindBy(css = "#user-popover-content .col")

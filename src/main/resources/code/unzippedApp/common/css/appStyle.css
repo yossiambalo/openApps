@@ -1,0 +1,213 @@
+/*  ---------------Main Fonts---------------  */
+
+@font-face {
+
+      font-family: 'Exo2.0-Light';
+      src: url(fonts/Exo2.0-Light.ttf) format('truetype');
+
+    }
+
+
+p {
+    margin: 0px;
+}
+h1 {
+    margin: 0px;
+}
+h2 {
+    margin: 0px;
+}
+h3 {
+    margin: 0px;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+
+}
+
+body {
+    background-color: transparent;
+    transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    transform-style: preserve-3d;
+    font-family: monospace;
+}
+
+.buttonFrame {
+  display: table-cell;
+  vertical-align: middle;
+  border-radius: 6px;
+}
+
+input{
+
+color: black;
+
+}
+
+@media (max-width: 640px) {
+    .appConsole {
+      margin-top: 0px;
+    }
+
+    label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 3px;
+        font-weight: 700;
+        line-height: 19px;
+    }
+
+    .gwd-img-ryxc {
+        position: absolute;
+        left: 13px;
+        top: 39px;
+        width: 70px;
+        height: 70px;
+        text-align: center;
+        display: table;
+        margin-top: 10px;
+    }
+
+
+
+    .gwd-img-1orz {
+        position: absolute;
+        width: 63px;
+        height: 63px;
+        left: 30px;
+        top: 120px;
+    }
+
+    .gwd-img-1e5k {
+        top: 225px;
+    }
+    .gwd-img-qk0s {
+        top: 335px;
+    }
+    .gwd-img-11g8 {
+        position: absolute;
+        height: 314px;
+        left: 136px;
+        top: 41px;
+        width: 344px;
+        color: white;
+        font: 1em "Exo2.0-Light";
+    }
+    .gwd-img-167q {
+        left: 555px;
+        top: 39px;
+        margin-top: 10px;
+    }
+    .gwd-img-z2z7 {
+        top: 144px;
+        width: 70px;
+        height: 70px;
+    }
+    .gwd-img-1760 {
+        top: 248px;
+    }
+    .gwd-img-tarz {
+        top: 353px;
+    }
+    .gwd-img-158p {
+        position: absolute;
+        width: 63px;
+        height: 63px;
+        left: 31px;
+        top: 28px;
+    }
+    .gwd-img-1yfi {
+        position: absolute;
+        width: 63px;
+        height: 63px;
+        left: 31px;
+        top: 28px;
+    }
+}
+
+@media (min-width: 640px) {
+    .appConsole {
+      margin-top: 300px;
+    }
+
+    .gwd-img-ryxc {
+        position: absolute;
+        left: 16px;
+        top: 185px;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        display: table;
+    }
+
+    .gwd-img-1orz {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: 10px;
+        top: 333px;
+    }
+
+    .gwd-img-1e5k {
+        top: 417px;
+    }
+    .gwd-img-qk0s {
+        top: 575px;
+    }
+    .gwd-img-11g8 {
+        position: absolute;
+        height: 740px;
+        left: 250px;
+        top: 10px;
+        padding-top: 82px;
+        width: 345px;
+        color: white;
+        font: 1em "Exo2.0-Light";
+    }
+
+    label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 3px;
+        font-weight: 700;
+        line-height: 26px;
+    }
+
+    .gwd-img-167q {
+        left: 1246px;
+        top: 185px;
+    }
+    .gwd-img-z2z7 {
+        top: 333px;
+    }
+    .gwd-img-1760 {
+        top: 417px;
+    }
+    .gwd-img-tarz {
+        top: 575px;
+    }
+    .gwd-img-158p {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: 20px;
+        top: 28px;
+    }
+    .gwd-img-1yfi {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: 201px;
+        top: 28px;
+    }
+
+    .container {
+        width: 1170px !important;
+        margin-right: 282px !important;
+    }
+
+}
+

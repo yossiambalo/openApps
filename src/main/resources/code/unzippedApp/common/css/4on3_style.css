@@ -1,0 +1,180 @@
+
+p {
+    margin: 0px;
+}
+h1 {
+    margin: 0px;
+    font-size: 240%;
+}
+h2 {
+    margin: 0px;
+}
+h3 {
+    margin: 0px;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+body {
+    background-color: transparent;
+    transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    transform-style: preserve-3d;
+    font-family: monospace;
+}
+
+.buttonFrame {
+  display: table-cell;
+  vertical-align: middle;
+  border-radius: 6px;
+}
+
+input{
+  color: black;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 3px;
+    font-weight: 700;
+    line-height: 19px;
+}
+
+.screen {
+    position: absolute;
+    height: 314px;
+    left: 136px;
+    top: 41px;
+    width: 344px;
+    color: white;
+}
+
+.softkeyBase {
+    position: absolute;
+    left: 13px;
+    top: 39px;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    display: table;
+    margin-top: 10px;
+}
+.second {
+    top: 144px;
+}
+.third {
+    top: 248px;
+}
+.fourth {
+    top: 353px;
+}
+.rightBase {
+    left: 555px;
+}
+
+/* SPOT EVENT APP STYLE - START*/
+#myVideo {
+  display: block;
+  width: 100%;
+}
+
+#myImage {
+  width: 304px;
+  height: 228px;
+}
+/* SPOT EVENT APP STYLE - END */
+
+/* BARCODE APP STYLE - START*/
+.pcodeText {
+  color: white;
+  text-align: -webkit-center;
+  margin-bottom: 2px;
+}
+
+.softkey_img {
+  width: 60px;
+  margin-left: 4px;
+}
+
+.softkey_img_frame_1 {
+  width: 60px;
+  margin-left: 4px;
+}
+/* BARCODE APP STYLE - END */
+
+/* BROWSER APP STYLE - START*/
+.browserFrame {
+  width: 480px;
+  height: 420px;
+}
+
+.addressUrl {
+  width: 300px;
+}
+
+.topFrame {
+  margin-left: 40px;
+}
+/* BROWSER APP STYLE - END */
+
+/* PROJECT SETTINGS APP STYLE - START*/
+.waitCircle{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+/* PROJECT SETTINGS APP STYLE - END */
+
+/* SOFTKEY APP STYLE - START*/
+.mainKey {
+  position: absolute;
+  height: 369px;
+  left: 136px;
+  top: 54px;
+  width: 369px;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  -o-user-select:none;
+  user-select:none;
+}
+
+.blackBackground {
+  background-color: black;
+}
+/* SOFTKEY SETTINGS APP STYLE - END */
+
+
+/* TEXT APP STYLE - START*/
+.imageGuess {
+  width: 230px;
+  height: 230px;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  margin-top: 30px;
+}
+
+.animalTitle{
+  text-align: center;
+  color: white;
+  padding-top: 50px;
+}
+/* TEXT SETTINGS APP STYLE - END */
+
+.noButtonDiv{
+  text-align: center;
+  font-size: 25px;
+}
+
+.innerDiv{
+  margin-top: 15px;
+}

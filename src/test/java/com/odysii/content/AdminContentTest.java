@@ -20,6 +20,7 @@ public class AdminContentTest extends TestBase {
         category = "Admin Content";
 
     }
+
     @Test
     public void _001_valid_header_support_tickets(){
         String expected = "Support Tickets";
@@ -32,6 +33,7 @@ public class AdminContentTest extends TestBase {
 
 
     }
+
     @Test
     public void _002_valid_TICKET_id(){
         String expected = "ID";
@@ -39,6 +41,7 @@ public class AdminContentTest extends TestBase {
         Assert.assertEquals(expected,actauTxt);
 
     }
+
     @Test
     public void _003_valid_ticket_application_name(){
         String expected = "Application name";
@@ -46,6 +49,7 @@ public class AdminContentTest extends TestBase {
         Assert.assertEquals(actualTxt,expected);
 
     }
+
     @Test
     public void _004_valid_ticket_version_column_name(){
         String expected = "Version #";
@@ -53,6 +57,7 @@ public class AdminContentTest extends TestBase {
         Assert.assertEquals(actualTxt,expected);
 
     }
+
     @Test
     public void _005_valid_ticket_subject_column_name(){
         String expected = "Subject";
@@ -60,6 +65,7 @@ public class AdminContentTest extends TestBase {
         Assert.assertEquals(actualTxt,expected);
 
     }
+
     @Test
     public void _006_valid_ticket_created_column_name(){
         String expected = "Created";
@@ -67,6 +73,7 @@ public class AdminContentTest extends TestBase {
         Assert.assertEquals(actualTxt,expected);
 
     }
+
     @Test
     public void _007_valid_last_activity_column_name(){
         String expected = "Last activity";
@@ -74,6 +81,7 @@ public class AdminContentTest extends TestBase {
         Assert.assertEquals(actualTxt,expected);
 
     }
+
     @Test
     public void _008_valid_status_column_name(){
         String expected = "Status";
@@ -81,6 +89,7 @@ public class AdminContentTest extends TestBase {
         Assert.assertEquals(expected,actaulTxt);
 
     }
+
     @Test
     public void _009_valid_button_text_back_to_support_tickets(){
         adminPage.getSupportTicketsLink();
@@ -90,6 +99,7 @@ public class AdminContentTest extends TestBase {
         Assert.assertEquals(actualTxt,expected);
 
     }
+
     @Test
     public void _010_valid_button_text_preview(){
         String expected = "Preview";
@@ -97,6 +107,7 @@ public class AdminContentTest extends TestBase {
         Assert.assertEquals(expected.trim(),actualTxt.trim());
 
     }
+
     @Test
     public void _011_valid_button_text_preview(){
         String expected = "Download";
@@ -104,6 +115,7 @@ public class AdminContentTest extends TestBase {
         Assert.assertEquals(expected.trim(),actualTxt.trim());
 
     }
+
     @Test
     public void _012_valid_text_status(){
         String expected = "Status";
@@ -111,6 +123,7 @@ public class AdminContentTest extends TestBase {
         Assert.assertEquals(actualTxt,expected);
 
     }
+
     @Test
     public void _013_valid_text_comments(){
         String expected = "Comments";
@@ -118,6 +131,7 @@ public class AdminContentTest extends TestBase {
         Assert.assertEquals(actualTxt,expected);
 
     }
+
     @Test
     public void _014_valid_text_status_approved(){
         String expected = "Approved";
@@ -125,20 +139,23 @@ public class AdminContentTest extends TestBase {
         Assert.assertEquals(actualTxt,expected);
 
     }
-    @Test
+
+    @Test (enabled = false)
     public void _015_valid_text_status_reject_no_fee(){
         String expected = "Reject - no fee";
         String actualTxt = driver.findElement(By.id("adminTicketReject")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
-    @Test
+
+    @Test (enabled = false)
     public void _016_valid_text_status_reject_with_fee(){
         String expected = "Reject with fee";
         String actualTxt = driver.findElement(By.id("adminTicketRejectFee")).getText();
         Assert.assertEquals(actualTxt,expected);
 
     }
+
     @Test
     public void _017_valid_text_status_open(){
         String expected = "Open";
@@ -146,6 +163,7 @@ public class AdminContentTest extends TestBase {
         Assert.assertEquals(actualTxt,expected);
 
     }
+
     @Test
     public void _018_valid_button_text_update(){
         String expected = "UPDATE";
@@ -153,6 +171,7 @@ public class AdminContentTest extends TestBase {
         Assert.assertEquals(actualTxt,expected);
 
     }
+
     @Test
     public void _019_valid_header_inside_ticket_name(){
         String expected = "Developer";

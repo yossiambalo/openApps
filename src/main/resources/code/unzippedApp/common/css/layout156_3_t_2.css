@@ -1,0 +1,46 @@
+.softkeyBase_template {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 512px;
+  height: 256px;
+  text-align: center;
+  display: table;
+}
+
+.second_template {
+  top: 256px;
+}
+
+.third_template {
+  top: 512px;
+}
+
+.fourth_template {
+  visibility: collapse;
+}
+
+.rightBase_template {
+  left: 512px;
+}
+
+.softkey_img_frame_1 {
+  width: 512px;
+  height: 256px;
+}
+
+.softkey_img_frame_2 {
+  width: 342px;
+  height: 384px;
+}
+
+.softkey_img_frame_3 {
+  width: 342px;
+  height: 384px;
+}
+
+.videoWrapper{
+  width: 20%;
+  margin: auto;
+  margin-top: 10px;
+}

@@ -44,7 +44,7 @@ public class AdminResource extends PageObject implements Resource {
         displayName.sendKeys(resourceName);
         this.description.sendKeys(description);
         selectResourcePermission.sendKeys(permissionCategoryType.getPermission());
-        inputUploadResource.sendKeys(getFile("code/TH.zip"));
+        inputUploadResource.sendKeys(getFile("code\\TH.zip"));
         int counter = 0;
         while (!buttonSave.isEnabled() && counter < 5){
             wait(1000);
@@ -55,6 +55,7 @@ public class AdminResource extends PageObject implements Resource {
         }
         buttonSave.click();
     }
+
     public void editResource(String resourceName,String newResourceName, String newDescription,PermissionCategoryType permissionCategoryType){
         WebElement element = resourceContainerList.stream().filter(webElement -> {
             return webElement.findElement(By.className("col-lg-2")).getText().equals(resourceName);
@@ -71,10 +72,11 @@ public class AdminResource extends PageObject implements Resource {
         description.clear();
         description.sendKeys(newDescription);
         selectResourcePermission.sendKeys(permissionCategoryType.getPermission());
-        inputUploadResource.sendKeys(getFile("code/TH.zip"));
+        inputUploadResource.sendKeys(getFile("code\\TH.zip"));
         wait(2000);
         buttonSave.click();
     }
+
     public boolean deleteLastResource(){
         int lastResourceIndex = resourceContainerList.size() - 1;
         scrollDown();
@@ -93,7 +95,10 @@ public class AdminResource extends PageObject implements Resource {
     public void download() {
         resourceDownload.get((resourceDownload.size() - 1)).click();
     }
+
     public boolean isResourceExist(String resourceName) {
         return isResourceExist(resourceContainerList,resourceName);
+
     }
+
 }

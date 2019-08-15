@@ -30,6 +30,7 @@ public class AddUser extends PageObject {
 
 
     public AddUser(WebDriver driver) {
+
         super(driver);
     }
 

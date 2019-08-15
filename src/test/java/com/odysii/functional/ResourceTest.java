@@ -23,13 +23,15 @@ public class ResourceTest extends TestBase {
 
     private AdminResource adminResource;
     final String KEY_FILE_LOCATION = System.getProperty("user.home")+"\\Downloads";
-    private final String RESOURCE_NAME = "Yossi";
-    private final String NEW_RESOURCE_NAME = "New_resource_name";
-    @BeforeClass
+    private final String RESOURCE_NAME = "ww2we24rwrw";
+    private final String NEW_RESOURCE_NAME = "w22wrw3rdrssd";
+
+    @BeforeClass // Todo: clean resources before run
     public void prepare(){
         category = "DeveloperResource";
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
     }
+
     @Test
     public void _001_valid_admin_add_new_resource_for_dev(){
         adminResource = adminPage.getResourcePage();
@@ -60,7 +62,7 @@ public class ResourceTest extends TestBase {
     }
 
     @Test
-    public void _002_valid_admin_download(){
+    public void _003_valid_admin_download(){
         if (!user.isUserLoggedIn(ADMIN_USER_NAME)){
             adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
         }

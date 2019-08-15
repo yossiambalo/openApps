@@ -51,7 +51,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory name field");
     }
 
-    //@Test (enabled = false)
+    @Test (enabled = false)
     public void _002_subtitle_field_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -60,7 +60,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory subtitle field ");
     }
 
-    //@Test (enabled = false)
+    @Test (enabled = false)
     public void _003_language_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -69,7 +69,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory language field");
     }
 
-    //@Test (enabled = false)
+    @Test (enabled = false)
     public void _004_category_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -82,12 +82,13 @@ public class MyAppsTest extends TestBase {
     public void _005_availability_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("XXX","1.0.2", "PP",PriceType.PER_DISPENSER_PER_MONTH,"4","");
+        appDetails.setUpAppDetails("XXX","1.0.2", "PP",PriceType.PER_DISPENSER_PER_MONTH,"4",null);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory availability field");
+
     }
 
-    //@Test (enabled = false)
+    @Test (enabled = false)
     public void _008_retailer_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -97,7 +98,7 @@ public class MyAppsTest extends TestBase {
     }
     // Testing max chars, special chars, languages.
 
-    //@Test(enabled = false)//No limition for chars
+    @Test(enabled = false)//No limitation for chars
     public void _009_name_field_length_257_chars_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -106,7 +107,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Test failed - no validation of max characters in name field");
     }
 
-    //@Test (enabled = false)//No limition for chars
+    @Test (enabled = false)//No limition for chars
     public void _010_subtitle_field_length_255_chars_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -115,7 +116,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertTrue(actualValue, "Subtitle can contain 255 chars");
     }
 
-    //@Test (enabled = false) //TODo: ask devs should be validation for those chars?
+    @Test (enabled = false) //TODo: ask devs should be validation for those chars?
     public void _011_valid_name_field_special_chars_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -135,7 +136,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertTrue(actualValue, "Cancel button function and back to My apps page");
     }
 
-    //@Test(enabled = false)//No limitetion for chars
+    @Test(enabled = false)//No limitetion for chars
     public void _013_language_input_name_field_chinese_128_chars_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -144,7 +145,7 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Japanese is supported");
     }
 
-    //@Test(enabled = false)//No limitation for chars
+    @Test(enabled = false)//No limitation for chars
     public void _014_language_input_subtitle_field_hebrew_128_chars_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
@@ -222,7 +223,6 @@ public class MyAppsTest extends TestBase {
         Assert.assertFalse(actualValue, "Promotional text fields are mandatory - it's empty!");
     }
 
-
     @Test
     public void _020_screenshot_file_path_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
@@ -231,7 +231,7 @@ public class MyAppsTest extends TestBase {
         wait(WAIT);
         marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        marketing.fillMarketing("King Kenny","Stevie G","","72-72.jpg",true);
+        marketing.fillMarketing("PText","fff",null,"72-72.jpg",true);
         wait(WAIT);
         WebElement finishButton = driver.findElement(By.id("finishButton"));
         finishButton.click();
@@ -247,13 +247,14 @@ public class MyAppsTest extends TestBase {
         wait(WAIT);
         marketing = uploadCode.upload(zipFile);
         wait(WAIT);
-        marketing.fillMarketing("King Kenny","Stevie G","800x400.png","",true);
+        marketing.fillMarketing("King Kenny","Stevie G","800x400.png",null,true);
         wait(WAIT);
         WebElement finishButton = driver.findElement(By.id("finishButton"));
         finishButton.click();
         Boolean actualValue = isElementExist(By.xpath("//*[contains(text(), 'ADD NEW APP')]"));
         Assert.assertFalse(actualValue, "App icon image is mandatory - it's empty!");
     }
+
     @AfterMethod
     public void afterMethod(){
         driver.navigate().refresh();

@@ -1,0 +1,29 @@
+.softkeyBase_template {
+  position: absolute;
+  left: 13px;
+  top: 39px;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  display: table;
+}
+
+.second_template {
+  top: 144px;
+}
+
+.third_template {
+  top: 248px;
+}
+
+.fourth_template {
+  top: 353px;
+}
+
+.rightBase_template {
+  left: 555px;
+}
+
+.videoWrapper{
+
+}

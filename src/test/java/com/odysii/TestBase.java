@@ -25,6 +25,7 @@ import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Set;
 
 
@@ -68,6 +69,7 @@ public class TestBase {
         }
         return hostName;
     }
+
     @BeforeSuite
     public void setUp()
 
@@ -94,6 +96,7 @@ public class TestBase {
         }
         extent.endTest(logger);
     }
+
     protected void wait(int milliseconds){
         try {
             Thread.sleep(milliseconds);
@@ -107,10 +110,12 @@ public class TestBase {
     {
         extent.flush();
     }
+
     @AfterClass
     public void clean(){
         driver.quit();
     }
+
     @Parameters({"browser","url"})
 
     @BeforeClass
@@ -185,9 +190,11 @@ public class TestBase {
 
     @BeforeMethod
     public void handleTestMethodName(Method method)
+
     {
         logger = extent.startTest(method.getName()).assignCategory(this.category+" Tests");
     }
+
     public void prepareTest(String propFile , ApplicationStatus applicationStatus){
 //        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS, UserType.RETAILER);
 //        //get number of live apps from retailer page
@@ -203,6 +210,7 @@ public class TestBase {
         int expectedValue = appsSize+1;
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetailsFromPropFile(propFile);
+        wait(WAIT);
         Marketing marketing = uploadCode.upload(zipFile);
         marketing.fillMarketing();
         wait(WAIT);
@@ -307,6 +315,7 @@ public class TestBase {
         }
     }
     protected void deleteAllApps(){
+        boolean flag = false;
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS,UserType.DEVELOPER);
         MyApps myApps = devUser.getMyAppsPage(driver);
         int appSize = myApps.getAppsSize() -1;
@@ -320,22 +329,28 @@ public class TestBase {
             //requestHelper.deleteRequest(openAppsUrl + "/webapi/application/" + getAppID(), token);
             showUp.backToMyApps();
             appSize--;
+            flag = true;
         }
-        for (String appID : appIds){
+        if (flag){
             adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
             setAdminCookie();
-            requestHelper.deleteRequest(openAppsUrl + "/webapi/application/" + appID, token);
+            for (String appID : appIds){
+                requestHelper.deleteRequest(openAppsUrl + "/webapi/application/" + appID, token);
+            }
         }
     }
+
     private String getAppID(){
         return driver.getCurrentUrl().split("my-apps/")[1].split("/")[0];
     }
+
     private String getUserID(){
         return driver.getCurrentUrl().split("users/")[1].split("/")[0];
     }
+
     public boolean deleteUser(String userName){
         RequestHelper requestHelper = new RequestHelper();
-        if(token == null) {
+        if(token == null ) {
             adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
             setAdminCookie();
         }
@@ -346,4 +361,5 @@ public class TestBase {
         return requestHelper.deleteRequest(openAppsUrl + "/webapi/user/" + getUserID(), token);
         //https://i360-qa.gilbarco.com/openappstore/webapi/user/idOfApplication
     }
+
 }

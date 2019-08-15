@@ -1,0 +1,8 @@
+Name: Yossi_68852
+Version: 1.0.42
+Title: appConfig
+Description: application showing config details
+Author: ss
+Copyright: ss
+License: ss1
+Type: application
