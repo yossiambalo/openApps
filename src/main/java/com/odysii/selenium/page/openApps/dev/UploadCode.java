@@ -35,7 +35,7 @@ public class UploadCode extends PageObject{
     }
     public Marketing upload(String zipFile){
         editManiFest();
-        replaceFile(System.getProperty("user.dir")+"\\src\\main\\resources\\code\\unzippedApp\\manifest.txt");
+        replaceFileInZip(System.getProperty("user.dir")+"\\src\\main\\resources\\code\\unzippedApp\\manifest.txt");
         //generateFileList(new File(SOURCE_FOLDER));
         isElementPresent(uploadCodeBtn);
         this.agreeAndUpload.sendKeys(getFile("code\\" +zipFile));
@@ -59,7 +59,7 @@ public class UploadCode extends PageObject{
             FileWriter writer = new FileWriter(System.getProperty("user.dir")+"\\src\\main\\resources\\code\\unzippedApp\\manifest.txt");
 //            writer.write("Name: Yossi_"+new Timestamp(System.currentTimeMillis())+"\n" +
             //writer.write("Name: Yossi_"+new Random().nextInt((10000 - 2) + 1) + 2+"\n" +
-            writer.write("Name: Yossi_"+new Random().nextInt((10000 - 2) + 1) + 2);
+            writer.write("Name:newName"+new Random().nextInt((10000 - 2) + 1) + 2);
             writer.write(System.getProperty("line.separator"));
             writer.write( "Version: 1.0."+new Random().nextInt((1000 - 2) + 1) + 2);
             writer.write(System.getProperty("line.separator"));
@@ -80,15 +80,14 @@ public class UploadCode extends PageObject{
         }
     }
 
-    private void replaceFile(String file) {
-        Path myFilePath = Paths.get(file);
+    private void replaceFileInZip(String newFile) {
+        Path myFilePath = Paths.get(newFile);
         Path zipFilePath = Paths.get(OUTPUT_ZIP_FILE);
         try (FileSystem fs = FileSystems.newFileSystem(zipFilePath, null)) {
-            Path fileInsideZipPath = fs.getPath("/manifest.txt");
-            Files.delete(fileInsideZipPath);
-            Files.copy(myFilePath, fileInsideZipPath);
+            Path oldFile = fs.getPath("/manifest.txt");
+            Files.delete(oldFile);
+            Files.copy(myFilePath, oldFile);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

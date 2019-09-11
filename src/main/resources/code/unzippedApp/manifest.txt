@@ -1,5 +1,5 @@
-Name: Yossi_68852
-Version: 1.0.42
+Name:newName14502
+Version: 1.0.7482
 Title: appConfig
 Description: application showing config details
 Author: ss
