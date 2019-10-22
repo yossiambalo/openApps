@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class DevHomePage extends PageObject{
 
-    @FindBy(id = "navItem5")
+    @FindBy(id = "navItem2")
     private WebElement myAppsLink;
     //@FindBy(xpath = "//*[contains(text(), 'Dashboard')]")
     @FindBy(id = "navItem4")
@@ -24,13 +24,13 @@ public class DevHomePage extends PageObject{
     private WebElement trasactionHistoryLink;
     @FindBy(id = "navItem7")
     private WebElement revenueReportLink;
-    @FindBy(id = "navItem8")
+    @FindBy(id = "navItem5")
     private WebElement supportTickets;
     @FindBy(id = "navItem9")
     private WebElement publicProfileLink;
     @FindBy(id = "navItem10")
     private WebElement encoreLink;
-    @FindBy(id = "navItem11")
+    @FindBy(id = "navItem9")
     private WebElement appStoreLink;
     @FindBy(name = "username")
     WebElement userName;
@@ -50,7 +50,7 @@ public class DevHomePage extends PageObject{
     WebElement keyManagementLink;
     @FindBy(id = "navItem17")
     WebElement appContentLink;
-    @FindBy(id = "navItem16")
+    @FindBy(id = "navItem19")
     private WebElement resourceLink;
 
     public void login(String userName,String password){

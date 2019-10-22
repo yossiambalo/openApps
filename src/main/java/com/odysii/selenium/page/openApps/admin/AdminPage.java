@@ -14,13 +14,13 @@ import org.openqa.selenium.support.FindBy;
 
 public class AdminPage extends PageObject {
 
-    @FindBy(id = "navItem0")
+    @FindBy(id = "navItem15")
     private WebElement supportTicketsLink;
     @FindBy(id = "navItem1")
     private WebElement statisticsLink;
-    @FindBy(id = "navItem2")
+    @FindBy(id = "navItem17")
     private WebElement userPageLink;
-    @FindBy(id = "navItem3")
+    @FindBy(id = "navItem18")
     private WebElement retailersPageLink;
     @FindBy(name = "username")
     WebElement userName;
@@ -30,7 +30,7 @@ public class AdminPage extends PageObject {
     WebElement loginBtn;
     @FindBy(className = "float-right")
     WebElement logoutBtn;
-    @FindBy(xpath = "//span[contains(text(), 'Resources')]")
+    @FindBy(id = "navItem19")
     private WebElement resourceLink;
     private final static String TICKET_ID_FREFIX = "ticket";
 

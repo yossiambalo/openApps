@@ -7,15 +7,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RetailerHomePage extends PageObject {
-    @FindBy(id = "navItem11")
+    @FindBy(id = "navItem9")
     WebElement appStore;
-    @FindBy(id = "navItem12")
+    @FindBy(id = "navItem10")
     WebElement appLibrary;
-    @FindBy(id = "navItem13")
+    @FindBy(id = "navItem11")
     WebElement campaigns;
-    @FindBy(id = "navItem14")
+    @FindBy(id = "navItem12")
     WebElement scheduling;
-    @FindBy(id = "navItem15")
+    @FindBy(id = "navItem13")
     WebElement manageKeys;
     @FindBy(id = "applicationSearchInput")
     WebElement applicationSearchInput;

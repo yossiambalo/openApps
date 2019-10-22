@@ -26,6 +26,7 @@ import java.util.List;
 public class DevTest extends TestBase {
     @BeforeClass
     public void login() {
+        //deleteAllApps();
         user = new User(driver);
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
         UsersPage usersPage = adminPage.getUsersPage();

@@ -70,7 +70,7 @@ public class DevContentTest extends TestBase {
         devUser.getMyAppsPage(driver);
         WebElement myAppsPage = driver.findElement(By.cssSelector(".col.row.mx-0.mx-sm-2.mx-lg-3.mt-1"));
         String actualHeaderTxt = myAppsPage.findElement(By.className("h2")).getText().trim();
-        String actualTxt = driver.findElement(By.id("navItem5")).getText().trim().toUpperCase();
+        String actualTxt = driver.findElement(By.id("navItem2")).getText().trim().toUpperCase();
         Assert.assertEquals(actualTxt,expected);
         Assert.assertEquals(actualHeaderTxt,expectedHeader);
 
@@ -456,7 +456,7 @@ public class DevContentTest extends TestBase {
         String actualTxt = driver.findElement(By.className("h2")).getText().trim();
         Assert.assertEquals(actualTxt,expected);
         String expectedSdbr = "SUPPORT TICKETS";
-        String actualSdbr = driver.findElement(By.id("navItem8")).getText().toUpperCase().trim();
+        String actualSdbr = driver.findElement(By.id("navItem15")).getText().toUpperCase().trim();
         Assert.assertEquals(actualSdbr,expectedSdbr);
 
     }
