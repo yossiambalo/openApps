@@ -1,4 +1,4 @@
-package com.odysii.functional.Retailer;
+package com.odysii.functional.Retailer.sendbox;
 import com.odysii.TestBase;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;

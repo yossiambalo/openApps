@@ -23,8 +23,8 @@ public class ResourceTest extends TestBase {
 
     private AdminResource adminResource;
     final String KEY_FILE_LOCATION = System.getProperty("user.home")+"\\Downloads";
-    private final String RESOURCE_NAME = "ww2we24rwrw";
-    private final String NEW_RESOURCE_NAME = "w22wrw3rdrssd";
+    private final String RESOURCE_NAME = "Resource name";
+    private final String NEW_RESOURCE_NAME = "New resource name";
 
     @BeforeClass // Todo: clean resources before run
     public void prepare(){

@@ -331,10 +331,12 @@ public class TestBase {
             appSize--;
             flag = true;
         }
-        if (flag){
-            adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+        if (!flag) {
+            return;
+        } else {
+            adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
             setAdminCookie();
-            for (String appID : appIds){
+            for (String appID : appIds) {
                 requestHelper.deleteRequest(openAppsUrl + "/webapi/application/" + appID, token);
             }
         }

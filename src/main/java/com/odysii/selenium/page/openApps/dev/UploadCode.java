@@ -24,20 +24,19 @@ public class UploadCode extends PageObject{
     WebElement uploadCodeBtn;
     @FindBy(id = "nextButton")
     List<WebElement> nexts;
-    @FindBy(xpath = "//button[contains(text(), 'FROM MANIFEST')]")
+    @FindBy(xpath = "//button[contains(text(), 'FROM PACKAGE')]")
     WebElement fromManiFestBtn;
 
-    static List<String> fileList = new ArrayList<>();
-    private  String OUTPUT_ZIP_FILE = System.getProperty("user.dir")+"\\src\\main\\resources\\code\\TH.zip";
-    private  String SOURCE_FOLDER = System.getProperty("user.dir")+"\\src\\main\\resources\\code\\unzippedApp";
+    private final   String OUTPUT_ZIP_FILE = System.getProperty("user.dir")+"\\src\\main\\resources\\code\\TH.zip";
+    private final String DYNAMIC_MANIFEST_FILE = System.getProperty("user.dir")+"\\src\\main\\resources\\code\\unzippedApp\\manifest.txt";
+
     public UploadCode(WebDriver driver) {
         super(driver);
     }
     public Marketing upload(String zipFile){
         editManiFest();
-        replaceFileInZip(System.getProperty("user.dir")+"\\src\\main\\resources\\code\\unzippedApp\\manifest.txt");
+        replaceFileInZip(DYNAMIC_MANIFEST_FILE);
         //generateFileList(new File(SOURCE_FOLDER));
-        isElementPresent(uploadCodeBtn);
         this.agreeAndUpload.sendKeys(getFile("code\\" +zipFile));
         wait(5000);
        if (isElementPresent(fromManiFestBtn)) {
@@ -56,7 +55,7 @@ public class UploadCode extends PageObject{
     private void editManiFest(){
         try {
             //Write Content
-            FileWriter writer = new FileWriter(System.getProperty("user.dir")+"\\src\\main\\resources\\code\\unzippedApp\\manifest.txt");
+            FileWriter writer = new FileWriter(DYNAMIC_MANIFEST_FILE);
 //            writer.write("Name: Yossi_"+new Timestamp(System.currentTimeMillis())+"\n" +
             //writer.write("Name: Yossi_"+new Random().nextInt((10000 - 2) + 1) + 2+"\n" +
             writer.write("Name:newName"+new Random().nextInt((10000 - 2) + 1) + 2);
