@@ -28,7 +28,7 @@ public class AdminContentTest extends TestBase {
         String actualTxt = driver.findElement(By.className("h2")).getText();
         Assert.assertEquals(actualTxt,expected);
         String expectedSdbr = "SUPPORT TICKETS";
-        String actualSdbr = driver.findElement(By.id("navItem0")).getText().toUpperCase().trim();
+        String actualSdbr = driver.findElement(By.id("navItem15")).getText().toUpperCase().trim();
         Assert.assertEquals(actualSdbr,expectedSdbr);
 
 

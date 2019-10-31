@@ -456,7 +456,7 @@ public class DevContentTest extends TestBase {
         String actualTxt = driver.findElement(By.className("h2")).getText().trim();
         Assert.assertEquals(actualTxt,expected);
         String expectedSdbr = "SUPPORT TICKETS";
-        String actualSdbr = driver.findElement(By.id("navItem15")).getText().toUpperCase().trim();
+        String actualSdbr = driver.findElement(By.id("navItem5")).getText().toUpperCase().trim();
         Assert.assertEquals(actualSdbr,expectedSdbr);
 
     }

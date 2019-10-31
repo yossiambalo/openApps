@@ -158,7 +158,7 @@ public class MyAppsTest extends TestBase {
     public void _015_back_button_upload_code(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("test","1.0.2", "scvs",PriceType.PER_DISPENSER_PER_YEAR,"3",Availabilty.PUBLIC);
+        appDetails.setUpAppDetails("test","1.0.2", "scvs",PriceType.PER_DISPENSER_PER_YEAR,"3",Availabilty.PRIVATE);
         WebElement backButton = driver.findElement(By.id("previousButton"));
         backButton.click();
         wait(WAIT);
@@ -170,7 +170,7 @@ public class MyAppsTest extends TestBase {
     public void _016_cancel_button_upload_code_page() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("test2","1.0.2", "scdvdvs", PriceType.PER_DISPENSER_PER_YEAR,"3",Availabilty.PUBLIC);
+        appDetails.setUpAppDetails("test2","1.0.2", "scdvdvs", PriceType.PER_DISPENSER_PER_YEAR,"3",Availabilty.PRIVATE);
         WebElement cancelButton = driver.findElement(By.id("cancelButton"));
         cancelButton.click();
         wait(WAIT);
@@ -182,7 +182,7 @@ public class MyAppsTest extends TestBase {
     public void _017_continue_button_upload_code_page_positive(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Test Button Upload Code Positive","8.8.18","YNWA",PriceType.PER_DISPENSER_PER_MONTH,"8",Availabilty.PUBLIC);
+        UploadCode uploadCode = appDetails.setUpAppDetails("Test Button Upload Code Positive","8.8.18","YNWA",PriceType.PER_DISPENSER_PER_MONTH,"8",Availabilty.PRIVATE);
         wait(WAIT);
         WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
         marketing = uploadCode.upload(zipFile);
@@ -195,7 +195,7 @@ public class MyAppsTest extends TestBase {
     public void _018_promotional_text_empty_marketing_page_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PUBLIC);
+        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PRIVATE);
         wait(WAIT);
         marketing = uploadCode.upload(zipFile);
         wait(WAIT);
@@ -211,7 +211,7 @@ public class MyAppsTest extends TestBase {
     public void _019_keywords_empty_marketing_page_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PUBLIC);
+        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PRIVATE);
         wait(WAIT);
         marketing = uploadCode.upload(zipFile);
         wait(WAIT);
@@ -227,7 +227,7 @@ public class MyAppsTest extends TestBase {
     public void _020_screenshot_file_path_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PUBLIC);
+        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PRIVATE);
         wait(WAIT);
         marketing = uploadCode.upload(zipFile);
         wait(WAIT);
@@ -243,7 +243,7 @@ public class MyAppsTest extends TestBase {
     public void _021_appicon_path_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PUBLIC);
+        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PRIVATE);
         wait(WAIT);
         marketing = uploadCode.upload(zipFile);
         wait(WAIT);

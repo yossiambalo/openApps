@@ -7,20 +7,20 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.odysii.functional.DevTest"/>
-            <class name="com.odysii.functional.ResourceTest"/>
-            <class name="com.odysii.functional.Retailer.sendbox.RetailerDeploySandbox"/>
-            <class name="com.odysii.functional.AddUserTest"/>
-            <class name="com.odysii.functional.AdminCertificateTest"/>
-            <class name ="com.odysii.functional.Retailer.CertificateManagementTest"/>
-            <class name="com.odysii.functional.Retailer.RetailerTest"/>
-            <class name="com.odysii.functional.AccountTest"/>
-<!--            <class name="com.odysii.content.DevContentTest"/>-->
-<!--            <class name="com.odysii.content.RetailerContentTest"/>-->
-<!--            <class name="com.odysii.negative.AppVersionsTest"/>-->
-<!--            <class name="com.odysii.negative.MarketingTest"/>-->
-<!--            <class name="com.odysii.negative.MyAppsTest"/>-->
-<!--            <class name="com.odysii.content.AdminContentTest"/>-->
+            <!--<class name="com.odysii.functional.DevTest"/>-->
+            <!--<class name="com.odysii.functional.ResourceTest"/>-->
+            <!--<class name="com.odysii.functional.Retailer.sendbox.RetailerDeploySandbox"/>-->
+            <!--<class name="com.odysii.functional.AddUserTest"/>-->
+            <!--<class name="com.odysii.functional.AdminCertificateTest"/>-->
+            <!--<class name ="com.odysii.functional.Retailer.CertificateManagementTest"/>-->
+            <!--<class name="com.odysii.functional.Retailer.RetailerTest"/>-->
+            <!--<class name="com.odysii.functional.AccountTest"/>-->
+            <!--<class name="com.odysii.content.DevContentTest"/>-->
+            <class name="com.odysii.negative.AppVersionsTest"/>
+            <class name="com.odysii.negative.MarketingTest"/>
+            <class name="com.odysii.negative.MyAppsTest"/>
+            <class name="com.odysii.content.AdminContentTest"/>
+            <class name="com.odysii.content.RetailerContentTest"/>
         </classes>
     </test>
     <test name="FireFoxTest">
