@@ -30,7 +30,7 @@ public class Campaign extends PageObject {
     private List<WebElement> deletBtn;
     @FindBy(id = "editCampaign")
     private WebElement editBtn;//navItem0
-    @FindBy(id = "navItem0")
+    @FindBy(id = "navItem25")
     private WebElement detialsLink;
     @FindBy(xpath = "//button[contains(text(), 'Confirm')]")
     private WebElement confirmBtn;
