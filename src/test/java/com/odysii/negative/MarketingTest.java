@@ -41,7 +41,7 @@ public class MarketingTest extends TestBase {
         AppDetails appDetails = new AppDetails(driver);
         UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
         wait(3000);
-        Marketing marketing = uploadCode.upload(zipFile);
+        Marketing marketing = uploadCode.upload(zipFile,false);
         driver.findElement(By.id("app-promotion")).sendKeys(Keys.CONTROL + "a");
         driver.findElement(By.id("app-promotion")).sendKeys(Keys.DELETE);
         wait(WAIT);
@@ -67,15 +67,15 @@ public class MarketingTest extends TestBase {
         wait(3000);
         UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
         wait(WAIT);
-        Marketing marketing = uploadCode.upload(zipFile);
+        Marketing marketing = uploadCode.upload(zipFile,false);
         driver.findElement(By.id("app-keywords")).sendKeys(Keys.CONTROL + "a");
         driver.findElement(By.id("app-keywords")).sendKeys(Keys.DELETE);
         wait(WAIT);
         driver.findElement(By.id("finishButton")).click();
         wait(WAIT);
-        String actualdValue = driver.findElements(By.id("new-application-success-error-message")).get(1).getText().trim();
-        String expecteValue= "Some required fields are missing or incorrect";
-        Assert.assertEquals(actualdValue, expecteValue);
+        String actualValue = driver.findElements(By.id("new-application-success-error-message")).get(1).getText().trim();
+        String expectedValue = "Some required fields are missing or incorrect";
+        Assert.assertEquals(actualValue, expectedValue);
         driver.findElement(By.id("cancelButton")).click();
         showUp.backToMyApps();
 
@@ -92,7 +92,7 @@ public class MarketingTest extends TestBase {
         AppDetails appDetails = new AppDetails(driver);
         UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
         wait(3000);
-        Marketing marketing = uploadCode.upload(zipFile);
+        Marketing marketing = uploadCode.upload(zipFile,false);
         wait(WAIT);
         marketing.fillMarketing("Promotion Text","Key Words","800x400.png",null,false);
         wait(WAIT);

@@ -33,8 +33,8 @@ public class UploadCode extends PageObject{
     public UploadCode(WebDriver driver) {
         super(driver);
     }
-    public Marketing upload(String zipFile){
-        editManiFest();
+    public Marketing upload(String zipFile, boolean changeNameOfAppUnderManifest){
+        editManiFest(changeNameOfAppUnderManifest);
         replaceFileInZip(DYNAMIC_MANIFEST_FILE);
         //generateFileList(new File(SOURCE_FOLDER));
         this.agreeAndUpload.sendKeys(getFile("code\\" +zipFile));
@@ -52,13 +52,15 @@ public class UploadCode extends PageObject{
         return new Marketing(webDriver);
     }
 
-    private void editManiFest(){
+    private void editManiFest(boolean changeNameOfAppUnderManifest){
         try {
             //Write Content
             FileWriter writer = new FileWriter(DYNAMIC_MANIFEST_FILE);
 //            writer.write("Name: Yossi_"+new Timestamp(System.currentTimeMillis())+"\n" +
             //writer.write("Name: Yossi_"+new Random().nextInt((10000 - 2) + 1) + 2+"\n" +
-            writer.write("Name:newName"+new Random().nextInt((10000 - 2) + 1) + 2);
+            if (changeNameOfAppUnderManifest){
+                writer.write("Name:newName"+new Random().nextInt((10000 - 2) + 1) + 2);
+            }
             writer.write(System.getProperty("line.separator"));
             writer.write( "Version: 1.0."+new Random().nextInt((1000 - 2) + 1) + 2);
             writer.write(System.getProperty("line.separator"));
