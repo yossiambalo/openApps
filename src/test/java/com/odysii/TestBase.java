@@ -24,7 +24,10 @@ import java.awt.event.KeyEvent;
 import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 import java.util.Set;
 
@@ -364,4 +367,9 @@ public class TestBase {
         //https://i360-qa.gilbarco.com/openappstore/webapi/user/idOfApplication
     }
 
+    protected String concatenateDateAndTime(String str){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        return str +": "+dateFormat.format(date);
+    }
 }

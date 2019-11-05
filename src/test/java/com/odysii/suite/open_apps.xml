@@ -4,16 +4,15 @@
     <parameter name="url" value="https://i360-qa.gilbarco.com/openappstore/front/"/>
     <!--QA URL - "https://i360-qa.gilbarco.com/openappstore/front/"-->
     <!--SANDBOX URL - "https://insite360.sandbox.gilbarco.com/openappstore/"-->
-    <test name="ChromeTest">
+    <test name="ChromeTest" preserve-order="false">
         <parameter name="browser" value="chrome"/>
         <classes>
-<!--            <class name="com.odysii.functional.DevTest"/>-->
-<!--            <class name="com.odysii.functional.ResourceTest"/>-->
-<!--            <class name="com.odysii.functional.Retailer.sendbox.RetailerDeploySandbox"/>-->
+            <class name="com.odysii.functional.DevTest"/>
+            <class name="com.odysii.functional.ResourceTest"/>
 <!--            <class name="com.odysii.functional.AddUserTest"/>-->
-<!--            <class name="com.odysii.functional.AdminCertificateTest"/>-->
-<!--            <class name ="com.odysii.functional.Retailer.CertificateManagementTest"/>-->
-<!--            <class name="com.odysii.functional.Retailer.RetailerTest"/>-->
+            <class name="com.odysii.functional.AdminCertificateTest"/>
+            <class name ="com.odysii.functional.Retailer.CertificateManagementTest"/>
+            <class name="com.odysii.functional.Retailer.RetailerTest"/>
             <class name="com.odysii.functional.AccountTest"/>
 <!--            <class name="com.odysii.content.DevContentTest"/>-->
 <!--            <class name="com.odysii.content.RetailerContentTest"/>-->
