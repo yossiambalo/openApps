@@ -56,7 +56,7 @@ public class ResourceTest extends TestBase {
             adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
         }
         adminResource = adminPage.getResourcePage();
-        adminResource.editResource(RESOURCE_NAME, NEW_RESOURCE_NAME,"New description name",PermissionCategoryType.PASSPORT);
+        adminResource.editResource(RESOURCE_NAME, NEW_RESOURCE_NAME,"New description name",PermissionCategoryType.DEVELOPER);
         wait(5000);
         Assert.assertTrue(adminResource.isResourceExist(NEW_RESOURCE_NAME));
     }

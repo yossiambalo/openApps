@@ -201,7 +201,7 @@ public class DevTest extends TestBase {
         UploadCode uploadCode = appDetails.setUpAppDetails("1.0.8");
         Marketing marketing = uploadCode.upload(zipFile,false);
         marketing.fillMarketing();
-        wait(3000);
+        wait(5000);
         Assert.assertEquals(showUp.getStatus(1).trim(),ApplicationStatus.PRESUBMITTED.getStatus());
     }
     @AfterClass

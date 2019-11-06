@@ -18,7 +18,7 @@ public class DevHomePage extends PageObject{
     private WebElement dashboardLink;
     @FindBy(id = "navItem11")
     private WebElement passportLink;
-    @FindBy(id = "navItem12")
+    @FindBy(id = "navItem10")
     private WebElement libraryLink;
     @FindBy(id = "navItem6")
     private WebElement trasactionHistoryLink;
@@ -40,13 +40,13 @@ public class DevHomePage extends PageObject{
     WebElement loginBtn;
     @FindBy(className = "float-right")
     WebElement logoutBtn;
-    @FindBy(id = "navItem8")
+    @FindBy(id = "navItem5")
     WebElement supportTicketLink;
     @FindBy(id = "navItem14")
     WebElement campaignLink;
-    @FindBy(id = "navItem15")
+    @FindBy(id = "navItem12")
     WebElement schdulingLink;
-    @FindBy(id = "navItem15")
+    @FindBy(id = "navItem13")
     WebElement keyManagementLink;
     @FindBy(id = "navItem17")
     WebElement appContentLink;
