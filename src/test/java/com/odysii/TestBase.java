@@ -58,6 +58,8 @@ public class TestBase {
     public static ExtentTest logger;
     public final static String APP_CLASS_NAME = "card";
     public final String zipFile = "TH.zip";
+    public final String zipFile2 = "manifestWithoutName.zip";
+    public final String zipFileManifest = "forManifestVersionConflict";
     public static boolean isPrepared = false;
     public static String token = null;
     protected static boolean isRoleConfig = false;
@@ -213,7 +215,7 @@ public class TestBase {
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetailsFromPropFile(propFile);
         wait(WAIT);
-        Marketing marketing = uploadCode.upload(zipFile);
+        Marketing marketing = uploadCode.upload(zipFile,false);
         marketing.fillMarketing();
         wait(WAIT);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
@@ -366,9 +368,10 @@ public class TestBase {
         //https://i360-qa.gilbarco.com/openappstore/webapi/user/idOfApplication
     }
 
-    protected String concatenateDateAndTime(String str){
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    public String concatenateDateAndTime(String str){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/ddHH:mm:ss");
         Date date = new Date();
-        return str +": "+dateFormat.format(date);
+
+        return str+":"+dateFormat.format(date);
     }
 }

@@ -29,12 +29,13 @@ public class UploadCode extends PageObject{
 
     private final   String OUTPUT_ZIP_FILE = System.getProperty("user.dir")+"\\src\\main\\resources\\code\\TH.zip";
     private final String DYNAMIC_MANIFEST_FILE = System.getProperty("user.dir")+"\\src\\main\\resources\\code\\unzippedApp\\manifest.txt";
+    List<String> manifestValues;
 
     public UploadCode(WebDriver driver) {
         super(driver);
     }
-    public Marketing upload(String zipFile){
-        editManiFest();
+    public Marketing upload(String zipFile, boolean changeNameOfAppUnderManifest){
+        editManiFest(changeNameOfAppUnderManifest);
         replaceFileInZip(DYNAMIC_MANIFEST_FILE);
         //generateFileList(new File(SOURCE_FOLDER));
         this.agreeAndUpload.sendKeys(getFile("code\\" +zipFile));
@@ -52,15 +53,22 @@ public class UploadCode extends PageObject{
         return new Marketing(webDriver);
     }
 
-    private void editManiFest(){
+    private void editManiFest(boolean changeNameOfAppUnderManifest){
+        manifestValues = new ArrayList<>();
         try {
             //Write Content
             FileWriter writer = new FileWriter(DYNAMIC_MANIFEST_FILE);
 //            writer.write("Name: Yossi_"+new Timestamp(System.currentTimeMillis())+"\n" +
             //writer.write("Name: Yossi_"+new Random().nextInt((10000 - 2) + 1) + 2+"\n" +
-            writer.write("Name:newName"+new Random().nextInt((10000 - 2) + 1) + 2);
+            if (changeNameOfAppUnderManifest){
+                String randomAppName = ("newName"+new Random().nextInt((1000 - 2) + 1) + 2);
+                manifestValues.add(randomAppName);
+                writer.write("Name:"+randomAppName);
+            }
             writer.write(System.getProperty("line.separator"));
-            writer.write( "Version: 1.0."+new Random().nextInt((1000 - 2) + 1) + 2);
+            String randomAppVersion = ("1.0."+new Random().nextInt((1000 - 2) + 1) + 2);
+            manifestValues.add(randomAppVersion);
+            writer.write( "Version: "+randomAppVersion);
             writer.write(System.getProperty("line.separator"));
             writer.write("Title: appConfig");
             writer.write(System.getProperty("line.separator"));
@@ -89,5 +97,8 @@ public class UploadCode extends PageObject{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public String getNewVersionFromManifest(){
+        return manifestValues.get(1);
     }
 }

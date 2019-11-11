@@ -335,7 +335,7 @@ public class DevContentTest extends TestBase {
         String expectedUpldBtn = "UPLOAD";
         String actualUpldBtn = driver.findElement(By.id("newAppUploadCode")).getText().trim();
         Assert.assertEquals(actualUpldBtn,expectedUpldBtn);
-        marketing = uploadCode.upload(zipFile);
+        marketing = uploadCode.upload(zipFile,false);
     }
     @Test
     public void _017_add_new_app_marketing_valid_texts() {

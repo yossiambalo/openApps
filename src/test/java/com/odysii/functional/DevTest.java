@@ -53,7 +53,7 @@ public class DevTest extends TestBase {
         int expectedValue = appsSize + 1;
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetailsFromPropFile("app_details.properties");
-        Marketing marketing = uploadCode.upload(zipFile);
+        Marketing marketing = uploadCode.upload(zipFile,false);
         marketing.fillMarketing();
         wait(WAIT);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
@@ -200,7 +200,7 @@ public class DevTest extends TestBase {
         showUp.getAppVersion();
         AppDetails appDetails = new AppDetails(driver);
         UploadCode uploadCode = appDetails.setUpAppDetails("1.0.8");
-        Marketing marketing = uploadCode.upload(zipFile);
+        Marketing marketing = uploadCode.upload(zipFile,false);
         marketing.fillMarketing();
         wait(5000);
         Assert.assertEquals(showUp.getStatus(1).trim(),ApplicationStatus.PRESUBMITTED.getStatus());
