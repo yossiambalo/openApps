@@ -10,6 +10,7 @@ import com.odysii.selenium.page.openApps.admin.UsersPage;
 import com.odysii.selenium.page.openApps.admin.helper.RoleType;
 import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
+import com.odysii.selenium.page.openApps.dev.summary.Availabilty;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
 import com.odysii.selenium.page.openApps.dev.summary.Summary;
 import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;

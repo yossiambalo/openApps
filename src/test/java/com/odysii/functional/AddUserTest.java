@@ -11,8 +11,8 @@ import org.testng.annotations.Test;
 
 
 public class AddUserTest extends TestBase {
-    public final static String ADMIN_USER_NAME_ROI = "roi.avital.odysii@gmail.com";
-    public final static String ADMIN_USER_PASS_ROI = "Aa123456789";
+//    public final static String ADMIN_USER_NAME_ROI = "roi.avital.odysii@gmail.com";
+//    public final static String ADMIN_USER_PASS_ROI = "Aa123456789";
     public final static String DELETE_USER_RELOGIN_SUCCESS_EMAIL = "auto.mazia2@gmail.com";
     public final static String DELETE_USER_RELOGIN_SUCCESS_PASSWORD = "Aa123456";
 
@@ -29,7 +29,7 @@ public class AddUserTest extends TestBase {
 
     @Test
     public void _001_add_new_user() {
-        adminPage = (AdminPage) user.login(ADMIN_USER_NAME_ROI, ADMIN_USER_PASS_ROI, UserType.ADMIN);
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
         UsersPage usersPage = adminPage.getUsersPage();
         addUser = usersPage.getAddNewUserPage();
         addUser.addNewUser("roi", fillEmailAddress, UseRole.PARTY_DEVELOPER_MARKETING_ALL,true,UserDelegations.OPENAPPS_ADMIN);
@@ -220,7 +220,6 @@ public class AddUserTest extends TestBase {
         Assert.assertTrue(res6,"Failed to delete user");
 
         }
-
 }
 
 
