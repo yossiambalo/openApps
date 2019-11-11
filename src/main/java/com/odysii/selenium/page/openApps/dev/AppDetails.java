@@ -115,6 +115,7 @@ public class AppDetails extends PageObject{
 
     public UploadCode setUpAppDetails(String name,String version,String subtitle,String priceType,String price,String availability){
         isElementPresent(this.name);
+        this.name.clear();
         this.name.sendKeys(name);
         this.appVersion.sendKeys(version);
         this.subtitle.sendKeys(subtitle);

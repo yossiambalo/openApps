@@ -1,6 +1,7 @@
 package com.odysii.negative;
 
 import com.odysii.TestBase;
+import com.odysii.functional.Retailer.CertificateManagementTest;
 import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.admin.AdminPage;
@@ -40,7 +41,7 @@ public class MyAppsTest extends TestBase {
         category = "My Apps";
 
     }
-
+//
 //    @Test
 //    public void _001_name_field_is_empty_negative() {
 //        MyApps myApps = devUser.getMyAppsPage(driver);
@@ -184,8 +185,8 @@ public class MyAppsTest extends TestBase {
 //        appDetails = myApps.clickAddNewAppBtn();
 //        UploadCode uploadCode = appDetails.setUpAppDetails("Test Button Upload Code Positive","8.8.18","YNWA",PriceType.PER_DISPENSER_PER_MONTH,"8",Availabilty.PRIVATE);
 //        wait(WAIT);
-//        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
-//        marketing = uploadCode.upload(zipFile);
+////        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
+//        marketing = uploadCode.upload(zipFile, true);
 //        wait(WAIT);
 //        Boolean actualValue = isElementExist(By.id("app-promotion"));
 //        Assert.assertTrue(actualValue,"Moved to marketing page successfully");
@@ -197,7 +198,7 @@ public class MyAppsTest extends TestBase {
 //        appDetails = myApps.clickAddNewAppBtn();
 //        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PRIVATE);
 //        wait(WAIT);
-//        marketing = uploadCode.upload(zipFile);
+//        marketing = uploadCode.upload(zipFile, true);
 //        wait(WAIT);
 //        marketing.fillMarketing("","Stevie G","800x400.png","72-72.jpg", true);
 //        wait(WAIT);
@@ -213,7 +214,7 @@ public class MyAppsTest extends TestBase {
 //        appDetails = myApps.clickAddNewAppBtn();
 //        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PRIVATE);
 //        wait(WAIT);
-//        marketing = uploadCode.upload(zipFile);
+//        marketing = uploadCode.upload(zipFile, true);
 //        wait(WAIT);
 //        marketing.fillMarketing("King Kenny","","800x400.png","72-72.jpg",true);
 //        wait(WAIT);
@@ -229,7 +230,7 @@ public class MyAppsTest extends TestBase {
 //        appDetails = myApps.clickAddNewAppBtn();
 //        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PRIVATE);
 //        wait(WAIT);
-//        marketing = uploadCode.upload(zipFile);
+//        marketing = uploadCode.upload(zipFile,true);
 //        wait(WAIT);
 //        marketing.fillMarketing("PText","fff",null,"72-72.jpg",true);
 //        wait(WAIT);
@@ -245,7 +246,7 @@ public class MyAppsTest extends TestBase {
 //        appDetails = myApps.clickAddNewAppBtn();
 //        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PRIVATE);
 //        wait(WAIT);
-//        marketing = uploadCode.upload(zipFile);
+//        marketing = uploadCode.upload(zipFile,true);
 //        wait(WAIT);
 //        marketing.fillMarketing("King Kenny","Stevie G","800x400.png",null,true);
 //        wait(WAIT);
@@ -256,38 +257,78 @@ public class MyAppsTest extends TestBase {
 //    }
 //
 //    @Test
-//    public void _022_manifest_equal_version(){
+//    public void _022_manifest_version_conflict(){
 //        MyApps myApps = devUser.getMyAppsPage(driver);
 //        appDetails = myApps.clickAddNewAppBtn();
-//        UploadCode uploadCode = appDetails.setUpAppDetails("Name","5.5", "Sub",PriceType.PER_SITE_PER_YEAR, "2",AvailabilityType.PRIVATE);
+//        String uniqueName = concatenateDateAndTime("Lermanovich");
+//        UploadCode uploadCode = appDetails.setUpAppDetails(uniqueName,"5.5", "Sub",PriceType.PER_SITE_PER_YEAR, "2",AvailabilityType.PRIVATE);
 //        wait(WAIT);
-//        marketing = uploadCode.upload(zipFile,false);
+//        marketing = uploadCode.upload(zipFile,true);
 //        wait(WAIT);
 //        boolean actualValue = isElementExist(By.id("app-promotion"));
 //        Assert.assertTrue(actualValue);
 //
 //    }
+//
+//    @Test
+//    public void _023_manifest_name_conflict() {
+//        MyApps myApps = devUser.getMyAppsPage(driver);
+//        appDetails = myApps.clickAddNewAppBtn();
+//        String uniqueName = concatenateDateAndTime("Lerman");
+//        UploadCode uploadCode = appDetails.setUpAppDetails(uniqueName, "5.5", "Sub", PriceType.PER_SITE_PER_YEAR, "2", AvailabilityType.PRIVATE);
+//        wait(WAIT);
+//        marketing = uploadCode.upload(zipFile, true);
+//        wait(WAIT);
+//        marketing.fillMarketing("ww","dd","72-72.jpg","app1.jpg",true);
+//        Boolean actualValue = isElementExist(By.id("app-promotion"));
+//        Assert.assertTrue(actualValue);
+//        WebElement finishBtn = driver.findElement(By.id("finishButton"));
+//        scrollDown(finishBtn);
+//        wait(WAIT);
+//        finishBtn.click();
+//        wait(WAIT);
+//        appDetails = myApps.clickAddNewAppBtn();
+//        uploadCode = appDetails.setUpAppDetails(uniqueName, "5.5", "Sub", PriceType.PER_SITE_PER_YEAR, "2", AvailabilityType.PRIVATE);
+//        wait(WAIT);
+//        String actualValue2 = driver.findElement(By.className(("invalid-feedback-multiple"))).getText();
+//        String expectedValue = "Name already in use.";
+//        Assert.assertEquals(actualValue2,expectedValue);
+//        WebElement cancel = driver.findElement(By.id("cancelButton"));
+//        cancel.click();
+//
+//    }
 
     @Test
-    public void _023_manifest_name_conflict() {
+    public void _024_right_version_display_after_conflict_from_manifest(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("uniqueName", "5.5", "Sub", PriceType.PER_SITE_PER_YEAR, "2", AvailabilityType.PRIVATE);
+        String uniqueName = concatenateDateAndTime("Sr Mil");
+        UploadCode uploadCode = appDetails.setUpAppDetails(uniqueName,"10","sub", PriceType.PER_DISPENSER_PER_MONTH, "22",Availabilty.PRIVATE);
         wait(WAIT);
         marketing = uploadCode.upload(zipFile, true);
-        wait(WAIT);
         marketing.fillMarketing("ww","dd","72-72.jpg","app1.jpg",true);
-        Boolean actualValue = isElementExist(By.id("app-promotion"));
-        Assert.assertTrue(actualValue);
-        WebElement cancelBtn = driver.findElement(By.id("finishButton"));
-        scrollDown(cancelBtn);
+        WebElement finishBtn = driver.findElement(By.id("finishButton"));
+        scrollDown(finishBtn);
         wait(WAIT);
-        cancelBtn.click();
-        wait(WAIT);
+        finishBtn.click();
+
+        List<WebElement> appsList = driver.findElements(By.className("cx-image-holder-lg"));
+        int appsSize = appsList.size();
+        appsList.get(appsSize -1).click();
+
+        }
+
+    //@Test
+    public void _025_upload_zip_without_name_after_name_conflict(){
+        MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        uploadCode = appDetails.setUpAppDetails("uniqueName2", "5.5", "Sub", PriceType.PER_SITE_PER_YEAR, "2", AvailabilityType.PRIVATE);
+        UploadCode uploadCode = appDetails.setUpAppDetails("d","3","dd0",PriceType.PER_SITE_PER_YEAR, "44",Availabilty.PRIVATE);
+        marketing = uploadCode.upload(zipFile,true);
         wait(WAIT);
-        marketing = uploadCode.upload(zipFile, false);
+        uploadCode.upload(zipFile2,false);
+        String expectedValue = "Modify application name in manifest file and try again.";
+        String actualValue = driver.findElement(By.xpath("(//p[contains(text()= 'Modify application name in manifest file and try again.')]")).getText();
+        Assert.assertEquals(expectedValue,actualValue);
 
 
     }
