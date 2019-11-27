@@ -23,6 +23,7 @@ public class AccountTest extends TestBase {
     public void prepare(){
         category = "Accounts";
     }
+
     @Test
     public void _001_verify_dev_user_with_role_1_has_only_its_permissions() {
         //Assert.assertTrue(updateUser(1),"Failed to update user role!");

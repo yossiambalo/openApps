@@ -1,5 +1,5 @@
-Name:newName57182
-Version: 1.0.9202
+
+Version: 1.0.3552
 Title: appConfig
 Description: application showing config details
 Author: ss

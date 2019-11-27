@@ -27,7 +27,7 @@ public class UploadCode extends PageObject{
     @FindBy(xpath = "//button[contains(text(), 'FROM PACKAGE')]")
     WebElement fromManiFestBtn;
 
-    private final   String OUTPUT_ZIP_FILE = System.getProperty("user.dir")+"\\src\\main\\resources\\code\\TH.zip";
+    private final String OUTPUT_ZIP_FILE = System.getProperty("user.dir")+"\\src\\main\\resources\\code\\TH.zip";
     private final String DYNAMIC_MANIFEST_FILE = System.getProperty("user.dir")+"\\src\\main\\resources\\code\\unzippedApp\\manifest.txt";
     List<String> manifestValues;
 

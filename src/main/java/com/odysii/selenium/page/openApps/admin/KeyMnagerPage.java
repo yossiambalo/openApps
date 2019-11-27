@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.awt.*;
+import java.util.List;
 
 public class KeyMnagerPage extends PageObject {
     private final String SUCCESS_MESSAGE = "successfully";
@@ -37,10 +38,18 @@ public class KeyMnagerPage extends PageObject {
     @FindBy (id = "siteSelectionAccordion")
     private WebElement siteSelectionAccordion;
 
+    @FindBy(css =".my-3 > input")
+    private List<WebElement> uploadZipFile;
+
+//    @FindBy (xpath = "//button[contains(text(), 'Test Sign')]")
+//    private WebElement uploadZipFile;
+
+
 
     public KeyMnagerPage(WebDriver driver) {
         super(driver);
     }
+
     public boolean generate(EnviromentType enviromentType) {
 
         boolean revokeText = false;
@@ -124,6 +133,20 @@ public class KeyMnagerPage extends PageObject {
     }
     public void deployToAllKeyManage(){
         isElementPresent(siteSelectionAccordion.findElements(By.xpath("nav-item")).get(0));
+
+    }
+
+    public void revokeProd(){
+        revokeProdKeys.click();
+
+    }
+
+    public void revokeTest(){
+        revokeTestKeys.click();
+    }
+
+    public void uploadZip(String nameOfZip, int index){
+        uploadZipFile.get(index).sendKeys(getFile("code\\" + nameOfZip));
 
     }
 
