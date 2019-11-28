@@ -215,7 +215,7 @@ public class TestBase {
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetailsFromPropFile(propFile);
         wait(WAIT);
-        Marketing marketing = uploadCode.upload(zipFile,false);
+        Marketing marketing = uploadCode.upload(zipFile,true);
         marketing.fillMarketing();
         wait(WAIT);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));

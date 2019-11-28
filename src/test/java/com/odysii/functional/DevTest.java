@@ -40,7 +40,7 @@ public class DevTest extends TestBase {
         category = "Dev";
     }
 
-    @Test(priority = 1)
+    @Test//(priority = 1)
     public void _001_valid_add_new_app() {
         //get number of live apps from retailer page
         retailerHomePage.getAppStore();
@@ -53,7 +53,7 @@ public class DevTest extends TestBase {
         int expectedValue = appsSize + 1;
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         UploadCode uploadCode = appDetails.setUpAppDetailsFromPropFile("app_details.properties");
-        Marketing marketing = uploadCode.upload(zipFile,false);
+        Marketing marketing = uploadCode.upload(zipFile,true);
         marketing.fillMarketing();
         wait(WAIT);
         actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
@@ -140,7 +140,7 @@ public class DevTest extends TestBase {
         Assert.assertEquals(devSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.REJECT.getStatus().toLowerCase(),"Status should be Rejected but found "+devSupportTicket.getAppStatus()+" in dev page!");
     }
 
-    @Test(priority = 4)
+    @Test//(priority = 4)
     public void _004_edit_and_certify_and_go_live() {
         myApps = devUser.getMyAppsPage(driver);
         wait(WAIT);
@@ -178,7 +178,7 @@ public class DevTest extends TestBase {
         Assert.assertEquals(devSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.APPROVED.getStatus().toLowerCase(),"Status should be Approved but found "+devSupportTicket.getAppStatus()+" in dev page!");
         user.logout();
     }
-    @Test(priority = 5)
+    @Test//(priority = 5)
     public void _005_valid_app_add_to_app_store(){
         try {
             //Valid app added to retailer store
@@ -192,7 +192,7 @@ public class DevTest extends TestBase {
             user.logout();
         }
     }
-    @Test(priority = 6)
+    @Test//(priority = 6)
     public void _006_valid_add_new_version_to_application(){
         DevHomePage devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         MyApps myApps = devUser.getMyAppsPage(driver);
@@ -200,10 +200,10 @@ public class DevTest extends TestBase {
         showUp.getAppVersion();
         AppDetails appDetails = new AppDetails(driver);
         UploadCode uploadCode = appDetails.setUpAppDetails("1.0.8");
-        Marketing marketing = uploadCode.upload(zipFile,false);
+        Marketing marketing = uploadCode.upload(zipFile,true);
         marketing.fillMarketing();
         wait(5000);
-        Assert.assertEquals(showUp.getStatus(1).trim(),ApplicationStatus.PRESUBMITTED.getStatus());
+        Assert.assertEquals(showUp.getStatus(0).trim(),ApplicationStatus.PRESUBMITTED.getStatus());
     }
     @AfterClass
     public void clean(){

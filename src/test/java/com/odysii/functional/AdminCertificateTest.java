@@ -30,7 +30,7 @@ public class AdminCertificateTest extends TestBase {
         category = "Admin Certificate";
     }
 
-    @Test(priority = 1)
+    @Test//(priority = 1)
     public void _001_valid_edit_users_in_admin_console(){
         user = new User(driver);
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
@@ -44,7 +44,7 @@ public class AdminCertificateTest extends TestBase {
         Assert.assertTrue(true);
     }
 
-    @Test(priority = 2)
+    @Test//(priority = 2)
     public void _002_valid_generate_key(){
         user = new User(driver);
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
@@ -53,7 +53,7 @@ public class AdminCertificateTest extends TestBase {
         Assert.assertTrue(keyMnagerPage.generate(EnviromentType.PROD));
     }
 
-    @Test(priority = 3)
+    @Test//(priority = 3)
     public void _003_valid_download_key(){
         if(!driver.getCurrentUrl().contains(CURRENT_PAGE_INDICATOR)){
             user = new User(driver);
@@ -73,7 +73,7 @@ public class AdminCertificateTest extends TestBase {
         Assert.assertTrue(fileHandler.isFileExist(fileSize[0].toString()));
     }
 
-    @Test(priority = 4)
+    @Test//(priority = 4)
     public void _004_valid_upload_key_omnia(){
         if(!driver.getCurrentUrl().contains(CURRENT_PAGE_INDICATOR)){
             user = new User(driver);
@@ -84,7 +84,7 @@ public class AdminCertificateTest extends TestBase {
         Assert.assertTrue(keyMnagerPage.uploadOmnia(EnviromentType.PROD, new File(GENERATED_KEY_FILE_DIR).listFiles()[0].toString()));
     }
 
-    @Test(priority = 5)
+    @Test//(priority = 5)
     public void _005_valid_upload_key_gesom(){
         if(!driver.getCurrentUrl().contains(CURRENT_PAGE_INDICATOR)){
             user = new User(driver);
@@ -96,7 +96,7 @@ public class AdminCertificateTest extends TestBase {
     }
 
     @AfterClass
-    public void clean(){
+    public void tearDown(){
         if (fileHandler != null){
             fileHandler.deleteFile(new File(GENERATED_KEY_FILE_DIR).listFiles()[0].toString());
         }
