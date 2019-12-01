@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.*;
@@ -101,4 +102,6 @@ public class UploadCode extends PageObject{
     public String getNewVersionFromManifest(){
         return manifestValues.get(1);
     }
+
+
 }
