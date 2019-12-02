@@ -31,7 +31,6 @@ public class CertificateManagementTest extends TestBase {
     private static final String UPLOAD_FAILED_ERROR = "Failed to upload deb file!";
 
 
-
     @BeforeClass
     public void prepare(){
         category = "Certificate Management";
