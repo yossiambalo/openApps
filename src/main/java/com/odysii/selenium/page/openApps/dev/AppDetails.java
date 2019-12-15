@@ -84,7 +84,7 @@ public class AppDetails extends PageObject{
     public AppDetails(WebDriver driver) {
         super(driver);
     }
-    public UploadCode setUpAppDetailsFromPropFile(String propFile){
+    public Dependencies setUpAppDetailsFromPropFile(String propFile){
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         PropertyLoader loader = new PropertyLoader();
@@ -110,7 +110,7 @@ public class AppDetails extends PageObject{
         scrollDown(next);
         isElementPresent(next);
         this.next.click();
-        return new UploadCode(webDriver);
+        return new Dependencies(webDriver);
     }
 
     public UploadCode setUpAppDetails(String name,String version,String subtitle,String priceType,String price,String availability){

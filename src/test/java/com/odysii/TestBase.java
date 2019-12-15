@@ -213,8 +213,11 @@ public class TestBase {
         int appsSize = appsList.size();
         int expectedValue = appsSize+1;
         AppDetails appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetailsFromPropFile(propFile);
+        Dependencies dependencies = appDetails.setUpAppDetailsFromPropFile(propFile);
         wait(WAIT);
+        dependencies.checkApplication();
+        dependencies.selectVersion();
+        UploadCode uploadCode = dependencies.clickOnNextButton();
         Marketing marketing = uploadCode.upload(zipFile,true);
         marketing.fillMarketing();
         wait(WAIT);

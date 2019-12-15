@@ -41,7 +41,7 @@ public class MarketingTest extends TestBase {
         AppDetails appDetails = new AppDetails(driver);
         UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
         wait(3000);
-        Marketing marketing = uploadCode.upload(zipFile,false);
+        Marketing marketing = uploadCode.upload(zipFile,true);
         driver.findElement(By.id("app-promotion")).sendKeys(Keys.CONTROL + "a");
         driver.findElement(By.id("app-promotion")).sendKeys(Keys.DELETE);
         wait(WAIT);
@@ -67,7 +67,7 @@ public class MarketingTest extends TestBase {
         wait(3000);
         UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
         wait(WAIT);
-        Marketing marketing = uploadCode.upload(zipFile,false);
+        Marketing marketing = uploadCode.upload(zipFile,true);
         driver.findElement(By.id("app-keywords")).sendKeys(Keys.CONTROL + "a");
         driver.findElement(By.id("app-keywords")).sendKeys(Keys.DELETE);
         wait(WAIT);
@@ -92,7 +92,7 @@ public class MarketingTest extends TestBase {
         AppDetails appDetails = new AppDetails(driver);
         UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
         wait(3000);
-        Marketing marketing = uploadCode.upload(zipFile,false);
+        Marketing marketing = uploadCode.upload(zipFile,true);
         wait(WAIT);
         marketing.fillMarketing("Promotion Text","Key Words","800x400.png",null,false);
         wait(WAIT);

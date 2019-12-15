@@ -21,6 +21,7 @@ public class AccountTest extends TestBase {
 
     @BeforeClass
     public void prepare(){
+        //deleteAllApps();
         category = "Accounts";
     }
     @Test

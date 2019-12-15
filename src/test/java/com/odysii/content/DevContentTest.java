@@ -320,7 +320,10 @@ public class DevContentTest extends TestBase {
         if (! browserName.equals("microsoftedge")) {
             prcDrpDwn.click();
         }
-        uploadCode = appDetails.setUpAppDetailsFromPropFile("app_details.properties");
+        Dependencies dependencies = appDetails.setUpAppDetailsFromPropFile("app_details.properties");
+        dependencies.checkApplication();
+        dependencies.selectVersion();
+        uploadCode = dependencies.clickOnNextButton();
 
 
 
@@ -335,7 +338,7 @@ public class DevContentTest extends TestBase {
         String expectedUpldBtn = "UPLOAD";
         String actualUpldBtn = driver.findElement(By.id("newAppUploadCode")).getText().trim();
         Assert.assertEquals(actualUpldBtn,expectedUpldBtn);
-        marketing = uploadCode.upload(zipFile,false);
+        marketing = uploadCode.upload(zipFile,true);
     }
     @Test
     public void _017_add_new_app_marketing_valid_texts() {
