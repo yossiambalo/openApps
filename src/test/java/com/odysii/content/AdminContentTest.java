@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 public class AdminContentTest extends TestBase {
     AdminPage adminPage;
+
     @BeforeClass
     public void login(){
         user = new User(driver);

@@ -176,15 +176,107 @@ public class CertificateManagementTest extends TestBase {
         boolean expectedValue2 = driver.findElement(By.id("deploySignedKeysButtonTest")).isEnabled();
         Assert.assertFalse(expectedValue2);
 
+    }
 
+    @Test
+    public void _009_signing_service_test_environment_available_and_download_verifying(){
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+        retailersPage = adminPage.getRetailersPage();
+        keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
+        KeyMnagerPage keyMnagerPage = new KeyMnagerPage(driver);
+        keyMnagerPage.generate(EnviromentType.TEST);
+        user.logout();
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+        retailerHomePage.getKeysMGMT();
+        boolean expectedValue = driver.findElement(By.xpath("//*[contains(text(), 'Test Sign')]")).isEnabled();
+        Assert.assertTrue(expectedValue);
+
+        keyMnagerPage.uploadZipForSign(EnviromentType.TEST,"ERER.zip");
+        wait(WAIT);
+        boolean isExistInDownloads = keyMnagerPage.isFileDownloaded(KEY_FILE_LOCATION,"ERER");
+        wait(WAIT);
+        Assert.assertTrue(isExistInDownloads);
+
+    }
+
+    @Test
+    public void _010_signing_service_test_environment_not_available_after_revoke(){
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+        retailersPage = adminPage.getRetailersPage();
+        keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
+        KeyMnagerPage keyMnagerPage = new KeyMnagerPage(driver);
+        keyMnagerPage.revokeTest();
+        user.logout();
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+        retailerHomePage.getKeysMGMT();
+        boolean expectedValue = driver.findElement(By.xpath("//*[contains(text(), 'Test Sign')]")).isEnabled();
+        Assert.assertFalse(expectedValue);
+
+    }
+
+    @Test
+    public void _011_signing_service_prod_environment_available_and_download_verifying(){
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+        retailersPage = adminPage.getRetailersPage();
+        keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
+        KeyMnagerPage keyMnagerPage = new KeyMnagerPage(driver);
+        keyMnagerPage.generate(EnviromentType.PROD);
+        user.logout();
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+        retailerHomePage.getKeysMGMT();
+        boolean expectedValue = driver.findElement(By.xpath("//*[contains(text(), 'PROD Sign')]")).isEnabled();
+        Assert.assertTrue(expectedValue);
+
+        keyMnagerPage.uploadZipForSign(EnviromentType.PROD,"ERER.zip");
+        wait(WAIT);
+        boolean isExistInDownloads = keyMnagerPage.isFileDownloaded(KEY_FILE_LOCATION,"ERER");
+        wait(WAIT);
+        Assert.assertTrue(isExistInDownloads);
+
+    }
+
+    @Test
+    public void _012_signing_service_prod_environment_not_available_after_revoke(){
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+        retailersPage = adminPage.getRetailersPage();
+        keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
+        KeyMnagerPage keyMnagerPage = new KeyMnagerPage(driver);
+        keyMnagerPage.revokeProd();
+        user.logout();
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+        retailerHomePage.getKeysMGMT();
+        boolean expectedValue = driver.findElement(By.xpath("//*[contains(text(), 'PROD Sign')]")).isEnabled();
+        Assert.assertFalse(expectedValue);
+
+    }
+
+    @Test
+    public void _013_sign_service_error_messages_invalid_manifest_file(){
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS,UserType.ADMIN);
+        retailersPage = adminPage.getRetailersPage();
+        keyMnagerPage = retailersPage.editRetailer(RetailerName.SHELL);
+        KeyMnagerPage keyMnagerPage = new KeyMnagerPage(driver);
+        keyMnagerPage.generate(EnviromentType.TEST);
+        user.logout();
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+        retailerHomePage.getKeysMGMT();
+        boolean expectedValue = driver.findElement(By.xpath("//*[contains(text(), 'Test Sign')]")).isEnabled();
+        Assert.assertTrue(expectedValue);
+
+        keyMnagerPage.uploadZipForSign(EnviromentType.TEST,"manifestWithoutName.zip");
+        keyMnagerPage.getErrorMsg();
+        String actualValue = keyMnagerPage.getErrorMsg();
+        String expectedValue2 = "Sign failed, reason: Server error, please make sure package contains a valid manifest file.";
+        Assert.assertEquals(actualValue,expectedValue2);
 
     }
 
 
     @AfterMethod
-    public void deleteKeyFile(){
+    public void deleteKeyFile() {
         fileHandler.deleteFolderContent(new File(KEY_FILE_LOCATION));
 
+        }
     }
 
-}
+

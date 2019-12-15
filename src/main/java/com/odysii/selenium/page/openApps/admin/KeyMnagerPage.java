@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.awt.*;
+import java.io.File;
+import java.util.List;
 
 public class KeyMnagerPage extends PageObject {
     private final String SUCCESS_MESSAGE = "successfully";
@@ -36,11 +38,27 @@ public class KeyMnagerPage extends PageObject {
     private WebElement footerMessage;
     @FindBy (id = "siteSelectionAccordion")
     private WebElement siteSelectionAccordion;
+    @FindBy(id = "sign_prod_input")
+    private WebElement singProd;
+    @FindBy(id = "sign_test_input")
+    private WebElement signTest;
+    @FindBy(xpath = ("//span[contains(text(), 'Sign failed, reason: Server error, please make sure package contains a valid manifest file.')]"))
+    private WebElement errorMessageSignService;
+
+
+
+//    @FindBy(css =".my-3 > input")
+//    private List<WebElement> uploadZipFile;
+
+//    @FindBy (xpath = "//button[contains(text(), 'Test Sign')]")
+//    private WebElement uploadZipFile;
+
 
 
     public KeyMnagerPage(WebDriver driver) {
         super(driver);
     }
+
     public boolean generate(EnviromentType enviromentType) {
 
         boolean revokeText = false;
@@ -125,6 +143,50 @@ public class KeyMnagerPage extends PageObject {
     public void deployToAllKeyManage(){
         isElementPresent(siteSelectionAccordion.findElements(By.xpath("nav-item")).get(0));
 
+    }
+
+    public void revokeProd(){
+        revokeProdKeys.click();
+
+    }
+
+    public void revokeTest(){
+        revokeTestKeys.click();
+    }
+
+//    public void uploadZip(String nameOfZip, int index){
+//        uploadZipFile.get(index).sendKeys(getFile("code\\" + nameOfZip));
+//
+//    }
+
+    public void uploadZipForSign(EnviromentType enviromentType, String nameOfZip){
+        if (enviromentType.equals(EnviromentType.TEST)){
+            signTest.sendKeys(getFile("code\\" + nameOfZip));
+        }
+        else
+            singProd.sendKeys(getFile("code\\" + nameOfZip));
+    }
+
+    public boolean isFileDownloaded(String downloadPath, String fileName) {
+        File dir = new File(downloadPath);
+        File[] dirContents = dir.listFiles();
+
+        for (int i = 0; i < dirContents.length; i++) {
+            if (dirContents[i].getName().contains(fileName)) {
+                dirContents[i].delete();
+                return true;
+            }
+
+        }
+
+        return false;
+
+    }
+
+    public String getErrorMsg(){
+        String x = errorMessageSignService.getText();
+
+        return x;
     }
 
 }
