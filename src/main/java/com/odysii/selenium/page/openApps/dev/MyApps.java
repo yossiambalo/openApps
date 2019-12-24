@@ -22,8 +22,12 @@ public class MyApps extends PageObject {
         super(driver);
     }
     public AppDetails clickAddNewAppBtn(){
-        isElementPresent(addNewApp);
-        this.addNewApp.click();
+        try {
+            isElementPresent(addNewApp);
+            this.addNewApp.click();
+        }catch (Exception e){
+            return null;
+        }
         return new AppDetails(webDriver);
     }
     public ShowUp showUp(int appIndex){

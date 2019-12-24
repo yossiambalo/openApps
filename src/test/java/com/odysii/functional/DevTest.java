@@ -12,6 +12,7 @@ import com.odysii.selenium.page.openApps.dev.*;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
 import com.odysii.selenium.page.openApps.dev.summary.Summary;
+import com.odysii.selenium.page.openApps.helper.appDetails.AvailabilityType;
 import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
 import com.odysii.selenium.page.util.RequestHelper;
 import org.openqa.selenium.By;
@@ -39,7 +40,7 @@ public class DevTest extends TestBase {
         category = "Dev";
     }
 
-    @Test//(priority = 1)
+    //@Test//(priority = 1)
     public void _001_valid_add_new_app() {
         //get number of live apps from retailer page
         retailerHomePage.getAppStore();
@@ -52,8 +53,8 @@ public class DevTest extends TestBase {
         int expectedValue = appsSize + 1;
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         Dependencies dependencies = appDetails.setUpAppDetailsFromPropFile("app_details.properties");
-        dependencies.checkApplication();
-        dependencies.selectVersion();
+        //dependencies.checkApplication();
+        //dependencies.selectVersion();
         UploadCode uploadCode = dependencies.clickOnNextButton();
         Marketing marketing = uploadCode.upload(zipFile,true);
         marketing.fillMarketing();
@@ -65,7 +66,7 @@ public class DevTest extends TestBase {
         Assert.assertTrue(myApps.getDescription(actualValue - 1).toLowerCase().contains(appDetails.getAppDescription().toLowerCase()));
     }
 
-    @Test(priority = 2, enabled = false)//Not supported anymore
+    //@Test(priority = 2, enabled = false)//Not supported anymore
     public void _002_valid_app_reject_no_fee() {
         //get the created app
         ShowUp showUp = myApps.showUp(actualAppList.get(actualValue - 1));
@@ -100,7 +101,7 @@ public class DevTest extends TestBase {
         //showUp.backToMyApps();
     }
 
-    @Test(priority = 3,enabled = false)
+    //@Test(priority = 3,enabled = false)
     public void _003_valid_reject_with_fee() {
         user.logout();
         devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
@@ -142,7 +143,7 @@ public class DevTest extends TestBase {
         Assert.assertEquals(devSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.REJECT.getStatus().toLowerCase(),"Status should be Rejected but found "+devSupportTicket.getAppStatus()+" in dev page!");
     }
 
-    @Test//(priority = 4)
+    //@Test//(priority = 4)
     public void _004_edit_and_certify_and_go_live() {
         myApps = devUser.getMyAppsPage(driver);
         wait(WAIT);
@@ -180,7 +181,7 @@ public class DevTest extends TestBase {
         Assert.assertEquals(devSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.APPROVED.getStatus().toLowerCase(),"Status should be Approved but found "+devSupportTicket.getAppStatus()+" in dev page!");
         user.logout();
     }
-    @Test//(priority = 5)
+    //@Test//(priority = 5)
     public void _005_valid_app_add_to_app_store(){
         try {
             //Valid app added to retailer store
@@ -194,18 +195,58 @@ public class DevTest extends TestBase {
             user.logout();
         }
     }
-    @Test//(priority = 6)
+    //@Test//(priority = 6)
     public void _006_valid_add_new_version_to_application(){
         DevHomePage devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         MyApps myApps = devUser.getMyAppsPage(driver);
         ShowUp showUp = myApps.showUp(driver.findElements(By.className(APP_CLASS_NAME)).size() - 1);
         showUp.getAppVersion();
         AppDetails appDetails = new AppDetails(driver);
-        UploadCode uploadCode = appDetails.setUpAppDetails("1.0.8");
+        Dependencies dependencies = appDetails.setUpAppDetails("1.0.8");
+        UploadCode uploadCode = dependencies.clickOnNextButton();
         Marketing marketing = uploadCode.upload(zipFile,true);
         marketing.fillMarketing();
         wait(5000);
-        Assert.assertEquals(showUp.getStatus(0).trim(),ApplicationStatus.PRESUBMITTED.getStatus());
+        Assert.assertEquals(showUp.getStatus(1).trim(),ApplicationStatus.PRESUBMITTED.getStatus());
+    }
+    @Test
+    public void _007_valid_create_dependent_application_designer_drag_and_drop(){
+        /**
+         * Create dependent application
+         */
+        String appName = (Math.random() * ((1000 - 1) + 1)) + 1+"DependentApp";
+        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+        MyApps myApps = devUser.getMyAppsPage(driver);
+        AppDetails appDetails = myApps.clickAddNewAppBtn();
+        Dependencies dependencies = appDetails.setUpAppDetails(appName,"1.0.2.2","It is dependent app",PriceType.PER_SITE_PER_YEAR,"4", AvailabilityType.PUBLIC);
+        Assert.assertNotNull(dependencies,"Failed to set up app details!");
+        dependencies.checkApplication();
+        String coreAppTitle = dependencies.getDependencyAppName();
+        UploadCode uploadCode = dependencies.clickOnNextButton();
+        Marketing marketing = uploadCode.upload(zipFile,true);
+        marketing.fillMarketing();
+        wait(WAIT);
+        actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        actualValue = actualAppList.size();
+        ShowUp showUp = myApps.showUp(actualAppList.get(actualValue - 1));
+        showUp.certify();
+        wait(WAIT);
+        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(), showUp.getStatus().trim());
+        user.logout();
+        //Admin approve
+        AdminPage adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
+        SupportTicket adminSupportTicket = adminPage.getSupportTicketsLink();
+        adminSupportTicket.approve();
+        adminSupportTicket.backToSupportTicket();
+        Assert.assertEquals(adminSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.APPROVED.getStatus().toLowerCase(),"Status should be Approved but found "+adminSupportTicket.getAppStatus()+" in admin page!");
+        user.logout();
+        devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
+        myApps = devUser.getMyAppsPage(driver);
+        actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        actualValue = actualAppList.size();
+        showUp = myApps.showUp(actualAppList.get(actualValue - 1));
+        showUp.addApplicationToStore();
+
     }
     @AfterClass
     public void clean(){

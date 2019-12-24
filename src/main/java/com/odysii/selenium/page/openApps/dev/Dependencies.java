@@ -16,6 +16,8 @@ public class Dependencies extends PageObject {
     private List<WebElement> radioBtnElm;
     @FindBy(id = "multiSelect_appId_11780")
     private WebElement selectAppVersionElm;
+    @FindBy(css = ".col-7 .cx-card-title")
+    private List<WebElement> appTitleName;
 
     @FindBy(xpath = "//ng-multiselect-dropdown[contains(@id, 'multiSelect_appId_')]")
     private List<WebElement> selectVersions;
@@ -48,9 +50,10 @@ public class Dependencies extends PageObject {
      * take radio button index
      */
     public void checkApplication(){
-        WebElement firstRadioBtn = radioBtnElm.get(0);
-        if (!firstRadioBtn.getAttribute("class").contains("checked")){
-            firstRadioBtn.click();
+        if (isElementPresent(radioBtnElm.get(0))) {
+            if (!radioBtnElm.get(0).getAttribute("class").contains("checked")) {
+                radioBtnElm.get(0).click();
+            }
         }
     }
 
@@ -58,10 +61,9 @@ public class Dependencies extends PageObject {
      * Method: selects the second version by default
      */
     public void selectVersion(){
-        WebElement firstVersionElm = selectVersions.get(0);
-        if (isElementPresent(firstVersionElm)){
-            firstVersionElm.click();
-            firstVersionElm.findElements(By.tagName("li")).get(2).click();
+        if (isElementPresent(selectVersions.get(0))){
+            selectVersions.get(0).click();
+            selectVersions.get(0).findElements(By.tagName("li")).get(2).click();
         }
     }
     public UploadCode clickOnNextButton(){
@@ -69,5 +71,9 @@ public class Dependencies extends PageObject {
             nextButton.click();
         }
         return new UploadCode(webDriver);
+    }
+    public String getDependencyAppName(){
+       isElementPresent(appTitleName.get(0));
+        return appTitleName.get(0).getText();
     }
 }

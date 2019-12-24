@@ -46,7 +46,7 @@ public class MyAppsTest extends TestBase {
     public void _001_name_field_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("","1.2.5","Subtitle",PriceType.PER_SITE_PER_YEAR,"3",Availabilty.PRIVATE);
+        appDetails.setUpAppDetails("","1.2.5","Subtitle",PriceType.PER_SITE_PER_YEAR,"3",AvailabilityType.PUBLIC);
         //String expectedValue ="custom-file-input";
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory name field");
@@ -56,7 +56,7 @@ public class MyAppsTest extends TestBase {
     public void _002_subtitle_field_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("Roi", "1.0.2","", PriceType.ON_TIME_FLAT_FEE, "5", Availabilty.PUBLIC);
+        appDetails.setUpAppDetails("Roi", "1.0.2","", PriceType.ON_TIME_FLAT_FEE, "5", AvailabilityType.PUBLIC);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory subtitle field ");
     }
@@ -65,7 +65,7 @@ public class MyAppsTest extends TestBase {
     public void _003_language_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("Yossi","1.0.2", "Arau", CategoryType.SPORTS, AvailabilityType.PRIVATE, RetailerType.MOBILE);
+        appDetails.setUpAppDetails("Yossi","1.0.2", "Arau", CategoryType.SPORTS, "6",AvailabilityType.PRIVATE);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory language field");
     }
@@ -74,7 +74,7 @@ public class MyAppsTest extends TestBase {
     public void _004_category_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("Liron","1.0.2", "IT", PriceType.PER_DISPENSER_PER_YEAR,"3",Availabilty.PRIVATE);
+        appDetails.setUpAppDetails("Liron","1.0.2", "IT", PriceType.PER_DISPENSER_PER_YEAR,"3",AvailabilityType.PRIVATE);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory category field");
     }
@@ -89,11 +89,11 @@ public class MyAppsTest extends TestBase {
 
     }
 
-    @Test (enabled = false)
+    //@Test (enabled = false)
     public void _008_retailer_is_empty_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("Evgeny", "1.0.2","Lev", CategoryType.SPORTS, AvailabilityType.PRIVATE, "");
+        //appDetails.setUpAppDetails("Evgeny", "1.0.2","Lev", CategoryType.SPORTS, AvailabilityType.PRIVATE, null);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of mandatory retailer field");
     }
@@ -103,7 +103,7 @@ public class MyAppsTest extends TestBase {
     public void _009_name_field_length_257_chars_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567", "1.0.2","Max is 256 chars", PriceType.PER_DISPENSER_PER_YEAR,"3",Availabilty.PRIVATE);
+        appDetails.setUpAppDetails("12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567", "1.0.2","Max is 256 chars", PriceType.PER_DISPENSER_PER_YEAR,"3",AvailabilityType.PRIVATE);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Test failed - no validation of max characters in name field");
     }
@@ -112,7 +112,7 @@ public class MyAppsTest extends TestBase {
     public void _010_subtitle_field_length_255_chars_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567", "1.0.2","Max is 256 chars",PriceType.PER_DISPENSER_PER_YEAR,"3",Availabilty.PRIVATE);
+        appDetails.setUpAppDetails("345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567", "1.0.2","Max is 256 chars",PriceType.PER_DISPENSER_PER_YEAR,"3",AvailabilityType.PRIVATE);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertTrue(actualValue, "Subtitle can contain 255 chars");
     }
@@ -121,7 +121,7 @@ public class MyAppsTest extends TestBase {
     public void _011_valid_name_field_special_chars_negative() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("@!*#$%!","1.0.2", "+-/*",PriceType.ON_TIME_FLAT_FEE,"77",Availabilty.PUBLIC);
+        appDetails.setUpAppDetails("@!*#$%!","1.0.2", "+-/*",PriceType.ON_TIME_FLAT_FEE,"77",AvailabilityType.PUBLIC);
         Boolean actualValue = isElementExist(By.id("newAppUploadCode"));
         Assert.assertFalse(actualValue, "Test failed - no validation of special characters in name field");
     }
@@ -141,7 +141,7 @@ public class MyAppsTest extends TestBase {
     public void _013_language_input_name_field_chinese_128_chars_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对断对","1.0.2", "Max is 256 chars",PriceType.PER_DISPENSER_PER_YEAR,"66",Availabilty.PRIVATE);
+        appDetails.setUpAppDetails("品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对品卞光郎竹彡助断对断对","1.0.2", "Max is 256 chars",PriceType.PER_DISPENSER_PER_YEAR,"66",AvailabilityType.PRIVATE);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Japanese is supported");
     }
@@ -150,7 +150,7 @@ public class MyAppsTest extends TestBase {
     public void _014_language_input_subtitle_field_hebrew_128_chars_positive() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("hebrew test","1.0.2", "אני כותב טקסט בעברית... פםדחגפסךןקג]םח ]םחקגךלמאני כותב טקסט בעברית... פםדחגפסךןקג]םח ]םחקגךלמאני כותב טקסט בעברית... פםדחגפסךן",PriceType.PER_SITE_PER_YEAR,"3",Availabilty.PRIVATE);
+        appDetails.setUpAppDetails("hebrew test","1.0.2", "אני כותב טקסט בעברית... פםדחגפסךןקג]םח ]םחקגךלמאני כותב טקסט בעברית... פםדחגפסךןקג]םח ]םחקגךלמאני כותב טקסט בעברית... פםדחגפסךן",PriceType.PER_SITE_PER_YEAR,"3",AvailabilityType.PRIVATE);
         Boolean actualValue = isElementExist(By.className("custom-file-input"));
         Assert.assertFalse(actualValue, "Hebrew is supported");
     }
@@ -159,7 +159,7 @@ public class MyAppsTest extends TestBase {
     public void _015_back_button_upload_code(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("test","1.0.2", "scvs",PriceType.PER_DISPENSER_PER_YEAR,"3",Availabilty.PRIVATE);
+        appDetails.setUpAppDetails("test","1.0.2", "scvs",PriceType.PER_DISPENSER_PER_YEAR,"3",AvailabilityType.PRIVATE);
         WebElement backButton = driver.findElement(By.id("previousButton"));
         backButton.click();
         wait(WAIT);
@@ -171,7 +171,7 @@ public class MyAppsTest extends TestBase {
     public void _016_cancel_button_upload_code_page() {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        appDetails.setUpAppDetails("test2","1.0.2", "scdvdvs", PriceType.PER_DISPENSER_PER_YEAR,"3",Availabilty.PRIVATE);
+        appDetails.setUpAppDetails("test2","1.0.2", "scdvdvs", PriceType.PER_DISPENSER_PER_YEAR,"3",AvailabilityType.PRIVATE);
         WebElement cancelButton = driver.findElement(By.id("cancelButton"));
         cancelButton.click();
         wait(WAIT);
@@ -183,8 +183,9 @@ public class MyAppsTest extends TestBase {
     public void _017_continue_button_upload_code_page_positive(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Test Button Upload Code Positive","8.8.18","YNWA",PriceType.PER_DISPENSER_PER_MONTH,"8",Availabilty.PRIVATE);
+        Dependencies dependencies= appDetails.setUpAppDetails("Test Button Upload Code Positive","8.8.18","YNWA",PriceType.PER_DISPENSER_PER_MONTH,"8",AvailabilityType.PRIVATE);
         wait(WAIT);
+        UploadCode uploadCode = dependencies.clickOnNextButton();
 //        WebElement agreeAndUpload = driver.findElement(By.id("codeFile"));
         marketing = uploadCode.upload(zipFile, true);
         wait(WAIT);
@@ -196,8 +197,9 @@ public class MyAppsTest extends TestBase {
     public void _018_promotional_text_empty_marketing_page_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PRIVATE);
+        Dependencies dependencies = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",AvailabilityType.PRIVATE);
         wait(WAIT);
+        UploadCode uploadCode = dependencies.clickOnNextButton();
         marketing = uploadCode.upload(zipFile, true);
         wait(WAIT);
         marketing.fillMarketing("","Stevie G","800x400.png","72-72.jpg", true);
@@ -212,8 +214,9 @@ public class MyAppsTest extends TestBase {
     public void _019_keywords_empty_marketing_page_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PRIVATE);
+        Dependencies dependencies = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",AvailabilityType.PRIVATE);
         wait(WAIT);
+        UploadCode uploadCode = dependencies.clickOnNextButton();
         marketing = uploadCode.upload(zipFile, true);
         wait(WAIT);
         marketing.fillMarketing("King Kenny","","800x400.png","72-72.jpg",true);
@@ -228,8 +231,9 @@ public class MyAppsTest extends TestBase {
     public void _020_screenshot_file_path_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PRIVATE);
+       Dependencies dependencies = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",AvailabilityType.PRIVATE);
         wait(WAIT);
+        UploadCode uploadCode = dependencies.clickOnNextButton();
         marketing = uploadCode.upload(zipFile,true);
         wait(WAIT);
         marketing.fillMarketing("PText","fff",null,"72-72.jpg",true);
@@ -244,8 +248,9 @@ public class MyAppsTest extends TestBase {
     public void _021_appicon_path_is_empty_negative(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",Availabilty.PRIVATE);
+        Dependencies dependencies = appDetails.setUpAppDetails("Kadlj","1.0.2","sss",PriceType.PER_SITE_PER_YEAR,"32",AvailabilityType.PRIVATE);
         wait(WAIT);
+        UploadCode uploadCode = dependencies.clickOnNextButton();
         marketing = uploadCode.upload(zipFile,true);
         wait(WAIT);
         marketing.fillMarketing("King Kenny","Stevie G","800x400.png",null,true);
@@ -261,8 +266,9 @@ public class MyAppsTest extends TestBase {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
         String uniqueName = concatenateDateAndTime("Lermanovich");
-        UploadCode uploadCode = appDetails.setUpAppDetails(uniqueName,"5.5", "Sub",PriceType.PER_SITE_PER_YEAR, "2",AvailabilityType.PRIVATE);
+        Dependencies dependencies = appDetails.setUpAppDetails(uniqueName,"5.5", "Sub",PriceType.PER_SITE_PER_YEAR, "2",AvailabilityType.PRIVATE);
         wait(WAIT);
+        UploadCode uploadCode = dependencies.clickOnNextButton();
         marketing = uploadCode.upload(zipFile,true);
         wait(WAIT);
         boolean actualValue = isElementExist(By.id("app-promotion"));
@@ -275,8 +281,9 @@ public class MyAppsTest extends TestBase {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
         String uniqueName = concatenateDateAndTime("Lerman");
-        UploadCode uploadCode = appDetails.setUpAppDetails(uniqueName, "5.5", "Sub", PriceType.PER_SITE_PER_YEAR, "2", AvailabilityType.PRIVATE);
+        Dependencies dependencies = appDetails.setUpAppDetails(uniqueName, "5.5", "Sub", PriceType.PER_SITE_PER_YEAR, "2", AvailabilityType.PRIVATE);
         wait(WAIT);
+        UploadCode uploadCode = dependencies.clickOnNextButton();
         marketing = uploadCode.upload(zipFile, true);
         wait(WAIT);
         marketing.fillMarketing("ww","dd","72-72.jpg","app1.jpg",true);
@@ -288,7 +295,7 @@ public class MyAppsTest extends TestBase {
         finishBtn.click();
         wait(WAIT);
         appDetails = myApps.clickAddNewAppBtn();
-        uploadCode = appDetails.setUpAppDetails(uniqueName, "5.5", "Sub", PriceType.PER_SITE_PER_YEAR, "2", AvailabilityType.PRIVATE);
+        Dependencies dependencies1 = appDetails.setUpAppDetails(uniqueName, "5.5", "Sub", PriceType.PER_SITE_PER_YEAR, "2", AvailabilityType.PRIVATE);
         wait(WAIT);
         String actualValue2 = driver.findElement(By.className(("invalid-feedback-multiple"))).getText();
         String expectedValue = "Name already in use.";
@@ -303,8 +310,9 @@ public class MyAppsTest extends TestBase {
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
         String uniqueName = concatenateDateAndTime("Sr Mil");
-        UploadCode uploadCode = appDetails.setUpAppDetails(uniqueName,"10","sub", PriceType.PER_DISPENSER_PER_MONTH, "22",Availabilty.PRIVATE);
+        Dependencies dependencies = appDetails.setUpAppDetails(uniqueName,"10","sub", PriceType.PER_DISPENSER_PER_MONTH, "22",AvailabilityType.PRIVATE);
         wait(WAIT);
+        UploadCode uploadCode = dependencies.clickOnNextButton();
         marketing = uploadCode.upload(zipFile, true);
         marketing.fillMarketing("ww","dd","72-72.jpg","app1.jpg",true);
         WebElement finishBtn = driver.findElement(By.id("finishButton"));
@@ -326,7 +334,8 @@ public class MyAppsTest extends TestBase {
     public void _025_upload_zip_without_name_after_name_conflict(){
         MyApps myApps = devUser.getMyAppsPage(driver);
         appDetails = myApps.clickAddNewAppBtn();
-        UploadCode uploadCode = appDetails.setUpAppDetails("d","3","dd0",PriceType.PER_SITE_PER_YEAR, "44",Availabilty.PRIVATE);
+        Dependencies dependencies = appDetails.setUpAppDetails("d","3","dd0",PriceType.PER_SITE_PER_YEAR, "44",AvailabilityType.PRIVATE);
+        UploadCode uploadCode = dependencies.clickOnNextButton();
         marketing = uploadCode.upload(zipFile,true);
         wait(WAIT);
         uploadCode.upload(zipFile2,false);

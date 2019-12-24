@@ -7,11 +7,13 @@ import com.odysii.selenium.page.openApps.admin.AdminPage;
 import com.odysii.selenium.page.openApps.admin.EditUser;
 import com.odysii.selenium.page.openApps.admin.UsersPage;
 import com.odysii.selenium.page.openApps.admin.helper.RoleType;
+import com.odysii.selenium.page.openApps.dev.UploadCode;
 import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.retailer.*;
 import com.odysii.selenium.page.openApps.retailer.helper.LayoutType;
 import com.odysii.selenium.page.openApps.retailer.helper.ScreenSize;
 import com.odysii.selenium.page.openApps.retailer.helper.StateType;
+import com.odysii.selenium.page.util.PageObject;
 import com.odysii.selenium.page.util.RequestHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -298,7 +300,6 @@ public class RetailerTest extends TestBase {
         String expected = "Saved campaign successfully";
         String actualTxt = driver.findElement(By.id("editCampaignSuccessErrorMessage")).getText();
         Assert.assertEquals(actualTxt,expected);
-
     }
 
 }

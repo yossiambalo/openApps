@@ -1,5 +1,6 @@
 package com.odysii.selenium.page.openApps.dev;
 
+import com.odysii.selenium.page.openApps.helper.appDetails.AvailabilityType;
 import com.odysii.selenium.page.util.PageObject;
 import com.odysii.selenium.page.util.PropertyLoader;
 import org.openqa.selenium.By;
@@ -66,7 +67,7 @@ public class AppDetails extends PageObject{
     @FindBy(id = "appPriceType")
     WebElement appPriceType;
     @FindBy(id = "appPrice")//invalid-feedback-multiple
-    WebElement appPrice;
+            WebElement appPrice;
     @FindBy(id = "invalid-feedback-multiple")
     WebElement isAvailabilityChecked;
 
@@ -113,31 +114,38 @@ public class AppDetails extends PageObject{
         return new Dependencies(webDriver);
     }
 
-    public UploadCode setUpAppDetails(String name,String version,String subtitle,String priceType,String price,String availability){
-        isElementPresent(this.name);
-        this.name.clear();
-        this.name.sendKeys(name);
-        this.appVersion.sendKeys(version);
-        this.subtitle.sendKeys(subtitle);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.englishLanguage);
-        wait(WAIT);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",charity);
-        wait(WAIT);
+    public Dependencies setUpAppDetails(String name, String version, String subtitle, String priceType, String price, AvailabilityType availabilityType){
+        try {
+            isElementPresent(this.name);
+            this.name.clear();
+            this.name.sendKeys(name);
+            this.appVersion.sendKeys(version);
+            this.subtitle.sendKeys(subtitle);
+            ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.englishLanguage);
+            wait(WAIT);
+            ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",charity);
+            wait(WAIT);
 //        if (availability != null || !availability.isEmpty()){
 //            this.availability.sendKeys(availability);
 //        }
-        if (availability != null || (availability != null && !availability.equals(""))) {
-            this.availability.sendKeys(availability);
-            ((JavascriptExecutor)webDriver).executeScript("arguments[0].click();",this.shellRetailer);
+           if (availabilityType != null){
+               this.availability.sendKeys(availabilityType.getAvailability());
+               if (AvailabilityType.PRIVATE.equals(availabilityType.getAvailability())) {
+                   ((JavascriptExecutor) webDriver).executeScript("arguments[0].click();", this.shellRetailer);
+               }
+           }
+
+            wait(3000);
+            appPriceType.sendKeys(priceType);
+            appPrice.sendKeys(price);
+            scrollDown(next);
+            isElementPresent(next);
+            this.next.click();
+        }catch (Exception e){
+            System.out.println(e.getStackTrace());
+            return null;
         }
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].blur();",this.availability);
-        wait(3000);
-        appPriceType.sendKeys(priceType);
-        appPrice.sendKeys(price);
-        scrollDown(next);
-        isElementPresent(next);
-        this.next.click();
-        return new UploadCode(webDriver);
+        return new Dependencies(webDriver);
     }
 
     /**
@@ -145,7 +153,7 @@ public class AppDetails extends PageObject{
      * @param version
      * @return
      */
-    public UploadCode setUpAppDetails(String version){
+    public Dependencies setUpAppDetails(String version){
         PropertyLoader loader = new PropertyLoader();
         Properties properties = loader.loadPropFile("app_details.properties");
         isElementPresent(appVersion);
@@ -175,13 +183,16 @@ public class AppDetails extends PageObject{
         webDriver.findElement(By.id("appPrice")).sendKeys(properties.getProperty("app_price"));
         scrollDown(next);
         this.next.click();
-        return new UploadCode(webDriver);
+        return new Dependencies(webDriver);
     }
 
     public void cancel(){
         scrollDown(cancel);
         if (cancel.isDisplayed())
             cancel.click();
+    }
+    boolean isEmptyString(String string) {
+        return string == null || string.isEmpty();
     }
 }
 

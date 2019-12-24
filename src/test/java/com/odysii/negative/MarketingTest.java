@@ -39,8 +39,9 @@ public class MarketingTest extends TestBase {
         String newVer = String.valueOf(newVerNum);
         showUp.getAppVersion();
         AppDetails appDetails = new AppDetails(driver);
-        UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
+        Dependencies dependencies = appDetails.setUpAppDetails(newVer + ".8.8");
         wait(3000);
+        UploadCode uploadCode = dependencies.clickOnNextButton();
         Marketing marketing = uploadCode.upload(zipFile,true);
         driver.findElement(By.id("app-promotion")).sendKeys(Keys.CONTROL + "a");
         driver.findElement(By.id("app-promotion")).sendKeys(Keys.DELETE);
@@ -65,8 +66,9 @@ public class MarketingTest extends TestBase {
         showUp.getAppVersion();
         AppDetails appDetails = new AppDetails(driver);
         wait(3000);
-        UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
+        Dependencies dependencies = appDetails.setUpAppDetails(newVer + ".8.8");
         wait(WAIT);
+        UploadCode uploadCode = dependencies.clickOnNextButton();
         Marketing marketing = uploadCode.upload(zipFile,true);
         driver.findElement(By.id("app-keywords")).sendKeys(Keys.CONTROL + "a");
         driver.findElement(By.id("app-keywords")).sendKeys(Keys.DELETE);
@@ -90,8 +92,9 @@ public class MarketingTest extends TestBase {
         String newVer = String.valueOf(newVerNum);
         showUp.getAppVersion();
         AppDetails appDetails = new AppDetails(driver);
-        UploadCode uploadCode = appDetails.setUpAppDetails(newVer + ".8.8");
+        Dependencies dependencies = appDetails.setUpAppDetails(newVer + ".8.8");
         wait(3000);
+        UploadCode uploadCode = dependencies.clickOnNextButton();
         Marketing marketing = uploadCode.upload(zipFile,true);
         wait(WAIT);
         marketing.fillMarketing("Promotion Text","Key Words","800x400.png",null,false);

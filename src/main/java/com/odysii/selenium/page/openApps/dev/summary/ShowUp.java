@@ -25,11 +25,11 @@ public class ShowUp extends PageObject {
     private WebElement statistics;
     @FindBy(className = "block-item-menu-icon")
     private WebElement appVersionMenu;
-    @FindBy(xpath =  "//button[contains(@id, 'certifyVersion')]")
+    @FindBy(xpath =  "//button[contains(@id, 'certifyVersion0')]")
     private WebElement certifyBtn;
-    @FindBy(xpath =  "//button[contains(@id, 'editVersion')]")
+    @FindBy(xpath =  "//button[contains(@id, 'editVersion0')]")
     private WebElement editAppBtn;
-    @FindBy(xpath = "//button[contains(@id, 'goLiveVersion')]")
+    @FindBy(xpath = "//button[contains(@id, 'goLiveVersion0')]")
     private WebElement addToAppStore;
     private String appStatusDivs =  "[class~=text-body-small]";
     @FindBy(className = "cx-item-block")
