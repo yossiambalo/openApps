@@ -1,4 +1,4 @@
-package com.odysii.selenium.page.util;
+package com.odysii.utils;
 
 import java.io.File;
 

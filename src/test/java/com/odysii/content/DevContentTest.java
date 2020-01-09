@@ -321,7 +321,7 @@ public class DevContentTest extends TestBase {
             prcDrpDwn.click();
         }
         Dependencies dependencies = appDetails.setUpAppDetailsFromPropFile("app_details.properties");
-        dependencies.checkApplication();
+        //dependencies.checkApplication();
         dependencies.selectVersion();
         uploadCode = dependencies.clickOnNextButton();
 

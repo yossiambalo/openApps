@@ -1,17 +1,15 @@
 package com.odysii.functional;
 
 import com.odysii.TestBase;
-import com.odysii.selenium.page.openApps.User;
 import com.odysii.selenium.page.openApps.UserType;
 import com.odysii.selenium.page.openApps.admin.AdminPage;
 import com.odysii.selenium.page.openApps.admin.AdminResource;
 import com.odysii.selenium.page.openApps.admin.EditUser;
 import com.odysii.selenium.page.openApps.admin.UsersPage;
 import com.odysii.selenium.page.openApps.admin.helper.PermissionCategoryType;
-import com.odysii.selenium.page.openApps.admin.helper.RoleType;
 import com.odysii.selenium.page.openApps.dev.DevHomePage;
 import com.odysii.selenium.page.openApps.dev.DevResource;
-import com.odysii.selenium.page.util.FileHandler;
+import com.odysii.utils.FileHandler;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

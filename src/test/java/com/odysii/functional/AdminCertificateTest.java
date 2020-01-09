@@ -8,7 +8,7 @@ import com.odysii.selenium.page.openApps.admin.helper.EnviromentType;
 import com.odysii.selenium.page.openApps.admin.helper.RetailerName;
 import com.odysii.selenium.page.openApps.admin.helper.RoleType;
 import com.odysii.selenium.page.openApps.helper.appDetails.RetailerType;
-import com.odysii.selenium.page.util.FileHandler;
+import com.odysii.utils.FileHandler;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

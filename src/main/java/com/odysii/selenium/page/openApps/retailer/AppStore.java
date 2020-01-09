@@ -10,6 +10,8 @@ import java.util.List;
 public class AppStore extends PageObject {
     @FindBy(className = "card")
     List<WebElement> apps;
+    @FindBy(className = "cx-card-title")
+    List<WebElement> appNames;
     @FindBy(id = "StoreApplicationDetailsAddToLibraryButton")
     WebElement addToLibrary;
     @FindBy(id = "libraryApplicationDetailsRemoveFromLibraryButton")
@@ -33,9 +35,20 @@ public class AppStore extends PageObject {
         backNavigationButton.click();
         return res;
     }
-    public void addAppToLibraryFromMainPage(int appIndex){
-        apps.get(appIndex).click();
-
+    public void addAppToLibrary(String appName){
+        isElementPresent(appNames.get(0));
+        for (WebElement element : appNames){
+            if (appName.toLowerCase().trim().equals(element.getText().toLowerCase().trim())){
+                element.click();
+                break;
+            }
+        }
+        if (!isElementPresent(addToLibrary)){
+            removeFromLibrary.click();
+        }
+        isElementPresent(addToLibrary);
+        addToLibrary.click();
+        backNavigationButton.click();
     }
 
 }

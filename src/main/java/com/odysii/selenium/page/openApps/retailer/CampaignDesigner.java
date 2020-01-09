@@ -36,7 +36,7 @@ public class CampaignDesigner extends PageObject {
     @FindBy(className = "position-absolute")
     private WebElement layoutTyp1;
     @FindBy(xpath = "//h5[contains(text(), 'Automation App:')]")
-    private WebElement applicationForLayout;
+    private WebElement applicationForDragAndDrop;
 
     @FindBy(xpath = "//h5[contains(text(), 'SignTest')]")
     private WebElement applicationForBackRound;
@@ -58,6 +58,9 @@ public class CampaignDesigner extends PageObject {
         super(driver);
     }
 
+    public void setAppNameForDragAndDrop(String appPartialName){
+        this.applicationForDragAndDrop = webDriver.findElement(By.xpath("//h5[contains(text(), '"+appPartialName+"')]"));
+    }
     public void setUpCampaign(StateType stateType, LayoutType layoutType, int numOfApps, String screenSize, boolean isBackRound){
         int timeOut = 0;
         if (!isBackRound){
@@ -139,7 +142,7 @@ public class CampaignDesigner extends PageObject {
             layoutBox1.get(numOfApps).click();
         }
         for (int i = 0; i < numOfApps; i++){
-            SeleniumUtils.dragAndDrop(webDriver,applicationForLayout, appContainer.get(i));
+            SeleniumUtils.dragAndDrop(webDriver, applicationForDragAndDrop, appContainer.get(i));
         }
     }
     private void deleteAppsFromFrame(){
@@ -150,7 +153,7 @@ public class CampaignDesigner extends PageObject {
         }
     }
     private void setUpBackRoundApps(int numOfApps,String screenSize){
-        SeleniumUtils.dragAndDrop(webDriver,applicationForBackRound, backRoundAppsContainer);
+        SeleniumUtils.dragAndDrop(webDriver,applicationForDragAndDrop, backRoundAppsContainer);
     }
 
     public int getNumOfDeleteButtons(){

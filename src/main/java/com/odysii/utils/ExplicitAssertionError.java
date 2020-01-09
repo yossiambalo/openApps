@@ -1,4 +1,4 @@
-package com.odysii.selenium.page.util;
+package com.odysii.utils;
 
 public class ExplicitAssertionError extends AssertionError {
     private static final long serialVersionUID = 1L;

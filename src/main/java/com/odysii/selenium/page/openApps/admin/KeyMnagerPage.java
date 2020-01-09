@@ -136,6 +136,7 @@ public class KeyMnagerPage extends PageObject {
         }else {
             uploadTestEnvGsomKeyInput.sendKeys(filePath);
         }
+        isElementPresent(footerMessage);
         wait(3000);
         res = footerMessage.getText().contains(SUCCESS_MESSAGE);
         return res;

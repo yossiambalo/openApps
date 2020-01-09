@@ -13,8 +13,13 @@ import com.odysii.selenium.page.openApps.dev.summary.ApplicationStatus;
 import com.odysii.selenium.page.openApps.dev.summary.ShowUp;
 import com.odysii.selenium.page.openApps.dev.summary.Summary;
 import com.odysii.selenium.page.openApps.helper.appDetails.AvailabilityType;
+import com.odysii.selenium.page.openApps.retailer.AppStore;
+import com.odysii.selenium.page.openApps.retailer.Campaign;
+import com.odysii.selenium.page.openApps.retailer.CampaignDesigner;
 import com.odysii.selenium.page.openApps.retailer.RetailerHomePage;
-import com.odysii.selenium.page.util.RequestHelper;
+import com.odysii.selenium.page.openApps.retailer.helper.LayoutType;
+import com.odysii.selenium.page.openApps.retailer.helper.ScreenSize;
+import com.odysii.selenium.page.openApps.retailer.helper.StateType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -27,7 +32,7 @@ import java.util.List;
 public class DevTest extends TestBase {
     @BeforeClass
     public void login() {
-        //deleteAllApps();
+        deleteAllApps();
         user = new User(driver);
         adminPage = (AdminPage) user.login(ADMIN_USER_NAME,ADMIN_USER_PASS, UserType.ADMIN);
         UsersPage usersPage = adminPage.getUsersPage();
@@ -210,7 +215,7 @@ public class DevTest extends TestBase {
         Assert.assertEquals(showUp.getStatus(1).trim(),ApplicationStatus.PRESUBMITTED.getStatus());
     }
     @Test
-    public void _007_valid_create_dependent_application_designer_drag_and_drop(){
+    public void _007_valid_create_no_auto_add_dependent_application_designer_drag_and_drop(){
         /**
          * Create dependent application
          */
@@ -218,7 +223,7 @@ public class DevTest extends TestBase {
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         MyApps myApps = devUser.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
-        Dependencies dependencies = appDetails.setUpAppDetails(appName,"1.0.2.2","It is dependent app",PriceType.PER_SITE_PER_YEAR,"4", AvailabilityType.PUBLIC);
+        Dependencies dependencies = appDetails.setUpAppDetails(appName,"1.0.2.2","It is dependent app",PriceType.PER_SITE_PER_YEAR,"4", AvailabilityType.PUBLIC,false);
         Assert.assertNotNull(dependencies,"Failed to set up app details!");
         dependencies.checkApplication();
         String coreAppTitle = dependencies.getDependencyAppName();
@@ -246,27 +251,86 @@ public class DevTest extends TestBase {
         actualValue = actualAppList.size();
         showUp = myApps.showUp(actualAppList.get(actualValue - 1));
         showUp.addApplicationToStore();
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+        AppStore appStore = retailerHomePage.getAppStore();
+        appStore.addAppToLibrary(appName);
+        Campaign campaign = retailerHomePage.getCampaign();
+        CampaignDesigner campaignDesigner = campaign.getDesignerPage();
+        campaignDesigner.setAppNameForDragAndDrop(coreAppTitle);
+        campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1,1, ScreenSize.SIZE_15_6,true);
+        campaignDesigner.setAppNameForDragAndDrop(appName);
+        campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1,1, ScreenSize.SIZE_15_6,false);
+        Assert.assertTrue(campaignDesigner.isSaveSucceeded());
 
     }
-    @AfterClass
-    public void clean(){
-        if (!user.isUserLoggedIn(ADMIN_USER_NAME)) {
-            adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
-        }
-        setAdminCookie();
-        RequestHelper requestHelper = null;
-        if (applicationIDToDelete != null){
-            requestHelper = new RequestHelper();
-            for (String appID: applicationIDToDelete){
-                if (!requestHelper.deleteRequest(openAppsUrl+"/webapi/application/"+appID,token)){
-                    try {
-                        throw new Exception("Failed to delete application number: "+appID);
-                    } catch (Exception e) {
-                        System.out.println("Failed to delete application number: "+appID);
-                    }
-                }
-            }
-        }
-        driver.quit();
+    @Test
+    public void _007_valid_create_auto_add_dependent_application_designer_drag_and_drop(){
+        /**
+         * Create dependent application
+         */
+        String appName = (Math.random() * ((1000 - 1) + 1)) + 1+"DependentApp";
+        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+        MyApps myApps = devUser.getMyAppsPage(driver);
+        AppDetails appDetails = myApps.clickAddNewAppBtn();
+        Dependencies dependencies = appDetails.setUpAppDetails(appName,"1.0.2.2","It is dependent app",PriceType.PER_SITE_PER_YEAR,"4", AvailabilityType.PUBLIC,true);
+        Assert.assertNotNull(dependencies,"Failed to set up app details!");
+        dependencies.checkApplication();
+        String coreAppTitle = dependencies.getDependencyAppName();
+        UploadCode uploadCode = dependencies.clickOnNextButton();
+        Marketing marketing = uploadCode.upload(zipFile,true);
+        marketing.fillMarketing();
+        wait(WAIT);
+        actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        actualValue = actualAppList.size();
+        ShowUp showUp = myApps.showUp(actualAppList.get(actualValue - 1));
+        showUp.certify();
+        wait(WAIT);
+        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(), showUp.getStatus().trim());
+        user.logout();
+        //Admin approve
+        AdminPage adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
+        SupportTicket adminSupportTicket = adminPage.getSupportTicketsLink();
+        adminSupportTicket.approve();
+        adminSupportTicket.backToSupportTicket();
+        Assert.assertEquals(adminSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.APPROVED.getStatus().toLowerCase(),"Status should be Approved but found "+adminSupportTicket.getAppStatus()+" in admin page!");
+        user.logout();
+        devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
+        myApps = devUser.getMyAppsPage(driver);
+        actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        actualValue = actualAppList.size();
+        showUp = myApps.showUp(actualAppList.get(actualValue - 1));
+        showUp.addApplicationToStore();
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+        AppStore appStore = retailerHomePage.getAppStore();
+        appStore.addAppToLibrary(appName);
+        Campaign campaign = retailerHomePage.getCampaign();
+        CampaignDesigner campaignDesigner = campaign.getDesignerPage();
+        campaignDesigner.setAppNameForDragAndDrop(coreAppTitle);
+        campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1,1, ScreenSize.SIZE_15_6,true);
+        campaignDesigner.setAppNameForDragAndDrop(appName);
+        campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1,1, ScreenSize.SIZE_15_6,false);
+        Assert.assertTrue(campaignDesigner.isSaveSucceeded());
+
     }
+//    @AfterClass
+//    public void clean(){
+//        if (!user.isUserLoggedIn(ADMIN_USER_NAME)) {
+//            adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
+//        }
+//        setAdminCookie();
+//        RequestHelper requestHelper = null;
+//        if (applicationIDToDelete != null){
+//            requestHelper = new RequestHelper();
+//            for (String appID: applicationIDToDelete){
+//                if (!requestHelper.deleteRequest(openAppsUrl+"/webapi/application/"+appID,token)){
+//                    try {
+//                        throw new Exception("Failed to delete application number: "+appID);
+//                    } catch (Exception e) {
+//                        System.out.println("Failed to delete application number: "+appID);
+//                    }
+//                }
+//            }
+//        }
+//        driver.quit();
+//    }
 }

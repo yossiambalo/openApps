@@ -216,7 +216,7 @@ public class TestBase {
         Dependencies dependencies = appDetails.setUpAppDetailsFromPropFile(propFile);
         wait(WAIT);
         dependencies.checkApplication();
-        dependencies.selectVersion();
+        //dependencies.selectVersion();
         UploadCode uploadCode = dependencies.clickOnNextButton();
         Marketing marketing = uploadCode.upload(zipFile,true);
         marketing.fillMarketing();
@@ -327,26 +327,27 @@ public class TestBase {
         MyApps myApps = devUser.getMyAppsPage(driver);
         int appSize = myApps.getAppsSize() -1;
         ShowUp showUp;
-        RequestHelper requestHelper = new RequestHelper();
-        ArrayList<String> appIds = new ArrayList<>();
+//        RequestHelper requestHelper = new RequestHelper();
+//        ArrayList<String> appIds = new ArrayList<>();
         while (appSize >= 0) {
             showUp = myApps.showUp(appSize);
             isElementExist(By.id("editAppNewVersion"));
-            appIds.add(getAppID());
+//            appIds.add(getAppID());
             //requestHelper.deleteRequest(openAppsUrl + "/webapi/application/" + getAppID(), token);
-            showUp.backToMyApps();
+            showUp.deleteApplication();
+//            showUp.backToMyApps();
             appSize--;
             flag = true;
         }
-        if (!flag) {
-            return;
-        } else {
-            adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
-            setAdminCookie();
-            for (String appID : appIds) {
-                requestHelper.deleteRequest(openAppsUrl + "/webapi/application/" + appID, token);
-            }
-        }
+//        if (!flag) {
+//            return;
+//        } else {
+//            adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
+//            setAdminCookie();
+//            for (String appID : appIds) {
+//                requestHelper.deleteRequest(openAppsUrl + "/webapi/application/" + appID, token);
+//            }
+//        }
     }
 
     private String getAppID(){

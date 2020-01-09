@@ -31,6 +31,12 @@ public class ShowUp extends PageObject {
     private WebElement editAppBtn;
     @FindBy(xpath = "//button[contains(@id, 'goLiveVersion0')]")
     private WebElement addToAppStore;
+    @FindBy(xpath = "//button[contains(@id, 'deleteVersion0')]")
+    private WebElement deleteVersionBtn;
+    @FindBy(id = "Delete")
+    private WebElement confirmDeleteVersionBtn;
+    @FindBy(id = "removeLiveVersion0")
+    private WebElement removeLiveAppBtn;
     private String appStatusDivs =  "[class~=text-body-small]";
     @FindBy(className = "cx-item-block")
     private List<WebElement> versionDivs;
@@ -94,7 +100,7 @@ public class ShowUp extends PageObject {
     }
     public String getStatus(){
         isElementPresent(versionDivs.get(0));
-       return this.versionDivs.get(0).findElements(By.cssSelector(appStatusDivs)).get(0).getText().trim();
+        return this.versionDivs.get(0).findElements(By.cssSelector(appStatusDivs)).get(0).getText().trim();
     }
     public String getStatus(int listIndex){
         isElementPresent(versionDivs.get(listIndex));
@@ -103,5 +109,20 @@ public class ShowUp extends PageObject {
     public void backToMyApps(){
         isElementPresent(backNavigationButton);
         backNavigationButton.click();
+    }
+    public void deleteApplication(){
+        int numOfVersions = versionDivs.size();
+        for (int i = 0; i < numOfVersions; i++){
+            isElementPresent(appVersionMenu);
+            if ("Live".toLowerCase().equals(getStatus().trim().toLowerCase())){
+                this.appVersionMenu.click();
+                this.removeLiveAppBtn.click();
+                wait(2000);
+            }
+            appVersionMenu.click();
+            deleteVersionBtn.click();
+            wait(2000);
+            confirmDeleteVersionBtn.click();
+        }
     }
 }
