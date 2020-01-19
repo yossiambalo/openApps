@@ -215,7 +215,7 @@ public class TestBase {
         AppDetails appDetails = myApps.clickAddNewAppBtn();
         Dependencies dependencies = appDetails.setUpAppDetailsFromPropFile(propFile);
         wait(WAIT);
-        dependencies.checkApplication();
+        //dependencies.checkApplication();
         //dependencies.selectVersion();
         UploadCode uploadCode = dependencies.clickOnNextButton();
         Marketing marketing = uploadCode.upload(zipFile,true);

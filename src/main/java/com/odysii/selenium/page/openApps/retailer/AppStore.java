@@ -50,5 +50,16 @@ public class AppStore extends PageObject {
         addToLibrary.click();
         backNavigationButton.click();
     }
+    public boolean isAppExist(String appName){
+        boolean res = false;
+        isElementPresent(appNames.get(0));
+        for (WebElement element : appNames){
+            if (appName.toLowerCase().trim().equals(element.getText().toLowerCase().trim())){
+               res = true;
+                break;
+            }
+        }
+        return res;
+    }
 
 }

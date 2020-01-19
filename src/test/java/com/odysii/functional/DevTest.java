@@ -23,13 +23,16 @@ import com.odysii.selenium.page.openApps.retailer.helper.StateType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.List;
+import java.util.Random;
+
 
 public class DevTest extends TestBase {
+    private static final String DEPEND_APP_DESCRIPTION = "It is dependent application";
+    private static final String CORE_APP_DESCRIPTION = "It is core application";
     @BeforeClass
     public void login() {
         deleteAllApps();
@@ -45,7 +48,7 @@ public class DevTest extends TestBase {
         category = "Dev";
     }
 
-    //@Test//(priority = 1)
+    @Test//(priority = 1)
     public void _001_valid_add_new_app() {
         //get number of live apps from retailer page
         retailerHomePage.getAppStore();
@@ -148,7 +151,7 @@ public class DevTest extends TestBase {
         Assert.assertEquals(devSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.REJECT.getStatus().toLowerCase(),"Status should be Rejected but found "+devSupportTicket.getAppStatus()+" in dev page!");
     }
 
-    //@Test//(priority = 4)
+    @Test//(priority = 4)
     public void _004_edit_and_certify_and_go_live() {
         myApps = devUser.getMyAppsPage(driver);
         wait(WAIT);
@@ -186,7 +189,7 @@ public class DevTest extends TestBase {
         Assert.assertEquals(devSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.APPROVED.getStatus().toLowerCase(),"Status should be Approved but found "+devSupportTicket.getAppStatus()+" in dev page!");
         user.logout();
     }
-    //@Test//(priority = 5)
+    @Test//(priority = 5)
     public void _005_valid_app_add_to_app_store(){
         try {
             //Valid app added to retailer store
@@ -200,7 +203,7 @@ public class DevTest extends TestBase {
             user.logout();
         }
     }
-    //@Test//(priority = 6)
+    @Test//(priority = 6)
     public void _006_valid_add_new_version_to_application(){
         DevHomePage devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         MyApps myApps = devUser.getMyAppsPage(driver);
@@ -217,16 +220,17 @@ public class DevTest extends TestBase {
     @Test
     public void _007_valid_create_no_auto_add_dependent_application_designer_drag_and_drop(){
         /**
-         * Create dependent application
+         * =============Start Create core application===========
          */
-        String appName = (Math.random() * ((1000 - 1) + 1)) + 1+"DependentApp";
+        Random random = new Random();
+        String coreAppName = random.nextInt(10000)+"_CoreAppNoAuto";
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         MyApps myApps = devUser.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
-        Dependencies dependencies = appDetails.setUpAppDetails(appName,"1.0.2.2","It is dependent app",PriceType.PER_SITE_PER_YEAR,"4", AvailabilityType.PUBLIC,false);
+        Dependencies dependencies = appDetails.setUpAppDetails(coreAppName,"1.0.2."+random.nextInt(8000),CORE_APP_DESCRIPTION,PriceType.PER_SITE_PER_YEAR,"4", AvailabilityType.PUBLIC,false,false);
         Assert.assertNotNull(dependencies,"Failed to set up app details!");
-        dependencies.checkApplication();
-        String coreAppTitle = dependencies.getDependencyAppName();
+        //dependencies.checkApplication();
+        //String coreAppTitle = dependencies.getDependencyAppName();
         UploadCode uploadCode = dependencies.clickOnNextButton();
         Marketing marketing = uploadCode.upload(zipFile,true);
         marketing.fillMarketing();
@@ -251,31 +255,76 @@ public class DevTest extends TestBase {
         actualValue = actualAppList.size();
         showUp = myApps.showUp(actualAppList.get(actualValue - 1));
         showUp.addApplicationToStore();
+        /**
+         * =============End Create core application===========
+         */
+        /**
+         * =============Start Create dependent application===========
+         */
+        String dependentAppName = random.nextInt(10000)+"_DependentNoAuto";
+        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+        myApps = devUser.getMyAppsPage(driver);
+        appDetails = myApps.clickAddNewAppBtn();
+        dependencies = appDetails.setUpAppDetails(dependentAppName,"1.0.2."+random.nextInt(8000),DEPEND_APP_DESCRIPTION,PriceType.PER_SITE_PER_YEAR,"4", AvailabilityType.PUBLIC,false,false);
+        Assert.assertNotNull(dependencies,"Failed to set up app details!");
+        dependencies.checkApplication(coreAppName);
+        //String coreAppTitle = dependencies.getDependencyAppName();
+        uploadCode = dependencies.clickOnNextButton();
+        marketing = uploadCode.upload(zipFile,true);
+        marketing.fillMarketing();
+        wait(WAIT);
+        actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        actualValue = actualAppList.size();
+        showUp = myApps.showUp(actualAppList.get(actualValue - 1));
+        showUp.certify();
+        wait(WAIT);
+        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(), showUp.getStatus().trim());
+        user.logout();
+        //Admin approve
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
+        adminSupportTicket = adminPage.getSupportTicketsLink();
+        adminSupportTicket.approve();
+        adminSupportTicket.backToSupportTicket();
+        Assert.assertEquals(adminSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.APPROVED.getStatus().toLowerCase(),"Status should be Approved but found "+adminSupportTicket.getAppStatus()+" in admin page!");
+        user.logout();
+        devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
+        myApps = devUser.getMyAppsPage(driver);
+        actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        actualValue = actualAppList.size();
+        showUp = myApps.showUp(actualAppList.get(actualValue - 1));
+        showUp.addApplicationToStore();
+        /**
+         * =============End Create dependent application===========
+         */
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
         AppStore appStore = retailerHomePage.getAppStore();
-        appStore.addAppToLibrary(appName);
+        appStore.addAppToLibrary(coreAppName);
+        appStore.addAppToLibrary(dependentAppName);
         Campaign campaign = retailerHomePage.getCampaign();
         CampaignDesigner campaignDesigner = campaign.getDesignerPage();
-        campaignDesigner.setAppNameForDragAndDrop(coreAppTitle);
+        campaignDesigner.setAppNameForDragAndDrop(coreAppName);
+        campaignDesigner.setDeleteApps(true);
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1,1, ScreenSize.SIZE_15_6,true);
-        campaignDesigner.setAppNameForDragAndDrop(appName);
+        campaignDesigner.setDeleteApps(false);
+        campaignDesigner.setAppNameForDragAndDrop(dependentAppName);
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1,1, ScreenSize.SIZE_15_6,false);
-        Assert.assertTrue(campaignDesigner.isSaveSucceeded());
+        Assert.assertTrue(campaignDesigner.isSaveSucceeded(2));
 
     }
     @Test
-    public void _007_valid_create_auto_add_dependent_application_designer_drag_and_drop(){
+    public void _008_valid_create_auto_add_dependent_application_designer_drag_and_drop(){
         /**
-         * Create dependent application
+         * =============Start Create core application===========
          */
-        String appName = (Math.random() * ((1000 - 1) + 1)) + 1+"DependentApp";
+        Random random = new Random();
+        String coreAppName = random.nextInt(10000)+"_CoreAppAouto";
         devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
         MyApps myApps = devUser.getMyAppsPage(driver);
         AppDetails appDetails = myApps.clickAddNewAppBtn();
-        Dependencies dependencies = appDetails.setUpAppDetails(appName,"1.0.2.2","It is dependent app",PriceType.PER_SITE_PER_YEAR,"4", AvailabilityType.PUBLIC,true);
+        Dependencies dependencies = appDetails.setUpAppDetails(coreAppName,"1.0.2."+random.nextInt(8000),CORE_APP_DESCRIPTION,PriceType.PER_SITE_PER_YEAR,"4", AvailabilityType.PUBLIC,true,false);
         Assert.assertNotNull(dependencies,"Failed to set up app details!");
-        dependencies.checkApplication();
-        String coreAppTitle = dependencies.getDependencyAppName();
+        //dependencies.checkApplication();
+        //String coreAppTitle = dependencies.getDependencyAppName();
         UploadCode uploadCode = dependencies.clickOnNextButton();
         Marketing marketing = uploadCode.upload(zipFile,true);
         marketing.fillMarketing();
@@ -300,17 +349,102 @@ public class DevTest extends TestBase {
         actualValue = actualAppList.size();
         showUp = myApps.showUp(actualAppList.get(actualValue - 1));
         showUp.addApplicationToStore();
+        /**
+         * =============End Create core application===========
+         */
+        /**
+         * =============Start Create dependent application===========
+         */
+        String dependentAppName = random.nextInt(10000)+"_DependentAuto";
+        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+        myApps = devUser.getMyAppsPage(driver);
+        appDetails = myApps.clickAddNewAppBtn();
+        dependencies = appDetails.setUpAppDetails(dependentAppName,"1.0.2."+random.nextInt(8000),DEPEND_APP_DESCRIPTION,PriceType.PER_SITE_PER_YEAR,"4", AvailabilityType.PUBLIC,false,false);
+        Assert.assertNotNull(dependencies,"Failed to set up app details!");
+        dependencies.checkApplication(coreAppName);
+        //String coreAppTitle = dependencies.getDependencyAppName();
+        uploadCode = dependencies.clickOnNextButton();
+        marketing = uploadCode.upload(zipFile,true);
+        marketing.fillMarketing();
+        wait(WAIT);
+        actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        actualValue = actualAppList.size();
+        showUp = myApps.showUp(actualAppList.get(actualValue - 1));
+        showUp.certify();
+        wait(WAIT);
+        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(), showUp.getStatus().trim());
+        user.logout();
+        //Admin approve
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
+        adminSupportTicket = adminPage.getSupportTicketsLink();
+        adminSupportTicket.approve();
+        adminSupportTicket.backToSupportTicket();
+        Assert.assertEquals(adminSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.APPROVED.getStatus().toLowerCase(),"Status should be Approved but found "+adminSupportTicket.getAppStatus()+" in admin page!");
+        user.logout();
+        devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
+        myApps = devUser.getMyAppsPage(driver);
+        actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        actualValue = actualAppList.size();
+        showUp = myApps.showUp(actualAppList.get(actualValue - 1));
+        showUp.addApplicationToStore();
+        /**
+         * =============End Create dependentAuto application===========
+         */
         retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
         AppStore appStore = retailerHomePage.getAppStore();
-        appStore.addAppToLibrary(appName);
+        appStore.addAppToLibrary(dependentAppName);
         Campaign campaign = retailerHomePage.getCampaign();
         CampaignDesigner campaignDesigner = campaign.getDesignerPage();
-        campaignDesigner.setAppNameForDragAndDrop(coreAppTitle);
-        campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1,1, ScreenSize.SIZE_15_6,true);
-        campaignDesigner.setAppNameForDragAndDrop(appName);
+        campaignDesigner.setAppNameForDragAndDrop(dependentAppName);
+        campaignDesigner.setDeleteApps(true);
         campaignDesigner.setUpCampaign(StateType.DEFAULT, LayoutType.LAYOUT_1,1, ScreenSize.SIZE_15_6,false);
-        Assert.assertTrue(campaignDesigner.isSaveSucceeded());
+        Assert.assertTrue(campaignDesigner.isSaveSucceeded(2));
 
+    }
+    @Test
+    public void _009_valid_hide_app_in_appStore(){
+        Random random = new Random();
+        /**
+         * =============Start Create hidden application===========
+         */
+        String dependentAppName = random.nextInt(10000)+"_HiddenApp";
+        devUser = (DevHomePage) user.login(DEV_USER_NAME,DEV_USER_PASS, UserType.DEVELOPER);
+        myApps = devUser.getMyAppsPage(driver);
+        AppDetails appDetails = myApps.clickAddNewAppBtn();
+        Dependencies dependencies = appDetails.setUpAppDetails(dependentAppName,"1.0.2."+random.nextInt(8000),DEPEND_APP_DESCRIPTION,PriceType.PER_SITE_PER_YEAR,"4", AvailabilityType.PUBLIC,false,true);
+        Assert.assertNotNull(dependencies,"Failed to set up app details!");
+        //dependencies.checkApplication(coreAppName);
+        //String coreAppTitle = dependencies.getDependencyAppName();
+        UploadCode uploadCode = dependencies.clickOnNextButton();
+        Marketing marketing = uploadCode.upload(zipFile,true);
+        marketing.fillMarketing();
+        wait(WAIT);
+        actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        actualValue = actualAppList.size();
+        ShowUp showUp = myApps.showUp(actualAppList.get(actualValue - 1));
+        showUp.certify();
+        wait(WAIT);
+        Assert.assertEquals(ApplicationStatus.SUBMITTED.getStatus(), showUp.getStatus().trim());
+        user.logout();
+        //Admin approve
+        adminPage = (AdminPage) user.login(ADMIN_USER_NAME, ADMIN_USER_PASS, UserType.ADMIN);
+        SupportTicket adminSupportTicket = adminPage.getSupportTicketsLink();
+        adminSupportTicket.approve();
+        adminSupportTicket.backToSupportTicket();
+        Assert.assertEquals(adminSupportTicket.getAppStatus().toLowerCase(),ApplicationStatus.APPROVED.getStatus().toLowerCase(),"Status should be Approved but found "+adminSupportTicket.getAppStatus()+" in admin page!");
+        user.logout();
+        devUser = (DevHomePage) user.login(DEV_USER_NAME, DEV_USER_PASS, UserType.DEVELOPER);
+        myApps = devUser.getMyAppsPage(driver);
+        actualAppList = driver.findElements(By.className(APP_CLASS_NAME));
+        actualValue = actualAppList.size();
+        showUp = myApps.showUp(actualAppList.get(actualValue - 1));
+        showUp.addApplicationToStore();
+        /**
+         * =============End Create hidden application===========
+         */
+        retailerHomePage = (RetailerHomePage) user.login(RETAILER_USER_NAME,RETAILER_USER_PASS,UserType.RETAILER);
+        AppStore appStore = retailerHomePage.getAppStore();
+        Assert.assertFalse(appStore.isAppExist(dependentAppName));
     }
 //    @AfterClass
 //    public void clean(){

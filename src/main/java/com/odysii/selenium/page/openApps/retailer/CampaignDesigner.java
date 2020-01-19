@@ -53,6 +53,7 @@ public class CampaignDesigner extends PageObject {
     private WebElement backRoundAppsContainer;
     @FindBy(className = "close")
     private WebElement closeLayoutFrame;
+    private boolean deleteApps;
 
     public CampaignDesigner(WebDriver driver) {
         super(driver);
@@ -60,6 +61,9 @@ public class CampaignDesigner extends PageObject {
 
     public void setAppNameForDragAndDrop(String appPartialName){
         this.applicationForDragAndDrop = webDriver.findElement(By.xpath("//h5[contains(text(), '"+appPartialName+"')]"));
+    }
+    public void setDeleteApps(boolean deleteApps){
+        this.deleteApps = deleteApps;
     }
     public void setUpCampaign(StateType stateType, LayoutType layoutType, int numOfApps, String screenSize, boolean isBackRound){
         int timeOut = 0;
@@ -110,6 +114,9 @@ public class CampaignDesigner extends PageObject {
     }
 
     private void dragAndDrop(boolean isBackRound,int numOfApps, String screenSize) {
+        if (deleteApps){
+            deleteAppsFromFrame();
+        }
         isElementPresent(layoutBtn);
         layoutBtn.click();
         if (!isBackRound){
@@ -118,13 +125,16 @@ public class CampaignDesigner extends PageObject {
             if (isElementPresent(closeLayoutFrame)) {
                 closeLayoutFrame.click();
             }
-            deleteAppsFromFrame();
             setUpBackRoundApps(1,screenSize);
         }
     }
 
     public boolean isSaveSucceeded(){
         return isLayoutSavedIndicator.getText().toLowerCase().contains("Successfully".toLowerCase());
+    }
+    public boolean isSaveSucceeded(int expectedElmSize){
+        wait(5000);
+        return webDriver.findElements(By.xpath("//button[contains(text(), 'Delete')]")).size() == expectedElmSize;
     }
     public boolean getNumOfDraggedApps(int expectedApps){
         boolean res = true;
@@ -149,6 +159,13 @@ public class CampaignDesigner extends PageObject {
         wait(WAIT);
         for (WebElement element : deleteAppsFromFrames){
             //element.click();
+            deleteAppsFromFrames.get(0).click();
+        }
+        /**
+         * If not deleted
+         */
+        deleteAppsFromFrames = webDriver.findElements(By.xpath("//button[contains(text(), 'Delete')]"));
+        for (WebElement element : deleteAppsFromFrames){
             deleteAppsFromFrames.get(0).click();
         }
     }

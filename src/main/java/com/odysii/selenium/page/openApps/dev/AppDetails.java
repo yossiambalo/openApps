@@ -70,6 +70,8 @@ public class AppDetails extends PageObject{
     private WebElement appPrice;
     @FindBy(css = "#autoAssign .switch")//invalid-feedback-multiple
     private WebElement autoAddRadioBtn;
+    @FindBy(css = "#storeHidden .slider")
+    private WebElement hideAppInStore;
     @FindBy(id = "invalid-feedback-multiple")
     WebElement isAvailabilityChecked;
 
@@ -116,7 +118,7 @@ public class AppDetails extends PageObject{
         return new Dependencies(webDriver);
     }
 
-    public Dependencies setUpAppDetails(String name, String version, String subtitle, String priceType, String price, AvailabilityType availabilityType,boolean autoAdd){
+    public Dependencies setUpAppDetails(String name, String version, String subtitle, String priceType, String price, AvailabilityType availabilityType,boolean autoAdd,boolean hideInAppStrore){
         try {
             isElementPresent(this.name);
             this.name.clear();
@@ -142,6 +144,9 @@ public class AppDetails extends PageObject{
             scrollDown(next);
             if (autoAdd){
                 autoAddRadioBtn.click();
+            }
+            if (hideInAppStrore){
+                this.hideAppInStore.click();
             }
             this.next.click();
         }catch (Exception e){

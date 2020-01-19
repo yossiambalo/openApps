@@ -14,6 +14,10 @@ public class Dependencies extends PageObject {
     private WebElement filterByCategoriesElm;
     @FindBy(className = "switch")
     private List<WebElement> radioBtnElm;
+    @FindBy(css = ".card-display")
+    private List<WebElement> dependenciesContainer;//cx-card-title
+    @FindBy(css = ".cx-card-title")
+    private List<WebElement> dependeciesTitle;
     @FindBy(id = "multiSelect_appId_11780")
     private WebElement selectAppVersionElm;
     @FindBy(css = ".col-7 .cx-card-title")
@@ -45,14 +49,16 @@ public class Dependencies extends PageObject {
     }
 
     /**
-     * Enable the first application by default
-     * For enable dynamic application consider to overload method to
-     * take radio button index
+     * Enable application by title name
+     * @param titleName : indicates which app application to enable
      */
-    public void checkApplication(){
+    public void checkApplication(String titleName){
         if (isElementPresent(radioBtnElm.get(0))) {
-            if (!radioBtnElm.get(0).getAttribute("class").contains("checked")) {
-                radioBtnElm.get(0).click();
+            for (int i = 0; i < dependeciesTitle.size(); i++){
+                if(titleName.trim().toLowerCase().equals(dependeciesTitle.get(i).getText().trim().toLowerCase())){
+                    radioBtnElm.get(i).click();
+                    break;
+                }
             }
         }
     }
