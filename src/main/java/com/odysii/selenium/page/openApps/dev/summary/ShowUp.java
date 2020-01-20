@@ -25,6 +25,8 @@ public class ShowUp extends PageObject {
     private WebElement statistics;
     @FindBy(className = "block-item-menu-icon")
     private WebElement appVersionMenu;
+    @FindBy(id = "question_Ok")
+    private WebElement confirmRemoveApp;
     @FindBy(xpath =  "//button[contains(@id, 'certifyVersion0')]")
     private WebElement certifyBtn;
     @FindBy(xpath =  "//button[contains(@id, 'editVersion0')]")
@@ -118,6 +120,9 @@ public class ShowUp extends PageObject {
                 this.appVersionMenu.click();
                 this.removeLiveAppBtn.click();
                 wait(2000);
+            }
+            if (isElementPresent(confirmRemoveApp)){
+                confirmRemoveApp.click();
             }
             appVersionMenu.click();
             deleteVersionBtn.click();

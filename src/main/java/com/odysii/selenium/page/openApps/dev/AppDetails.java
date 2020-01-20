@@ -148,6 +148,7 @@ public class AppDetails extends PageObject{
             if (hideInAppStrore){
                 this.hideAppInStore.click();
             }
+            wait(3000);
             this.next.click();
         }catch (Exception e){
             System.out.println(e.getStackTrace());

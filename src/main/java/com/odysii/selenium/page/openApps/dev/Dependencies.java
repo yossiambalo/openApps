@@ -16,8 +16,8 @@ public class Dependencies extends PageObject {
     private List<WebElement> radioBtnElm;
     @FindBy(css = ".card-display")
     private List<WebElement> dependenciesContainer;//cx-card-title
-    @FindBy(css = ".cx-card-title")
-    private List<WebElement> dependeciesTitle;
+    @FindBy(css = ".cardsList .card-display")
+    private List<WebElement> dependeciesDivs;
     @FindBy(id = "multiSelect_appId_11780")
     private WebElement selectAppVersionElm;
     @FindBy(css = ".col-7 .cx-card-title")
@@ -54,9 +54,9 @@ public class Dependencies extends PageObject {
      */
     public void checkApplication(String titleName){
         if (isElementPresent(radioBtnElm.get(0))) {
-            for (int i = 0; i < dependeciesTitle.size(); i++){
-                if(titleName.trim().toLowerCase().equals(dependeciesTitle.get(i).getText().trim().toLowerCase())){
-                    radioBtnElm.get(i).click();
+            for (WebElement element : dependeciesDivs){
+                if(titleName.trim().toLowerCase().equals(element.findElement(By.className("cx-card-title")).getText().trim().toLowerCase())){
+                    element.findElement(By.className("switch")).click();
                     break;
                 }
             }
